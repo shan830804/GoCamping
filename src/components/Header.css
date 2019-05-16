@@ -43,6 +43,7 @@ a:link{
     background-color: #027252;
 }
 .btn_border_main{
+    background-color: #FFFFFF;
     border: 1px solid #87B061;
 }
 .sec_color{
@@ -64,7 +65,7 @@ a:link{
 }
 nav{
     padding:8px 16px; 
-    box-shadow: 0 2px 6px 0 #BFDD87;
+    /* box-shadow: 0 2px 6px 0 #BFDD87; */
     background-color: #fff;
 }
 nav ul{
