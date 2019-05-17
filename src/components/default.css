@@ -1,0 +1,76 @@
+/* 字體大小、粗體 */
+.fs-18{
+    font-size: 18px;
+}
+.fs-14{
+    font-size: 14px;
+}
+.fs-bold{
+    font-weight: bold;
+}
+/* 文字顏色 */
+.grass{
+    color: #87B061;
+}
+.apple{
+    color: #BFDD87;
+}
+.sunshine{
+    color: #F2CE63;
+}
+.forest{
+    color: #027252;
+}
+.ground{
+    color: #87B061;
+}
+.wood{
+    color: #693D31;
+}
+.watermelon{
+    color: #F26666;
+}
+/* 背景顏色 */
+.bg-grass{
+    background-color: #87B061;
+}
+.bg-apple{
+    background-color: #BFDD87;
+}
+.bg-sunshine{
+    background-color: #F2CE63;
+}
+.bg-forest{
+    background-color: #027252;
+}
+.bg-ground{
+    background-color: #BA7438;
+}
+.bg-wood{
+    background-color: #693D31;
+}
+.bg-watermelon{
+    background-color: #F26666;
+}
+.bg-diamond{
+    background-color: #74B4FC;
+}
+/* 按鈕顏色(整顆上色版) */
+.btn-grass{
+    background-color: #87B061;
+    color: #FFFFFF;
+}
+.btn-grass:hover{
+    background-color: #027252;
+    color: #FFFFFF;
+}
+/* 按鈕顏色(邊框上色版) */
+.btn-outline-grass{
+    background-color: #FFFFFF;
+    border: 1px solid #87B061;
+    color: #87B061;
+}
+.btn-outline-grass:hover{
+    background-color: #87B061;
+    color: #FFFFFF;
+}
