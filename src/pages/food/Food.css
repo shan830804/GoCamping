@@ -1,0 +1,100 @@
+.fs-18{
+    font-size: 18px;
+}
+.fs-14{
+    font-size: 14px;
+}
+.fs-bold{
+    font-weight: bold;
+}
+.grass{
+    color: #87B061;
+}
+.apple{
+    color: #BFDD87;
+}
+.sunshine{
+    color: #F2CE63;
+}
+.forest{
+    color: #027252;
+}
+.ground{
+    color: #87B061;
+}
+.wood{
+    color: #693D31;
+}
+.watermelon{
+    color: #F26666;
+}
+.bg-grass{
+    background-color: #87B061;
+}
+.bg-apple{
+    background-color: #BFDD87;
+}
+.bg-sunshine{
+    background-color: #F2CE63;
+}
+.bg-forest{
+    background-color: #027252;
+}
+.bg-ground{
+    background-color: #BA7438;
+}
+.bg-wood{
+    background-color: #693D31;
+}
+.bg-watermelon{
+    background-color: #F26666;
+}
+.bg-diamond{
+    background-color: #74B4FC;
+}
+.btn-grass{
+    background-color: #87B061;
+    color: #FFFFFF;
+}
+.btn-grass:hover{
+    background-color: #027252;
+    color: #FFFFFF;
+}
+.btn-outline-grass{
+    background-color: #FFFFFF;
+    border: 1px solid #87B061;
+    color: #87B061;
+}
+.btn-outline-grass:hover{
+    background-color: #87B061;
+    color: #FFFFFF;
+}
+
+
+/* 麵包屑的修改 */
+.breadcrumb{
+    background-color: #ffffff;
+}
+.breadcrumb-item + .breadcrumb-item::before {
+    content: ">";
+    color: #707070;
+}
+
+.breadcrumbNav{
+    box-shadow: 0 0px 0px 0 #CCCCCC;
+}
+.breadcrumb >.active {
+    color: #707070;
+    font-size: 1rem;
+    font-weight: bold;
+ }
+ /* 麵包屑結束 */
+
+ /* 左邊商品選單開始 */
+ aside{
+     border: 1px solid #000000;
+ }
+.fleft-active{
+    background: #F2CE63;
+}
+ /* 左邊商品選單結束*/

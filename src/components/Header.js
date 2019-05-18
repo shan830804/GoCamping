@@ -24,14 +24,14 @@ function Header(){
                             <li className="nav-item position-relative">
                                 <NavLink className="nav-link main_color" to="/CampSide">找營地</NavLink>
                             </li>
-                            <li className="nav-item show position-relative">
-                                <NavLink className="nav-link sec_color" to="/Event">選主題</NavLink>
+                            <li className="nav-item position-relative">
+                                <NavLink className="nav-link main_color" to="/Event">選主題</NavLink>
                             </li>
                             <li className="nav-item position-relative">
                                 <NavLink className="nav-link main_color" to="/Marketing">搶優惠</NavLink>
                             </li>
-                            <li className="nav-item position-relative">
-                                <NavLink className="nav-link main_color" to="/Food">買食材</NavLink>
+                            <li className="nav-item show position-relative">
+                                <NavLink className="nav-link sec_color" to="/Food">買食材</NavLink>
                             </li>
                             <li className="nav-item position-relative">
                                 <NavLink className="nav-link main_color" to="/ShareFun">分享樂</NavLink>
