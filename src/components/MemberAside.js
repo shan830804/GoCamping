@@ -1,43 +1,89 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom'
 
 const MemberAside = props => (
-    <aside className="col-2">
+    <aside className="col-sm-2">
         <ul className="p-0 my-2 list-unstyled">
-            <li className="d-flex my-1">
+            {/* 訂單管理 */}
+            <li className="d-flex my-1 mb-2 d-flex align-items-center">
                 <div className="level_badge bg-ground mr-1 d-flex align-items-center justify-content-center">
                     <i className="far fa-file-alt"></i>
                 </div>
-                <span className="fs-bold">訂單管理</span>
+                <NavLink exact className="mem_aside p-0" to="/Member/MyOrderManager">
+                    <span className="fs-20 fw-bold">訂單管理</span>
+                </NavLink>
             </li>
-            <li className="d-flex my-1 fs-14"><div className="box mr-1"></div><span>營地訂單</span></li>
-            <li className="d-flex my-1 fs-14"><div className="box mr-1"></div><span>食材訂單</span></li>
-            <li className="d-flex my-1 fs-14"><div className="box mr-1"></div><span>活動訂單</span></li>
-            <li className="d-flex my-1 pt-1">
+            <li className="d-flex my-2">
+                <div className="box mr-1"></div>
+                <NavLink exact className="mem_aside p-0" to="/Member/MyCampingOrder">
+                    <span className="fw-light">營地訂單</span>
+                </NavLink>
+            </li>
+            <li className="d-flex my-2">
+                <div className="box mr-1"></div>
+                <NavLink className="mem_aside p-0" to="/Member/MyFoodOrder">
+                    <span className="fw-light">食材訂單</span>
+                </NavLink>
+            </li>
+            <li className="d-flex my-2">
+                <div className="box mr-1"></div>
+                <NavLink className="mem_aside p-0" to="/Member/MyEventOrder">
+                    <span className="fw-light">活動訂單</span>
+                </NavLink>
+            </li>
+            {/* 我的折價券 */}
+            <li className="d-flex my-2 d-flex align-items-center">
                 <div className="level_badge bg-sunshine mr-1 d-flex align-items-center justify-content-center">
                     <i className="fas fa-bullhorn"></i>
                 </div>
-                <span className="fs-bold">我的折價券</span>
+                <NavLink className="mem_aside p-0" to="/Member/MyCoupon">
+                    <span className="fs-18 fw-bold">我的折價券</span>
+                </NavLink>
             </li>
-            <li className="d-flex my-1 pt-1">
+            {/* 我的最愛 */}
+            <li className="d-flex my-2 d-flex align-items-center">
                 <div className="level_badge bg-watermelon mr-1 d-flex align-items-center justify-content-center">
                     <i className="fas fa-heart"></i>
                 </div>
-                <span className="fs-bold">我的最愛</span>
+                <NavLink className="mem_aside p-0" to="/Member/MyFavorite">
+                    <span className="fs-18 fw-bold">我的最愛</span>
+                </NavLink>
             </li>
-            <li className="d-flex my-1 pt-1">
+            {/* 文章管理 */}
+            <li className="d-flex my-2 d-flex align-items-center">
                 <div className="level_badge bg-forest mr-1 d-flex align-items-center justify-content-center">
                     <i className="fas fa-pen-nib"></i>
                 </div>
-                <span className="fs-bold">文章管理</span>
+                <NavLink className="mem_aside p-0" to="/Member/MyArticleManager">
+                    <span className="fs-18 fw-bold">文章管理</span>
+                </NavLink>
             </li>
-            <li className="d-flex my-1 fs-14"><div className="box mr-1"></div><span>新增文章</span></li>
-            <li className="d-flex my-1 fs-14"><div className="box mr-1"></div><span>文章列表</span></li>
-            <li className="d-flex my-1 fs-14"><div className="box mr-1"></div><span>收藏文章</span></li>
-            <li className="d-flex my-1 pt-1">
+            <li className="d-flex my-2">
+                <div className="box mr-1"></div>
+                <NavLink className="mem_aside p-0" to="/Member/MyNewArticle">
+                    <span className="fw-light">新增文章</span>
+                </NavLink>
+            </li>
+            <li className="d-flex my-2">
+                <div className="box mr-1"></div>
+                <NavLink className="mem_aside p-0" to="/Member/MyListArticle">
+                    <span className="fw-light">文章列表</span>
+                </NavLink>
+            </li>
+            <li className="d-flex my-2">
+                <div className="box mr-1"></div>
+                <NavLink className="mem_aside p-0" to="/Member/MyFavoriteArticle">
+                    <span className="fw-light">收藏文章</span>
+                </NavLink>
+            </li>
+            {/* 會員等級 */}
+            <li className="d-flex my-2 d-flex align-items-center">
                 <div className="level_badge bg-diamond mr-1 d-flex align-items-center justify-content-center">
                     <i className="far fa-gem"></i>
                 </div>
-                <span className="fs-bold">會員等級</span>
+                <NavLink className="mem_aside p-0" to="/Member/MemberLevel">
+                    <span className="fs-18 fw-bold">會員等級</span>
+                </NavLink>
             </li>
         </ul>
     </aside>

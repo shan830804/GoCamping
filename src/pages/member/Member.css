@@ -1,3 +1,16 @@
+.fs-20 {
+  font-size: 20px;
+}
+.fw-light {
+  font-weight: 300;
+}
+.fw-regular {
+  font-weight: 400;
+}
+.fw-medium {
+  font-weight: 500;
+}
+
 /* 個人卡片開始 */
 .profile {
   box-shadow: 1px 2px 5px #ccc;
@@ -24,23 +37,29 @@
 }
 /* 個人卡片結束 */
 
+
+
 /* 左方導覽列開始 */
 aside .box {
   width: 25px;
   height: 25px;
 }
-aside span {
-    cursor: pointer;
+aside .mem_aside {
+  color: #707070;
 }
-aside span:hover {
+aside .mem_aside:hover {
     color: #F2CE63;
 }
-aside span:active {
+aside .mem_aside:active {
     color: #87B061;
 }
 /* 左方導覽列結束 */
 
+
+
 /* 右方主頁面開始 */
+
+/* (1)通知設定 */
 .custom-control-label:before {
   /* 按鈕初始顏色 */
   background-color: #cccccc;
@@ -48,4 +67,10 @@ aside span:active {
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
   background-color: #87B061;
 }
+
+/* (2) 個人資料編輯 */
+.asterisk{
+  color: red;
+}
+
 /* 右方主頁面結束 */
