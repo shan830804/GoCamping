@@ -29,7 +29,7 @@ class Member extends React.Component {
                         <div className="row">
                             <Aside />
                             {/* <Notification /> */}
-                            <InfoEditor />
+                            <Route path="/Member/MyInfoEditor" component={InfoEditor} />
                         </div>
                     </section>
                 </div>
