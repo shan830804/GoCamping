@@ -3,7 +3,7 @@ import React from 'react';
 const MemberNotification = props => (
     <main className="col-sm-10 my-2">
         <form>
-            <p className="fs-bold fs-20 grass">電子郵件設定</p>
+            <p className="fw-bold fs-20 grass">電子郵件設定</p>
             <div className="form-group row">
                 <div className="col-sm-12">
                     <div className="custom-control custom-checkbox mb-2">

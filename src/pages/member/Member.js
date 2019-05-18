@@ -18,6 +18,8 @@ import './Member.css';
 // React Bootstrap是因為React沒有id無法做DOM處理，所以必須另外引入套件
 // 如果只是需要基本的Bootstrap CSS，可以直接用官網的元件並將class改為className，比較不干擾其他套件
 
+// Route exact 代表exact=true，要求路徑與location.pathname必須完全匹配
+
 class Member extends React.Component {
     render() {
         return (
@@ -28,7 +30,7 @@ class Member extends React.Component {
                         <Profile />
                         <div className="row">
                             <Aside />
-                            {/* <Notification /> */}
+                            <Route exact path="/Member" component={Notification} />
                             <Route path="/Member/MyInfoEditor" component={InfoEditor} />
                         </div>
                     </section>
