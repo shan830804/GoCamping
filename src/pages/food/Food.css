@@ -74,19 +74,16 @@
 /* 麵包屑的修改 */
 .breadcrumb{
     background-color: #ffffff;
+    color: #707070; 
 }
 .breadcrumb-item + .breadcrumb-item::before {
     content: ">";
-    color: #707070;
 }
-
-.breadcrumbNav{
-    box-shadow: 0 0px 0px 0 #CCCCCC;
-}
-.breadcrumb >.active {
-    color: #707070;
-    font-size: 1rem;
+.breadcrumb-item  {
     font-weight: bold;
+ }
+ .FaHome{
+    color: #707070;
  }
  /* 麵包屑結束 */
 
