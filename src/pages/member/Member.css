@@ -1,4 +1,4 @@
-/* 蓋過的CSS */
+/* 蓋過已設定的CSS */
 .fs-20 {
   font-size: 20px;
 }
@@ -11,15 +11,14 @@
 .fw-medium {
   font-weight: 500;
 }
-.show::after{
-  background-color: transparent;
+main .show::after{
+  background-color: transparent !important;
 }
 
-/* 個人卡片開始 */
+/* 個人卡片 */
 .profile {
   box-shadow: 1px 2px 5px #ccc;
 }
-
 .avatar {
   width: 120px;
   height: 120px;
@@ -30,7 +29,6 @@
   border-radius: 50%;
   object-fit: cover;
 }
-
 .level_badge {
   width: 25px;
   height: 25px;
@@ -39,11 +37,9 @@
   text-align: center;
   border-radius: 50%;
 }
-/* 個人卡片結束 */
 
 
-
-/* 左方導覽列開始 */
+/* 左方導覽列 */
 aside .box {
   width: 25px;
   height: 25px;
@@ -57,35 +53,45 @@ aside .mem_aside:hover {
 aside .mem_aside:active {
     color: #87B061;
 }
-/* 左方導覽列結束 */
 
 
-
-/* 右方主頁面開始 */
-
+/* 右方主頁面 */
 /* (1)通知設定 */
 .custom-control-label:before {
-  /* 按鈕初始顏色 */
-  background-color: #cccccc;
+  background-color: rgba(204, 204, 204, 0.5)
 }
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
-  background-color: #87B061;
+  background-color: #027252;
 }
-
 /* (2) 個人資料編輯 */
 .asterisk{
   color: red;
 }
-
-/* (3) 營地訂單 */
-.camp_avatar {
+/* (3) 訂單管理 */
+.order_avatar {
   width: 150px;
   height: 150px;
 }
-.camp_avatar img {
+.order_avatar img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-
-/* 右方主頁面結束 */
+/* (4) 折價券 */
+.coupon_code {
+  border: 1px solid #027252;
+}
+/* (5) 最愛清單 */
+/* (6) 文章管理 */
+/* (7) 會員等級 */
+.level_thead {
+  background-color: rgba(204, 204, 204, 0.5);
+}
+.level_one, .level_two, .level_three {
+  width: 40px;
+  height: 40px;
+  color: #ffffff;
+  font-size: 20px;
+  text-align: center;
+  border-radius: 50%;
+}

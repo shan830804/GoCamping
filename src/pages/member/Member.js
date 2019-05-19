@@ -7,6 +7,10 @@ import Aside from '../../components/MemberAside';
 import Notification from '../../components/MemberNotification';
 import InfoEditor from '../../components/MemberInfoEditor';
 import CampingOrder from '../../components/MemberCampingOrder';
+import FoodOrder from '../../components/MemberFoodOrder';
+import EventOrder from '../../components/MemberEventOrder';
+import Coupon from '../../components/MemberCoupon';
+import Level from '../../components/MemberLevel';
 // CSS
 import '../../components/Default.css';
 import './Member.css';
@@ -37,6 +41,10 @@ class Member extends React.Component {
                             <Route path="/Member/MyInfoEditor" component={InfoEditor} />
                             <Route path="/Member/MyOrderManager" component={CampingOrder} />
                             <Route path="/Member/MyCampingOrder" component={CampingOrder} />
+                            <Route path="/Member/MyFoodOrder" component={FoodOrder} />
+                            <Route path="/Member/MyEventOrder" component={EventOrder} />
+                            <Route path="/Member/MyCoupon" component={Coupon} />
+                            <Route path="/Member/MemberLevel" component={Level} />
                         </div>
                     </section>
                 </div>

@@ -19,7 +19,7 @@ const MemberCampingOrder = props => (
                 <Tab.Pane eventKey="coming">
                     <div className="d-flex row border p-sm-3 mt-3">
                         <div className="col-sm-2 d-flex align-items-center p-sm-0">
-                            <figure className="camp_avatar m-0">
+                            <figure className="order_avatar m-0">
                                 <Image src="../../images/toothless.jpg" />
                             </figure>
                         </div>
@@ -31,13 +31,11 @@ const MemberCampingOrder = props => (
                                 <span className="fw-light mb-sm-1">
                                     付款方式：虛擬帳號ATM轉帳<small className="watermelon">(尚未付款)</small>
                                 </span>
-                                <span className="fw-light mb-sm-1">訂單編號：2268749581</span>
+                                <span className="fw-light">訂單編號：2268749581</span>
                             </div>
                             <div className="d-flex flex-column justify-content-between">
                                 <div className="text-right">
-                                    <Button className="btn btn-grass" href="/Member/MyInfoEditor">
-                                        查看細節 <i className="fas fa-user-edit"></i>
-                                    </Button>
+                                    <Button className="btn btn-grass" href="#">查看細節</Button>
                                 </div>
                                 <span className="text-right fs-18 fw-light">總金額 NT$1,200</span>
                             </div>
@@ -47,7 +45,7 @@ const MemberCampingOrder = props => (
                 <Tab.Pane eventKey="finished">
                     <div className="d-flex row border p-sm-3 mt-3">
                         <div className="col-sm-2 d-flex align-items-center p-sm-0">
-                            <figure className="camp_avatar m-0">
+                            <figure className="order_avatar m-0">
                                 <Image src="../../images/toothless.jpg" />
                             </figure>
                         </div>
@@ -57,15 +55,13 @@ const MemberCampingOrder = props => (
                                 <span className="fw-light mb-sm-1">營區名稱：木造露營區-哈比屋營位</span>
                                 <span className="fw-light mb-sm-1">入住期間：2019/05/20 ~ 2019/05/21</span>
                                 <span className="fw-light mb-sm-1">
-                                    付款方式：信用卡<small className="forest">(已付款)</small>
+                                    付款方式：信用卡<small className="grass">(已付款)</small>
                                 </span>
-                                <span className="fw-light mb-sm-1">訂單編號：1834214785</span>
+                                <span className="fw-light">訂單編號：1834214785</span>
                             </div>
                             <div className="d-flex flex-column justify-content-between">
                                 <div className="text-right">
-                                    <Button className="btn btn-grass" href="/Member/MyInfoEditor">
-                                        查看細節 <i className="fas fa-user-edit"></i>
-                                    </Button>
+                                    <Button className="btn btn-grass" href="#">查看細節</Button>
                                 </div>
                                 <span className="text-right fs-18 fw-light">總金額 NT$1,000</span>
                             </div>
