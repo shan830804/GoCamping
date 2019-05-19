@@ -1,10 +1,13 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Link, Switch, NavLink } from 'react-router-dom';
+// 各種切割頁面
 import Bread from '../../components/MemberBread';
 import Profile from '../../components/MemberProfile';
 import Aside from '../../components/MemberAside';
 import Notification from '../../components/MemberNotification';
 import InfoEditor from '../../components/MemberInfoEditor';
-import { BrowserRouter as Router, Route, Link, Switch, NavLink } from 'react-router-dom';
+import CampingOrder from '../../components/MemberCampingOrder';
+// CSS
 import '../../components/Default.css';
 import './Member.css';
 
@@ -32,6 +35,8 @@ class Member extends React.Component {
                             <Aside />
                             <Route exact path="/Member" component={Notification} />
                             <Route path="/Member/MyInfoEditor" component={InfoEditor} />
+                            <Route path="/Member/MyOrderManager" component={CampingOrder} />
+                            <Route path="/Member/MyCampingOrder" component={CampingOrder} />
                         </div>
                     </section>
                 </div>

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Image, Button } from 'react-bootstrap'
+import { Image } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
 
 const MemberProfile = props => (
     <div className="profile px-4 py-3 my-3">
@@ -24,9 +25,9 @@ const MemberProfile = props => (
                 </div>
                 {/* 編輯個人資訊按鈕 */}
                 <div>
-                    <Button className="btn btn-outline-grass" href="/Member/MyInfoEditor">
+                    <NavLink className="btn btn-outline-grass" to="/Member/MyInfoEditor">
                         編輯個人資料 <i className="fas fa-user-edit"></i>
-                    </Button>
+                    </NavLink>
                 </div>
             </div>
         </div>

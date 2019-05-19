@@ -1,3 +1,4 @@
+/* 蓋過的CSS */
 .fs-20 {
   font-size: 20px;
 }
@@ -9,6 +10,9 @@
 }
 .fw-medium {
   font-weight: 500;
+}
+.show::after{
+  background-color: transparent;
 }
 
 /* 個人卡片開始 */
@@ -71,6 +75,17 @@ aside .mem_aside:active {
 /* (2) 個人資料編輯 */
 .asterisk{
   color: red;
+}
+
+/* (3) 營地訂單 */
+.camp_avatar {
+  width: 150px;
+  height: 150px;
+}
+.camp_avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* 右方主頁面結束 */

@@ -1,5 +1,6 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
+import CampingOrder from './MemberCampingOrder';
 
 const MemberAside = props => (
     <aside className="col-sm-2">

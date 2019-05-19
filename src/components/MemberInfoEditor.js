@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, Button } from 'react-bootstrap'
+import { Image, Button } from 'react-bootstrap';
 
 const MemberInfoEditor = props => (
     <main className="col-sm-10 my-2">

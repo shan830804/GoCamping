@@ -76,10 +76,12 @@ body {
 /* 按鈕顏色(整顆上色版) */
 .btn-grass {
   background-color: #87b061;
+  border: 1px solid transparent;
   color: #ffffff;
 }
 .btn-grass:hover {
   background-color: #027252;
+  border: 1px solid transparent;
   color: #ffffff;
 }
 
@@ -104,7 +106,6 @@ body {
 /* 橫排頁籤 */
 .nav-tabs {
   border-bottom: 1px solid #87b061;
-  color: ;
 }
 .nav-tabs .nav-link:hover,
 .nav-tabs .nav-link:focus {
