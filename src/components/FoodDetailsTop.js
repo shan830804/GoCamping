@@ -1,6 +1,6 @@
 import React from "react";
 // import { BrowserRouter as NavLink } from "react-router-dom";
-import { FaHeart } from 'react-icons/fa'
+import { FaHeart } from "react-icons/fa";
 import {
   Image,
   Row,
@@ -9,7 +9,9 @@ import {
   InputGroup,
   Button,
   FormControl,
-  ButtonToolbar
+  ButtonToolbar,
+  Accordion,
+  Card
 } from "react-bootstrap";
 
 /* Food詳細頁的圖*/
@@ -125,10 +127,31 @@ class FoodDetailsTop extends React.Component {
               </InputGroup.Append>
             </InputGroup>
             {/* 加入收藏&放購物車 */}
-            <ButtonToolbar className="col-12">
-              <Button  className="col-6 m-2" href="#"> < FaHeart /> 加入收藏</Button>
-              <Button  className="col-6 m-2" href="#">放入購物車!</Button>
+            <ButtonToolbar className="col-12 btn-add  ">
+              <Button className="col-5 ml-0 btn-addheart" href="#">
+                {" "}
+                <FaHeart /> 加入收藏
+              </Button>
+              <Button className="col-5 ml-2 btn-grass" href="#">
+                放入購物車
+              </Button>
             </ButtonToolbar>
+            {/* 付款及運送方式 */}
+            <Accordion className="mt-4">
+              <Card>
+                <Card.Header>
+                  <Accordion.Toggle as={Button} variant="link" eventKey="0">
+                    付款與運送
+                  </Accordion.Toggle>
+                </Card.Header>
+                <Accordion.Collapse eventKey="0">
+                  <Card.Body className="pay-method">
+                    <div><p>付款與運送付款與運送付款與運送付款與運送付款與運送</p></div>
+                    <div><p>付款與運送付款與運送付款與運送付款與運送付款與運送</p></div>
+                  </Card.Body>
+                </Accordion.Collapse>
+              </Card>
+            </Accordion>
           </Col>
         </Row>
       </>

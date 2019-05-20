@@ -1,112 +1,140 @@
-.fs-18{
-    font-size: 18px;
+.fs-18 {
+  font-size: 18px;
 }
-.fs-14{
-    font-size: 14px;
+.fs-14 {
+  font-size: 14px;
 }
-.fs-bold{
-    font-weight: bold;
+.fs-bold {
+  font-weight: bold;
 }
-.grass{
-    color: #87B061;
+.grass {
+  color: #87b061;
 }
-.apple{
-    color: #BFDD87;
+.apple {
+  color: #bfdd87;
 }
-.sunshine{
-    color: #F2CE63;
+.sunshine {
+  color: #f2ce63;
 }
-.forest{
-    color: #027252;
+.forest {
+  color: #027252;
 }
-.ground{
-    color: #87B061;
+.ground {
+  color: #87b061;
 }
-.wood{
-    color: #693D31;
+.wood {
+  color: #693d31;
 }
-.watermelon{
-    color: #F26666;
+.watermelon {
+  color: #f26666;
 }
-.bg-grass{
-    background-color: #87B061;
+.bg-grass {
+  background-color: #87b061;
 }
-.bg-apple{
-    background-color: #BFDD87;
+.bg-apple {
+  background-color: #bfdd87;
 }
-.bg-sunshine{
-    background-color: #F2CE63;
+.bg-sunshine {
+  background-color: #f2ce63;
 }
-.bg-forest{
-    background-color: #027252;
+.bg-forest {
+  background-color: #027252;
 }
-.bg-ground{
-    background-color: #BA7438;
+.bg-ground {
+  background-color: #ba7438;
 }
-.bg-wood{
-    background-color: #693D31;
+.bg-wood {
+  background-color: #693d31;
 }
-.bg-watermelon{
-    background-color: #F26666;
+.bg-watermelon {
+  background-color: #f26666;
 }
-.bg-diamond{
-    background-color: #74B4FC;
+.bg-diamond {
+  background-color: #74b4fc;
 }
-.btn-grass{
-    background-color: #87B061;
-    color: #FFFFFF;
+.btn-grass {
+  background-color: #87b061;
+  color: #ffffff;
 }
-.btn-grass:hover{
-    background-color: #027252;
-    color: #FFFFFF;
+.btn-grass:hover {
+  background-color: #027252;
+  color: #ffffff;
 }
-.btn-outline-grass{
-    background-color: #FFFFFF;
-    border: 1px solid #87B061;
-    color: #87B061;
+.btn-outline-grass {
+  background-color: #ffffff;
+  border: 1px solid #87b061;
+  color: #87b061;
 }
-.btn-outline-grass:hover{
-    background-color: #87B061;
-    color: #FFFFFF;
+.btn-outline-grass:hover {
+  background-color: #87b061;
+  color: #ffffff;
 }
-
 
 /* 麵包屑的修改 */
-.breadcrumb{
-    background-color: #ffffff;
-    color: #707070; 
+.breadcrumb {
+  background-color: #ffffff;
+  color: #707070;
 }
 .breadcrumb-item + .breadcrumb-item::before {
-    content: ">";
+  content: ">";
 }
-.breadcrumb-item  {
-    font-weight: bold;
- }
- /* 麵包屑結束 */
+.breadcrumb-item {
+  font-weight: bold;
+}
+/* 麵包屑結束 */
 
- /* 左邊商品選單開始 */
- aside{
-     border: 1px solid #000000;
- }
-.fleft-active{
-    background: #F2CE63;
+/* 左邊商品選單開始 */
+aside {
+  border: 1px solid #000000;
 }
- /* 左邊商品選單結束*/
+.fleft-active {
+  background: #f2ce63;
+}
+/* 左邊商品選單結束*/
 
- /* 右邊商品開始 */
- .su-price{
-     color: #cccccc;
-     margin: 0 0 -10px 0;
- }
- .btn-number{
-     background-color: #FFFFFF;
-     border:1px solid #693D31;
- }
- .input-number{
-    background-color: #FFFFFF;
-    border:1px solid #693D31;
+/* 詳細商品頁右邊商品開始 */
+.su-price {
+  color: #cccccc;
+  margin: 0 0 -10px 0;
 }
-.group-number{
-    margin: -15px 0 0 -15px;
+.btn-number {
+  background-color: #ffffff;
+  border: 1px solid #693d31;
 }
- /* 右邊商品結束 */
+.input-number {
+  background-color: #ffffff;
+  border: 1px solid #693d31;
+}
+.group-number {
+  margin: -15px 0 0 -15px;
+}
+.btn-add {
+  margin: 15px 0 0 -15px;
+}
+.btn-addheart {
+  background-color: #cccccc;
+  border: 1px solid transparent;
+  color: #ffffff;
+}
+.btn-addheart:hover {
+  background-color: #fd7156;
+  border: 1px solid transparent;
+  color: #ffffff;
+}
+.btn-addheart:active {
+  background-color: #fd7156;
+  border: 1px solid transparent;
+  color: #ffffff;
+}
+.btn-grass:active {
+  background-color: #027252;
+  border: 1px solid transparent;
+  color: #ffffff;
+}
+/* 右邊商品結束 */
+
+/* 付款與運送 */
+.pay-method{
+    background-color: #F5F5F5;
+    border-left:3px solid #027252;
+}
