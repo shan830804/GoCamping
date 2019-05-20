@@ -127,27 +127,35 @@ class FoodDetailsTop extends React.Component {
               </InputGroup.Append>
             </InputGroup>
             {/* 加入收藏&放購物車 */}
-            <ButtonToolbar className="col-12 btn-add  ">
-              <Button className="col-5 ml-0 btn-addheart" href="#">
+            <ButtonToolbar className="btn-add btn-add  ">
+              <Button className="col-md-5 btn-addheart" href="#">
                 {" "}
                 <FaHeart /> 加入收藏
               </Button>
-              <Button className="col-5 ml-2 btn-grass" href="#">
+              <Button className="col-md-5 ml-2 btn-grass" href="#">
                 放入購物車
               </Button>
             </ButtonToolbar>
             {/* 付款及運送方式 */}
             <Accordion className="mt-4">
-              <Card>
-                <Card.Header>
+              <Card className="accordion-card">
+                <Card.Header className="accordion-header">
                   <Accordion.Toggle as={Button} variant="link" eventKey="0">
                     付款與運送
                   </Accordion.Toggle>
                 </Card.Header>
                 <Accordion.Collapse eventKey="0">
                   <Card.Body className="pay-method">
-                    <div><p>付款與運送付款與運送付款與運送付款與運送付款與運送</p></div>
-                    <div><p>付款與運送付款與運送付款與運送付款與運送付款與運送</p></div>
+                    <div>
+                      <p className="fs-20 pay-title"> 付款方式</p>
+                      <p className="fs-14">信用卡</p>
+                      <p className="fs-14">ATM轉帳</p>
+                      <p className="fs-14">ibon代碼繳帳</p>
+                    </div>
+                    <div>
+                      <p className="fs-20 pay-title"> 運送方式</p>
+                      <p className="fs-14">宅配，從備貨到寄出商品為 3 個工作天。（不包含假日）</p>
+                    </div>
                   </Card.Body>
                 </Accordion.Collapse>
               </Card>

@@ -109,7 +109,7 @@ aside {
   margin: -15px 0 0 -15px;
 }
 .btn-add {
-  margin: 15px 0 0 -15px;
+  margin: 15px -40px 0 0;
 }
 .btn-addheart {
   background-color: #cccccc;
@@ -131,10 +131,21 @@ aside {
   border: 1px solid transparent;
   color: #ffffff;
 }
+/* 付款與運送 */
+.accordion-card{
+  border-bottom: 2px solid #707070;
+}
+.accordion-header{
+  background-color: #ffffff;
+  border-bottom: 2px solid #707070;
+}
+.pay-method{
+  background-color: #F5F5F5;
+}
+.pay-title{
+  border-left:3px solid #027252;
+  padding-left: 6px;
+}
 /* 右邊商品結束 */
 
-/* 付款與運送 */
-.pay-method{
-    background-color: #F5F5F5;
-    border-left:3px solid #027252;
-}
+
