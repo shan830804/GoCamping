@@ -82,9 +82,6 @@
 .breadcrumb-item  {
     font-weight: bold;
  }
- .FaHome{
-    color: #707070;
- }
  /* 麵包屑結束 */
 
  /* 左邊商品選單開始 */
@@ -95,3 +92,21 @@
     background: #F2CE63;
 }
  /* 左邊商品選單結束*/
+
+ /* 右邊商品開始 */
+ .su-price{
+     color: #cccccc;
+     margin: 0 0 -10px 0;
+ }
+ .btn-number{
+     background-color: #FFFFFF;
+     border:1px solid #693D31;
+ }
+ .input-number{
+    background-color: #FFFFFF;
+    border:1px solid #693D31;
+}
+.group-number{
+    margin: -15px 0 0 -15px;
+}
+ /* 右邊商品結束 */

@@ -115,7 +115,7 @@ body {
 /* 橫排頁籤 */
 .nav-tabs {
   border-bottom: 1px solid #87b061;
-  color: ;
+  /* color: ; */
 }
 
 .nav-tabs .nav-link:hover,
