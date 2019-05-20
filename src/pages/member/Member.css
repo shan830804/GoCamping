@@ -15,6 +15,15 @@ main .show::after{
   background-color: transparent !important;
 }
 
+/* 登入畫面 */
+.login_cover {
+  height: calc( 100vh - 120px );
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.camp_boss {
+  color: #CCCCCC;
+}
+
 /* 個人卡片 */
 .profile {
   box-shadow: 1px 2px 5px #ccc;

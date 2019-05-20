@@ -12,9 +12,6 @@ const MemberFoodOrder = props => (
                     <Nav.Link eventKey="paid">待出貨</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                    <Nav.Link eventKey="delivering">待收貨</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
                     <Nav.Link eventKey="finished">已完成</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
@@ -47,11 +44,6 @@ const MemberFoodOrder = props => (
                     </div>
                 </Tab.Pane>
                 <Tab.Pane eventKey="paid">
-                    <div>
-                        <p className="text-center my-3 p-3 fs-20 fw-light border">尚無訂單</p>
-                    </div>
-                </Tab.Pane>
-                <Tab.Pane eventKey="delivering">
                     <div>
                         <p className="text-center my-3 p-3 fs-20 fw-light border">尚無訂單</p>
                     </div>
