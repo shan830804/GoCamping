@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link, Switch, NavLink } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 // 各種切割頁面
 import Bread from '../../components/MemberBread';
 import Profile from '../../components/MemberProfile';

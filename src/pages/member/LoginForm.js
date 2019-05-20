@@ -1,5 +1,4 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link, Switch, NavLink } from 'react-router-dom';
 import MemberCenter from './MemberCenter'
 
 class LoginForm extends React.Component {
@@ -21,7 +20,8 @@ class LoginForm extends React.Component {
             return;
         }
 
-        console.log(`target - ${target}, type[${target.type}], id[${target.id}], name[${target.name}], value[${target.value}]`);
+        // target的東西都是抓到該<input>標籤的
+        console.log(`輸入中：target - ${target}, type[${target.type}], id[${target.id}], name[${target.name}], value[${target.value}]`);
 
         switch (target.type) {
             case 'text':
@@ -34,15 +34,15 @@ class LoginForm extends React.Component {
         }
     }
 
-    // 送出登入表單後動作
+    // 送出登入表單的EventListener
     onLoginFormSubmit = (event) => {
         event.preventDefault();
-        alert(`Input data - username[${this.state.username}], password[${this.state.password}]`);
+        console.log(`Input data - username[${this.state.username}], password[${this.state.password}]`);
 
         this.setState({ logined: true });
     }
 
-    // 按下登出按鈕後動作
+    // 按下登出按鈕的EventListener
     // onLogoutFormSubmit = (event) => {
     //     event.preventDefault();
     //     alert('Do Logout!');
@@ -92,6 +92,7 @@ class LoginForm extends React.Component {
         );
     }
 
+    // 登出表單
     // renderLogoutForm = () => {
     //     return (
     //         <form onSubmit={this.onLogoutFormSubmit}>
@@ -100,13 +101,14 @@ class LoginForm extends React.Component {
     //     );
     // }
 
+    // 登入後畫面
     renderMemberCenter = () => {
         return (
             <MemberCenter />
         );
     }
 
-    // 預設尚未登入要呈現「登入表單」，已登入則呈現「登出」
+    // 預設尚未登入要呈現「登入表單」，已登入則進入會員中心
     render() {
         return (
             <div>
@@ -116,6 +118,5 @@ class LoginForm extends React.Component {
         );
     }
 }
-
 
 export default LoginForm

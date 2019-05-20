@@ -1,5 +1,5 @@
 import React from 'react';
-import { Nav, Image, Tab, Button } from 'react-bootstrap';
+import { Nav, Tab, Button } from 'react-bootstrap';
 
 const MemberEventOrder = props => (
     <main className="col-sm-10 my-2">

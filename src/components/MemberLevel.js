@@ -1,5 +1,4 @@
 import React from 'react';
-import { Nav, Image, Tab, Button } from 'react-bootstrap';
 
 const MemberLevel = props => (
     <main className="col-sm-10 my-2">

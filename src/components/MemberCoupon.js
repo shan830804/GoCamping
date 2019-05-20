@@ -1,5 +1,5 @@
 import React from 'react';
-import { Nav, Image, Tab, Button } from 'react-bootstrap';
+import { Nav, Image, Tab } from 'react-bootstrap';
 
 const MemberCoupon = props => (
     <main className="col-sm-10 my-2">
