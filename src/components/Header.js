@@ -30,8 +30,11 @@ function Header(){
                             <li className="nav-item position-relative">
                                 <NavLink className="nav-link main_color" to="/Marketing">搶優惠</NavLink>
                             </li>
-                            <li className="nav-item show position-relative">
+                            {/* <li className="nav-item nav-show position-relative">
                                 <NavLink className="nav-link sec_color" to="/FoodDetails">買食材</NavLink>
+                            </li> */}
+                            <li className="nav-item nav-show position-relative">
+                                <NavLink className="nav-link sec_color" to="/FoodOrder">買食材</NavLink>
                             </li>
                             <li className="nav-item position-relative">
                                 <NavLink className="nav-link main_color" to="/ShareFun">分享樂</NavLink>

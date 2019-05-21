@@ -56,7 +56,7 @@ class FoodDetailsTop extends React.Component {
             >
               <Carousel.Item>
                 <Image
-                  style={{ width: "30rem", height: "26rem" }}
+                  style={{ width: "100%", height: "100%" }}
                   className="d-block w-100"
                   src="http://diz36nn4q02zr.cloudfront.net/webapi/imagesV3/Original/SalePage/5313015/0/084456?v=1?text=First slide&bg=373940"
                   alt="First slide"
@@ -64,7 +64,7 @@ class FoodDetailsTop extends React.Component {
               </Carousel.Item>
               <Carousel.Item>
                 <Image
-                  style={{ width: "30rem", height: "26rem" }}
+                  style={{ width: "100%", height: "100%" }}
                   className="d-block w-100"
                   src="http://diz36nn4q02zr.cloudfront.net/webapi/imagesV3/Original/SalePage/5313015/1/084456?v=1?text=Second slide&bg=282c34"
                   alt="Third slide"
@@ -72,7 +72,7 @@ class FoodDetailsTop extends React.Component {
               </Carousel.Item>
               <Carousel.Item>
                 <Image
-                  style={{ width: "30rem", height: "26rem" }}
+                  style={{ width: "100%", height: "100%" }}
                   className="d-block w-100"
                   src="http://diz36nn4q02zr.cloudfront.net/webapi/imagesV3/Original/SalePage/5312987/0/084544?v=1?text=Third slide&bg=20232a"
                   alt="Third slide"
@@ -80,27 +80,51 @@ class FoodDetailsTop extends React.Component {
               </Carousel.Item>
             </Carousel>
             {/* 小圖示 */}
-            <Image
-              variant="top"
-              className="m-2 "
-              src="http://diz36nn4q02zr.cloudfront.net/webapi/imagesV3/Original/SalePage/5313015/0/084456?v=1"
-              style={{ width: "5.6rem", height: "4.6rem" }}
-              rounded
-            />
-            <Image
-              variant="top"
-              className="m-2"
-              src="http://diz36nn4q02zr.cloudfront.net/webapi/imagesV3/Original/SalePage/5313015/1/084456?v=1"
-              style={{ width: "5.6rem", height: "4.6rem" }}
-              rounded
-            />
-            <Image
-              variant="top"
-              className="m-2"
-              src="http://diz36nn4q02zr.cloudfront.net/webapi/imagesV3/Original/SalePage/5312987/0/084544?v=1"
-              style={{ width: "5.6rem", height: "4.6rem" }}
-              rounded
-            />
+            <Row>
+              <Col xs={3} className="fl-imgSm">
+                <Image
+                  variant="top"
+                  className="mt-1"
+                  src="http://diz36nn4q02zr.cloudfront.net/webapi/imagesV3/Original/SalePage/5313015/0/084456?v=1"
+                  style={{ width: "100%", height: "100%" }}
+                  rounded
+                />
+              </Col>
+              <Col xs={3} className="fl-imgSm">
+                <Image
+                  variant="top"
+                  className="mt-1"
+                  src="http://diz36nn4q02zr.cloudfront.net/webapi/imagesV3/Original/SalePage/5313015/0/084456?v=1"
+                  style={{ width: "100%", height: "100%" }}
+                  rounded
+                />
+              </Col>
+              <Col xs={3} className="fl-imgSm">
+                <Image
+                  variant="top"
+                  className="mt-1"
+                  src="http://diz36nn4q02zr.cloudfront.net/webapi/imagesV3/Original/SalePage/5313015/0/084456?v=1"
+                  style={{ width: "100%", height: "100%" }}
+                  rounded
+                />
+              </Col>
+            </Row>
+            {/* <Col xs={3} >
+              <Image
+                variant="top"
+                className="m-2 "
+                src="http://diz36nn4q02zr.cloudfront.net/webapi/imagesV3/Original/SalePage/5313015/0/084456?v=1"
+                style={{ width: "100%", height: "100%" }}
+                rounded
+              />
+              <Image
+                variant="top"
+                className="m-2"
+                src="http://diz36nn4q02zr.cloudfront.net/webapi/imagesV3/Original/SalePage/5312987/0/084544?v=1"
+                style={{ width: "100%", height: "100%"}}
+                rounded
+              />
+            </Col> */}
           </Col>
           {/* Food Left結束 */}
 
@@ -138,27 +162,28 @@ class FoodDetailsTop extends React.Component {
             </ButtonToolbar>
             {/* 付款及運送方式 */}
             <Accordion className="mt-4">
-              <Card className="accordion-card">
-                <Card.Header className="accordion-header">
-                  <Accordion.Toggle as={Button} variant="link" eventKey="0">
-                    付款與運送
-                  </Accordion.Toggle>
+              <Card>
+                <Card.Header>
+                  <Accordion className="fs-16">付款與運送</Accordion>
                 </Card.Header>
-                <Accordion.Collapse eventKey="0">
-                  <Card.Body className="pay-method">
+                <Accordion>
+                  <Card.Body className="pay-cardbody">
                     <div>
                       <p className="fs-20 pay-title"> 付款方式</p>
-                      <p className="fs-14">信用卡</p>
-                      <p className="fs-14">ATM轉帳</p>
+                      <p className="fs-14 pay-dt">信用卡</p>
+                      <p className="fs-14 pay-dt">ATM轉帳</p>
                       <p className="fs-14">ibon代碼繳帳</p>
                     </div>
                     <div>
                       <p className="fs-20 pay-title"> 運送方式</p>
-                      <p className="fs-14">宅配，從備貨到寄出商品為 3 個工作天。（不包含假日）</p>
+                      <p className="fs-14">
+                        宅配，從備貨到寄出商品為 3 個工作天。（不包含假日）
+                      </p>
                     </div>
                   </Card.Body>
-                </Accordion.Collapse>
+                </Accordion>
               </Card>
+              <Card />
             </Accordion>
           </Col>
         </Row>
@@ -166,18 +191,4 @@ class FoodDetailsTop extends React.Component {
     );
   }
 }
-
 export default FoodDetailsTop;
-
-/* <Container>
-      <Row>
-        <Col xs={6} md={4}>
-          <Image variant="top"
-              src="http://diz36nn4q02zr.cloudfront.net/webapi/imagesV3/Original/SalePage/5313015/0/084456?v=1"
-              style={{ width: "35rem", height: "30rem" }} rounded />
-            <Image variant="top"
-              src="http://diz36nn4q02zr.cloudfront.net/webapi/imagesV3/Original/SalePage/5313015/0/084456?v=1"
-              style={{ width: "5.6rem", height: "4.6rem" }} rounded />
-        </Col>
-      </Row>
-    </Container> */

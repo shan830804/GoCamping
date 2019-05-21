@@ -86,7 +86,8 @@ nav ul{
 .nav_menu li:hover a{
     color: #F2CE63;
 }
-.show::after{
+/* 因為會動到其他網頁的border-bottom,class改為nav-show(原show) */
+.nav-show::after{
     content: '';
     position: absolute;
     left: 0;
