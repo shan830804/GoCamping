@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import LoginForm from './LoginForm';
+// 前往頁面
+import LoginPage from './LoginPage';
 import MemberCenter from './MemberCenter';
 // CSS
 import '../../components/Default.css';
@@ -18,13 +19,39 @@ import './Member.css';
 // Route exact 代表exact=true，要求路徑與location.pathname必須完全匹配
 
 class Member extends React.Component {
-    render() {
+    constructor() {
+        super()
+        this.state = {
+            logined: false,
+            memberData: [],
+        }
+    }
+
+    // TODO: 判斷localStorage已經有資料，且帳號密碼對應到json中的一筆，都符合則 this.setState({ logined = true})
+    // TODO: 抓到該筆會員資料往MemberCenter傳
+
+    renderMemberCenter = () => {
         return (
             <Router>
-                {/* TODO:路徑"/Member"應該要改成登入的路徑 */}
-                <Route exact path="/Member" component={LoginForm} />
                 <Route exact path="/Member/MemberCenter" component={MemberCenter} />
             </Router>
+        )
+    }
+
+    renderLoginPage = () => {
+        return (
+            <Router>
+                <Route exact path="/Member" component={LoginPage} />
+            </Router>
+        )
+    }
+
+    render() {
+        return (
+            <div>
+                {/* 登入沒 ? 有(會員中心頁) : 沒([預設]登入頁) */}
+                {this.state.logined ? (this.renderMemberCenter()) : (this.renderLoginPage())}
+            </div>
         )
     }
 }

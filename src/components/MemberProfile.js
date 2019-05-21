@@ -14,7 +14,9 @@ const MemberProfile = props => (
             <div className="col-sm-10 d-flex justify-content-between pl-0">
                 {/* 個人主資訊 */}
                 <div className="d-flex flex-column">
-                    <h4 className="mb-3">gogolaichoowan</h4>
+                    {/* <h4 className="mb-3">gogolaichoowan</h4> */}
+                    <h4 className="mb-3">{props.data['mem_account']}</h4>
+                    {console.log(typeof props.data)}
                     <div className="d-flex align-items-center mb-2">
                         <div className="level_badge bg-ground mr-1 d-flex align-items-center justify-content-center">
                             <i className="fas fa-campground"></i>
