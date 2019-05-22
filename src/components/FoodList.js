@@ -59,7 +59,7 @@ class FoodList extends React.Component {
         <Col>
           <div className="d-flex col-big">
             {this.state.salepageData.map(item => (
-              <Card.Link key={item.id} href="/Food/FoodDetails">
+              <Card.Link key={item.id} href={"/Food/FoodDetails/" + item.id} >
                 <Card className="" style={{ width: "211px", height: "283px" }}>
                   <Card.Img
                     variant="top"
