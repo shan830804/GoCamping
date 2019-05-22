@@ -96,6 +96,15 @@
 }
 /* 麵包屑結束 */
 
+/* Food.js排版開始 */
+.col-big{
+  border: 1px solid #693d31;
+}
+.col-md{
+  border: 1px solid #141a6d;
+}
+/* Food.js排版結束 */
+
 /* 左邊商品選單開始 */
 aside {
   border: 1px solid #000000;

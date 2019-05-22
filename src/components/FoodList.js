@@ -1,14 +1,25 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { BrowserRouter as NavLink } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 // import { FaHome } from 'react-icons/fa';
 import { Card, Img, Row, Col, Container } from "react-bootstrap";
+import { IoIosHeart } from "react-icons/io";
 import FoodDetails from "../pages/food/FoodDetails";
+
+//愛心的icon
+const IconHeart = props => (
+  <>
+    <Link>
+      <IoIosHeart />
+    </Link>
+  </>
+);
+
 
 class FoodList extends React.Component {
   constructor() {
     super();
     this.state = {
+       // 食物的資料，注意應該預設值是空陣列，而不是null或空物件
       salepageData: []
     };
   }
@@ -28,10 +39,10 @@ class FoodList extends React.Component {
         return response.json();
       })
       .then(jsonObject => {
-        console.log(jsonObject);
+        // console.log(jsonObject);
         this.setState({ salepageData: jsonObject });
       })
-      .catch(function (err) {
+      .catch(function(err) {
         // Error :(
       });
   }
@@ -39,28 +50,39 @@ class FoodList extends React.Component {
   render() {
     return (
       <>
-       
-          {/* <Row>
-          <Col sm={10}> */}
+        <Row className="justify-content-md-center fs-32">
+          <Col md="auto">
+            <p>全站商品</p>
+          </Col>
+        </Row>
+
+        <Col>
+          <div className="d-flex col-big">
             {this.state.salepageData.map(item => (
-              <Card.Link  href="/FoodDetails">
-                <Card className="" style={{ width: "100%" }}>
+              <Card.Link key={item.id} href="/Food/FoodDetails">
+                <Card className="" style={{ width: "211px", height: "283px" }}>
                   <Card.Img
                     variant="top"
                     src={item.salepage_image}
-                    style={{ width: "100%", height: "auto" }}
+                    style={{ width: "211px", height: "143px" }}
                   />
-                  <Card.Body style={{ width: "100%" }} >
-                    <Card.Title>{item.salepage_name}</Card.Title>
-                    <Card.Text> {item.salepage_suggestprice}</Card.Text>
-                    <Card.Text> {item.salepage_price}</Card.Text>
+                  <Card.Body style={{ width: "100%" }}>
+                    <Card.Title className="fs-14 food-default">
+                      {item.salepage_name}
+                    </Card.Title>
+                    <Card.Text className="fs-12 food-default text-right">
+                      {item.salepage_suggestprice}
+                    </Card.Text>
+                    <Card.Text className="fs-20 forest text-right">
+                      <IconHeart />
+                      {item.salepage_price}
+                    </Card.Text>
                   </Card.Body>
                 </Card>
               </Card.Link>
             ))}
-            {/* </Col >
-          </Row> */}
-      
+          </div>
+        </Col>
       </>
     );
   }

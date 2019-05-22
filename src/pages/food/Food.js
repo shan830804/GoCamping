@@ -1,12 +1,8 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./Food.css";
 import "../../components/Default.css";
-import {
-  Row,
-  Col,
-  Container
-} from "react-bootstrap";
+import { Row, Col, Container } from "react-bootstrap";
 //各種頁面
 import FoodSlider from "../../components/FoodSlider";
 import FoodLeftside from "../../components/FoodLeftside";
@@ -22,10 +18,17 @@ function Food() {
           <FoodBread />
           <FoodSlider />
         </Row>
+      </Container>
+
+      <Container>
         <Row>
-          <FoodLeftside />
-          <FoodList />
-          <Route exact path="/FoodDetails" component={FoodDetails} />
+          <Col md={2}>
+            {" "}
+            <FoodLeftside />
+          </Col>
+          <Col md={9}>
+            <FoodList />
+          </Col>
         </Row>
       </Container>
     </Router>

@@ -16,8 +16,8 @@ import {
 
 /* Food詳細頁的圖*/
 class FoodDetailsTop extends React.Component {
-  constructor(props, context) {
-    super(props, context);
+  constructor(context) {
+    super(context);
 
     this.handleSelect = this.handleSelect.bind(this);
 
@@ -131,7 +131,7 @@ class FoodDetailsTop extends React.Component {
           {/* TopRight */}
           <Col xs={6}>
             <h4 className="fs-24">
-              【 冷凍店取-陳記好味】東北酸菜鴨(固形物300克、湯500cc)
+              4567
             </h4>
             <p className="fs-16 su-price">1000</p>
             <p className="fs-24 forest price">NT$1500</p>
