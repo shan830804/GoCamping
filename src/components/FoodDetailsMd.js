@@ -8,17 +8,24 @@ import {
 } from "react-bootstrap";
 
 class FoodDetailsMd extends React.Component {
-  constructor(props, context) {
-    super(props, context);
+  constructor(props) {
+    super(props);
     this.state = {
-      title: "買食材"
+      title: "買食材",
+      //props.data父層命名的名字
+      salepageData: props.data,
     };
   }
 
-  // 網頁標題
-  componentDidMount() {
-    document.title = this.state.title;
-  }
+ // https://stackoverflow.com/questions/37058533/passing-updated-state-as-props
+ componentWillReceiveProps(nextProps){
+  this.setState({salepageData: nextProps.data});      
+}
+
+// 網頁標題
+componentDidMount() {
+document.title = this.state.title;
+}
 
   render() {
     const { index, direction } = this.state;
@@ -35,27 +42,27 @@ class FoodDetailsMd extends React.Component {
         <Row>
           <Col xs={6} md={4}>
             <p className="img-title">醬燒里肌肉片(500g/盒)</p>
-            <Image src="../images/f1-1.jpg" thumbnail />
+            <Image src={this.state.salepageData.salepage_image} thumbnail />
           </Col>
           <Col xs={6} md={4}>
             <p className="img-title">醬燒里肌肉片(500g/盒)</p>
-            <Image src="../images/f1-2.jpg" thumbnail />
+            <Image src={this.state.salepageData.salepage_image2} thumbnail />
           </Col>
           <Col xs={6} md={4}>
             <p className="img-title">醬燒里肌肉片(500g/盒)</p>
-            <Image src="../images/f1-3.jpg" thumbnail />
+            <Image src={this.state.salepageData.salepage_image3} thumbnail />
           </Col>
           <Col xs={6} md={4}>
             <p className="img-title">醬燒里肌肉片(500g/盒)</p>
-            <Image src="../images/f1-3.jpg" thumbnail />
+            <Image src={this.state.salepageData.salepage_image} thumbnail />
           </Col>
           <Col xs={6} md={4}>
             <p className="img-title">醬燒里肌肉片(500g/盒)</p>
-            <Image src="../images/f1-2.jpg" thumbnail />
+            <Image src={this.state.salepageData.salepage_image} thumbnail />
           </Col>
           <Col xs={6} md={4}>
             <p className="img-title">醬燒里肌肉片(500g/盒)</p>
-            <Image src="../images/f1-1.jpg" thumbnail />
+            <Image src={this.state.salepageData.salepage_image} thumbnail />
           </Col>
         </Row>
         {/* 相關規格 */}

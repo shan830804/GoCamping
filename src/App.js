@@ -26,7 +26,7 @@ function App(){
           <Route path="/Event" component={Event} />
           <Route path="/Marketing" component={Marketing} />
           {/* <Route path="/Food/FoodOrder" component={FoodOrder} />  */}
-          <Route path="/Food/FoodDetails" component={FoodDetails} />
+          <Route path="/Food/FoodDetails/:id" component={FoodDetails} />
           <Route path="/Food" component={Food} />
           <Route path="/ShareFun" component={ShareFun} />
           <Route path="/Member" component={Member} />

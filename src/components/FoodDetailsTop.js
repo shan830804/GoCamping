@@ -16,16 +16,23 @@ import {
 
 /* Food詳細頁的圖*/
 class FoodDetailsTop extends React.Component {
-  constructor(context) {
-    super(context);
+  constructor(props) {
+    super(props);
 
     this.handleSelect = this.handleSelect.bind(this);
 
     this.state = {
       index: 0,
       direction: null,
-      title: "買食材"
-    };
+      title: "買食材",
+      //props.data父層命名的名字
+      salepageData: props.data,
+    };    
+  }
+
+  // https://stackoverflow.com/questions/37058533/passing-updated-state-as-props
+  componentWillReceiveProps(nextProps){
+      this.setState({salepageData: nextProps.data});      
   }
 
   // 網頁標題
@@ -131,10 +138,10 @@ class FoodDetailsTop extends React.Component {
           {/* TopRight */}
           <Col xs={6}>
             <h4 className="fs-24">
-              4567
+              {this.state.salepageData.salepage_name}
             </h4>
-            <p className="fs-16 su-price">1000</p>
-            <p className="fs-24 forest price">NT$1500</p>
+            <p className="fs-16 su-price">{this.state.salepageData.salepage_suggestprice}</p>
+            <p className="fs-24 forest price">NT$ {this.state.salepageData.salepage_price}</p>
             {/* 選擇數量 */}
             <p className="fs-16">數量</p>
             <InputGroup size="sm" className="mb-3 col-6 group-number">
