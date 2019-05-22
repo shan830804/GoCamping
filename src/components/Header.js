@@ -34,7 +34,7 @@ function Header(){
                                 <NavLink className="nav-link sec_color" to="/FoodDetails">買食材</NavLink>
                             </li> */}
                             <li className="nav-item nav-show position-relative">
-                                <NavLink className="nav-link sec_color" to="/FoodOrder">買食材</NavLink>
+                                <NavLink className="nav-link sec_color" to="/Food">買食材</NavLink>
                             </li>
                             <li className="nav-item position-relative">
                                 <NavLink className="nav-link main_color" to="/ShareFun">分享樂</NavLink>

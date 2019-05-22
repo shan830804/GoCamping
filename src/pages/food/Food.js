@@ -1,37 +1,34 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import "./Food.css";
 import "../../components/Default.css";
+import {
+  Row,
+  Col,
+  Container
+} from "react-bootstrap";
+//各種頁面
 import FoodSlider from "../../components/FoodSlider";
 import FoodLeftside from "../../components/FoodLeftside";
 import FoodBread from "../../components/FoodBread";
 import FoodList from "../../components/FoodList";
-import FoodDetails from "./pages/food/FoodDetails";
+import FoodDetails from "./FoodDetails";
 
 function Food() {
   return (
-    <>
-      <div className="container">
-        <session className="container">
-          {/* 麵包屑 */}
+    <Router>
+      <Container>
+        <Row>
           <FoodBread />
-          {/* 輪播 */}
           <FoodSlider />
-          <div className="row ">
-            <FoodLeftside />
-
-            <Router>
-              <>
-                <FoodList />
-                <Switch>
-                  <Route path="/Food/FoodDetails" component={FoodDetails} />{" "}
-                </Switch>
-              </>
-            </Router>
-          </div>
-        </session>
-      </div>
-    </>
+        </Row>
+        <Row>
+          <FoodLeftside />
+          <FoodList />
+          <Route exact path="/FoodDetails" component={FoodDetails} />
+        </Row>
+      </Container>
+    </Router>
   );
 }
 export default Food;

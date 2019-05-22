@@ -6,8 +6,9 @@ import Index from './pages/index/Index';
 import CampSide from './pages/campSide/CampSide';
 import Event from './pages/event/Event';
 import Marketing from './pages/marketing/Marketing';
-// import Food from './pages/food/Food';
-import FoodOrder from './pages/food/FoodOrder';
+import Food from './pages/food/Food';
+import FoodDetails from './pages/food/FoodDetails';
+// import FoodOrder from './pages/food/FoodOrder';
 import ShareFun from './pages/sharefun/ShareFun';
 import Member from './pages/member/Member';
 import './App.css';
@@ -24,8 +25,9 @@ function App(){
           <Route exact path="/CampSide" component={CampSide} />
           <Route path="/Event" component={Event} />
           <Route path="/Marketing" component={Marketing} />
-          {/* <Route path="/Food" component={Food} /> */}
-          <Route path="/FoodOrder" component={FoodOrder} /> 
+          <Route path="/Food" component={Food} />
+          <Route path="/FoodDetails" component={FoodDetails} />
+          {/* <Route path="/FoodOrder" component={FoodOrder} />  */}
           <Route path="/ShareFun" component={ShareFun} />
           <Route path="/Member" component={Member} />
         </Switch>
