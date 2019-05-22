@@ -3,6 +3,7 @@ import { Image } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 
 const MemberProfile = props => (
+    // console.log(props.data[0].mem_account) // 使用方法，props.data是一個陣列，陣列中有一個會員資料的物件(Object)
     <div className="profile px-4 py-3 my-3">
         <div className="d-flex row">
             <div className="col-sm-2 d-flex align-items-center">
@@ -14,9 +15,7 @@ const MemberProfile = props => (
             <div className="col-sm-10 d-flex justify-content-between pl-0">
                 {/* 個人主資訊 */}
                 <div className="d-flex flex-column">
-                    {/* <h4 className="mb-3">gogolaichoowan</h4> */}
-                    <h4 className="mb-3">{props.data['mem_account']}</h4>
-                    {console.log(typeof props.data)}
+                    <h4 className="mb-3">{props.data[0].mem_account}</h4>
                     <div className="d-flex align-items-center mb-2">
                         <div className="level_badge bg-ground mr-1 d-flex align-items-center justify-content-center">
                             <i className="fas fa-campground"></i>

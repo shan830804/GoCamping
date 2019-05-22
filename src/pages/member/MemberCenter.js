@@ -13,7 +13,6 @@ import Coupon from '../../components/MemberCoupon';
 import Level from '../../components/MemberLevel';
 
 class MemberCenter extends React.Component {
-    // TODO: 接收傳進來的該筆會員資料(ex const {match} = this.props)
     constructor(props) {
         super(props)
         this.state = {
@@ -31,9 +30,7 @@ class MemberCenter extends React.Component {
                         <div className="row">
                             <Aside />
                             <Route exact path="/Member" component={Notification} />
-                            <Route exact path="/Member/MemberCenter" component={Notification} />
-                            {/* 兩個都要有Notification，因為是從不同畫面進來的 */}
-                            <Route exact path="/Member/MyInfoEditor" component={InfoEditor} />
+                            <Route exact path="/Member/MyInfoEditor" render={(props)=><InfoEditor {...props} data={this.state.memberData} />} />
                             <Route exact path="/Member/MyOrderManager" component={CampingOrder} />
                             <Route exact path="/Member/MyCampingOrder" component={CampingOrder} />
                             <Route exact path="/Member/MyFoodOrder" component={FoodOrder} />

@@ -1,14 +1,16 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Link, NavLink } from 'react-router-dom';
 import MemberCenter from './MemberCenter';
 
 class LoginPage extends React.Component {
     constructor() {
         super()
         this.state = {
-            memberexist: false, // 預設尚未登入
+            memberexist: false,
             memberData: [],
             account: '',
-            password: ''
+            password: '',
+            errorAccountPassword: '',
         }
     }
 
@@ -36,7 +38,7 @@ class LoginPage extends React.Component {
     // 輸入帳號密碼時，有onChange的事件處理器(EventListener)
     onInputChange = (event) => {
         const { target } = event; // 抓到該<input>標籤，與const target = event.target相同
-        // console.log(`輸入中：target - ${target}, type[${target.type}], id[${target.id}], name[${target.name}], value[${target.value}]`);
+        // console.log(`target - ${target}, type[${target.type}], id[${target.id}], name[${target.name}], value[${target.value}]`);
         // target的使用方法，東西都是從該<input>標籤來的
 
         switch (target.type) { // 接受打字中
@@ -61,8 +63,8 @@ class LoginPage extends React.Component {
         event.preventDefault(); // 避免標籤元素預設的行為或功能(ex <input type="submit">就會送出，可是可能其他input有誤所以要alert)
         
         // 將儲存的localStorage帳號密碼拿出來
-        const localStorageAccount = localStorage.getItem("account", this.state.account);
-        const localStoragePassword = localStorage.getItem("password", this.state.password);
+        const localStorageAccount = localStorage.getItem("account");
+        const localStoragePassword = localStorage.getItem("password");
         
         // 如果存在localStorage的帳號密碼和memberDate其中一筆會員資料相同，讓state中的memberexist是true
         const findMemberAccount = this.state.memberData.find((data) => data.mem_account === localStorageAccount);
@@ -73,16 +75,11 @@ class LoginPage extends React.Component {
             let pickMember = this.state.memberData.filter((data) => data.mem_account === localStorageAccount);
             // console.log(pickMember) // 過濾掉不需要用掉的其他會員資料
             this.setState({ memberData: pickMember, memberexist: true }); // renderMemberCenter()
+        } else {
+            this.setState({ errorAccountPassword: '帳號或密碼錯誤!' })
+            // TODO: 顯示錯誤訊息(帳號或密碼錯誤)(查無此帳號，前往註冊頁?)
         }
     }
-
-    // 按下登出按鈕的EventListener
-    // onLogoutFormSubmit = (event) => {
-    //     event.preventDefault();
-    //     alert('Do Logout!');
-
-    //     this.setState({ memberexist: false });
-    // }
 
     // 要呈現的「登入表單」畫面
     renderLoginPage = () => {
@@ -92,11 +89,14 @@ class LoginPage extends React.Component {
                     <p className="sunshine">可以先暫時使用(帳號tigger/密碼admin)登入</p>
                     <div className="card">
                         <div className="card-body py-4">
-                            <h5 className="card-title text-center grass fs-24 mb-4">會員登入</h5>
                             <form onSubmit={this.onLoginPageSubmit}>
+                                <h5 className="card-title text-center grass fs-24 mb-3">會員登入</h5>
+                                <div className="text-center mb-3">
+                                    <span className="asterisk">{this.state.errorAccountPassword}</span>
+                                </div>
                                 <div className="form-group row d-flex align-items-center border rounded p-1">
                                     <div className="mx-2">
-                                        <i className="far fa-envelope"></i>
+                                        <i className="fas fa-user-alt"></i>
                                     </div>
                                     <input type="text" id="account" name="account" className="flex-grow-1 border-0" placeholder="帳號名稱" onChange={this.onInputChange} />
                                 </div>
@@ -111,14 +111,19 @@ class LoginPage extends React.Component {
                                         <input type="checkbox" className="custom-control-input" id="customCheck1" />
                                         <label className="custom-control-label" htmlFor="customCheck1">記住我的帳號</label>
                                     </div>
-                                    <span>忘記密碼?</span>
+                                    <Link className="forgetPassword" to="">忘記密碼?</Link>
                                 </div>
                                 <div className="row">
-                                    <button type="submit" className="btn btn-grass col-12 fs-20" onClick={this.onSubmitClick}>登入</button>
+                                    <button type="submit" className="btn btn-grass col-12 fs-20 mb-3" onClick={this.onSubmitClick}>登入</button>
                                 </div>
-                                <p className="text-center my-3">還不是會員嗎? <span className="ground">立即免費註冊</span></p>
+                                <p className="text-center mb-3">
+                                    還不是會員嗎?&nbsp;
+                                    <Link className="ground register" to="/Register">立即免費註冊</Link>
+                                </p>
                                 <hr />
-                                <p className="text-center mb-0 camp_boss">營地主登入</p>
+                                <div className="text-center">
+                                    <Link className="mb-0 camp_boss" to="#">營地主登入</Link>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -126,15 +131,6 @@ class LoginPage extends React.Component {
             </div>
         );
     }
-
-    // 登出表單
-    // renderLogoutForm = () => {
-    //     return (
-    //         <form onSubmit={this.onLogoutFormSubmit}>
-    //             <button type="submit" className="btn btn-grass col-12 fs-20">登出</button>
-    //         </form>
-    //     );
-    // }
 
     // 已登入：會員中心畫面
     renderMemberCenter = () => {
@@ -146,8 +142,7 @@ class LoginPage extends React.Component {
     render() {
         return (
             <div>
-                {/* 有無此會員 ? 有(會員中心頁) : 沒([預設]註冊頁) */}
-                {/* {this.state.logined ? (this.renderLogoutForm()) : (this.renderLoginPage())} */}
+                {/* 登入表單 ? 登入(會員中心頁) : 填表([預設]登入表單) */}
                 {this.state.memberexist ? (this.renderMemberCenter()) : (this.renderLoginPage())}
             </div>
         );

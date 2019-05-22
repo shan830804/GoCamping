@@ -20,8 +20,20 @@ main .show::after{
   height: calc( 100vh - 120px );
   background-color: rgba(0, 0, 0, 0.5);
 }
+.forgetPassword {
+  color: #707070;
+}
+.forgetPassword:hover, .forgetPassword:active {
+  color: #027252;
+}
+.register:hover, .register:active {
+  color: #027252;
+}
 .camp_boss {
   color: #CCCCCC;
+}
+.camp_boss:hover, .camp_boss:active {
+  color: #027252;
 }
 
 /* 個人卡片 */
