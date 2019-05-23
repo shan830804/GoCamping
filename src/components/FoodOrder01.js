@@ -14,11 +14,19 @@ import {
 } from "react-bootstrap";
 
 class FoodOrder01 extends React.Component {
-  constructor(props, context) {
-    super(props, context);
+  constructor(props) {
+    super(props);
     this.state = {
-      title: "買食材-訂購明細"
+      title: "買食材-訂購明細",
+      order_num:"",
+      price: 0,
+      total: 0,
+      salepageData: props.order
     };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({ salepageData: nextProps.data });
   }
 
   // 網頁標題
@@ -26,8 +34,24 @@ class FoodOrder01 extends React.Component {
     document.title = this.state.title;
   }
 
+  handleSelect(selectedIndex, e) {
+    this.setState({
+      index: selectedIndex,
+      direction: e.direction
+    });
+  }
+
+  changeText(event){
+    this.setState({
+      order_num: event.target.value,
+      total: event.target.value * this.state.price
+    })
+  }
+
   render() {
     const { index, direction } = this.state;
+    // console.log(this.props.order.salepage_name)
+    // console.log(this.state.salepageData)
     return (
       <>
         {/* 進入訂單第一步 訂單明細*/}
@@ -50,7 +74,7 @@ class FoodOrder01 extends React.Component {
         <Container className="mt-1 ">
           <Row className="">
             <Col>
-              <Table bordered hover>
+              <Table bordered>
                 <thead>
                   <tr className="text-center">
                     <th style={{ width: "10%" }}> </th>
@@ -58,7 +82,7 @@ class FoodOrder01 extends React.Component {
                     <th style={{ width: "30%" }}>商品名稱</th>
                     <th style={{ width: "10%" }}>單價</th>
                     <th style={{ width: "10%" }}>數量</th>
-                    <th style={{ width: "10%" }}>金額</th>
+                    <th style={{ width: "10%" }}>單價</th>
                     <th style={{ width: "10%" }}>操作</th>
                   </tr>
                 </thead>
@@ -73,16 +97,26 @@ class FoodOrder01 extends React.Component {
                       {" "}
                       <Image
                         style={{ width: "100%" }}
-                        src="../images/f1-1.jpg"
+                        src={this.props.order.salepage_image}
                         rounded
                       />
                     </td>
+                    <td>{this.props.order.salepage_name}</td>
+                    <td>NT${this.props.order.salepage_price}</td>
                     <td>
-                      【好神】紐西蘭濕式熟成12盎司雪花嫩肩牛排(340g±10%/片*12片)平均每片156.33元
+                      <div className="">
+                      <span className="fs-14">請輸入數量</span>
+                        <input
+                          value={this.state.number}
+                          onChange={this.changeText}
+                          id="order_num"
+                          type="number"
+                          className="form-control text-center"
+                          placeholder="1"
+                        />
+                      </div>
                     </td>
-                    <td>NT$999</td>
-                    <td>2</td>
-                    <td>NT$2000</td>
+                    <td>{this.props.order.salepage_price}</td>
                     <td>刪除</td>
                   </tr>
                 </tbody>
@@ -95,8 +129,8 @@ class FoodOrder01 extends React.Component {
           <Row>
             <Col style={{ width: "100%" }}>
               <div className="forder01-total">
-                <p>共(2)項商品</p>
-                <p>金額總計NT$ 2,000</p>
+                <p >共{this.state.order_num}項商品</p>
+                <p value={this.state.total}>金額總NT$ </p>
               </div>
               <p className="fs-12">
                 備註：食材皆可於指定日期與時間送往指定地點
@@ -166,13 +200,21 @@ class FoodOrder01 extends React.Component {
             <Col>
               {/* justify-content-between */}
               <ButtonToolbar className="justify-content-end">
-                <Button className="bg-food-default forder-btn mr-2 " style={{ width: "30%" }} sm={"block"} >
+                <Button
+                  className="bg-food-default forder-btn mr-2 "
+                  style={{ width: "30%" }}
+                  sm={"block"}
+                >
                   返回食材列表
                 </Button>
-                <Button className="bg-sunshine food-default forder-btn" style={{ width: "30%" }} sm={"block"} >
+                <Button
+                  className="bg-sunshine food-default forder-btn"
+                  style={{ width: "30%" }}
+                  sm={"block"}
+                >
                   下一步，填寫資訊
                 </Button>
-                </ButtonToolbar>
+              </ButtonToolbar>
             </Col>
             {/* <Col >
               <ButtonToolbar className="justify-content-between">

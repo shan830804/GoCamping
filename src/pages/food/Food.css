@@ -143,10 +143,14 @@ aside {
 .btn-add {
   margin: 15px -40px 0 0;
 }
+.btn-addcol{
+  padding:0;
+}
 .btn-addheart {
   background-color: #cccccc;
   border: 1px solid transparent;
   color: #ffffff;
+  width: 90%;
 }
 .btn-addheart:hover {
   background-color: #fd7156;
@@ -157,6 +161,9 @@ aside {
   background-color: #fd7156;
   border: 1px solid transparent;
   color: #ffffff;
+}
+.btn-order{
+  width: 90%;;
 }
 .btn-grass:active {
   background-color: #027252;

@@ -6,9 +6,8 @@ import {
   Row,
   Col,
   Carousel,
-  InputGroup,
   Button,
-  FormControl,
+  Form,
   ButtonToolbar,
   Accordion,
   Card
@@ -26,13 +25,13 @@ class FoodDetailsTop extends React.Component {
       direction: null,
       title: "買食材",
       //props.data父層命名的名字
-      salepageData: props.data,
-    };    
+      salepageData: props.data
+    };
   }
 
   // https://stackoverflow.com/questions/37058533/passing-updated-state-as-props
-  componentWillReceiveProps(nextProps){
-      this.setState({salepageData: nextProps.data});      
+  componentWillReceiveProps(nextProps) {
+    this.setState({ salepageData: nextProps.data });
   }
 
   // 網頁標題
@@ -49,13 +48,15 @@ class FoodDetailsTop extends React.Component {
 
   render() {
     const { index, direction } = this.state;
-
-    return (
+   
+    return ( 
+      
       <>
+        
         {/* Food Top開始 */}
         <Row className="d-flex">
           {/* Food Left開始  */}
-          <Col xs={6}>
+          <Col xs={12} md={6}>
             <Carousel
               activeIndex={index}
               direction={direction}
@@ -65,7 +66,7 @@ class FoodDetailsTop extends React.Component {
                 <Image
                   style={{ width: "100%", height: "100%" }}
                   className="d-block w-100"
-                  src="http://diz36nn4q02zr.cloudfront.net/webapi/imagesV3/Original/SalePage/5313015/0/084456?v=1?text=First slide&bg=373940"
+                  src={this.state.salepageData.salepage_image}
                   alt="First slide"
                 />
               </Carousel.Item>
@@ -73,7 +74,7 @@ class FoodDetailsTop extends React.Component {
                 <Image
                   style={{ width: "100%", height: "100%" }}
                   className="d-block w-100"
-                  src="http://diz36nn4q02zr.cloudfront.net/webapi/imagesV3/Original/SalePage/5313015/1/084456?v=1?text=Second slide&bg=282c34"
+                  src={this.state.salepageData.salepage_image2}
                   alt="Third slide"
                 />
               </Carousel.Item>
@@ -81,7 +82,7 @@ class FoodDetailsTop extends React.Component {
                 <Image
                   style={{ width: "100%", height: "100%" }}
                   className="d-block w-100"
-                  src="http://diz36nn4q02zr.cloudfront.net/webapi/imagesV3/Original/SalePage/5312987/0/084544?v=1?text=Third slide&bg=20232a"
+                  src={this.state.salepageData.salepage_image3}
                   alt="Third slide"
                 />
               </Carousel.Item>
@@ -92,7 +93,7 @@ class FoodDetailsTop extends React.Component {
                 <Image
                   variant="top"
                   className="mt-1"
-                  src="http://diz36nn4q02zr.cloudfront.net/webapi/imagesV3/Original/SalePage/5313015/0/084456?v=1"
+                  src={this.state.salepageData.salepage_image}
                   style={{ width: "100%", height: "100%" }}
                   rounded
                 />
@@ -101,7 +102,7 @@ class FoodDetailsTop extends React.Component {
                 <Image
                   variant="top"
                   className="mt-1"
-                  src="http://diz36nn4q02zr.cloudfront.net/webapi/imagesV3/Original/SalePage/5313015/0/084456?v=1"
+                  src={this.state.salepageData.salepage_image2}
                   style={{ width: "100%", height: "100%" }}
                   rounded
                 />
@@ -110,7 +111,7 @@ class FoodDetailsTop extends React.Component {
                 <Image
                   variant="top"
                   className="mt-1"
-                  src="http://diz36nn4q02zr.cloudfront.net/webapi/imagesV3/Original/SalePage/5313015/0/084456?v=1"
+                  src={this.state.salepageData.salepage_image3}
                   style={{ width: "100%", height: "100%" }}
                   rounded
                 />
@@ -136,36 +137,60 @@ class FoodDetailsTop extends React.Component {
           {/* Food Left結束 */}
 
           {/* TopRight */}
-          <Col xs={6}>
-            <h4 className="fs-24">
+          <Col xs={12} md={6}>
+            <h4 className="fs-24 mt-2">
               {this.state.salepageData.salepage_name}
             </h4>
-            <p className="fs-16 su-price">{this.state.salepageData.salepage_suggestprice}</p>
-            <p className="fs-24 forest price">NT$ {this.state.salepageData.salepage_price}</p>
+            <p className="fs-16 su-price">
+              {this.state.salepageData.salepage_suggestprice}
+            </p>
+            <p className="fs-24 forest price">
+              NT$ {this.state.salepageData.salepage_price}
+            </p>
             {/* 選擇數量 */}
-            <p className="fs-16">數量</p>
-            <InputGroup size="sm" className="mb-3 col-6 group-number">
+            <Form>
+              <Form.Group controlId="exampleForm.ControlSelect1">
+                <Form.Label>數量</Form.Label>
+                <Form.Control as="select">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                  <option>7</option>
+                  <option>8</option>
+                  <option>9</option>
+                  <option>10</option>
+                </Form.Control>
+              </Form.Group>
+            </Form>
+            {/* <InputGroup size="sm" className="mb-3 col-6 group-number">
               <InputGroup.Prepend>
                 <Button variant="" className="btn-number">
                   <span className="fs-20">–</span>
                 </Button>
               </InputGroup.Prepend>
-              <FormControl aria-describedby="" className="btn-number" />
+              <FormControl aria-describedby="1" className="btn-number" />
               <InputGroup.Append>
                 <Button variant="" className="btn-number">
                   <span className="fs-20">+</span>
                 </Button>
               </InputGroup.Append>
-            </InputGroup>
+            </InputGroup> */}
             {/* 加入收藏&放購物車 */}
-            <ButtonToolbar className="btn-add btn-add  ">
-              <Button className="col-md-5 btn-addheart" href="#">
-                {" "}
-                <FaHeart /> 加入收藏
-              </Button>
-              <Button className="col-md-5 ml-2 btn-grass" href="#">
-                放入購物車
-              </Button>
+            <ButtonToolbar className="btn-add ">
+              <Col className="btn-addcol">
+                <Button className="btn-addheart" href="#">
+                  {" "}
+                  <FaHeart /> 加入收藏
+                </Button>
+              </Col>
+              <Col className="btn-addcol">
+                <Button className="btn-grass btn-order" href={"/Food/FoodDetails/FoodOrderP1/" + this.state.salepageData.id} >
+                  立即預定
+                </Button>
+              </Col>
             </ButtonToolbar>
             {/* 付款及運送方式 */}
             <Accordion className="mt-4">

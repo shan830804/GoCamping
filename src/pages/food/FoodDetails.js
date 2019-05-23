@@ -10,7 +10,7 @@ import FoodDetailsMd from "../../components/FoodDetailsMd";
 import FoodDetailsBt from "../../components/FoodDetailsBt";
 
 class FoodDetails extends React.Component {
-    // TODO: 接收傳進來的該筆會員資料(ex const {match} = this.props)
+    // TODO: 接收傳進來的該筆資料(ex const {match} = this.props)
     constructor(props) {
         super(props)
         this.state = {
@@ -34,9 +34,10 @@ class FoodDetails extends React.Component {
     }
 //宣染開始
     render() {
+      // console.log(this.state.salepage_id)
       return (
-        <>
-          <h1>食材詳細頁面</h1>          
+        <>         
+        {/* {this.state.salepageData.salepage_name} */}
           <Container className="FoodDetails">
           <Row className="container">
             <Col>
