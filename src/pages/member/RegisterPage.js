@@ -32,9 +32,9 @@ class RegisterPage extends React.Component {
         }
     }
 
-    onSubmitClick = () => {
-        localStorage.setItem("account", this.state.mem_account);
-        localStorage.setItem("password", this.state.mem_password);
+    onSubmitClick = async() => {
+        await localStorage.setItem("account", this.state.mem_account);
+        await localStorage.setItem("password", this.state.mem_password);
     }
 
     onRegisterPageSubmit = (event) => {

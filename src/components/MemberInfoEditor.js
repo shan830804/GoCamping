@@ -18,7 +18,7 @@ class MemberInfoEditor extends React.Component {
             address: props.data[0].mem_address,
         }
     }
-    
+
     onInputChange = (event) => {
         switch (event.target.name) {
             case 'email':
@@ -58,22 +58,22 @@ class MemberInfoEditor extends React.Component {
     onInfoEditorSubmit = (event) => {
         event.preventDefault();
 
-        fetch('http://localhost:5555/members/'+this.state.id, {
+        fetch('http://localhost:5555/members/' + this.state.id, {
             method: 'PUT',
             headers: new Headers({
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
             }),
-            body: JSON.stringify({ 
-                "mem_account": this.state.account, 
-                "mem_password": this.state.password, 
-                "mem_avatar": this.state.memberData.mem_avatar, 
+            body: JSON.stringify({
+                "mem_account": this.state.account,
+                "mem_password": this.state.password,
+                "mem_avatar": this.state.memberData.mem_avatar,
                 "mem_name": this.state.name,
                 "mem_nickname": this.state.nickname,
                 "mem_gender": this.state.gender,
                 "mem_birthday": this.state.birthday,
                 "mem_mobile": this.state.mobile,
-                "mem_email": this.state.email, 
+                "mem_email": this.state.email,
                 "mem_address": this.state.address,
                 "memLevel_id": this.state.memberData.memLevel_id,
                 "mem_status": this.state.memberData.mem_status,
@@ -88,8 +88,11 @@ class MemberInfoEditor extends React.Component {
             // console.log(props.data[0].mem_account) // 使用方法，props.data是一個陣列，陣列中有一個會員資料的物件(Object)
             <main className="col-sm-10 my-2">
                 <form onSubmit={this.onInfoEditorSubmit}>
-                    <p className="fw-bold fs-20 grass">編輯個人資料</p>
-
+                    <p>
+                        <span className="fw-bold fs-20 grass">編輯個人資料&nbsp;</span>
+                        
+                        <span className="fs-14 watermelon">*為必填欄位</span>
+                    </p>
                     <p className="fw-bold fs-18">　帳號資訊</p>
                     {/* 帳號名稱 */}
                     <div className="form-group row">
@@ -129,7 +132,8 @@ class MemberInfoEditor extends React.Component {
                         <div className="col-sm-9 d-flex align-items-start">
                             <input type="hidden" id="avatar_pictures" name="avatar_pictures" className="form-control" />
                             <figure className="avatar m-0">
-                                <Image src="../../images/toothless.jpg" />
+                                {/* <Image src="../../images/toothless.jpg" /> */}
+                                <Image src={"../../" + this.state.memberData.mem_avatar} />
                             </figure>
                             <div className="mx-2">
                                 <Button className="btn btn-outline-grass">

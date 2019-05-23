@@ -52,19 +52,19 @@ class LoginPage extends React.Component {
     }
 
     // 按下登入按鈕的EventListener
-    onSubmitClick = (event) => {
+    onSubmitClick = async(event) => {
         // 將存在state裡已經輸入的帳號密碼儲存在localStorage裡
-        localStorage.setItem("account", this.state.account);
-        localStorage.setItem("password", this.state.password);
+        await localStorage.setItem("account", this.state.account);
+        await localStorage.setItem("password", this.state.password);
     }
 
     // 送出登入表單的EventListener
-    onLoginPageSubmit = (event) => {
-        event.preventDefault(); // 避免標籤元素預設的行為或功能(ex <input type="submit">就會送出，可是可能其他input有誤所以要alert)
+    onLoginPageSubmit = async(event) => {
+        await event.preventDefault(); // 避免標籤元素預設的行為或功能(ex <input type="submit">就會送出，可是可能其他input有誤所以要alert)
         
         // 將儲存的localStorage帳號密碼拿出來
-        const localStorageAccount = localStorage.getItem("account");
-        const localStoragePassword = localStorage.getItem("password");
+        const localStorageAccount = await localStorage.getItem("account");
+        const localStoragePassword = await localStorage.getItem("password");
         
         // 如果存在localStorage的帳號密碼和memberDate其中一筆會員資料相同，讓state中的memberexist是true
         const findMemberAccount = this.state.memberData.find((data) => data.mem_account === localStorageAccount);
@@ -74,9 +74,9 @@ class LoginPage extends React.Component {
         if(findMemberAccount && findMemberPassword){
             let pickMember = this.state.memberData.filter((data) => data.mem_account === localStorageAccount);
             // console.log(pickMember) // 過濾掉不需要用掉的其他會員資料
-            this.setState({ memberData: pickMember, memberexist: true }); // renderMemberCenter()
+            await this.setState({ memberData: pickMember, memberexist: true }); // renderMemberCenter()
         } else {
-            this.setState({ errorAccountPassword: '帳號或密碼錯誤!' })
+            await this.setState({ errorAccountPassword: '帳號或密碼錯誤!' })
             // TODO: 顯示錯誤訊息(帳號或密碼錯誤)(查無此帳號，前往註冊頁?)
         }
     }

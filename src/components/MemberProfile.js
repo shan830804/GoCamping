@@ -7,9 +7,10 @@ class MemberProfile extends React.Component {
         super(props)
         this.state = {
             data: props.data[0],
-            badgeInnerHTML: '',
         }
     }
+
+    // TODO: 判斷會員等級，更改會員徽章
 
     render() {
         return (
@@ -19,7 +20,8 @@ class MemberProfile extends React.Component {
                     <div className="col-sm-2 d-flex align-items-center">
                         {/* 大頭貼 */}
                         <figure className="avatar m-0">
-                            <Image src="../../images/toothless.jpg" />
+                            {/* <Image src="../../images/toothless.jpg" /> */}
+                            <Image src={"../../"+this.state.data.mem_avatar} />
                         </figure>
                     </div>
                     <div className="col-sm-10 d-flex justify-content-between pl-0">
