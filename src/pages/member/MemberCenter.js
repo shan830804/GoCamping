@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // 各種切割頁面
 import Bread from '../../components/MemberBread';
 import Profile from '../../components/MemberProfile';
@@ -30,7 +30,7 @@ class MemberCenter extends React.Component {
                         <div className="row">
                             <Aside />
                             <Route exact path="/Member" component={Notification} />
-                            <Route exact path="/Member/MyInfoEditor" render={(props)=><InfoEditor {...props} data={this.state.memberData} />} />
+                            <Route exact path="/Member/MyInfoEditor" render={(props) => (<InfoEditor data={this.state.memberData} {...props} />)} />
                             <Route exact path="/Member/MyOrderManager" component={CampingOrder} />
                             <Route exact path="/Member/MyCampingOrder" component={CampingOrder} />
                             <Route exact path="/Member/MyFoodOrder" component={FoodOrder} />

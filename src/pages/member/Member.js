@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // 前往頁面
 import LoginPage from './LoginPage';
 import MemberCenter from './MemberCenter';
@@ -46,8 +46,8 @@ class Member extends React.Component {
             // console.log(jsonObject) // 會員清單全部抓出來
             await this.setState({ memberData: jsonObject })
 
-            const localStorageAccount = localStorage.getItem("account");
-            const localStoragePassword = localStorage.getItem("password");
+            const localStorageAccount = await localStorage.getItem("account");
+            const localStoragePassword = await localStorage.getItem("password");
             const findMemberAccount = await this.state.memberData.find((data) => data.mem_account === localStorageAccount);
             const findMemberPassword = await this.state.memberData.find((data) => data.mem_password === localStoragePassword);
 

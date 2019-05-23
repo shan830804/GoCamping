@@ -1,12 +1,11 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link, Switch, Redirect } from 'react-router-dom'
 
 class RegisterPage extends React.Component {
     constructor() {
         super()
         this.state = {
             submitted: false,
-            submitData: {},
             mem_account: '',
             mem_email: '',
             mem_password: '',
@@ -26,17 +25,22 @@ class RegisterPage extends React.Component {
                 this.setState({ mem_password: target.value })
                 break;
             case 'email':
-                this.setState({ mem_email: target.value }); // 讓State對應的key放入input的name和值(ex account: test)
+                this.setState({ mem_email: target.value })
                 break;
             default:
                 console.log(`Accept Unhandleable Type[${target.type}]`);
         }
     }
 
+    onSubmitClick = () => {
+        localStorage.setItem("account", this.state.mem_account);
+        localStorage.setItem("password", this.state.mem_password);
+    }
+
     onRegisterPageSubmit = (event) => {
         event.preventDefault(); // 避免標籤元素預設的行為或功能(ex <input type="submit">就會送出，可是可能其他input有誤所以要alert)
-        
-        this.setState({ submitted: true }); // renderMemberCenter()
+
+        const jsonID = new Date().getTime(); // 因為json-server如果想要post東西出去，必須要有一個id值
 
         fetch('http://localhost:5555/members', {
             method: 'POST',
@@ -44,13 +48,13 @@ class RegisterPage extends React.Component {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
             }),
-            body: JSON.stringify({ "id": 345, "mem_account": this.state.mem_account, "mem_password": this.state.mem_password, "mem_email": this.state.mem_email })
-            // body: JSON.stringify({ "members": this.state.submitData })
-            })
+            body: JSON.stringify({ "id": jsonID, "mem_account": this.state.mem_account, "mem_password": this.state.mem_password, "mem_email": this.state.mem_email })
+        })
         
+        this.setState({ submitted: true }); // renderMemberCenter()
     }
 
-    render() {
+    renderRegisterForm = () => {
         return (
             <div className="container-fluid login_cover d-flex align-items-center justify-content-center">
                 <main className="">
@@ -80,7 +84,7 @@ class RegisterPage extends React.Component {
                                     <small>點擊加入會員即代表您已閱讀並同意GO CAMPING的<span className="ground">會員服務條款</span>與<span className="ground">隱私權政策</span></small>
                                 </div>
                                 <div className="row">
-                                    <button type="submit" className="btn btn-grass col-12 fs-20 mb-3">加入會員</button>
+                                    <button type="submit" className="btn btn-grass col-12 fs-20 mb-3" onClick={this.onSubmitClick} href="/Member">加入會員</button>
                                 </div>
                                 <p className="text-center mb-3">
                                     已經有帳號了?&nbsp;
@@ -90,6 +94,24 @@ class RegisterPage extends React.Component {
                         </div>
                     </div>
                 </main>
+            </div>
+        )
+    }
+
+    renderMemberCenter = () => {
+        return (
+            // <div>轉向MemberCenter</div>
+            // <Redirect to="/Member" />
+            <Redirect to={{
+                pathname: '/Member'
+            }} />
+        )
+    }
+
+    render() {
+        return (
+            <div>
+                {this.state.submitted ? (this.renderMemberCenter()) : (this.renderRegisterForm())}
             </div>
         )
     }
