@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@pismo/react-currency-input": "^2.0.2",
     "bootstrap": "^4.3.1",
     "flow-bin": "^0.98.1",
     "react": "^16.8.6",

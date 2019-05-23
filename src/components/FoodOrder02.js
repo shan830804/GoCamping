@@ -11,6 +11,13 @@ class FoodOrder02 extends React.Component {
     };
   }
 
+  goP1 = () => {
+      this.props.goP1();
+  }
+  goP3 = () => {
+    this.props.goP3();
+  }
+
   // 網頁標題
   componentDidMount() {
     document.title = this.state.title;
@@ -39,9 +46,64 @@ class FoodOrder02 extends React.Component {
           </Row>
         </Container>
         <Container className="mt-1">
+          <Row className="mt-5 ml-5">
+            <Col>
+            <div className="row form-group">
+                <label className="fs-16" htmlFor="">收件人姓名：</label>
+                <input type="text" className="form-control col-7 bg-white" id="applyList_idn"  placeholder="" name="applyList_idn" />
+            </div>
+            <div className="row form-group">
+                <label className="fs-16" htmlFor="">收件人手機：</label>
+                <input type="text" className="form-control col-7 bg-white" id="applyList_idn"  placeholder="" name="applyList_idn" />
+            </div>
+            <div className="row form-group">
+                <label className="fs-16" htmlFor="">收件人信箱：</label>
+                <input type="text" className="form-control col-7 bg-white" id="applyList_idn"  placeholder="" name="applyList_idn" />
+            </div>
+            <div className="row form-group">
+                <label className="fs-16" htmlFor="">收件人地址：</label>
+                <input type="text" className="form-control col-7 bg-white" id="applyList_idn"  placeholder="" name="applyList_idn" />
+            </div>
+            <div className="row form-group">
+                <label className="fs-16" htmlFor="">配送日期：</label>
+                <input type="text" className="form-control col-7 bg-white" id="applyList_idn"  placeholder="" name="applyList_idn" />
+            </div>
+            </Col>
+          </Row>
+        </Container>
+        <Container className="mt-1">
           <Row className="mt-5">
             <Col>
               <div className="ground fs-24">選擇付款方式</div>
+            </Col>
+          </Row>
+        </Container>
+        <Container className="mt-1">
+          <Row className="mt-5">
+            <Col>
+            <div className="border mar-center p-5 ml-5" style={{maxWidth: '960px'}}>
+                    <div className="form-check">
+                        <input className="form-check-input" type="radio" name="apply_payment" id="apply_payment2"
+                            value="2" defaultChecked/>
+                        <label className="form-check-label" htmlFor="exampleRadios2">
+                            ATM 轉帳
+                        </label>
+                    </div>
+                    <div className="form-check">
+                        <input className="form-check-input" type="radio" name="apply_payment" id="apply_payment3"
+                            value="3"/>
+                        <label className="form-check-label" htmlFor="exampleRadios3">
+                            ibon 付款
+                        </label>
+                    </div>
+                    <div className="form-check">
+                        <input className="form-check-input" type="radio" name="apply_payment" id="apply_payment"
+                            value="0"/>
+                        <label className="form-check-label" htmlFor="exampleRadios1">
+                            信用卡付款(可接受VISA, Master, JCB, 聯合信用卡)
+                        </label>
+                    </div>
+                </div>
             </Col>
           </Row>
         </Container>
@@ -56,15 +118,17 @@ class FoodOrder02 extends React.Component {
                   className="bg-food-default forder-btn mr-2 "
                   style={{ width: "30%" }}
                   sm={"block"}
+                  onClick={this.goP1}
                 >
-                  返回食材列表
+                  上一步
                 </Button>
                 <Button
                   className="bg-sunshine food-default forder-btn"
                   style={{ width: "30%" }}
                   sm={"block"}
+                  onClick={this.goP3}
                 >
-                  下一步，填寫資訊
+                  下一步，前往結帳
                 </Button>
               </ButtonToolbar>
             </Col>

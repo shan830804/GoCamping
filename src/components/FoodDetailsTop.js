@@ -187,7 +187,8 @@ class FoodDetailsTop extends React.Component {
                 </Button>
               </Col>
               <Col className="btn-addcol">
-                <Button className="btn-grass btn-order" href={"/Food/FoodDetails/FoodOrderP1/" + this.state.salepageData.id} >
+                <Button className="btn-grass btn-order" 
+                        href={"/Food/FoodDetails/FoodOrderP1/" + this.state.salepageData.id} >
                   立即預定
                 </Button>
               </Col>

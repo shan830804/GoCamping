@@ -1,4 +1,7 @@
 import React from "react";
+// 貨幣格式
+// yarn add @pismo/react-currency-input
+// import CurrencyInput from '@pismo/react-currency-input'
 // import { BrowserRouter as NavLink } from "react-router-dom";
 // import { FaHome } from 'react-icons/fa';
 import {
@@ -18,15 +21,21 @@ class FoodOrder01 extends React.Component {
     super(props);
     this.state = {
       title: "買食材-訂購明細",
-      order_num:"",
-      price: 0,
-      total: 0,
+      order_num: 1,
+      price: props.order.salepage_price,
+      total: "",
       salepageData: props.order
     };
+    this.changeNum = this.changeNum.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({ salepageData: nextProps.data });
+    this.setState(
+      {
+         salepageData: nextProps.data,
+         price: nextProps.order.salepage_price, 
+      }
+      );
   }
 
   // 網頁標題
@@ -41,11 +50,22 @@ class FoodOrder01 extends React.Component {
     });
   }
 
-  changeText(event){
+  handleChange = (event, value, maskedValue) => {
+    this.setState({ total: value })
+  }
+
+  changeNum(event){
     this.setState({
       order_num: event.target.value,
       total: event.target.value * this.state.price
     })
+
+    // console.log(event.target.value)
+    // console.log(this.state.price)
+  }
+  //到上一頁跟下一頁
+  goP2 = () => {
+      this.props.goP2();
   }
 
   render() {
@@ -77,22 +97,16 @@ class FoodOrder01 extends React.Component {
               <Table bordered>
                 <thead>
                   <tr className="text-center">
-                    <th style={{ width: "10%" }}> </th>
                     <th style={{ width: "20%" }}>商品圖片</th>
                     <th style={{ width: "30%" }}>商品名稱</th>
                     <th style={{ width: "10%" }}>單價</th>
-                    <th style={{ width: "10%" }}>數量</th>
-                    <th style={{ width: "10%" }}>單價</th>
+                    <th style={{ width: "10%" }}>數量</th>                    
                     <th style={{ width: "10%" }}>操作</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr className="text-center justify-content-center">
-                    <td>
-                      <Form.Group controlId="formBasicChecbox">
-                        <Form.Check type="checkbox" label="" />
-                      </Form.Group>
-                    </td>
+                    
                     <td>
                       {" "}
                       <Image
@@ -105,18 +119,17 @@ class FoodOrder01 extends React.Component {
                     <td>NT${this.props.order.salepage_price}</td>
                     <td>
                       <div className="">
-                      <span className="fs-14">請輸入數量</span>
+                      <span className="fs-14"></span>
                         <input
-                          value={this.state.number}
-                          onChange={this.changeText}
+                          value={this.state.order_num}
+                          onChange={this.changeNum}
                           id="order_num"
                           type="number"
                           className="form-control text-center"
-                          placeholder="1"
+                          // placeholder="1"
                         />
                       </div>
-                    </td>
-                    <td>{this.props.order.salepage_price}</td>
+                    </td>                    
                     <td>刪除</td>
                   </tr>
                 </tbody>
@@ -129,8 +142,8 @@ class FoodOrder01 extends React.Component {
           <Row>
             <Col style={{ width: "100%" }}>
               <div className="forder01-total">
-                <p >共{this.state.order_num}項商品</p>
-                <p value={this.state.total}>金額總NT$ </p>
+                <p >共 {this.state.order_num} 項商品</p>
+                <p >總金額 NT$ {this.state.total} </p>                
               </div>
               <p className="fs-12">
                 備註：食材皆可於指定日期與時間送往指定地點
@@ -204,6 +217,7 @@ class FoodOrder01 extends React.Component {
                   className="bg-food-default forder-btn mr-2 "
                   style={{ width: "30%" }}
                   sm={"block"}
+                  href={"/Food/FoodDetails/" + this.props.order.id}
                 >
                   返回食材列表
                 </Button>
@@ -211,6 +225,7 @@ class FoodOrder01 extends React.Component {
                   className="bg-sunshine food-default forder-btn"
                   style={{ width: "30%" }}
                   sm={"block"}
+                  onClick = {this.goP2}
                 >
                   下一步，填寫資訊
                 </Button>

@@ -14,7 +14,7 @@ class FoodDetails extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-          //props.match.params.id抓Router的ID
+            //props.match.params.id抓Router的ID
             salepage_id: props.match.params.id,
             //這裡還要用fetch拿到的是物件,所以預設就是{},不是[]
             salepageData: {},
