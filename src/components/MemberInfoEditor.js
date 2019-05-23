@@ -5,11 +5,13 @@ class MemberInfoEditor extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+            submitted: false,
             memberData: props.data[0],
             id: props.data[0].id,
             account: props.data[0].mem_account,
             email: props.data[0].mem_email,
             password: props.data[0].mem_password,
+            password_check: '',
             name: props.data[0].mem_name,
             nickname: props.data[0].mem_nickname,
             gender: props.data[0].mem_gender,
@@ -27,6 +29,9 @@ class MemberInfoEditor extends React.Component {
                 break;
             case 'password':
                 this.setState({ password: event.target.value })
+                break;
+            case 'password_check':
+                this.setState({ password_check: event.target.value })
                 break;
             case 'name':
                 this.setState({ name: event.target.value })
@@ -57,6 +62,10 @@ class MemberInfoEditor extends React.Component {
 
     onInfoEditorSubmit = (event) => {
         event.preventDefault();
+
+        if (this.state.password_check !== this.state.password) {
+            alert('與上列密碼不符');
+        }
 
         fetch('http://localhost:5555/members/' + this.state.id, {
             method: 'PUT',
@@ -90,7 +99,6 @@ class MemberInfoEditor extends React.Component {
                 <form onSubmit={this.onInfoEditorSubmit}>
                     <p>
                         <span className="fw-bold fs-20 grass">編輯個人資料&nbsp;</span>
-                        
                         <span className="fs-14 watermelon">*為必填欄位</span>
                     </p>
                     <p className="fw-bold fs-18">　帳號資訊</p>

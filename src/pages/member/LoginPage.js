@@ -60,7 +60,7 @@ class LoginPage extends React.Component {
 
     // 送出登入表單的EventListener
     onLoginPageSubmit = async(event) => {
-        await event.preventDefault(); // 避免標籤元素預設的行為或功能(ex <input type="submit">就會送出，可是可能其他input有誤所以要alert)
+        event.preventDefault(); // 避免標籤元素預設的行為或功能(ex <input type="submit">就會送出，可是可能其他input有誤所以要alert)
         
         // 將儲存的localStorage帳號密碼拿出來
         const localStorageAccount = await localStorage.getItem("account");

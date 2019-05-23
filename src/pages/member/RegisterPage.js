@@ -51,7 +51,6 @@ class RegisterPage extends React.Component {
             body: JSON.stringify({ "id": jsonID, "mem_account": this.state.mem_account, "mem_password": this.state.mem_password, "mem_email": this.state.mem_email })
         })
         
-        this.setState({ submitted: true }); // renderMemberCenter()
     }
 
     renderRegisterForm = () => {
