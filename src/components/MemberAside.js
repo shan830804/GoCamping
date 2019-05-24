@@ -54,25 +54,25 @@ const MemberAside = props => (
                 <div className="level_badge bg-forest mr-1 d-flex align-items-center justify-content-center">
                     <i className="fas fa-pen-nib"></i>
                 </div>
-                <NavLink className="mem_aside p-0" to="/Member/MyArticleManager">
+                <NavLink className="mem_aside p-0" to="/Member/MyPostManager">
                     <span className="fs-18 fw-bold">文章管理</span>
                 </NavLink>
             </li>
             <li className="d-flex my-2">
                 <div className="box mr-1"></div>
-                <NavLink className="mem_aside p-0" to="/Member/MyNewArticle">
+                <NavLink className="mem_aside p-0" to="/Member/MyPostEditor">
                     <span className="fw-light">新增文章</span>
                 </NavLink>
             </li>
             <li className="d-flex my-2">
                 <div className="box mr-1"></div>
-                <NavLink className="mem_aside p-0" to="/Member/MyListArticle">
+                <NavLink className="mem_aside p-0" to="/Member/MyPostList">
                     <span className="fw-light">文章列表</span>
                 </NavLink>
             </li>
             <li className="d-flex my-2">
                 <div className="box mr-1"></div>
-                <NavLink className="mem_aside p-0" to="/Member/MyFavoriteArticle">
+                <NavLink className="mem_aside p-0" to="/Member/MyFavoritePost">
                     <span className="fw-light">收藏文章</span>
                 </NavLink>
             </li>
