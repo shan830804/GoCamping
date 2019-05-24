@@ -25,6 +25,8 @@ class FoodOrderP1 extends React.Component {
     this.goP3 = this.goP3.bind(this);
   }
 
+  
+
   // 在父層宣告 Method 可供下面的子層傳入, 讓子層可以呼叫到父層的 Method 
   goP1() {
     this.setState({

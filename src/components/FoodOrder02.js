@@ -7,10 +7,23 @@ class FoodOrder02 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: "買食材-訂購明細"
+      title: "買食材-訂購明細",
+      //新增用的預設值
+      id: new Date().toDateString(),
+      saleorder_id: "",
+      saleorder_memname: "",
+      saleorder_memtel: "",
+      saleorder_memmail: "",
+      saleorder_memtaddress: "",
+      saleorder_foodname: "",
+      saleorder_number: "",
+      saleorder_total: "",
+      saleorder_payment: "",
+      saleorder_paycode: "",
+      saleorder_paydate: ""
     };
   }
-
+//上一頁下一頁
   goP1 = () => {
       this.props.goP1();
   }
@@ -23,6 +36,14 @@ class FoodOrder02 extends React.Component {
     document.title = this.state.title;
   }
 
+//編輯訂單資料
+AddOrder(event){
+  this.SetState({
+    saleorder_memname: "",
+    saleorder_memntel: "",
+    saleorder_memmail: "",
+  })
+}
   render() {
     const { index, direction } = this.state;
     // console.log(this.props.order.salepage_name)
@@ -39,47 +60,49 @@ class FoodOrder02 extends React.Component {
         </Container>
         {/* 訂購清單 */}
         <Container className="mt-1">
-          <Row className="mt-5">
+          <Row className="mt-3">
             <Col>
-              <div className="ground fs-24">收件人資訊</div>
+              <div className="ground fs-24"><span className="watermelon">*</span>收件人資訊</div>
             </Col>
           </Row>
         </Container>
         <Container className="mt-1">
-          <Row className="mt-5 ml-5">
+          <Row className="mt-3">
+            <div className=" row form-group col-md-8">
+                <label className="fs-16 col-md-3 col-sm-12" htmlFor="">訂單編號：</label>
+                <input value={this.state.id} type="text" className="form-control col-md-7 col-sm-12 bg-white" id="applyList_idn"  placeholder="" name="applyList_idn" />
+            </div>
+            <div className="row form-group col-md-8">
+                <label className="fs-16 col-md-3 col-sm-12" htmlFor="">收件人姓名：</label>
+                <input value={this.state.saleorder_memname} type="text" className="form-control col-md-7 col-sm-12 bg-white" id="applyList_idn"  placeholder="" name="applyList_idn" />
+            </div>
+            <div className="row form-group col-md-8">
+                <label className="fs-16 col-md-3 col-sm-12" htmlFor="">收件人手機：</label>
+                <input value={this.state.saleorder_memtel} type="tel" className="form-control col-md-7 col-sm-12 bg-white" pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}" id="applyList_idn"  placeholder="" name="applyList_idn" />
+            </div>
+            <div className="row form-group col-md-8">
+                <label className="fs-16 col-md-3 col-sm-12" htmlFor="">收件人信箱：</label>
+                <input value={this.state.saleorder_memmail} type="email" className="form-control col-md-7 col-sm-12 bg-white" id="applyList_idn"  placeholder="" name="applyList_idn" />
+            </div>
+            <div className="row form-group col-md-8">
+                <label className="fs-16 col-md-3 col-sm-12" htmlFor="">收件人地址：</label>
+                <input value={this.state.saleorder_memtaddress} type="text" className="form-control col-md-7 col-sm-12 bg-white" id="applyList_idn"  placeholder="" name="applyList_idn" />
+            </div>
+            <div className="row form-group col-md-8">
+                <label className="fs-16 col-md-3 col-sm-12" htmlFor="">配送日期：</label>
+                <input value={this.state.saleorder_paydate} type="date" className="form-control col-md-7 col-sm-12 bg-white" id="applyList_idn"  placeholder="" name="applyList_idn" />
+            </div>
+          </Row>
+        </Container>
+        <Container className="mt-1">
+          <Row className="mt-3">
             <Col>
-            <div className="row form-group">
-                <label className="fs-16" htmlFor="">收件人姓名：</label>
-                <input type="text" className="form-control col-7 bg-white" id="applyList_idn"  placeholder="" name="applyList_idn" />
-            </div>
-            <div className="row form-group">
-                <label className="fs-16" htmlFor="">收件人手機：</label>
-                <input type="text" className="form-control col-7 bg-white" id="applyList_idn"  placeholder="" name="applyList_idn" />
-            </div>
-            <div className="row form-group">
-                <label className="fs-16" htmlFor="">收件人信箱：</label>
-                <input type="text" className="form-control col-7 bg-white" id="applyList_idn"  placeholder="" name="applyList_idn" />
-            </div>
-            <div className="row form-group">
-                <label className="fs-16" htmlFor="">收件人地址：</label>
-                <input type="text" className="form-control col-7 bg-white" id="applyList_idn"  placeholder="" name="applyList_idn" />
-            </div>
-            <div className="row form-group">
-                <label className="fs-16" htmlFor="">配送日期：</label>
-                <input type="text" className="form-control col-7 bg-white" id="applyList_idn"  placeholder="" name="applyList_idn" />
-            </div>
+              <div className="ground fs-24"><span className="watermelon">*</span>選擇付款方式</div>
             </Col>
           </Row>
         </Container>
         <Container className="mt-1">
-          <Row className="mt-5">
-            <Col>
-              <div className="ground fs-24">選擇付款方式</div>
-            </Col>
-          </Row>
-        </Container>
-        <Container className="mt-1">
-          <Row className="mt-5">
+          <Row className="mt-3">
             <Col>
             <div className="border mar-center p-5 ml-5" style={{maxWidth: '960px'}}>
                     <div className="form-check">
@@ -110,7 +133,7 @@ class FoodOrder02 extends React.Component {
 
         {/* 送出或返回button */}
         <Container className="forder01-btncon">
-          <Row>
+          <Row className="mt-2">
             <Col>
               {/* justify-content-between */}
               <ButtonToolbar className="justify-content-end">

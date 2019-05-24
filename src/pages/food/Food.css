@@ -237,4 +237,9 @@ aside {
 .forder-btn{
   border:none;
 }
+/* FoodOOrder02開始 */
+.forder02-dn{
+  display: none;
+}
+/* FoodOrder02結束 */
 /* FoodOrder結束 */
