@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 // 切割頁面
 import Bread from '../../components/MemberBread';
 import Profile from '../../components/MemberProfile';
@@ -17,14 +17,57 @@ import '../../components/Default.css'
 import './Member.css'
 
 class Member extends React.Component {
-    constructor(props) {
-        super(props)
+    constructor() {
+        super()
         this.state = {
+            logined: false,
+            memberData: [],
         }
     }
 
+    componentWillMount() {
+        const mem_account = localStorage.getItem("mem_account")
 
-    render() {
+        if (mem_account) {
+            this.setState({ logined: true })
+        }
+    }
+
+    async componentDidMount() {
+        try {
+            const response = await fetch('http://localhost:5555/members', {
+                method: 'GET',
+                headers: new Headers({
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                }),
+            })
+
+            if (!response.ok) throw new Error(response.statusText)
+
+            const jsonObject = await response.json()
+            // console.log(jsonObject) // 會員清單全部抓出來
+
+            await this.setState({ memberData: jsonObject })
+
+            const localStorageAccount = await localStorage.getItem("mem_account");
+            const findMemberAccount = this.state.memberData.find((data) => data.mem_account === localStorageAccount);
+            if (findMemberAccount) {
+                let pickMember = this.state.memberData.filter((data) => data.mem_account === localStorageAccount);
+                await this.setState({ memberData: pickMember });
+            }
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
+    renderLoginPage = () => {
+        return (
+            <Redirect to="/Login" />
+        )
+    }
+
+    renderMemberCenter = () => {
         return (
             <Router>
                 <div className="container">
@@ -34,7 +77,7 @@ class Member extends React.Component {
                         <div className="row">
                             <Aside />
                             <Route exact path="/Member" component={Notification} />
-                            <Route exact path="/Member/MyInfoEditor" render={(props) => (<InfoEditor data={this.state.memberData} {...props} />)} />
+                            <Route exact path="/Member/MyInfoEditor" render={(props) => <InfoEditor memberData={this.state.memberData} {...props} />} />
                             <Route exact path="/Member/MyOrderManager" component={CampingOrder} />
                             <Route exact path="/Member/MyCampingOrder" component={CampingOrder} />
                             <Route exact path="/Member/MyFoodOrder" component={FoodOrder} />
@@ -46,6 +89,14 @@ class Member extends React.Component {
                     </section>
                 </div>
             </Router>
+        )
+    }
+
+    render() {
+        return (
+            <>
+                {this.state.logined ? (this.renderMemberCenter()) : (this.renderLoginPage())}
+            </>
         )
     }
 }

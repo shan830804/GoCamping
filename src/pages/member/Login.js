@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link, NavLink } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
 import '../../components/Default.css';
 import './Member.css';
 
@@ -8,7 +8,8 @@ class Login extends React.Component {
         super(props)
         this.state = {
             toggleLogin: props.toggleLogin,
-            catchMemberData: props.catchMemberData,
+            // catchMemberData: props.catchMemberData,
+            logined: false,
             memberData: [],
             account: '',
             password: '',
@@ -66,15 +67,15 @@ class Login extends React.Component {
         // 將儲存的localStorage帳號密碼拿出來
         const localStorageAccount = await localStorage.getItem("account");
         const localStoragePassword = await localStorage.getItem("password");
-        
+
         // 如果存在localStorage的帳號密碼和memberData其中一筆會員資料相同，將memberData換成該筆資料
         const findMemberAccount = this.state.memberData.find((data) => data.mem_account === localStorageAccount);
         const findMemberPassword = this.state.memberData.find((data) => data.mem_password === localStoragePassword);
-        
-        
-        if(findMemberAccount){ // (1) 判斷是不是有此帳號
+
+
+        if (findMemberAccount) { // (1) 判斷是不是有此帳號
             // 有此帳號
-            if(findMemberPassword) { // (2) 判斷是否帳號密碼正確
+            if (findMemberPassword) { // (2) 判斷是否帳號密碼正確
                 // 密碼正確
                 let pickMember = this.state.memberData.filter((data) => data.mem_account === localStorageAccount); // 過濾掉不需要用掉的其他會員資料
                 await this.setState({ memberData: pickMember }); // renderMemberCenter()
@@ -96,21 +97,22 @@ class Login extends React.Component {
 
                 await this.props.toggleLogin() // 讓父元件(App)的登入狀態變true
                 // await this.props.catchMemberData(this.state.memberData[0]) // 讓父元件(App)的loginMemberData變成抓到的該筆會員資料
-                console.log('登入頁抓到會員資料的帳號:' +this.state.memberData[0].mem_account)
+                console.log('登入頁抓到會員資料的帳號:' + this.state.memberData[0].mem_account)
 
-                // TODO: 跳轉到會員中心(或前一頁?)
+                // TODO: 跳轉到前一頁(來源)?
+                await this.setState({ logined: true }) // 目前跳轉到會員中心
             } else {
                 // 密碼錯誤
                 alert('密碼錯誤!')
             }
-            
+
         } else {
             // 無此帳號
             alert('查無此帳號!')
         }
     }
 
-    render() {
+    renderLoginPage = () => {
         return (
             <div className="container-fluid login_cover d-flex align-items-center justify-content-center">
                 <main className="">
@@ -134,13 +136,13 @@ class Login extends React.Component {
                                     </div>
                                     <input type="password" id="password" name="password" className="flex-grow-1 border-0" placeholder="密碼" onChange={this.onInputChange} />
                                 </div>
-                                <div className="d-flex justify-content-between mb-3">
+                                {/* <div className="d-flex justify-content-between mb-3">
                                     <div className="custom-control custom-checkbox">
                                         <input type="checkbox" className="custom-control-input" id="customCheck1" />
                                         <label className="custom-control-label" htmlFor="customCheck1">記住我的帳號</label>
                                     </div>
                                     <Link className="forgetPassword" to="">忘記密碼?</Link>
-                                </div>
+                                </div> */}
                                 <div className="row">
                                     <button type="submit" className="btn btn-grass col-12 fs-20 mb-3" onClick={this.onSubmitClick}>登入</button>
                                 </div>
@@ -157,6 +159,21 @@ class Login extends React.Component {
                     </div>
                 </main>
             </div>
+        )
+    }
+
+    renderLastPage = () => {
+        return (
+            <Redirect to="/Member" />
+        )
+    }
+
+    render() {
+        return (
+            <>
+                {/* { this.state.logined ? (this.renderLastPage()) : (this.renderLoginPage()) } */}
+                { this.state.logined ? (window.history.go(-1)) : (this.renderLoginPage()) }
+            </>
         )
     }
 }

@@ -1,8 +1,8 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Link, Switch, Redirect } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom'
 
-class RegisterPage extends React.Component {
-    constructor() {
+class Register extends React.Component {
+    constructor(){
         super()
         this.state = {
             submitted: false,
@@ -19,13 +19,9 @@ class RegisterPage extends React.Component {
 
         switch (target.type) { // 接受打字中
             case 'text':
-                this.setState({ mem_account: target.value })
-                break;
             case 'password':
-                this.setState({ mem_password: target.value })
-                break;
             case 'email':
-                this.setState({ mem_email: target.value })
+                this.setState({ [target.name]: target.value })
                 break;
             default:
                 console.log(`Accept Unhandleable Type[${target.type}]`);
@@ -33,25 +29,54 @@ class RegisterPage extends React.Component {
     }
 
     onSubmitClick = async() => {
-        await localStorage.setItem("account", this.state.mem_account);
-        await localStorage.setItem("password", this.state.mem_password);
-        await localStorage.setItem("email", this.state.mem_email);
+        await localStorage.setItem("mem_account", this.state.mem_account);
+        await localStorage.setItem("mem_password", this.state.mem_password);
+        await localStorage.setItem("mem_email", this.state.mem_email);
+        await localStorage.setItem("memLevel_id", "露營新手");
+        await localStorage.setItem("mem_avatar", "avatar_pictures/_default.jpg");
     }
 
-    onRegisterPageSubmit = (event) => {
+    onRegisterPageSubmit = async (event) => {
         event.preventDefault(); // 避免標籤元素預設的行為或功能(ex <input type="submit">就會送出，可是可能其他input有誤所以要alert)
 
         const jsonID = new Date().getTime(); // 因為json-server如果想要post東西出去，必須要有一個id值
+        
+        Date.prototype.Format = function (fmt) { 
+            let o = {
+                "M+": this.getMonth() + 1, //月份 
+                "d+": this.getDate(), //日 
+                "h+": this.getHours(), //小时 
+                "m+": this.getMinutes(), //分 
+                "s+": this.getSeconds(), //秒 
+                "q+": Math.floor((this.getMonth() + 3) / 3), //季度 
+                "S": this.getMilliseconds() //毫秒 
+            };
+            if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+            for (let k in o)
+            if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length === 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+            return fmt;
+        }
+        const signUpDate = new Date().Format("yyyy-MM-dd hh:mm:ss");
 
-        fetch('http://localhost:5555/members', {
+        await fetch('http://localhost:5555/members', {
             method: 'POST',
             headers: new Headers({
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
             }),
-            body: JSON.stringify({ "id": jsonID, "mem_account": this.state.mem_account, "mem_password": this.state.mem_password, "mem_email": this.state.mem_email })
+            body: JSON.stringify({ 
+                "id": jsonID, 
+                "mem_account": this.state.mem_account, 
+                "mem_password": this.state.mem_password, 
+                "mem_email": this.state.mem_email,
+                "mem_avatar": "avatar_pictures/_default.jpg",
+                "memLevel_id": "露營新手",
+                "mem_status": "valid",
+                "mem_signUpDate": signUpDate
+            })
         })
         
+        await this.setState({ submitted: true })
     }
 
     renderRegisterForm = () => {
@@ -80,6 +105,12 @@ class RegisterPage extends React.Component {
                                     </div>
                                     <input type="password" id="mem_password" name="mem_password" className="flex-grow-1 border-0" placeholder="密碼" onChange={this.onInputChange} required />
                                 </div>
+                                <div className="form-group row d-flex align-items-center border rounded p-1">
+                                    <div className="mx-2">
+                                        <i className="fas fa-lock"></i>
+                                    </div>
+                                    <input type="password" id="password_check" name="password_check" className="flex-grow-1 border-0" placeholder="確認密碼" onChange={this.onInputChange} />
+                                </div>
                                 <div className="row mb-3">
                                     <small>點擊加入會員即代表您已閱讀並同意GO CAMPING的<span className="ground">會員服務條款</span>與<span className="ground">隱私權政策</span></small>
                                 </div>
@@ -100,21 +131,17 @@ class RegisterPage extends React.Component {
 
     renderMemberCenter = () => {
         return (
-            // <div>轉向MemberCenter</div>
-            // <Redirect to="/Member" />
-            <Redirect to={{
-                pathname: '/Member'
-            }} />
+            <Redirect to="/Member" />
         )
     }
 
-    render() {
-        return (
-            <div>
-                {this.state.submitted ? (this.renderMemberCenter()) : (this.renderRegisterForm())}
-            </div>
+    render(){
+        return(
+            <>
+            { this.state.submitted ? (this.renderMemberCenter()) : (this.renderRegisterForm()) }
+            </>
         )
     }
 }
 
-export default RegisterPage
+export default Register

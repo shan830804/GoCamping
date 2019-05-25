@@ -116,6 +116,7 @@ class Header extends React.Component {
                             <li className="d-flex align-items-center">
                                 <NavLink className="nav-link py-1" to="/Member">
                                     <figure className="header_avatar m-0">
+                                    {/* TODO: 如果沒有頭像要用預設的 */}
                                         <img src={"../../" + mem_avatar} alt="" />
                                     </figure>
                                 </NavLink>
