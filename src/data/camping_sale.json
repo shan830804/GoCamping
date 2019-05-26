@@ -75,7 +75,7 @@
       "salepage_image": "/images/f1-1.jpg",
       "salepage_image2": "/images/f1-2.jpg",
       "salepage_image3": "/images/f1-3.jpg",
-      "salepage_name": "【冷凍店取-老協珍】牛肉鍋(2970g(固形物970g)/盒)",
+      "salepage_name": "七里香",
       "salepage_quility": "999",
       "salepage_suggestprice": "1999",
       "salepage_price": "1999",
@@ -87,12 +87,12 @@
       "salepage_paymenttype": "",
       "salepage_deliverytype": "",
       "salepage_salecateid": "1",
-      "salepage_salebrand": ""
+      "salepage_salebrand": "3"
     },
     {
       "id": "2",
       "salepage_image": "https://diz36nn4q02zr.cloudfront.net/webapi/imagesV3/Original/SalePage/5005945/0/094558?v=1",
-      "salepage_name": "【 冷凍店取-陳記好味】東北酸菜鴨(固形物300克、湯500cc)",
+      "salepage_name": "紅龍",
       "salepage_quility": "777",
       "salepage_suggestprice": "777",
       "salepage_price": "8877",
@@ -104,12 +104,12 @@
       "salepage_paymenttype": "",
       "salepage_deliverytype": "",
       "salepage_salecateid": "2",
-      "salepage_salebrand": ""
+      "salepage_salebrand": "2"
     },
     {
       "id": "3",
       "salepage_image": "https://diz36nn4q02zr.cloudfront.net/webapi/imagesV3/Original/SalePage/5005945/0/094558?v=1",
-      "salepage_name": "【冷凍店取-哈根達斯】甜蜜鍾情雪糕禮盒",
+      "salepage_name": "紅龍",
       "salepage_quility": "999",
       "salepage_suggestprice": "555",
       "salepage_price": "555",
@@ -121,12 +121,12 @@
       "salepage_paymenttype": "",
       "salepage_deliverytype": "",
       "salepage_salecateid": "3",
-      "salepage_salebrand": ""
+      "salepage_salebrand": "2"
     },
     {
       "id": "4",
       "salepage_image": "https://diz36nn4q02zr.cloudfront.net/webapi/imagesV3/Original/SalePage/5005945/0/094558?v=1",
-      "salepage_name": "【冷凍店取-阿奇儂】拿鐵雪沙(6杯)",
+      "salepage_name": "桂冠",
       "salepage_quility": "777",
       "salepage_suggestprice": "111",
       "salepage_price": "111",
@@ -138,12 +138,12 @@
       "salepage_paymenttype": "",
       "salepage_deliverytype": "",
       "salepage_salecateid": "4",
-      "salepage_salebrand": ""
+      "salepage_salebrand": "1"
     },
     {
       "id": "5",
       "salepage_image": "https://diz36nn4q02zr.cloudfront.net/webapi/imagesV3/Original/SalePage/5005945/0/094558?v=1",
-      "salepage_name": "【冷凍店取】美國prime頂級安格斯板腱牛肉",
+      "salepage_name": "桂冠",
       "salepage_quility": "111",
       "salepage_suggestprice": "111",
       "salepage_price": "111",
@@ -155,12 +155,12 @@
       "salepage_paymenttype": "",
       "salepage_deliverytype": "",
       "salepage_salecateid": "1",
-      "salepage_salebrand": ""
+      "salepage_salebrand": "1"
     },
     {
       "id": "6",
       "salepage_image": "https://diz36nn4q02zr.cloudfront.net/webapi/imagesV3/Original/SalePage/5005945/0/094558?v=1",
-      "salepage_name": "【冷凍店取-爭鮮】熟凍波士頓龍蝦(450g(隻)/盒)",
+      "salepage_name": "西北",
       "salepage_quility": "422",
       "salepage_suggestprice": "422",
       "salepage_price": "422",
@@ -177,7 +177,7 @@
     {
       "id": "7",
       "salepage_image": "https://diz36nn4q02zr.cloudfront.net/webapi/imagesV3/Original/SalePage/5005945/0/094558?v=1",
-      "salepage_name": "【食吧嚴選】日本青森富士蘋果*3箱團購組(8顆/箱，280g±10%/顆)",
+      "salepage_name": "西北",
       "salepage_quility": "433",
       "salepage_suggestprice": "433",
       "salepage_price": "433",
@@ -194,7 +194,7 @@
     {
       "id": "8",
       "salepage_image": "https://diz36nn4q02zr.cloudfront.net/webapi/imagesV3/Original/SalePage/5005945/0/094558?v=1",
-      "salepage_name": "【食吧嚴選】台灣精品-高雄黑糖芭比蓮霧*1盒組(9-10顆/盒，2-2.5kg/盒)",
+      "salepage_name": "桂冠",
       "salepage_quility": "868",
       "salepage_suggestprice": "868",
       "salepage_price": "868",
@@ -211,7 +211,7 @@
     {
       "id": "9",
       "salepage_image": "https://diz36nn4q02zr.cloudfront.net/webapi/imagesV3/Original/SalePage/5005945/0/094558?v=1",
-      "salepage_name": "【亞尼克】25度N檸檬派(6吋(15cm*2.5cm)/盒*4盒)",
+      "salepage_name": "紅龍",
       "salepage_quility": "343",
       "salepage_suggestprice": "343",
       "salepage_price": "343",
@@ -228,7 +228,7 @@
     {
       "id": "10",
       "salepage_image": "https://diz36nn4q02zr.cloudfront.net/webapi/imagesV3/Original/SalePage/5005945/0/094558?v=1",
-      "salepage_name": "桂冠好吃",
+      "salepage_name": "桂冠",
       "salepage_quility": "34",
       "salepage_suggestprice": "333",
       "salepage_price": "2222",
@@ -245,7 +245,7 @@
     {
       "id": "11",
       "salepage_image": "https://diz36nn4q02zr.cloudfront.net/webapi/imagesV3/Original/SalePage/5005945/0/094558?v=1",
-      "salepage_name": "素素的",
+      "salepage_name": "七里香",
       "salepage_quility": "45",
       "salepage_suggestprice": "4444",
       "salepage_price": "5555",
@@ -262,7 +262,7 @@
     {
       "id": "12",
       "salepage_image": "https://diz36nn4q02zr.cloudfront.net/webapi/imagesV3/Original/SalePage/5005945/0/094558?v=1",
-      "salepage_name": "【冷凍店取-寶來發】花雕雞肉粽(185g*4)",
+      "salepage_name": "紅龍",
       "salepage_quility": "807",
       "salepage_suggestprice": "888",
       "salepage_price": "888",

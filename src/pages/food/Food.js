@@ -10,28 +10,71 @@ import FoodBread from "../../components/FoodBread";
 import FoodList from "../../components/FoodList";
 import FoodDetails from "./FoodDetails";
 
-function Food() {
-  return (
-    <Router>
-      <Container>
-        <Row>
-          <FoodBread />
-          <FoodSlider />
-        </Row>
-      </Container>
+class Food extends React.Component {  
+  constructor(props) {
+      super(props)
+      this.state = {                    
+        salebrand: 0,  
+        salecateid: 0,          
+      }
 
-      <Container>
-        <Row>
-          <Col md={2}>
-            {" "}
-            <FoodLeftside />
-          </Col>
-          <Col md={9}>
-            <FoodList />
-          </Col>
-        </Row>
-      </Container>
-    </Router>
-  );
+      this.handleSaleAll = this.handleSaleAll.bind(this);
+      this.handleSalebrand = this.handleSalebrand.bind(this);
+      this.handleSalecateid = this.handleSalecateid.bind(this);
+  }
+
+  handleSaleAll()
+  {    
+    this.setState({ 
+                    salecateid: 0,
+                    salebrand: 0, 
+                  });
+  }
+
+  handleSalebrand(item)
+  {
+    this.setState({ 
+                    salecateid: 0,
+                    salebrand: item, 
+                  });
+  }
+
+  handleSalecateid(item)
+  {
+    this.setState({ 
+                    salecateid: item,
+                    salebrand: 0, 
+                  });
+  }
+
+  render(){
+    return (
+      <Router>
+        <Container>
+          <Row>
+            <FoodBread />
+            <FoodSlider />
+          </Row>
+        </Container>
+
+        <Container>
+          <Row>
+            <Col md={2}>
+              {" "}
+              <FoodLeftside handleSalebrand={this.handleSalebrand}
+                            handleSalecateid={this.handleSalecateid}
+                            handleSaleAll={this.handleSaleAll}/>
+            </Col>
+            <Col md={9}>
+              <FoodList salebrand={this.state.salebrand}
+                        salecateid={this.state.salecateid}
+              />
+            </Col>
+          </Row>
+        </Container>
+      </Router>
+    );
+  }
 }
+
 export default Food;

@@ -112,6 +112,9 @@ aside {
 .fleft-active {
   background: #f2ce63;
 }
+.fl-link:hover{
+  cursor: pointer;
+}
 /* 左邊商品選單結束*/
 
 /* FoodDetails開始 */

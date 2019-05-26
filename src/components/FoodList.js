@@ -1,38 +1,25 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-// import { FaHome } from 'react-icons/fa';
 import { Card, Img, Row, Col, Container } from "react-bootstrap";
-import { IoIosHeart } from "react-icons/io";
-import FoodDetails from "../pages/food/FoodDetails";
-
-//愛心的icon
-const IconHeart = props => (
-  <>
-    <Link>
-      <IoIosHeart />
-    </Link>
-  </>
-);
-
 
 class FoodList extends React.Component {
   constructor() {
     super();
     this.state = {
        // 食物的資料，注意應該預設值是空陣列，而不是null或空物件
-      salepageData: []
+      salepageData: [],
+      filterData: []
     };
   }
 
   // 元件 "已經" 呈現在網頁上
   componentDidMount() {
     fetch("http://localhost:5555/salepage", {
-      method: "GET",
-      headers: new Headers({
-        Accept: "application/json",
-        "Content-Type": "application/json"
+        method: "GET",
+        headers: new Headers({
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        })
       })
-    })
       .then(response => {
         //ok 代表狀態碼在範圍 200‐299
         if (!response.ok) throw new Error(response.statusText);
@@ -40,11 +27,37 @@ class FoodList extends React.Component {
       })
       .then(jsonObject => {
         // console.log(jsonObject);
-        this.setState({ salepageData: jsonObject });
+        this.setState({ salepageData: jsonObject, 
+                        filterData: jsonObject });
       })
       .catch(function(err) {
         // Error :(
       });
+  }
+
+  componentWillReceiveProps(nextProps)
+  {
+    if(nextProps.salebrand > 0){
+      this.setState({
+        filterData: this.state.salepageData.filter(function(data) {
+          return data.salepage_salebrand == nextProps.salebrand;
+        })
+      });
+    }
+    
+    if(nextProps.salecateid > 0){
+      this.setState({
+        filterData: this.state.salepageData.filter(function(data) {
+          return data.salepage_salecateid == nextProps.salecateid;
+        })
+      });
+    }
+
+    if(nextProps.salebrand == 0 && nextProps.salecateid == 0){
+      this.setState({
+        filterData: this.state.salepageData
+      });
+    }
   }
 
   render() {
@@ -58,7 +71,7 @@ class FoodList extends React.Component {
 
         <Col>
           <div className="d-flex col-big">
-            {this.state.salepageData.map(item => (
+            {this.state.filterData.map(item => (
               <Card.Link key={item.id} href={"/Food/FoodDetails/" + item.id} >
                 <Card className="" style={{ width: "211px", height: "283px" }}>
                   <Card.Img
@@ -73,8 +86,7 @@ class FoodList extends React.Component {
                     <Card.Text className="fs-12 food-default text-right">
                       {item.salepage_suggestprice}
                     </Card.Text>
-                    <Card.Text className="fs-20 forest text-right">
-                      <IconHeart />
+                    <Card.Text className="fs-20 forest text-right">                      
                       {item.salepage_price}
                     </Card.Text>
                   </Card.Body>
