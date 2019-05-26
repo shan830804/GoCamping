@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import moment from 'moment'
 
 class Register extends React.Component {
@@ -35,8 +35,7 @@ class Register extends React.Component {
         event.preventDefault(); // 避免標籤元素預設的行為或功能(ex <input type="submit">就會送出，可是可能其他input有誤所以要alert)
 
         const jsonID = new Date().getTime(); // 因為json-server如果想要post東西出去，必須要有一個id值
-
-        const signUpDate = moment().format('YYYY-MM-DD hh:mm:ss');
+        const signUpDate = moment().format('YYYY-MM-DD hh:mm:ss'); // 引入moment.js套件
 
         if (this.state.mem_password === this.state.password_check) {
             await fetch('http://localhost:5555/members', {
@@ -69,7 +68,14 @@ class Register extends React.Component {
             await localStorage.setItem("mem_password", this.state.mem_password);
             await localStorage.setItem("mem_email", this.state.mem_email);
             await localStorage.setItem("mem_avatar", "avatar_pictures/_default.jpg");
+            await localStorage.setItem("mem_name", '');
+            await localStorage.setItem("mem_nickname", '');
+            await localStorage.setItem("mem_gender", '');
+            await localStorage.setItem("mem_birthday", '');
+            await localStorage.setItem("mem_mobile", '');
+            await localStorage.setItem("mem_address", '');
             await localStorage.setItem("memLevel_id", "露營新手");
+            await localStorage.setItem("mem_intro", '');
             await this.setState({ submitted: true })
         } else {
             alert('與上列密碼不符')
@@ -126,16 +132,11 @@ class Register extends React.Component {
         )
     }
 
-    renderMemberCenter = () => {
-        return (
-            <Redirect to="/Member" />
-        )
-    }
-
     render() {
         return (
             <>
-                {this.state.submitted ? (this.renderMemberCenter()) : (this.renderRegisterForm())}
+                {/* 註冊完成 ? 註冊完成(回到比登入再上一頁) : 尚未註冊(註冊表單)  */}
+                {this.state.submitted ? (window.history.go(-2)) : (this.renderRegisterForm())}
             </>
         )
     }

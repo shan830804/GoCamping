@@ -4,10 +4,9 @@ import logo from '../logo.svg';
 import './Header.css';
 import { FaUserAlt, FaSearch } from "react-icons/fa";
 
-// function Header(){
 class Header extends React.Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.selectCampSide = this.selectCampSide.bind(this);
         this.selectEvent = this.selectEvent.bind(this);
         this.selectMarketing = this.selectMarketing.bind(this);
@@ -21,7 +20,9 @@ class Header extends React.Component {
             ShareFun: '',
             logined: false,
         }
+        
     }
+
     selectCampSide(event) {
         this.setState({
             CampSide: 'show',
@@ -67,6 +68,7 @@ class Header extends React.Component {
             ShareFun: 'show'
         })
     }
+
     componentWillMount() {
         const mem_account = localStorage.getItem("mem_account")
 
@@ -74,6 +76,7 @@ class Header extends React.Component {
             this.setState({ logined: true })
         }
     }
+
     render() {
         const mem_avatar = localStorage.getItem("mem_avatar")
 
@@ -137,4 +140,5 @@ class Header extends React.Component {
         )
     }
 }
+
 export default Header;

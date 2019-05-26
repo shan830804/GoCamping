@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import '../../components/Default.css';
 import './Member.css';
 
@@ -8,7 +8,6 @@ class Login extends React.Component {
         super(props)
         this.state = {
             toggleLogin: props.toggleLogin,
-            // catchMemberData: props.catchMemberData,
             logined: false,
             memberData: [],
             account: '',
@@ -28,8 +27,7 @@ class Login extends React.Component {
 
             if (!response.ok) throw new Error(response.statusText)
 
-            const jsonObject = await response.json()
-            // console.log(jsonObject) // 會員清單全部抓出來
+            const jsonObject = await response.json() // 會員清單全部抓出來
 
             await this.setState({ memberData: jsonObject })
         } catch (e) {
@@ -72,13 +70,12 @@ class Login extends React.Component {
         const findMemberAccount = this.state.memberData.find((data) => data.mem_account === localStorageAccount);
         const findMemberPassword = this.state.memberData.find((data) => data.mem_password === localStoragePassword);
 
-
         if (findMemberAccount) { // (1) 判斷是不是有此帳號
             // 有此帳號
             if (findMemberPassword) { // (2) 判斷是否帳號密碼正確
                 // 密碼正確
                 let pickMember = this.state.memberData.filter((data) => data.mem_account === localStorageAccount); // 過濾掉不需要用掉的其他會員資料
-                await this.setState({ memberData: pickMember }); // renderMemberCenter()
+                await this.setState({ memberData: pickMember }); // 讓memberData變成只有一筆
 
                 await localStorage.removeItem("account");
                 await localStorage.removeItem("password");
@@ -97,16 +94,13 @@ class Login extends React.Component {
                 await localStorage.setItem("mem_intro", this.state.memberData[0].mem_intro);
 
                 await this.props.toggleLogin() // 讓父元件(App)的登入狀態變true
-                // await this.props.catchMemberData(this.state.memberData[0]) // 讓父元件(App)的loginMemberData變成抓到的該筆會員資料
                 console.log('登入頁抓到會員資料的帳號:' + this.state.memberData[0].mem_account)
 
-                // TODO: 跳轉到前一頁(來源)?
-                await this.setState({ logined: true }) // 目前跳轉到會員中心
+                await this.setState({ logined: true }) // 跳轉到前一來源頁
             } else {
                 // 密碼錯誤
                 alert('密碼錯誤!')
             }
-
         } else {
             // 無此帳號
             alert('查無此帳號!')
@@ -163,16 +157,10 @@ class Login extends React.Component {
         )
     }
 
-    renderLastPage = () => {
-        return (
-            <Redirect to="/Member" />
-        )
-    }
-
     render() {
         return (
             <>
-                {/* { this.state.logined ? (this.renderLastPage()) : (this.renderLoginPage()) } */}
+                {/* 是否已登入 ? 已登入(回到上一頁) : 未登入(登入表格) */}
                 { this.state.logined ? (window.history.go(-1)) : (this.renderLoginPage()) }
             </>
         )
