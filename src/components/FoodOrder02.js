@@ -9,9 +9,10 @@ class FoodOrder02 extends React.Component {
     this.state = {
       title: "買食材-訂購明細",
       //新增用的預設值
-      id: new Date().toDateString(),
+      id: new Date().getTime(),
+      saleorder_memid: "",
       saleorder_id: "",
-      saleorder_memname: "",
+      saleorder_memname: "lolll",
       saleorder_memtel: "",
       saleorder_memmail: "",
       saleorder_memtaddress: "",
@@ -20,7 +21,7 @@ class FoodOrder02 extends React.Component {
       saleorder_total: "",
       saleorder_payment: "",
       saleorder_paycode: "",
-      saleorder_paydate: ""
+      saleorder_paydate: "2019-03-04"
     };
   }
 //上一頁下一頁
@@ -35,15 +36,6 @@ class FoodOrder02 extends React.Component {
   componentDidMount() {
     document.title = this.state.title;
   }
-
-//編輯訂單資料
-AddOrder(event){
-  this.SetState({
-    saleorder_memname: "",
-    saleorder_memntel: "",
-    saleorder_memmail: "",
-  })
-}
   render() {
     const { index, direction } = this.state;
     // console.log(this.props.order.salepage_name)
@@ -67,30 +59,60 @@ AddOrder(event){
           </Row>
         </Container>
         <Container className="mt-1">
-          <Row className="mt-3">
-            <div className=" row form-group col-md-8">
+          <Row className="mt-3">            
+            <div className="forder02-dn row form-group col-md-8">
                 <label className="fs-16 col-md-3 col-sm-12" htmlFor="">訂單編號：</label>
-                <input value={this.state.id} type="text" className="form-control col-md-7 col-sm-12 bg-white" id="applyList_idn"  placeholder="" name="applyList_idn" />
+                <input defaultValue={this.state.id} type="text" className="form-control col-md-7 col-sm-12 bg-white" placeholder="" />
+            </div>
+            <div className="forder02-dn row form-group col-md-8">
+                <label className="fs-16 col-md-3 col-sm-12" htmlFor="">會員編號：</label>
+                <input defaultValue={this.state.saleorder_memid} type="text" className="form-control col-md-7 col-sm-12 bg-white" placeholder="" />
             </div>
             <div className="row form-group col-md-8">
                 <label className="fs-16 col-md-3 col-sm-12" htmlFor="">收件人姓名：</label>
-                <input value={this.state.saleorder_memname} type="text" className="form-control col-md-7 col-sm-12 bg-white" id="applyList_idn"  placeholder="" name="applyList_idn" />
+                <input defaultValue=""
+                       type="text" 
+                       className="form-control col-md-7 col-sm-12 bg-white" 
+                       placeholder="" 
+                       onChange={this.props.handleInputChange} 
+                       name="saleorder_memname" />
             </div>
             <div className="row form-group col-md-8">
                 <label className="fs-16 col-md-3 col-sm-12" htmlFor="">收件人手機：</label>
-                <input value={this.state.saleorder_memtel} type="tel" className="form-control col-md-7 col-sm-12 bg-white" pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}" id="applyList_idn"  placeholder="" name="applyList_idn" />
+                <input defaultValue=""
+                       type="tel" 
+                       className="form-control col-md-7 col-sm-12 bg-white" 
+                       pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}" 
+                       placeholder="" 
+                       onChange={this.props.handleInputChange} 
+                       name="saleorder_memtel" />
             </div>
             <div className="row form-group col-md-8">
                 <label className="fs-16 col-md-3 col-sm-12" htmlFor="">收件人信箱：</label>
-                <input value={this.state.saleorder_memmail} type="email" className="form-control col-md-7 col-sm-12 bg-white" id="applyList_idn"  placeholder="" name="applyList_idn" />
+                <input defaultValue="" 
+                       type="email" 
+                       className="form-control col-md-7 col-sm-12 bg-white" 
+                       placeholder="" 
+                       onChange={this.props.handleInputChange} 
+                       name="saleorder_memmail"/>
             </div>
             <div className="row form-group col-md-8">
                 <label className="fs-16 col-md-3 col-sm-12" htmlFor="">收件人地址：</label>
-                <input value={this.state.saleorder_memtaddress} type="text" className="form-control col-md-7 col-sm-12 bg-white" id="applyList_idn"  placeholder="" name="applyList_idn" />
+                <input defaultValue="" 
+                       type="text" 
+                       className="form-control col-md-7 col-sm-12 bg-white" 
+                       placeholder="" 
+                       onChange={this.props.handleInputChange} 
+                       name="saleorder_memtaddress"/>
             </div>
             <div className="row form-group col-md-8">
                 <label className="fs-16 col-md-3 col-sm-12" htmlFor="">配送日期：</label>
-                <input value={this.state.saleorder_paydate} type="date" className="form-control col-md-7 col-sm-12 bg-white" id="applyList_idn"  placeholder="" name="applyList_idn" />
+                <input defaultValue="" 
+                       type="date" 
+                       className="form-control col-md-7 col-sm-12 bg-white" 
+                       placeholder="" 
+                       onChange={this.props.handleInputChange} 
+                       name="saleorder_paydate"/>
             </div>
           </Row>
         </Container>
@@ -107,21 +129,21 @@ AddOrder(event){
             <div className="border mar-center p-5 ml-5" style={{maxWidth: '960px'}}>
                     <div className="form-check">
                         <input className="form-check-input" type="radio" name="apply_payment" id="apply_payment2"
-                            value="2" defaultChecked/>
+                            value="1" defaultChecked/>
                         <label className="form-check-label" htmlFor="exampleRadios2">
                             ATM 轉帳
                         </label>
                     </div>
                     <div className="form-check">
                         <input className="form-check-input" type="radio" name="apply_payment" id="apply_payment3"
-                            value="3"/>
+                            value="2"/>
                         <label className="form-check-label" htmlFor="exampleRadios3">
                             ibon 付款
                         </label>
                     </div>
                     <div className="form-check">
                         <input className="form-check-input" type="radio" name="apply_payment" id="apply_payment"
-                            value="0"/>
+                            value="3"/>
                         <label className="form-check-label" htmlFor="exampleRadios1">
                             信用卡付款(可接受VISA, Master, JCB, 聯合信用卡)
                         </label>

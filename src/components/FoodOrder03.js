@@ -7,16 +7,26 @@ class FoodOrder03 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: "買食材-訂購明細"
+      title: "買食材-訂購明細",
+      saleorder_id : props.orderid,
+      saleorderData : {}
     };
   }
-
-  goP2 = () => {
-        this.props.goP2();
-    }
+  
   // 網頁標題
-  componentDidMount() {
+  componentDidMount() {    
     document.title = this.state.title;
+    this.fetchData();
+  }
+
+  fetchData() {
+    const url = "http://localhost:5555/saleorder/" + this.state.saleorder_id;
+    return fetch(url)
+      .then(response => response.json())
+      .then(parsedJSON => this.setState({ 
+                                          saleorderData: parsedJSON,                                          
+                                        }))
+      .catch(error => console.log(error));
   }
 
   render() {
@@ -45,23 +55,23 @@ class FoodOrder03 extends React.Component {
           <Row className="justify-content-center forder03-con">
             <div className="row col-md-8">
                 <label className="fs-16 col-md-3 col-sm-12" htmlFor="">訂單編號：</label>
-                <p>20190524</p>
+                <p>{this.state.saleorderData.id}</p>
             </div>
             <div className="row col-md-8">
                 <label className="fs-16 col-md-3 col-sm-12" htmlFor="">收件人姓名：</label>
-                <p>小牛蒡</p>
+                <p>{this.state.saleorderData.saleorder_memname}</p>
             </div>
             <div className="row col-md-8">
                 <label className="fs-16 col-md-3 col-sm-12" htmlFor="">商品名稱：</label>
-                <p>小牛蒡</p>
+                <p>{this.state.saleorderData.saleorder_salepagename}</p>
             </div>
             <div className="row col-md-8">
                 <label className="fs-16 col-md-3 col-sm-12" htmlFor="">商品數量：</label>
-                <p>小牛蒡火鍋</p>
+                <p>{this.state.saleorderData.saleorder_number}</p>
             </div>
             <div className="row form-group col-md-8">
                 <label className="fs-16 col-md-3 col-sm-12" htmlFor="">訂單金額：</label>
-                <p>999,55</p>
+                <p>{this.state.saleorderData.saleorder_total}</p>
             </div>
             <div className="row form-group col-md-8">
                 <label className="fs-16 col-md-3 col-sm-12" htmlFor="">付款方式：</label>
@@ -83,15 +93,7 @@ class FoodOrder03 extends React.Component {
           <Row>
             <Col>
               {/* justify-content-between */}
-              <ButtonToolbar className="justify-content-end mt-3">
-                <Button
-                  className="bg-food-default forder-btn mr-2 "
-                  style={{ width: "30%" }}
-                  sm={"block"}
-                  onClick={this.goP2}
-                >
-                  上一步
-                </Button>
+              <ButtonToolbar className="justify-content-end mt-3">                
                 <Button
                   className="bg-sunshine food-default forder-btn"
                   style={{ width: "30%" }}

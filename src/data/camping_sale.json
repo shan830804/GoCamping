@@ -56,19 +56,18 @@
   "saleorder": [
     {
       "id": "1",
-      "saleorder_id": "1",
       "saleorder_memname": "小牛蒡",
       "saleorder_memtel": "0925255333",
       "saleorder_memmail": "memmail",
       "saleorder_memtaddress": "台北市大安區",
-      "saleorder_foodname": "牛蒡組合",
+      "saleorder_salepageid": "1",
+      "saleorder_salepagename": "牛蒡組合",
       "saleorder_number": "3",
       "saleorder_total": "1,999",
       "saleorder_payment": "ibon",
       "saleorder_paycode": "133 111 111 111",
       "saleorder_paydate": "2019-06-10"
     }
-  
   ],
   "salepage": [
     {

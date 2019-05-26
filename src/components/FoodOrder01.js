@@ -20,44 +20,15 @@ class FoodOrder01 extends React.Component {
     super(props);
     this.state = {
       title: "買食材-訂購明細",
-      order_num: 1,
+      order_num: props.saleorder_number,
       foodname: props.order.salepage_name,
       price: props.order.salepage_price,
-      total: props.order.salepage_price,
+      total: props.order.salepage_price * +props.saleorder_number,
       salepageData: props.order,
       food_orderData: []
     };
     this.changeNum = this.changeNum.bind(this);
   }
-
-
-//處理新增訂單
-// const oitem ={
-//   id: this.state.id,
-//   number: this.state.saleorder_number,
-//   total: this.state.saleorder_total,
-//   payment: this.state.saleorder_saleorder_payment
-// }
-//         fetch('http://localhost:5555/saleorder', {
-//         method: 'POST',
-//         headers: new Headers({
-//           Accept: 'application/json',
-//           'Content-Type': 'application/json',
-//         }),
-//       })
-// .then(response => {
-//         //ok 代表狀態碼在範圍 200‐299
-//         if (!response.ok) throw new Error(response.statusText);
-//         return response.json();
-//       })
-//       .then(jsonObject => {
-//         // console.log(jsonObject);
-//         this.setState({ salepageData: jsonObject });
-//       })
-//       .catch(function(err) {
-//         // Error :(
-//       });
-// }
 
  componentWillReceiveProps(nextProps) {
     this.setState({
@@ -67,7 +38,6 @@ class FoodOrder01 extends React.Component {
     });
   }
  
-
   // 網頁標題
   componentDidMount() {
     document.title = this.state.title;
@@ -158,7 +128,7 @@ class FoodOrder01 extends React.Component {
                           type="number"
                           className="form-control text-center"
                           // placeholder="1"
-                        />
+                        />                        
                       </div>
                     </td>
                     <td>刪除</td>
