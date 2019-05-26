@@ -24,13 +24,15 @@ class App extends React.Component {
   }
 
   toggleLogin = () => {
-    this.setState({ isAuthenticated: !this.state.isAuthenticated })
-    console.log('toggleLogin:' + this.state.isAuthenticated)
+    this.setState({ isAuthenticated: true })
+    this.setState({ isntAuthenticated: false })
+    // console.log('toggleLogin:' + this.state.isAuthenticated)
   }
 
   toggleLogout = () => {
-    this.setState({ isntAuthenticated: !this.state.isntAuthenticated })
-    console.log('toggleLogout:' + this.state.isntAuthenticated)
+    this.setState({ isAuthenticated: false })
+    this.setState({ isntAuthenticated: true })
+    // console.log('toggleLogout:' + this.state.isntAuthenticated)
   }
 
   render() {

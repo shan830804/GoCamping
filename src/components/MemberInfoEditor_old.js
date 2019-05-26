@@ -3,51 +3,28 @@ import { BrowserRouter as Router, Redirect } from 'react-router-dom';
 import { Image, Button } from 'react-bootstrap';
 
 class MemberInfoEditor extends React.Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             submitted: false,
-            id: '',
-            account: '',
-            password: '',
-            avatar_pictures: '',
-            name: '',
-            nickname: '',
-            gender: '',
-            birthday: '',
-            mobile: '',
-            email: '',
-            address: '',
-            introduction: '',
-            level: '',
-            status: '',
-            signUpDate: '',
+            memberData: props.memberData[0],
+            password: props.memberData[0].mem_password,
+            // avatar: '',
+            name: props.memberData[0].mem_name,
+            nickname: props.memberData[0].mem_nickname,
+            gender: props.memberData[0].mem_gender,
+            birthday: props.memberData[0].mem_birthday,
+            mobile: props.memberData[0].mem_mobile,
+            email: props.memberData[0].mem_email,
+            address: props.memberData[0].mem_address,
+            introduction: props.memberData[0].mem_intro,
             password_check: '',
         }
     }
 
-    componentWillMount() {
-        this.setState({
-            id: localStorage.getItem("mem_id"),
-            account: localStorage.getItem("mem_account"),
-            password: localStorage.getItem("mem_password"),
-            avatar_pictures: localStorage.getItem("mem_avatar"),
-            name: localStorage.getItem("mem_name"),
-            nickname: localStorage.getItem("mem_nickname"),
-            gender: localStorage.getItem("mem_gender"),
-            birthday: localStorage.getItem("mem_birthday"),
-            mobile: localStorage.getItem("mem_mobile"),
-            email: localStorage.getItem("mem_email"),
-            address: localStorage.getItem("mem_address"),
-            introduction: localStorage.getItem("mem_intro"),
-            level: localStorage.getItem("memLevel_id"),
-            status: localStorage.getItem("mem_status"),
-            signUpDate: localStorage.getItem("mem_signUpDate"),
-        })
-    }
-
     onInputChange = (event) => {
         switch (event.target.name) {
+            case 'avatar_pictures':
             case 'password':
             case 'password_check':
             case 'name':
@@ -70,14 +47,14 @@ class MemberInfoEditor extends React.Component {
         event.preventDefault();
 
         if (this.state.password_check === this.state.password) {
-            fetch('http://localhost:5555/members/' + this.state.id, {
+            fetch('http://localhost:5555/members/' + this.state.memberData.id, {
                 method: 'PUT',
                 headers: new Headers({
                     Accept: 'application/json',
                     'Content-Type': 'application/json',
                 }),
                 body: JSON.stringify({
-                    "mem_account": this.state.account,
+                    "mem_account": this.state.memberData.mem_account,
                     "mem_password": this.state.password,
                     "mem_avatar": this.state.avatar_pictures,
                     "mem_name": this.state.name,
@@ -87,17 +64,17 @@ class MemberInfoEditor extends React.Component {
                     "mem_mobile": this.state.mobile,
                     "mem_email": this.state.email,
                     "mem_address": this.state.address,
-                    "memLevel_id": this.state.level,
-                    "mem_status": this.state.status,
+                    "memLevel_id": this.state.memberData.memLevel_id,
+                    "mem_status": this.state.memberData.mem_status,
                     "mem_intro": this.state.introduction,
-                    "mem_signUpDate": this.state.mem_signUpDate
+                    "mem_signUpDate": this.state.memberData.mem_signUpDate
                 })
             })
 
-            await localStorage.setItem("mem_id", this.state.id);
-            await localStorage.setItem("mem_account", this.state.account);
+            await localStorage.setItem("mem_id", this.state.memberData.id);
+            await localStorage.setItem("mem_account", this.state.memberData.mem_account);
             await localStorage.setItem("mem_password", this.state.password);
-            await localStorage.setItem("mem_avatar", this.state.avatar_pictures);
+            await localStorage.setItem("mem_avatar", this.state.mem_avatar);
             await localStorage.setItem("mem_name", this.state.name);
             await localStorage.setItem("mem_nickname", this.state.nickname);
             await localStorage.setItem("mem_gender", this.state.gender);
@@ -105,10 +82,8 @@ class MemberInfoEditor extends React.Component {
             await localStorage.setItem("mem_mobile", this.state.mobile);
             await localStorage.setItem("mem_email", this.state.email);
             await localStorage.setItem("mem_address", this.state.address);
-            await localStorage.setItem("memLevel_id", this.state.level);
+            await localStorage.setItem("memLevel_id", this.state.memberData.memLevel_id);
             await localStorage.setItem("mem_intro", this.state.introduction);
-            await localStorage.setItem("mem_status", this.state.status);
-            await localStorage.setItem("mem_signUpDate", this.state.signUpDate);
             alert('已修改完成，將回到會員中心')
             this.setState({ submitted: true })
         } else {
@@ -129,19 +104,19 @@ class MemberInfoEditor extends React.Component {
                         <label htmlFor="account" className="col-sm-2 col-form-label px-0 text-right rwd-text">
                             <span className="asterisk">* </span>帳號名稱
                         </label>
-                        <input type="text" className="form-control-plaintext col-sm-9" id="account" name="account" required defaultValue={this.state.account} />
+                        <input type="text" className="form-control-plaintext col-sm-9" id="account" name="account" required defaultValue={this.state.memberData.mem_account} />
                     </div>
                     <div className="form-group row">
                         <label htmlFor="email" className="col-sm-2 col-form-label px-0 text-right rwd-text">
                             <span className="asterisk">* </span>Email
                         </label>
-                        <input type="email" id="email" name="email" className="form-control col-sm-9 mx-3" required defaultValue={this.state.email} onChange={this.onInputChange} />
+                        <input type="email" id="email" name="email" className="form-control col-sm-9 mx-3" required defaultValue={this.state.memberData.mem_email} onChange={this.onInputChange} />
                     </div>
                     <div className="form-group row">
                         <label htmlFor="passowrd" className="col-sm-2 col-form-label px-0 text-right rwd-text">
                             <span className="asterisk">* </span>密碼
                         </label>
-                        <input type="password" id="password" name="password" className="form-control col-sm-9 mx-3" required defaultValue={this.state.password} onChange={this.onInputChange} />
+                        <input type="password" id="password" name="password" className="form-control col-sm-9 mx-3" required defaultValue={this.state.memberData.mem_password} onChange={this.onInputChange} />
                     </div>
                     <div className="form-group row">
                         <label htmlFor="password_check" className="col-sm-2 col-form-label px-0 text-right rwd-text">
@@ -157,7 +132,7 @@ class MemberInfoEditor extends React.Component {
                             <input type="hidden" id="avatar_pictures" name="avatar_pictures" className="form-control" />
                             <figure className="avatar m-0">
                                 {/* <Image src="../../images/toothless.jpg" /> */}
-                                <Image src={"../../" + this.state.avatar_pictures} />
+                                <Image src={"../../" + this.state.memberData.mem_avatar} />
                             </figure>
                             <div className="mx-2">
                                 <label className="btn btn-outline-grass">
@@ -172,29 +147,29 @@ class MemberInfoEditor extends React.Component {
                         <label htmlFor="name" className="col-sm-2 col-form-label px-0 text-right rwd-text">
                             <span className="asterisk">* </span>真實姓名
                         </label>
-                        <input type="text" id="name" name="name" className="form-control col-sm-9 mx-3" minLength="2" required defaultValue={this.state.name} onChange={this.onInputChange} />
+                        <input type="text" id="name" name="name" className="form-control col-sm-9 mx-3" minLength="2" required defaultValue={this.state.memberData.mem_name} onChange={this.onInputChange} />
                         {/* <small class="form-text text-muted col-sm-2 p-0">將用於訂購人資料</small> */}
                     </div>
                     <div className="form-group row">
                         <label htmlFor="nickname" className="col-sm-2 col-form-label px-0 text-right rwd-text">暱稱</label>
-                        <input type="text" id="nickname" name="nickname" className="form-control col-sm-9 mx-3" defaultValue={this.state.nickname} onChange={this.onInputChange} />
+                        <input type="text" id="nickname" name="nickname" className="form-control col-sm-9 mx-3" defaultValue={this.state.memberData.mem_nickname} onChange={this.onInputChange} />
                     </div>
                     <div className="form-group row">
                         <label htmlFor="gender" className="col-sm-2 col-form-label px-0 text-right rwd-text">性別</label>
-                        <select id="gender" name="gender" className="form-control col-sm-3 mx-3" defaultValue={this.state.gender} onChange={this.onInputChange}>
-                            <option value="male" >男 Male</option>
-                            <option value="female" >女 Female</option>
+                        <select id="gender" name="gender" className="form-control col-sm-3 mx-3" selected={this.state.memberData.gender} onChange={this.onInputChange}>
+                            <option value="male">男 Male</option>
+                            <option value="female">女 Female</option>
                         </select>
                     </div>
                     <div className="form-group row">
                         <label htmlFor="birthday" className="col-sm-2 col-form-label px-0 text-right rwd-text">生日</label>
-                        <input type="date" id="birthday" name="birthday" className="form-control col-sm-3 mx-3" defaultValue={this.state.birthday} onChange={this.onInputChange} />
+                        <input type="date" id="birthday" name="birthday" className="form-control col-sm-3 mx-3" defaultValue={this.state.memberData.mem_birthday} onChange={this.onInputChange} />
                     </div>
                     <div className="form-group row">
                         <label htmlFor="mobile" className="col-sm-2 col-form-label px-0 text-right rwd-text">
                             <span className="asterisk">* </span>手機
                         </label>
-                        <input type="tel" id="mobile" name="mobile" className="form-control col-sm-7 mx-3" pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}" required defaultValue={this.state.mobile} onChange={this.onInputChange} />
+                        <input type="tel" id="mobile" name="mobile" className="form-control col-sm-7 mx-3" pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}" required defaultValue={this.state.memberData.mem_mobile} onChange={this.onInputChange} />
                         <small className="form-text col-sm-2 forest">格式 09XX-XXX-XXX</small>
                     </div>
                     <div className="form-group row">
@@ -202,11 +177,11 @@ class MemberInfoEditor extends React.Component {
                         <input type="hidden" name="address[]" className="form-control zipcode" placeholder="郵遞區號" size="5" autoComplete="off" readOnly />
                         <select name="county" className="form-control ml-sm-3 col-sm-2 county"></select>
                         <select name="district" className="form-control col-sm-2 district"></select>
-                        <input type="text" id="address" name="address[]" className="form-control col-sm-5" defaultValue={this.state.address} onChange={this.onInputChange} />
+                        <input type="text" id="address" name="address[]" className="form-control col-sm-5" defaultValue={this.state.memberData.mem_address} onChange={this.onInputChange} />
                     </div>
                     <div className="form-group row">
                         <label htmlFor="introduction" className="col-sm-2 col-form-label px-0 text-right rwd-text">自我介紹</label>
-                        <textarea id="introduction" name="introduction" className="form-control col-sm-9 mx-3" rows="1" maxLength="25" defaultValue={this.state.introduction} onChange={this.onInputChange}></textarea>
+                        <textarea id="introduction" name="introduction" className="form-control col-sm-9 mx-3" rows="1" maxLength="25" defaultValue={this.state.memberData.mem_intro} onChange={this.onInputChange}></textarea>
                     </div>
 
                     <div className="form-group row">

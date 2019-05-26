@@ -92,6 +92,8 @@ class Login extends React.Component {
                 await localStorage.setItem("mem_address", this.state.memberData[0].mem_address);
                 await localStorage.setItem("memLevel_id", this.state.memberData[0].memLevel_id);
                 await localStorage.setItem("mem_intro", this.state.memberData[0].mem_intro);
+                await localStorage.setItem("mem_status", this.state.memberData[0].mem_status);
+                await localStorage.setItem("mem_signUpDate", this.state.memberData[0].mem_signUpDate);
 
                 await this.props.toggleLogin() // 讓父元件(App)的登入狀態變true
                 // console.log('登入頁抓到會員資料的帳號:' + this.state.memberData[0].mem_account)
@@ -116,9 +118,6 @@ class Login extends React.Component {
                         <div className="card-body py-4">
                             <form onSubmit={this.onLoginPageSubmit}>
                                 <h5 className="card-title text-center grass fs-24 mb-3">會員登入</h5>
-                                <div className="text-center mb-3">
-                                    <span className="asterisk">{this.state.errorAccountPassword}</span>
-                                </div>
                                 <div className="form-group row d-flex align-items-center border rounded p-1">
                                     <div className="mx-2">
                                         <i className="fas fa-user-alt"></i>
