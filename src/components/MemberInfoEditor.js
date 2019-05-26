@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Redirect } from 'react-router-dom';
 import { Image, Button } from 'react-bootstrap';
 
 class MemberInfoEditor extends React.Component {
@@ -32,18 +33,18 @@ class MemberInfoEditor extends React.Component {
             case 'gender':
             case 'birthday':
             case 'mobile':
-            case 'email':    
+            case 'email':
             case 'address':
             case 'introduction':
                 this.setState({ [event.target.name]: event.target.value })
-                console.log('修改中- '+`${event.target.name}` + ': ' + `${event.target.value}`)
+                // console.log('修改中- '+`${event.target.name}` + ': ' + `${event.target.value}`)
                 break;
             default:
                 console.log(`Accept Unhandleable Type[${event.target.type}]`);
         }
     }
 
-    onInfoEditorSubmit = (event) => {
+    onInfoEditorSubmit = async (event) => {
         event.preventDefault();
 
         if (this.state.password_check === this.state.password) {
@@ -69,7 +70,23 @@ class MemberInfoEditor extends React.Component {
                     "mem_intro": this.state.introduction,
                     "mem_signUpDate": this.state.memberData.mem_signUpDate
                 })
-            })            
+            })
+
+            await localStorage.setItem("mem_id", this.state.memberData.id);
+            await localStorage.setItem("mem_account", this.state.memberData.mem_account);
+            await localStorage.setItem("mem_password", this.state.password);
+            // await localStorage.setItem("mem_avatar", this.state.mem_avatar);
+            await localStorage.setItem("mem_name", this.state.name);
+            await localStorage.setItem("mem_nickname", this.state.nickname);
+            await localStorage.setItem("mem_gender", this.state.gender);
+            await localStorage.setItem("mem_birthday", this.state.birthday);
+            await localStorage.setItem("mem_mobile", this.state.mobile);
+            await localStorage.setItem("mem_email", this.state.email);
+            await localStorage.setItem("mem_address", this.state.address);
+            await localStorage.setItem("memLevel_id", this.state.memberData.memLevel_id);
+            await localStorage.setItem("mem_intro", this.state.introduction);
+            alert('已修改完成，將回到會員中心')
+            this.setState({ submitted: true })
         } else {
             alert('與上列密碼不符');
         }
@@ -180,7 +197,9 @@ class MemberInfoEditor extends React.Component {
 
     renderMemberCenter = () => {
         return (
-            <>儲存完成，轉向會員中心</>
+            <>
+                <Redirect to="/Member" />
+            </>
         )
     }
 

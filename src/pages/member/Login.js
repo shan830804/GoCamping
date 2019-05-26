@@ -94,6 +94,7 @@ class Login extends React.Component {
                 await localStorage.setItem("mem_email", this.state.memberData[0].mem_email);
                 await localStorage.setItem("mem_address", this.state.memberData[0].mem_address);
                 await localStorage.setItem("memLevel_id", this.state.memberData[0].memLevel_id);
+                await localStorage.setItem("mem_intro", this.state.memberData[0].mem_intro);
 
                 await this.props.toggleLogin() // 讓父元件(App)的登入狀態變true
                 // await this.props.catchMemberData(this.state.memberData[0]) // 讓父元件(App)的loginMemberData變成抓到的該筆會員資料
