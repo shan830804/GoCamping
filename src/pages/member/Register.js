@@ -3,9 +3,10 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import moment from 'moment'
 
 class Register extends React.Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
+            toggleLogin: props.toggleLogin,
             submitted: false,
             mem_account: '',
             mem_email: '',
@@ -76,6 +77,8 @@ class Register extends React.Component {
             await localStorage.setItem("mem_address", '');
             await localStorage.setItem("memLevel_id", "露營新手");
             await localStorage.setItem("mem_intro", '');
+
+            await this.props.toggleLogin() // 讓父元件(App)的登入狀態變true
             await this.setState({ submitted: true })
         } else {
             alert('與上列密碼不符')

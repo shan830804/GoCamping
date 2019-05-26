@@ -94,7 +94,7 @@ class Login extends React.Component {
                 await localStorage.setItem("mem_intro", this.state.memberData[0].mem_intro);
 
                 await this.props.toggleLogin() // 讓父元件(App)的登入狀態變true
-                console.log('登入頁抓到會員資料的帳號:' + this.state.memberData[0].mem_account)
+                // console.log('登入頁抓到會員資料的帳號:' + this.state.memberData[0].mem_account)
 
                 await this.setState({ logined: true }) // 跳轉到前一來源頁
             } else {

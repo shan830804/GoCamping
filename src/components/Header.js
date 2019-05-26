@@ -19,8 +19,9 @@ class Header extends React.Component {
             Food: '',
             ShareFun: '',
             logined: false,
+            isAuthenticated: props.isAuthenticated,
+            isntAuthenticated: props.isntAuthenticated,
         }
-        
     }
 
     selectCampSide(event) {
@@ -69,17 +70,54 @@ class Header extends React.Component {
         })
     }
 
-    componentWillMount() {
+    componentWillMount() {  // 一進入網站(render前)就判斷是否登入
         const mem_account = localStorage.getItem("mem_account")
-
         if (mem_account) {
             this.setState({ logined: true })
         }
     }
 
-    render() {
+    componentWillReceiveProps(nextProps) { // componentWillReceiveProps方法中第一個參數代表即將傳入的新的Props
+        if (nextProps.isAuthenticated !== this.props.isAuthenticated) { // 新傳進來的props不等於第一次render的props
+            if (nextProps.isAuthenticated) { // 如果從父元件新傳進來的props表示已登入，改變這個元件的狀態
+                this.setState({ logined: true })
+            }
+        }
+        if (nextProps.isntAuthenticated !== this.props.isntAuthenticated) {
+            if (nextProps.isntAuthenticated) { // 如果從父元件新傳進來的props表示已登出，改變這個元件的狀態
+                this.setState({ logined: false })
+            }
+        }
+    }
+
+    renderMemberAvatar = () => {
         const mem_avatar = localStorage.getItem("mem_avatar")
 
+        return (
+            <li className="d-flex align-items-center">
+                <NavLink className="nav-link py-1" to="/Member">
+                    <figure className="header_avatar m-0">
+                        {/* TODO: 如果沒有頭像要用預設的 */}
+                        <img src={"../../" + mem_avatar} alt="" />
+                    </figure>
+                </NavLink>
+                <button className="btn bg_fff p-0 logout">
+                    <NavLink className="nav-link main_color" to="/Logout">登出</NavLink>
+                </button>
+            </li>
+        )
+    }
+
+    renderLoginButton = () => {
+        return (
+            <li className="login">
+                <button className="btn bg_fff p-0">
+                    <NavLink className="nav-link main_color" to="/Login"><FaUserAlt />&nbsp;登入/註冊</NavLink>
+                </button>
+            </li>
+        )
+    }
+    render() {
         return (
             <>
                 <nav className="main_color">
@@ -115,25 +153,8 @@ class Header extends React.Component {
 
                         </li>
 
-                        {this.state.logined ? (
-                            <li className="d-flex align-items-center">
-                                <NavLink className="nav-link py-1" to="/Member">
-                                    <figure className="header_avatar m-0">
-                                    {/* TODO: 如果沒有頭像要用預設的 */}
-                                        <img src={"../../" + mem_avatar} alt="" />
-                                    </figure>
-                                </NavLink>
-                                <button className="btn bg_fff p-0 logout">
-                                    <NavLink className="nav-link main_color" to="/Logout">登出</NavLink>
-                                </button>
-                            </li>
-                        ) : (
-                                <li className="login">
-                                    <button className="btn bg_fff p-0">
-                                        <NavLink className="nav-link main_color" to="/Login"><FaUserAlt />&nbsp;登入/註冊</NavLink>
-                                    </button>
-                                </li>
-                            )}
+                        {/* 登入沒 ? 是(會員頭像+登出按鈕) : 否(登入/註冊按鈕) */}
+                        {this.state.logined ? (this.renderMemberAvatar()) : (this.renderLoginButton())}
                     </ul>
                 </nav>
             </>

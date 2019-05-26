@@ -18,20 +18,26 @@ class App extends React.Component {
   constructor() {
     super()
     this.state = {
-      isAuthenticated: false, // 登入狀態
+      isAuthenticated: false,
+      isntAuthenticated: false,
     }
   }
 
   toggleLogin = () => {
     this.setState({ isAuthenticated: !this.state.isAuthenticated })
-    // console.log('toggleLogin:' + this.state.isAuthenticated)
+    console.log('toggleLogin:' + this.state.isAuthenticated)
+  }
+
+  toggleLogout = () => {
+    this.setState({ isntAuthenticated: !this.state.isntAuthenticated })
+    console.log('toggleLogout:' + this.state.isntAuthenticated)
   }
 
   render() {
     return (
       <Router>
         <>
-          <Header />
+          <Header isAuthenticated={this.state.isAuthenticated} isntAuthenticated={this.state.isntAuthenticated}  />
 
           <Switch>
             <Route exact path="/" component={Index} />
@@ -42,8 +48,8 @@ class App extends React.Component {
             <Route path="/ShareFun" component={ShareFun} />
             <Route path="/Member" component={Member} />
             <Route path="/Login" render={(props) => <Login toggleLogin={this.toggleLogin} {...props} />} />
-            <Route path="/Register" component={Register} />
-            <Route path="/Logout" component={Logout} />
+            <Route path="/Register" render={(props) => <Register toggleLogin={this.toggleLogin} {...props} />} />
+            <Route path="/Logout" render={(props) => <Logout toggleLogout={this.toggleLogout} {...props} />} />
           </Switch>
 
           <Footer />
