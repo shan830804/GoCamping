@@ -46,6 +46,27 @@ class MemberInfoEditor extends React.Component {
         })
     }
 
+
+    onAvatarChange = async (event) => {
+        event.preventDefault();
+
+        console.log('點到上傳相片')
+        // TODO: 把相片存到本地端，同時把名稱存在json檔中
+
+        if (event.target.files) { // 如果有上傳檔案
+            let reader = await new FileReader();
+            let file = event.target.files;
+
+            reader.onload = (e) => {
+              this.setState({ file: file, avatar_pictures: e.reader.result });
+              console.log(this.state.avatar_pictures)
+              console.log(this.state.file.name)
+            };
+
+            reader.readAsDataURL(file[0]);
+          }
+    }
+
     onInputChange = (event) => {
         switch (event.target.name) {
             case 'password':
@@ -157,11 +178,11 @@ class MemberInfoEditor extends React.Component {
                             <input type="hidden" id="avatar_pictures" name="avatar_pictures" className="form-control" />
                             <figure className="avatar m-0">
                                 {/* <Image src="../../images/toothless.jpg" /> */}
-                                <Image src={"../../" + this.state.avatar_pictures} />
+                                <img src={"../../" + this.state.avatar_pictures} alt="" id="target" />
                             </figure>
                             <div className="mx-2">
-                                <label className="btn btn-outline-grass">
-                                    <input type="file" id="my_file" name="my_file" style={{ display: "none" }} accept="image/*" />
+                                <label className="btn btn-outline-grass" >
+                                    <input type="file" id="my_file" name="my_file" style={{ display: "none" }} accept="image/*" onChange={this.onAvatarChange} />
                                     <i className="fas fa-camera"></i> 選擇相片
                                 </label>
                                 {/* <span className="avatar_upload asterisk d-block">格式不符(副檔名須為.jpg/.png/.jpeg)</span> */}
