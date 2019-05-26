@@ -65,7 +65,7 @@ class FoodList extends React.Component {
       <>
         <Row className="justify-content-md-center fs-32">
           <Col md="auto">
-            <p>全站商品</p>
+            <p>買食材</p>
           </Col>
         </Row>
 

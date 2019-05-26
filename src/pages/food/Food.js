@@ -65,7 +65,7 @@ class Food extends React.Component {
                             handleSalecateid={this.handleSalecateid}
                             handleSaleAll={this.handleSaleAll}/>
             </Col>
-            <Col md={9}>
+            <Col md={10}>
               <FoodList salebrand={this.state.salebrand}
                         salecateid={this.state.salecateid}
               />
