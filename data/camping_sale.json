@@ -1,0 +1,281 @@
+{
+  
+  "salebrand": [
+    {
+      "salebrand_id": "1",
+      "salebrand_name": "桂冠",
+      "salebrand_sort": "1"
+    },
+    {
+      "salebrand_id": "2",
+      "salebrand_name": "紅龍",
+      "salebrand_sort": "2"
+    },
+    {
+      "salebrand_id": "3",
+      "salebrand_name": "七里香",
+      "salebrand_sort": "3"
+    },
+    {
+      "salebrand_id": "4",
+      "salebrand_name": "西北",
+      "salebrand_sort": "4"
+    }
+  ],
+  "salecategory": [
+    {
+      "salecate_id": "1",
+      "salecate_name": "冷凍食品",
+      "salecate_parentid": "0",
+      "salecate_sort": "1"
+    },
+    {
+      "salecate_id": "2",
+      "salecate_name": "冷藏食品",
+      "salecate_parentid": "0",
+      "salecate_sort": "2"
+    },
+    {
+      "salecate_id": "3",
+      "salecate_name": "生鮮食材",
+      "salecate_parentid": "0",
+      "salecate_sort": "3"
+    },
+    {
+      "salecate_id": "4",
+      "salecate_name": "素料理專區",
+      "salecate_parentid": "0",
+      "salecate_sort": "4"
+    },
+    {
+      "salecate_id": "5",
+      "salecate_name": "未選擇",
+      "salecate_parentid": "0",
+      "salecate_sort": "0"
+    }
+  ],
+  "saleorder": [
+    {
+      "id": "1",
+      "saleorder_memname": "小牛蒡",
+      "saleorder_memtel": "0925255333",
+      "saleorder_memmail": "memmail",
+      "saleorder_memtaddress": "台北市大安區",
+      "saleorder_salepageid": "1",
+      "saleorder_salepagename": "牛蒡組合",
+      "saleorder_number": "3",
+      "saleorder_total": "1,999",
+      "saleorder_payment": "ibon",
+      "saleorder_paycode": "133 111 111 111",
+      "saleorder_paydate": "2019-06-10"
+    }
+  ],
+  "salepage": [
+    {
+      "id": "1",
+      "salepage_image": "/images/f1-1.jpg",
+      "salepage_image2": "/images/f1-2.jpg",
+      "salepage_image3": "/images/f1-3.jpg",
+      "salepage_name": "七里香",
+      "salepage_quility": "999",
+      "salepage_suggestprice": "1999",
+      "salepage_price": "1999",
+      "salepage_cost": "999",
+      "salepage_state": "1",
+      "salepage_feature": "【冷凍店取-老協珍】牛肉鍋(2970g(固形物970g)/盒)",
+      "salepage_proddetails": "<p>【冷凍店取-老協珍】牛肉鍋(2970g(固形物970g)/盒)</p>\r\n",
+      "salepage_specification": "",
+      "salepage_paymenttype": "",
+      "salepage_deliverytype": "",
+      "salepage_salecateid": "1",
+      "salepage_salebrand": "3"
+    },
+    {
+      "id": "2",
+      "salepage_image": "https://diz36nn4q02zr.cloudfront.net/webapi/imagesV3/Original/SalePage/5005945/0/094558?v=1",
+      "salepage_name": "紅龍",
+      "salepage_quility": "777",
+      "salepage_suggestprice": "777",
+      "salepage_price": "8877",
+      "salepage_cost": "887",
+      "salepage_state": "0",
+      "salepage_feature": "【 冷凍店取-陳記好味】東北酸菜鴨(固形物300克、湯500cc)",
+      "salepage_proddetails": "<p>【 冷凍店取-陳記好味】東北酸菜鴨(固形物300克、湯500cc)</p>\r\n",
+      "salepage_specification": "",
+      "salepage_paymenttype": "",
+      "salepage_deliverytype": "",
+      "salepage_salecateid": "2",
+      "salepage_salebrand": "2"
+    },
+    {
+      "id": "3",
+      "salepage_image": "https://diz36nn4q02zr.cloudfront.net/webapi/imagesV3/Original/SalePage/5005945/0/094558?v=1",
+      "salepage_name": "紅龍",
+      "salepage_quility": "999",
+      "salepage_suggestprice": "555",
+      "salepage_price": "555",
+      "salepage_cost": "555",
+      "salepage_state": "1",
+      "salepage_feature": "【冷凍店取-哈根達斯】甜蜜鍾情雪糕禮盒",
+      "salepage_proddetails": "<p>【冷凍店取-哈根達斯】甜蜜鍾情雪糕禮盒</p>\r\n",
+      "salepage_specification": "",
+      "salepage_paymenttype": "",
+      "salepage_deliverytype": "",
+      "salepage_salecateid": "3",
+      "salepage_salebrand": "2"
+    },
+    {
+      "id": "4",
+      "salepage_image": "https://diz36nn4q02zr.cloudfront.net/webapi/imagesV3/Original/SalePage/5005945/0/094558?v=1",
+      "salepage_name": "桂冠",
+      "salepage_quility": "777",
+      "salepage_suggestprice": "111",
+      "salepage_price": "111",
+      "salepage_cost": "111",
+      "salepage_state": "0",
+      "salepage_feature": "【冷凍店取-阿奇儂】拿鐵雪沙(6杯)",
+      "salepage_proddetails": "<p>【冷凍店取-阿奇儂】拿鐵雪沙(6杯)</p>\r\n",
+      "salepage_specification": "",
+      "salepage_paymenttype": "",
+      "salepage_deliverytype": "",
+      "salepage_salecateid": "4",
+      "salepage_salebrand": "1"
+    },
+    {
+      "id": "5",
+      "salepage_image": "https://diz36nn4q02zr.cloudfront.net/webapi/imagesV3/Original/SalePage/5005945/0/094558?v=1",
+      "salepage_name": "桂冠",
+      "salepage_quility": "111",
+      "salepage_suggestprice": "111",
+      "salepage_price": "111",
+      "salepage_cost": "111",
+      "salepage_state": "0",
+      "salepage_feature": "【冷凍店取】美國prime頂級安格斯板腱牛肉",
+      "salepage_proddetails": "<p>【冷凍店取-阿奇儂】拿鐵雪沙(6杯)​​​​​​​</p>\r\n",
+      "salepage_specification": "",
+      "salepage_paymenttype": "",
+      "salepage_deliverytype": "",
+      "salepage_salecateid": "1",
+      "salepage_salebrand": "1"
+    },
+    {
+      "id": "6",
+      "salepage_image": "https://diz36nn4q02zr.cloudfront.net/webapi/imagesV3/Original/SalePage/5005945/0/094558?v=1",
+      "salepage_name": "西北",
+      "salepage_quility": "422",
+      "salepage_suggestprice": "422",
+      "salepage_price": "422",
+      "salepage_cost": "422",
+      "salepage_state": "1",
+      "salepage_feature": "【冷凍店取-爭鮮】熟凍波士頓龍蝦(450g(隻)/盒)",
+      "salepage_proddetails": "<p>【冷凍店取-爭鮮】熟凍波士頓龍蝦(450g(隻)/盒)</p>\r\n",
+      "salepage_specification": "",
+      "salepage_paymenttype": "",
+      "salepage_deliverytype": "",
+      "salepage_salecateid": "1",
+      "salepage_salebrand": "4"
+    },
+    {
+      "id": "7",
+      "salepage_image": "https://diz36nn4q02zr.cloudfront.net/webapi/imagesV3/Original/SalePage/5005945/0/094558?v=1",
+      "salepage_name": "西北",
+      "salepage_quility": "433",
+      "salepage_suggestprice": "433",
+      "salepage_price": "433",
+      "salepage_cost": "433",
+      "salepage_state": "0",
+      "salepage_feature": "【食吧嚴選】日本青森富士蘋果*3箱團購組(8顆/箱，280g±10%/顆)",
+      "salepage_proddetails": "<p>【食吧嚴選】日本青森富士蘋果*3箱團購組(8顆/箱，280g&plusmn;10%/顆)</p>\r\n",
+      "salepage_specification": "",
+      "salepage_paymenttype": "",
+      "salepage_deliverytype": "",
+      "salepage_salecateid": "2",
+      "salepage_salebrand": "4"
+    },
+    {
+      "id": "8",
+      "salepage_image": "https://diz36nn4q02zr.cloudfront.net/webapi/imagesV3/Original/SalePage/5005945/0/094558?v=1",
+      "salepage_name": "桂冠",
+      "salepage_quility": "868",
+      "salepage_suggestprice": "868",
+      "salepage_price": "868",
+      "salepage_cost": "868",
+      "salepage_state": "0",
+      "salepage_feature": "【食吧嚴選】台灣精品-高雄黑糖芭比蓮霧*1盒組(9-10顆/盒，2-2.5kg/盒)",
+      "salepage_proddetails": "<p>【食吧嚴選】台灣精品-高雄黑糖芭比蓮霧*1盒組(9-10顆/盒，2-2.5kg/盒)</p>\r\n",
+      "salepage_specification": "",
+      "salepage_paymenttype": "",
+      "salepage_deliverytype": "",
+      "salepage_salecateid": "1",
+      "salepage_salebrand": "1"
+    },
+    {
+      "id": "9",
+      "salepage_image": "https://diz36nn4q02zr.cloudfront.net/webapi/imagesV3/Original/SalePage/5005945/0/094558?v=1",
+      "salepage_name": "紅龍",
+      "salepage_quility": "343",
+      "salepage_suggestprice": "343",
+      "salepage_price": "343",
+      "salepage_cost": "343",
+      "salepage_state": "1",
+      "salepage_feature": "【亞尼克】25度N檸檬派(6吋(15cm*2.5cm)/盒*4盒)",
+      "salepage_proddetails": "<p>【亞尼克】25度N檸檬派(6吋(15cm*2.5cm)/盒*4盒)</p>\r\n\r\n<p>3重滋味加乘，讓人一口接一口!!蛋白霜經過炙燒形成誘人的焦糖色澤，帶來軟綿細緻的觸感， 緊接著是現榨綠檸檬與法國依思尼奶油， 交織出柔軟細膩的口感， 檸檬清新爽朗的香氣瀰漫在嘴裡， 和厚實酥脆的派皮形成絕佳平衡。 這股初戀般的酸甜滋味，在夏日特別迷人 酸V啊 ，酸V啊 !!</p>\r\n\r\n<p>&nbsp;</p>\r\n",
+      "salepage_specification": "",
+      "salepage_paymenttype": "",
+      "salepage_deliverytype": "",
+      "salepage_salecateid": "3",
+      "salepage_salebrand": "2"
+    },
+    {
+      "id": "10",
+      "salepage_image": "https://diz36nn4q02zr.cloudfront.net/webapi/imagesV3/Original/SalePage/5005945/0/094558?v=1",
+      "salepage_name": "桂冠",
+      "salepage_quility": "34",
+      "salepage_suggestprice": "333",
+      "salepage_price": "2222",
+      "salepage_cost": "222",
+      "salepage_state": "1",
+      "salepage_feature": "94好吃",
+      "salepage_proddetails": "<p>好吃啦</p>\r\n",
+      "salepage_specification": "",
+      "salepage_paymenttype": "",
+      "salepage_deliverytype": "",
+      "salepage_salecateid": "2",
+      "salepage_salebrand": "1"
+    },
+    {
+      "id": "11",
+      "salepage_image": "https://diz36nn4q02zr.cloudfront.net/webapi/imagesV3/Original/SalePage/5005945/0/094558?v=1",
+      "salepage_name": "七里香",
+      "salepage_quility": "45",
+      "salepage_suggestprice": "4444",
+      "salepage_price": "5555",
+      "salepage_cost": "4444",
+      "salepage_state": "1",
+      "salepage_feature": "素素的",
+      "salepage_proddetails": "<p>特選肉質鮮嫩、口感極佳且經CAS品質認證之雞腿肉(去骨去皮)，以陳年花雕酒醃漬四十八小時入味，搭配上等干貝海洋珍品，以及栗子、香菇、蛋黃 、蝦米...等豐富食材，色香味俱全，品嚐一口，淡淡的花雕酒香在空氣中彌漫，令人垂涎三尺，口齒留香；獨特風味</p>\r\n\r\n<p>&nbsp;</p>\r\n",
+      "salepage_specification": "",
+      "salepage_paymenttype": "",
+      "salepage_deliverytype": "",
+      "salepage_salecateid": "4",
+      "salepage_salebrand": "3"
+    },
+    {
+      "id": "12",
+      "salepage_image": "https://diz36nn4q02zr.cloudfront.net/webapi/imagesV3/Original/SalePage/5005945/0/094558?v=1",
+      "salepage_name": "紅龍",
+      "salepage_quility": "807",
+      "salepage_suggestprice": "888",
+      "salepage_price": "888",
+      "salepage_cost": "888",
+      "salepage_state": "1",
+      "salepage_feature": "特選肉質鮮嫩、口感極佳且經CAS品質認證之雞腿肉(去骨去皮)，以陳年花雕酒醃漬四十八小時入味，搭配上等干貝海洋珍品，以及栗子、香菇、",
+      "salepage_proddetails": "<p>特選肉質鮮嫩、口感極佳且經CAS品質認證之雞腿肉(去骨去皮)，以陳年花雕酒醃漬四十八小時入味，搭配上等干貝海洋珍品，以及栗子、香菇、</p>\r\n",
+      "salepage_specification": "",
+      "salepage_paymenttype": "",
+      "salepage_deliverytype": "",
+      "salepage_salecateid": "2",
+      "salepage_salebrand": "2"
+    }
+  ]
+}

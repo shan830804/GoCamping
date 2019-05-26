@@ -1,0 +1,248 @@
+
+.fs-12 {
+  font-size: 12px;
+}
+.fs-13 {
+  font-size: 13px;
+}
+.fs-18 {
+  font-size: 18px;
+}
+.fs-14 {
+  font-size: 14px;
+}
+.fs-bold {
+  font-weight: bold;
+}
+.grass {
+  color: #87b061;
+}
+.apple {
+  color: #bfdd87;
+}
+.sunshine {
+  color: #f2ce63;
+}
+.forest {
+  color: #027252;
+}
+.ground {
+  color: #87b061;
+}
+.wood {
+  color: #693d31;
+}
+.watermelon {
+  color: #f26666;
+}
+.food-default{
+  color:#707070;
+}
+.bg-grass {
+  background-color: #87b061;
+}
+.bg-apple {
+  background-color: #bfdd87;
+}
+.bg-sunshine {
+  background-color: #f2ce63;
+}
+.bg-forest {
+  background-color: #027252;
+}
+.bg-ground {
+  background-color: #ba7438;
+}
+.bg-wood {
+  background-color: #693d31;
+}
+.bg-watermelon {
+  background-color: #f26666;
+}
+.bg-diamond {
+  background-color: #74b4fc;
+}
+.bg-food-default{
+  background-color:#707070;
+}
+.btn-grass {
+  background-color: #87b061;
+  color: #ffffff;
+}
+.btn-grass:hover {
+  background-color: #027252;
+  color: #ffffff;
+}
+.btn-outline-grass {
+  background-color: #ffffff;
+  border: 1px solid #87b061;
+  color: #87b061;
+}
+.btn-outline-grass:hover {
+  background-color: #87b061;
+  color: #ffffff;
+}
+
+/* 麵包屑的修改 */
+.breadcrumb {
+  background-color: #ffffff;
+  color: #707070;
+}
+.breadcrumb-item + .breadcrumb-item::before {
+  content: ">";
+}
+.breadcrumb-item {
+  font-weight: bold;
+}
+/* 麵包屑結束 */
+
+/* Food.js排版開始 */
+.col-big{
+  border: 1px solid #693d31;
+}
+.col-md{
+  border: 1px solid #141a6d;
+}
+/* Food.js排版結束 */
+
+/* 左邊商品選單開始 */
+aside {
+  border: 1px solid #000000;
+}
+.fleft-active {
+  background: #f2ce63;
+}
+.fl-link:hover{
+  cursor: pointer;
+}
+/* 左邊商品選單結束*/
+
+/* FoodDetails開始 */
+.FoodDetails{
+  margin-bottom: 100px;
+}
+/* 詳細商品頁左邊開始 */
+.fl-imgSm{
+  padding: 0 -15px;
+  margin: 0 0 0 -12px;
+}
+/* 詳細商品頁左邊結束 */
+/* 詳細商品頁右邊商品開始 */
+.su-price {
+  color: #cccccc;
+  margin: 0 0 -10px 0;
+}
+.btn-number {
+  background-color: #ffffff;
+  border: 1px solid #693d31;
+}
+.input-number {
+  background-color: #ffffff;
+  border: 1px solid #693d31;
+}
+.group-number {
+  margin: -15px 0 0 -15px;
+}
+.btn-add {
+  margin: 15px -40px 0 0;
+}
+.btn-addcol{
+  padding:0;
+}
+.btn-addheart {
+  background-color: #cccccc;
+  border: 1px solid transparent;
+  color: #ffffff;
+  width: 90%;
+}
+.btn-addheart:hover {
+  background-color: #fd7156;
+  border: 1px solid transparent;
+  color: #ffffff;
+}
+.btn-addheart:active {
+  background-color: #fd7156;
+  border: 1px solid transparent;
+  color: #ffffff;
+}
+.btn-order{
+  width: 90%;;
+}
+.btn-grass:active {
+  background-color: #027252;
+  border: 1px solid transparent;
+  color: #ffffff;
+}
+/* 付款與運送 */
+.pay-cardbody {
+  padding: 10px;
+}
+.pay-method {
+  background-color: #f5f5f5;
+}
+.pay-title {
+  border-left: 3px solid #027252;
+  padding-left: 6px;
+  margin-bottom: 6px;
+}
+.pay-dt {
+  margin: 0;
+}
+/* 右邊商品結束 */
+
+/* 中間詳細開始 */
+/* 詳細說明 */
+.dt-border {
+  border-bottom: 1.5px solid #cccccc;
+}
+.dt-title{
+  margin-bottom: 4px;
+}
+.img-title {
+  text-align: center;
+  padding-top: 12px;
+  margin-bottom: 2px;
+}
+/* 相關推薦 */
+.comment-bd{
+  margin: 6px;
+}
+.comment-active{
+  border-bottom: 2px solid #027252;
+}
+/* FoodDetails結束*/
+/* FoodOrder開始 */
+.forder01-title {
+  border-bottom: 1.5px solid #cccccc;
+  /* width: 60%; */
+  text-align: center;
+}
+.forder01-totalcon{
+  margin-top: -15px
+}
+.forder01-total{
+  border: 1px solid #cccccc77;
+  border-radius: 2px;
+  text-align: end;
+  padding: 0 2px;
+}
+.forder01-ser{
+  border: 1px solid #cccccc77;
+  border-radius: 2px;
+  padding: 0 2px;
+  overflow: scroll;
+  height: 150px;
+}
+/* 送出或返回button */
+.forder01-btncon{
+  margin-bottom: 100px;
+}
+.forder-btn{
+  border:none;
+}
+/* FoodOOrder02開始 */
+.forder02-dn{
+  display: none;
+}
+/* FoodOrder02結束 */
+/* FoodOrder結束 */
