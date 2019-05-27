@@ -78,12 +78,14 @@ class Member extends React.Component {
                             <Aside />
                             <Route exact path="/Member" component={Notification} />
                             <Route exact path="/Member/MyInfoEditor" render={(props) => <InfoEditor memberData={this.state.memberData} {...props} />} />
-                            <Route exact path="/Member/MyOrderManager" component={CampingOrder} />
                             <Route exact path="/Member/MyCampingOrder" component={CampingOrder} />
                             <Route exact path="/Member/MyFoodOrder" component={FoodOrder} />
                             <Route exact path="/Member/MyEventOrder" component={EventOrder} />
                             <Route exact path="/Member/MyCoupon" component={Coupon} />
+                            {/* <Route exact path="/Member/MyFavorite" component={Favorite} /> */}
                             <Route exact path="/Member/MyPostEditor" component={PostEditor} />
+                            {/* <Route exact path="/Member/MyPostList" component={PostList} /> */}
+                            {/* <Route exact path="/Member/MyFavoritePost" component={FavoritePost} /> */}
                             <Route exact path="/Member/MemberLevel" component={Level} />
                         </div>
                     </section>

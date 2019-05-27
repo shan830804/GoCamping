@@ -1074,22 +1074,23 @@
     {
       "mem_account": "boo",
       "mem_password": "admin",
+      "mem_avatar": "avatar_pictures/_default.jpg",
       "mem_name": "阿布",
       "mem_nickname": "",
       "mem_gender": "female",
       "mem_birthday": "",
       "mem_mobile": "0926-188-936",
       "mem_email": "boo@gmail.com",
-      "mem_address": "",
+      "mem_address": "台北市中山區安東街",
       "memLevel_id": "露營新手",
       "mem_status": "valid",
       "mem_intro": "",
-      "mem_signUpDate": "2019-05-26 03:25:20",
       "id": 1558855520526
     },
     {
       "mem_account": "mulan",
       "mem_password": "admin",
+      "mem_avatar": "avatar_pictures/_default.jpg",
       "mem_name": "花木蘭",
       "mem_nickname": "小蘭",
       "mem_gender": "female",
@@ -1106,6 +1107,7 @@
     {
       "mem_account": "timon",
       "mem_password": "admin",
+      "mem_avatar": "avatar_pictures/_default.jpg",
       "mem_name": "丁滿",
       "mem_nickname": "",
       "mem_gender": "",
@@ -1122,6 +1124,7 @@
     {
       "mem_account": "lilo",
       "mem_password": "admin",
+      "mem_avatar": "avatar_pictures/_default.jpg",
       "mem_name": "莉蘿",
       "mem_nickname": "",
       "mem_gender": "female",

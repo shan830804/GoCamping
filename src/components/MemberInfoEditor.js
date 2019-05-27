@@ -1,12 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Redirect } from 'react-router-dom';
-import { Image, Button } from 'react-bootstrap';
+import TwCitySelector from 'tw-city-selector';
 
 class MemberInfoEditor extends React.Component {
     constructor() {
         super()
         this.state = {
             submitted: false,
+            // 預設存放區
             id: '',
             account: '',
             password: '',
@@ -23,11 +24,18 @@ class MemberInfoEditor extends React.Component {
             status: '',
             signUpDate: '',
             password_check: '',
+            // 改變存放區
+            zipcode: '',
+            county: '',
+            district: '',
+            remainAddress: '',
+            file: '',
+            imagePreviewUrl: '',
         }
     }
 
-    componentWillMount() {
-        this.setState({
+    async componentWillMount() {
+        await this.setState({
             id: localStorage.getItem("mem_id"),
             account: localStorage.getItem("mem_account"),
             password: localStorage.getItem("mem_password"),
@@ -46,29 +54,37 @@ class MemberInfoEditor extends React.Component {
         })
     }
 
-
-    onAvatarChange = async (event) => {
-        event.preventDefault();
-
-        console.log('點到上傳相片')
-        // TODO: 把相片存到本地端，同時把名稱存在json檔中
-
-        if (event.target.files) { // 如果有上傳檔案
-            let reader = await new FileReader();
-            let file = event.target.files;
-
-            reader.onload = (e) => {
-              this.setState({ file: file, avatar_pictures: e.reader.result });
-              console.log(this.state.avatar_pictures)
-              console.log(this.state.file.name)
-            };
-
-            reader.readAsDataURL(file[0]);
-          }
+    componentDidMount() {
+        new TwCitySelector({
+            el: '.address_api',
+            elCounty: '.county', // 在 el 裡查找 element
+            // countyFieldName: 'address[]',
+            elDistrict: '.district', // 在 el 裡查找 element
+            // districtFieldName: 'address[]',
+            elZipcode: '.zipcode', // 在 el 裡查找 element
+            // zipcodeFieldName: 'address[]', // input區域裡的zipcode name也要改成address[]才能夠接上
+        });
     }
 
-    onInputChange = (event) => {
-        switch (event.target.name) {
+    onAvatarChange = (event) => {
+        event.preventDefault();
+
+        let reader = new FileReader();
+        let file = event.target.files[0];
+    
+        reader.onloadend = () => {
+          this.setState({
+            file: file,
+            imagePreviewUrl: reader.result
+          });
+          this.setState({ avatar_pictures: this.state.imagePreviewUrl })
+        }
+    
+        reader.readAsDataURL(file)
+    }
+
+    onInputChange = async (event) => {
+        switch (event.target.id) {
             case 'password':
             case 'password_check':
             case 'name':
@@ -77,10 +93,18 @@ class MemberInfoEditor extends React.Component {
             case 'birthday':
             case 'mobile':
             case 'email':
-            case 'address':
             case 'introduction':
                 this.setState({ [event.target.name]: event.target.value })
                 // console.log('修改中- ' + `${event.target.name}` + ': ' + `${event.target.value}`)
+                break;
+            case 'zipcode':
+            case 'county':
+            case 'district':
+            case 'remainAddress':
+                await this.setState({ [event.target.id]: event.target.value })
+                await this.setState({ address: this.state.zipcode+this.state.county+this.state.district+this.state.remainAddress })
+                // console.log(`修改中- ${event.target.id}: ${event.target.value}`)
+                console.log(this.state.address)
                 break;
             default:
                 console.log(`Accept Unhandleable Type[${event.target.type}]`);
@@ -138,6 +162,14 @@ class MemberInfoEditor extends React.Component {
     }
 
     renderEditorForm = () => {
+        let {imagePreviewUrl} = this.state;
+        let $imagePreview = null;
+        if (imagePreviewUrl) {
+            $imagePreview = (<img src={imagePreviewUrl} />);
+        } else {
+            $imagePreview = (<img src={"../../" + this.state.avatar_pictures} alt="" />);
+        }
+
         return (
             <main className="col-sm-10 my-2">
                 <form onSubmit={this.onInfoEditorSubmit}>
@@ -175,10 +207,11 @@ class MemberInfoEditor extends React.Component {
                     <div className="form-group row">
                         <label htmlFor="avatar" className="col-sm-2 col-form-label px-0 text-right rwd-text">大頭貼</label>
                         <div className="col-sm-9 d-flex align-items-start">
-                            <input type="hidden" id="avatar_pictures" name="avatar_pictures" className="form-control" />
+                            {/* <input type="hidden" id="avatar_pictures" name="avatar_pictures" className="form-control" /> */}
                             <figure className="avatar m-0">
                                 {/* <Image src="../../images/toothless.jpg" /> */}
-                                <img src={"../../" + this.state.avatar_pictures} alt="" id="target" />
+                                {/* <img src={"../../" + this.state.avatar_pictures} alt="" /> */}
+                                {$imagePreview}
                             </figure>
                             <div className="mx-2">
                                 <label className="btn btn-outline-grass" >
@@ -218,12 +251,14 @@ class MemberInfoEditor extends React.Component {
                         <input type="tel" id="mobile" name="mobile" className="form-control col-sm-7 mx-3" pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}" required defaultValue={this.state.mobile} onChange={this.onInputChange} />
                         <small className="form-text col-sm-2 forest">格式 09XX-XXX-XXX</small>
                     </div>
-                    <div className="form-group row">
-                        <label htmlFor="address" className="col-sm-2 col-form-label px-0 text-right rwd-text">地址</label>
-                        <input type="hidden" name="address[]" className="form-control zipcode" placeholder="郵遞區號" size="5" autoComplete="off" readOnly />
-                        <select name="county" className="form-control ml-sm-3 col-sm-2 county"></select>
-                        <select name="district" className="form-control col-sm-2 district"></select>
-                        <input type="text" id="address" name="address[]" className="form-control col-sm-5" defaultValue={this.state.address} onChange={this.onInputChange} />
+                    <div role="tw-city-selector" data-has-zipcode>
+                        <div className="form-group address_api row">
+                            <label htmlFor="address" className="col-sm-2 col-form-label px-0 text-right rwd-text">地址</label>
+                            <input type="hidden" id="zipcode" name="zipcode" className="form-control zipcode" placeholder="郵遞區號" size="5" autoComplete="off" readOnly defaultValue="郵遞區號"/>
+                            <select id="county" name="county" className="form-control ml-sm-3 col-sm-2 county" onChange={this.onInputChange}></select>
+                            <select id="district" name="district" className="form-control col-sm-2 district" onChange={this.onInputChange}></select>
+                            <input type="text" id="remainAddress" name="address" className="form-control col-sm-5" defaultValue={this.state.address} onChange={this.onInputChange} />
+                        </div>
                     </div>
                     <div className="form-group row">
                         <label htmlFor="introduction" className="col-sm-2 col-form-label px-0 text-right rwd-text">自我介紹</label>

@@ -65,15 +65,17 @@ aside .box {
   width: 25px;
   height: 25px;
 }
-aside .mem_aside {
+aside a {
   color: #707070;
 }
-aside .mem_aside:hover {
-    color: #F2CE63;
+aside a:hover {
+  color: #F2CE63;
 }
-aside .mem_aside:active {
-    color: #87B061;
+.activeAside{
+  color: #87B061;
+  border-bottom: 2px solid #87B061;
 }
+
 
 
 /* 右方主頁面 */
