@@ -69,7 +69,7 @@ class FoodList extends React.Component {
             <div className="d-flex flex-wrap pl-4">
                 {this.state.filterData.map(item => (
                 <Card.Link className="ml-0 mr-3" key={item.id} href={"/Food/FoodDetails/" + item.id} >
-                  <Card className="mt-3 flist-card" style={{ width: "200px", height: "283px" }}>
+                  <Card className="mt-3 flist-card"  style={{ width: "200px", height: "283px" }}>
                     <Card.Img
                       variant="top"
                       className="flist-img"

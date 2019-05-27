@@ -60,7 +60,6 @@ class Food extends React.Component {
             <FoodBread />
             <FoodSlider />
           </Row>
-
           <Row className="d-flex"> 
             <FoodLeftside handleSalebrand={this.handleSalebrand}
                           handleSalecateid={this.handleSalecateid}
@@ -68,8 +67,7 @@ class Food extends React.Component {
                           salebrand={this.state.salebrand}
                           salecateid={this.state.salecateid}
                             />
-         
-        
+
             <FoodList salebrand={this.state.salebrand}
                       salecateid={this.state.salecateid}
             /> 
