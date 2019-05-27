@@ -13,7 +13,8 @@ import FoodDetails from "./FoodDetails";
 class Food extends React.Component {  
   constructor(props) {
       super(props)
-      this.state = {                    
+      this.state = { 
+        title: "買食材",                   
         salebrand: 0,  
         salecateid: 0,          
       }
@@ -21,6 +22,10 @@ class Food extends React.Component {
       this.handleSaleAll = this.handleSaleAll.bind(this);
       this.handleSalebrand = this.handleSalebrand.bind(this);
       this.handleSalecateid = this.handleSalecateid.bind(this);
+  }
+    //網頁標題
+    componentDidMount() {
+    document.title = this.state.title;
   }
 
   handleSaleAll()
@@ -50,26 +55,24 @@ class Food extends React.Component {
   render(){
     return (
       <Router>
-        <Container>
+        <Container className="f-margin-bottom">
           <Row>
             <FoodBread />
             <FoodSlider />
           </Row>
-        </Container>
 
-        <Container>
-          <Row>
-            <Col md={2}>
-              {" "}
-              <FoodLeftside handleSalebrand={this.handleSalebrand}
-                            handleSalecateid={this.handleSalecateid}
-                            handleSaleAll={this.handleSaleAll}/>
-            </Col>
-            <Col md={10}>
-              <FoodList salebrand={this.state.salebrand}
-                        salecateid={this.state.salecateid}
-              />
-            </Col>
+          <Row className="d-flex"> 
+            <FoodLeftside handleSalebrand={this.handleSalebrand}
+                          handleSalecateid={this.handleSalecateid}
+                          handleSaleAll={this.handleSaleAll}
+                          salebrand={this.state.salebrand}
+                          salecateid={this.state.salecateid}
+                            />
+         
+        
+            <FoodList salebrand={this.state.salebrand}
+                      salecateid={this.state.salecateid}
+            /> 
           </Row>
         </Container>
       </Router>

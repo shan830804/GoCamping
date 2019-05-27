@@ -1,15 +1,15 @@
 import React from "react";
 import { BrowserRouter as NavLink } from "react-router-dom";
-import { Breadcrumb } from 'react-bootstrap'
 
 /* 麵包屑 */
 const FoodBread = props => (
     <>
-        <Breadcrumb className="bread-crumb fs-16 fs-bold">
-            <Breadcrumb.Item className="align-items-center justify-content-center" href="">首頁</Breadcrumb.Item>
-            <Breadcrumb.Item active>買食材</Breadcrumb.Item>
-        </Breadcrumb>
-
+        <div className="col-12 p-0">
+            <ul className="breadcrumb f-ulBreadcrumb m-0">
+                <li className="breadcrumb-item f-liBreadcrumb myBreadcrumb"><i className="fas fa-home"></i></li>
+                <li className="breadcrumb-item f-liBreadcrumb active myBreadcrumb">買食材</li>
+            </ul>
+        </div>
     </>
   );
 

@@ -1,5 +1,6 @@
 import React from "react";
-import { Card, Img, Row, Col, Container } from "react-bootstrap";
+import { Card, Col} from "react-bootstrap";
+import NumberFormat from 'react-number-format';
 
 class FoodList extends React.Component {
   constructor() {
@@ -63,38 +64,36 @@ class FoodList extends React.Component {
   render() {
     return (
       <>
-        <Row className="justify-content-md-center fs-32">
-          <Col md="auto">
-            <p>買食材</p>
-          </Col>
-        </Row>
-
-        <Col>
-          <div className="d-flex col-big">
-            {this.state.filterData.map(item => (
-              <Card.Link key={item.id} href={"/Food/FoodDetails/" + item.id} >
-                <Card className="" style={{ width: "211px", height: "283px" }}>
-                  <Card.Img
-                    variant="top"
-                    src={item.salepage_image}
-                    style={{ width: "211px", height: "143px" }}
-                  />
-                  <Card.Body style={{ width: "100%" }}>
-                    <Card.Title className="fs-14 food-default">
-                      {item.salepage_name}
-                    </Card.Title>
-                    <Card.Text className="fs-12 food-default text-right">
-                      {item.salepage_suggestprice}
-                    </Card.Text>
-                    <Card.Text className="fs-20 forest text-right">                      
-                      {item.salepage_price}
-                    </Card.Text>
-                  </Card.Body>
-                </Card>
-              </Card.Link>
-            ))}
-          </div>
-        </Col>
+          <Col className="col-md-10">   
+          <p className="fs-32 text-center mt-2">買食材</p>  
+            <div className="d-flex flex-wrap pl-4">
+                {this.state.filterData.map(item => (
+                <Card.Link className="ml-0 mr-3" key={item.id} href={"/Food/FoodDetails/" + item.id} >
+                  <Card className="mt-3 flist-card" style={{ width: "200px", height: "283px" }}>
+                    <Card.Img
+                      variant="top"
+                      className="flist-img"
+                      src={item.salepage_image}
+                      style={{ width: "198px", height: "143px" }}
+                    />
+                    <Card.Body style={{ width: "100%"}} className="p-2">
+                      <Card.Title className="fs-16 food-default">
+                        {item.salepage_name}
+                      </Card.Title>
+                      <div className="mt-5 " style={{ width: "100%"}}>
+                        <Card.Text className="flist-suggestprice flist-cardText fs-12 food-default text-right flist-cardMargin mt-3">
+                          <NumberFormat value={item.salepage_suggestprice} displayType={'text'} thousandSeparator={true} prefix={'NT$'} />
+                        </Card.Text>
+                        <Card.Text className="flist-cardText fs-20 forest text-right flist-cardMargin">                      
+                          <NumberFormat value={item.salepage_price} displayType={'text'} thousandSeparator={true} prefix={'NT$'} />
+                        </Card.Text>
+                      </div>
+                    </Card.Body>
+                  </Card>
+                </Card.Link>
+              ))}
+            </div>
+          </Col> 
       </>
     );
   }

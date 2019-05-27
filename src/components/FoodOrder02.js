@@ -42,6 +42,7 @@ class FoodOrder02 extends React.Component {
     // console.log(this.state.salepageData)
     const mem_account = localStorage.getItem("mem_account")
     const mem_id = localStorage.getItem("mem_id")
+    const mem_address = localStorage.getItem("mem_address")
     return (
       <>
         {/* 進入訂單第一步 訂單明細*/}
@@ -100,7 +101,7 @@ class FoodOrder02 extends React.Component {
             </div>
             <div className="row form-group col-md-8">
                 <label className="fs-16 col-md-3 col-sm-12" htmlFor="">收件人地址：</label>
-                <input defaultValue="" 
+                <input defaultValue={mem_address} 
                        type="text" 
                        className="form-control col-md-7 col-sm-12 bg-white" 
                        placeholder="" 

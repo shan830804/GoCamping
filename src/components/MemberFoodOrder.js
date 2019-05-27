@@ -1,5 +1,6 @@
 import React from 'react';
 import { Nav, Image, Tab, Button } from 'react-bootstrap';
+import NumberFormat from 'react-number-format';
 
 class MemberFoodOrder extends React.Component {
     constructor() {
@@ -72,7 +73,7 @@ class MemberFoodOrder extends React.Component {
                                     <div className="text-right">
                                         <Button className="btn btn-grass" href="#">查看細節</Button>
                                     </div>
-                                    <span className="text-right fs-18 fw-light">總金額 NT${item.saleorder_total}</span>
+                                    <span className="text-right fs-18 fw-light">總金額 <NumberFormat className="watermelon" value={item.saleorder_total} displayType={'text'} thousandSeparator={true} prefix={'NT$'} /></span>
                                 </div>
                             </div>
                         </div>

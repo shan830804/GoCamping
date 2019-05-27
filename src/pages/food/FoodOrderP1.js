@@ -12,7 +12,6 @@ import {
   Table,
   Form,
   Image,
-  ButtonGroup,
   ButtonToolbar,
   Button 
 } from "react-bootstrap";
@@ -118,7 +117,7 @@ class FoodOrderP1 extends React.Component {
           "saleorder_memname": this.state.saleorder_memname,
           "saleorder_memtel": this.state.saleorder_memtel,
           "saleorder_memmail": this.state.saleorder_memmail,
-          "saleorder_memtaddress": this.state.saleorder_memtaddress,
+          "saleorder_memtaddress": localStorage.getItem("mem_address"),
           "saleorder_salepageid": this.state.saleorder_salepageid,
           "saleorder_salepageimage": this.state.saleorder_salepageimage,
           "saleorder_salepagename": this.state.saleorder_salepagename,
@@ -150,6 +149,7 @@ class FoodOrderP1 extends React.Component {
   render() {    
     return (
       <>
+      
       {/* {this.state.salepage_id} */}
       {/* {this.state.salepageData.salepage_name} */}
       {/* 判斷 showOrder 來顯示要秀哪一頁 */}

@@ -5,8 +5,12 @@ import { Carousel, Image } from "react-bootstrap";
   //照片要放在public資料夾裡面 
 const FoodSlider = props =>(
   <>
-  <div className="">
-    <Carousel>
+  <div className="col-sm-12">
+  <figure className="col-sm-12 " >
+<Image className="w-100 fslider-img" src="../../images/food-home.jpg" fluid />
+  </figure>
+  
+    {/* <Carousel>
   <Carousel.Item>
     <Image
       className="d-block w-100"
@@ -28,7 +32,7 @@ const FoodSlider = props =>(
       alt="Third slide"
     />
   </Carousel.Item>
-</Carousel>
+</Carousel> */}
 </div>
   </>
 )
