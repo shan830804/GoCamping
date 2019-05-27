@@ -86,8 +86,11 @@ class FoodDetails extends React.Component {
               body: JSON.stringify(
                 {
                   "id": new Date().getTime(),
-                  "salelove_memid" :localStorage.getItem("mem_id"),
-                  "salelove_salepageid" :this.state.salepageData.id
+                  "salelove_memid": localStorage.getItem("mem_id"),
+                  "salelove_salepageid": this.state.salepageData.id,
+                  "salelove_salepageimage": this.state.salepageData.salepage_image,
+                  "salelove_salepagename": this.state.salepageData.salepage_name,
+                  "salelove_salepageprice": this.state.salepageData.salepage_price,                  
                 })
             })
             .then(response => response.json())          
