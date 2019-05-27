@@ -129,22 +129,28 @@
 .btn-addcol{
   padding:0;
 }
-.btn-addheart {
+.btn-addlove {
   background-color: #cccccc;
   border: 1px solid transparent;
   color: #ffffff;
   width: 90%;
 }
-.btn-addheart:hover {
+.btn-addlove-active {
+  background-color: #fd7156;
+  border: 1px solid transparent;
+  color: #ffffff;
+  width: 90%;
+}
+.btn-addlove:hover {
   background-color: #fd7156;
   border: 1px solid transparent;
   color: #ffffff;
 }
-.btn-addheart:active {
+/* .btn-addlove.active.focus {
   background-color: #fd7156;
   border: 1px solid transparent;
   color: #ffffff;
-}
+} */
 .btn-order{
   width: 90%;;
 }

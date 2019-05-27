@@ -17,51 +17,36 @@ import {
 class FoodDetailsTop extends React.Component {
   constructor(props) {
     super(props);
-
-    this.handleSelect = this.handleSelect.bind(this);
-
+    
     this.state = {
       index: 0,
       direction: null,
       title: "買食材",
       //props.data父層命名的名字
-      salepageData: props.data
+      salepageData: props.data,      
     };
   }
 
   // https://stackoverflow.com/questions/37058533/passing-updated-state-as-props
   componentWillReceiveProps(nextProps) {
-    this.setState({ salepageData: nextProps.data });
-  }
+    this.setState({ salepageData: nextProps.data});    
+  }  
 
   // 網頁標題
   componentDidMount() {
-    document.title = this.state.title;
-  }
-
-  handleSelect(selectedIndex, e) {
-    this.setState({
-      index: selectedIndex,
-      direction: e.direction
-    });
-  }
+    document.title = this.state.title;      
+  }  
 
   render() {
     const { index, direction } = this.state;
    
-    return ( 
-      
-      <>
-        
+    return (       
+      <>        
         {/* Food Top開始 */}
         <Row className="d-flex">
           {/* Food Left開始  */}
           <Col xs={12} md={6}>
-            <Carousel
-              activeIndex={index}
-              direction={direction}
-              onSelect={this.handleSelect}
-            >
+            <Carousel>
               <Carousel.Item>
                 <Image
                   style={{ width: "100%", height: "100%" }}
@@ -75,7 +60,7 @@ class FoodDetailsTop extends React.Component {
                   style={{ width: "100%", height: "100%" }}
                   className="d-block w-100"
                   src={this.state.salepageData.salepage_image2}
-                  alt="Third slide"
+                  alt="Second slide"
                 />
               </Carousel.Item>
               <Carousel.Item>
@@ -117,22 +102,6 @@ class FoodDetailsTop extends React.Component {
                 />
               </Col>
             </Row>
-            {/* <Col xs={3} >
-              <Image
-                variant="top"
-                className="m-2 "
-                src="http://diz36nn4q02zr.cloudfront.net/webapi/imagesV3/Original/SalePage/5313015/0/084456?v=1"
-                style={{ width: "100%", height: "100%" }}
-                rounded
-              />
-              <Image
-                variant="top"
-                className="m-2"
-                src="http://diz36nn4q02zr.cloudfront.net/webapi/imagesV3/Original/SalePage/5312987/0/084544?v=1"
-                style={{ width: "100%", height: "100%"}}
-                rounded
-              />
-            </Col> */}
           </Col>
           {/* Food Left結束 */}
 
@@ -165,23 +134,11 @@ class FoodDetailsTop extends React.Component {
                 </Form.Control>
               </Form.Group>
             </Form>
-            {/* <InputGroup size="sm" className="mb-3 col-6 group-number">
-              <InputGroup.Prepend>
-                <Button variant="" className="btn-number">
-                  <span className="fs-20">–</span>
-                </Button>
-              </InputGroup.Prepend>
-              <FormControl aria-describedby="1" className="btn-number" />
-              <InputGroup.Append>
-                <Button variant="" className="btn-number">
-                  <span className="fs-20">+</span>
-                </Button>
-              </InputGroup.Append>
-            </InputGroup> */}
             {/* 加入收藏&放購物車 */}
             <ButtonToolbar className="btn-add ">
               <Col className="btn-addcol">
-                <Button className="btn-addheart" href="#">
+                <Button className={this.props.saleloveData.length > 0 ? "btn-addlove-active" : "btn-addlove"}
+                        onClick={this.props.AddSaleLove}>
                   {" "}
                   <FaHeart /> 加入收藏
                 </Button>

@@ -18,11 +18,17 @@ class FoodDetails extends React.Component {
             salepage_id: props.match.params.id,
             //這裡還要用fetch拿到的是物件,所以預設就是{},不是[]
             salepageData: {},
-        }
+            // 1.先建立一個 saleloveData 陣列
+            saleloveData: []
+        }        
+        this.AddSaleLove = this.AddSaleLove.bind(this);
+        this.fetchSaleloveData = this.fetchSaleloveData.bind(this);
     }
     //因為程式太多,所以在這裡簡化（原本的在下面fetchData(){}）
     componentDidMount() {
        this.fetchData();
+       // 2. 取得 salelove 的資料
+       this.fetchSaleloveData();
     }
 
     fetchData(){
@@ -32,7 +38,77 @@ class FoodDetails extends React.Component {
             .then(parsedJSON => this.setState({salepageData: parsedJSON}))
             .catch(error => console.log(error));
     }
-//宣染開始
+
+    fetchSaleloveData(){
+        const url = "http://localhost:5555/salelove";
+        return fetch(url)
+            .then(response => response.json())
+            .then(parsedJSON =>             
+              this.setState((state, props) => ({               
+                  // 3. 取得 salelove 的資料後比對 mem_id 與 salepage_id
+                  saleloveData: parsedJSON.filter(function(data) {
+                        return data.salelove_memid == localStorage.getItem("mem_id") &&
+                               data.salelove_salepageid == state.salepage_id
+                        })
+                })))
+            .catch(error => console.log(error));
+    }
+
+    // 4. 按下收藏按鈕的觸發事件
+    async AddSaleLove()
+    {
+      var count = this.state.saleloveData.length;
+      
+      if(count > 0)
+      {
+        //// 已有收藏, 刪除收藏
+        await this.deleteSaleloveData();      
+        //// 重新取得 Salelove
+        await this.fetchSaleloveData()
+      }
+      else
+      {
+        //// 未有收藏, 新增收藏
+        await this.addSaleloveData();
+        //// 重新取得 Salelove
+        await this.fetchSaleloveData()
+      }    
+    }
+
+    addSaleloveData(){
+        const url = "http://localhost:5555/salelove";
+        return fetch(url, {
+              method: "POST",
+              headers: new Headers({
+                "Accept": "application/json",
+                "Content-Type": "application/json"
+              }),
+              body: JSON.stringify(
+                {
+                  "id": new Date().getTime(),
+                  "salelove_memid" :localStorage.getItem("mem_id"),
+                  "salelove_salepageid" :this.state.salepageData.id
+                })
+            })
+            .then(response => response.json())          
+            .catch(error => console.log(error));
+    }
+
+    deleteSaleloveData(){
+        // 取得 [] 的第一筆資料 (index=0) 
+        const url = "http://localhost:5555/salelove/" + this.state.saleloveData[0].id;
+        return fetch(url, {
+              method: "DELETE",
+              headers: new Headers({
+                "Accept": "application/json",
+                "Content-Type": "application/json"
+              })
+            })
+            .then(response => response.json())          
+            .catch(error => console.log(error));
+    }    
+    
+    //宣染開始
     render() {
       // console.log(this.state.salepage_id)
       return (
@@ -43,7 +119,9 @@ class FoodDetails extends React.Component {
             <Col>
               <FoodDetailsBread />
               {/* data是自己命名,是要給子層沿用下去的 */}
-              <FoodDetailsTop data={this.state.salepageData} />
+              <FoodDetailsTop data={this.state.salepageData} 
+                              saleloveData={this.state.saleloveData}
+                              AddSaleLove={this.AddSaleLove}/>
             </Col>
           </Row>
           <Row className="container">
@@ -59,83 +137,3 @@ class FoodDetails extends React.Component {
 }
 
 export default FoodDetails;
-
-// const FoodDetails = props => {
-//   const salepage_id = props.match.params.id;
-//   var salepage = {};
-//   console.log(salepage_id);
-//   //const foodData = camping_sale.find(item => item.salepage_id === +props.match.params.id)
-//   fetch("http://localhost:5555/salepage/" + salepage_id, {
-//         method: "GET",
-//         headers: new Headers({
-//           Accept: "application/json",
-//           "Content-Type": "application/json"
-//         })
-//       })
-//       .then(response => {
-//         //ok 代表狀態碼在範圍 200‐299
-//         if (!response.ok) throw new Error(response.statusText);
-//         return response.json();
-//       })
-//       .then(jsonObject => {        
-//         salepage = jsonObject ;
-//         console.log(salepage);        
-//       })      
-//       .catch(function(err) {
-//         // Error :(
-//       });
-      
-//       return (
-//         <>
-//           <h1>食材詳細頁面</h1>
-//           <h1>{salepage.salepage_name}</h1>
-//         </>
-//       )
-// };  
-
-// export default FoodDetails;
-
-// class FoodDetails extends React.Component {
-//     // TODO: 接收傳進來的該筆會員資料(ex const {match} = this.props)
-//     constructor(props) {
-//         super(props)
-//         this.state = {
-//             salepageData: props.data,
-//         }
-//     }
-
-//     render() {
-//         return (
-//             <Router>
-
-//                   <Card.Text data={this.state.salepageData}>
-
-//                     </Card.Text>
-//             </Router>
-//         )
-//     }
-// }
-
-// export default FoodDetails
-
-// function FoodDetails() {
-//   return (
-//     <>
-//       <Container className="FoodDetails">
-//         <Row className="container">
-//           <Col>
-//             <FoodDetailsBread />
-//             <FoodDetailsTop />
-//           </Col>
-//         </Row>
-//         <Row className="container">
-//           <Col>
-//             <FoodDetailsMd />
-//             <FoodDetailsBt />
-//           </Col>
-//         </Row>
-//       </Container>
-//     </>
-//   );
-// }
-// export default FoodDetails;
