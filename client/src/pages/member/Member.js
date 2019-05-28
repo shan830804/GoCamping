@@ -76,9 +76,8 @@ class Member extends React.Component {
                         <Profile />
                         <div className="row">
                             <Aside />
-                            <Route exact path="/Member" component={Level} />
+                            <Route exact path="/Member" component={CampingOrder} />
                             <Route exact path="/Member/MyInfoEditor" render={(props) => <InfoEditor memberData={this.state.memberData} {...props} />} />
-                            <Route exact path="/Member/MyCampingOrder" component={CampingOrder} />
                             <Route exact path="/Member/MyFoodOrder" component={FoodOrder} />
                             <Route exact path="/Member/MyEventOrder" component={EventOrder} />
                             <Route exact path="/Member/MyCoupon" component={Coupon} />

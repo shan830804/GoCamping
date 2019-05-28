@@ -15,7 +15,7 @@ const MemberAside = props => (
             </li>
             <li className="d-flex my-2">
                 <div className="box mr-1"></div>
-                <NavLink className="p-0" activeClassName="activeAside" to="/Member/MyCampingOrder">
+                <NavLink className="p-0" activeClassName="activeAside" exact to="/Member">
                     <span className="fw-light">營地訂單</span>
                 </NavLink>
             </li>
