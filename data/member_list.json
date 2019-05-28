@@ -1074,11 +1074,11 @@
     {
       "mem_account": "boo",
       "mem_password": "admin",
-      "mem_avatar": "avatar_pictures/_default.jpg",
+      "mem_avatar": "boo.jpg",
       "mem_name": "阿布",
       "mem_nickname": "",
       "mem_gender": "female",
-      "mem_birthday": "",
+      "mem_birthday": "2019-05-15",
       "mem_mobile": "0926-188-936",
       "mem_email": "boo@gmail.com",
       "mem_address": "台北市中山區安東街",

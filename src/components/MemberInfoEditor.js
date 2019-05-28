@@ -72,16 +72,15 @@ class MemberInfoEditor extends React.Component {
 
         let reader = new FileReader();
         let file = event.target.files[0];
-    
+
         reader.onloadend = () => {
-          this.setState({
-            file: file,
-            imagePreviewUrl: reader.result
-          });
-          console.log(this.state.file.name)
-        //   this.setState({ avatar_pictures: this.state.file.name })
+            this.setState({
+                file: file,
+                imagePreviewUrl: reader.result
+            });
+            this.setState({ avatar_pictures: this.state.file.name })
         }
-    
+
         reader.readAsDataURL(file)
     }
 
@@ -104,7 +103,7 @@ class MemberInfoEditor extends React.Component {
             case 'district':
             case 'remainAddress':
                 await this.setState({ [event.target.id]: event.target.value })
-                await this.setState({ address: this.state.zipcode+this.state.county+this.state.district+this.state.remainAddress })
+                await this.setState({ address: this.state.zipcode + this.state.county + this.state.district + this.state.remainAddress })
                 // console.log(`修改中- ${event.target.id}: ${event.target.value}`)
                 console.log(this.state.address)
                 break;
@@ -117,6 +116,23 @@ class MemberInfoEditor extends React.Component {
         event.preventDefault();
 
         if (this.state.password_check === this.state.password) {
+            let fd = new FormData(document.form1);
+            fd.append('avatar', this.state.avatar_pictures);
+            fetch('http://localhost:5000/try-upload', {
+                method: 'POST',
+                headers: new Headers({
+                    'Content-Type': 'multipart/form-data'
+                }),
+                body: fd
+            })
+                .then(response => response.json())
+                .then(obj => {
+                    console.log(obj);
+                    if (obj.file) {
+                        this.setState({ avatar_pictures: obj.file })
+                    }
+                })
+
             fetch('http://localhost:5555/members/' + this.state.id, {
                 method: 'PUT',
                 headers: new Headers({
@@ -164,7 +180,7 @@ class MemberInfoEditor extends React.Component {
     }
 
     renderEditorForm = () => {
-        let {imagePreviewUrl} = this.state;
+        let { imagePreviewUrl } = this.state;
         let $imagePreview = null;
         if (imagePreviewUrl) {
             $imagePreview = (<img src={imagePreviewUrl} alt="" />);
@@ -174,7 +190,7 @@ class MemberInfoEditor extends React.Component {
 
         return (
             <main className="col-sm-10 my-2">
-                <form onSubmit={this.onInfoEditorSubmit}>
+                <form name="form1" onSubmit={this.onInfoEditorSubmit}>
                     <p>
                         <span className="fw-bold fs-20 grass">編輯個人資料&nbsp;</span>
                         <span className="fs-14 watermelon">*為必填欄位</span>
@@ -217,7 +233,7 @@ class MemberInfoEditor extends React.Component {
                             </figure>
                             <div className="mx-2">
                                 <label className="btn btn-outline-grass" >
-                                    <input type="file" id="my_file" name="my_file" style={{ display: "none" }} accept="image/*" onChange={this.onAvatarChange} />
+                                    <input type="file" id="avatar" name="avatar" style={{ display: "none" }} accept="image/*" onChange={this.onAvatarChange} />
                                     <i className="fas fa-camera"></i> 選擇相片
                                 </label>
                                 {/* <span className="avatar_upload asterisk d-block">格式不符(副檔名須為.jpg/.png/.jpeg)</span> */}
@@ -256,7 +272,7 @@ class MemberInfoEditor extends React.Component {
                     <div role="tw-city-selector" data-has-zipcode>
                         <div className="form-group address_api row">
                             <label htmlFor="address" className="col-sm-2 col-form-label px-0 text-right rwd-text">地址</label>
-                            <input type="hidden" id="zipcode" name="zipcode" className="form-control zipcode" placeholder="郵遞區號" size="5" autoComplete="off" readOnly defaultValue="郵遞區號"/>
+                            <input type="hidden" id="zipcode" name="zipcode" className="form-control zipcode" placeholder="郵遞區號" size="5" autoComplete="off" readOnly defaultValue="郵遞區號" />
                             <select id="county" name="county" className="form-control ml-sm-3 col-sm-2 county" onChange={this.onInputChange}></select>
                             <select id="district" name="district" className="form-control col-sm-2 district" onChange={this.onInputChange}></select>
                             <input type="text" id="remainAddress" name="address" className="form-control col-sm-5" defaultValue={this.state.address} onChange={this.onInputChange} />
