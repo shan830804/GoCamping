@@ -1,6 +1,6 @@
 import React from "react";
 // import { BrowserRouter as NavLink } from "react-router-dom";
-import { Image, Row, Col, Table, Container, Card } from "react-bootstrap";
+import { Row, Col, Container, Card } from "react-bootstrap";
 
 class FoodDetailsMd extends React.Component {
   constructor(props, context) {
@@ -16,7 +16,6 @@ class FoodDetailsMd extends React.Component {
   }
 
   render() {
-    const { index, direction } = this.state;
     return (
       <>
         {/* 相關推薦 */}

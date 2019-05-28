@@ -1,7 +1,7 @@
 import React from "react";
 // import { BrowserRouter as NavLink } from "react-router-dom";
 // import { FaHome } from 'react-icons/fa';
-import { Row, Col, Container, ButtonToolbar, Button, InputGroup, FormControl } from "react-bootstrap";
+import { Row, Col, Container, ButtonToolbar, Button } from "react-bootstrap";
 
 class FoodOrder02 extends React.Component {
   constructor(props) {
@@ -138,7 +138,7 @@ class FoodOrder02 extends React.Component {
                         </label>
                     </div>
                     <div className="form-check">
-                        <input className="form-check-input" type="radio" name="apply_payment" id="apply_payment3"
+                        <input className="form-check-input" checked type="radio" name="apply_payment" id="apply_payment3"
                             value="2"/>
                         <label className="form-check-label" htmlFor="exampleRadios3">
                             ibon 付款

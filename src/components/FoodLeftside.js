@@ -11,7 +11,7 @@ const FoodLeftside = props => (
             <li className="d-flex my-1 grass fleft-Li">
             <span variant="link"
                       onClick={props.handleSaleAll}
-                      className={"fs-bold fs-20 fleft-all" + (props.salebrand == 0 && props.salecateid == 0 ? "-active" : "")}>
+                      className={"fs-bold fs-20 fleft-all" + (props.salebrand === 0 && props.salecateid === 0 ? "-active" : "")}>
               全站商品
               </span> 
               {/* <span className="fs-bold grass" onClick={props.handleSaleAll}>全站商品</span> */}

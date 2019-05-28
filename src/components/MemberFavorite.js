@@ -1,5 +1,5 @@
 import React from 'react';
-import { Nav, Image, Tab, Button } from 'react-bootstrap';
+import { Nav, Tab, Card } from 'react-bootstrap';
 import NumberFormat from 'react-number-format';
 
 class MemberFavorite extends React.Component {
@@ -26,12 +26,12 @@ class MemberFavorite extends React.Component {
         .then(jsonObject => {
             // console.log(jsonObject);
             this.setState({ saleloveData: jsonObject.filter(function(data) {
-                return data.salelove_memid == localStorage.getItem("mem_id");
+                return data.salelove_memid === localStorage.getItem("mem_id");
               })                          
             });
         })
         .catch(function(err) {
-            // Error :(
+            // Error 
         });
     }    
 
@@ -41,58 +41,43 @@ class MemberFavorite extends React.Component {
             <Tab.Container defaultActiveKey="pending">
                 <Nav variant="tabs" defaultActiveKey="pending">
                     <Nav.Item>
-                        <Nav.Link eventKey="pending" href="#">我的願望清單</Nav.Link>
-                    </Nav.Item>
-                    {/* <Nav.Item>
-                        <Nav.Link eventKey="paid">待出貨</Nav.Link>
+                        <Nav.Link eventKey="pending" href="#">我收藏的食材</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Nav.Link eventKey="finished">已完成</Nav.Link>
+                        <Nav.Link eventKey="paid">我收藏的營地</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Nav.Link eventKey="cancelled">已取消</Nav.Link>
-                    </Nav.Item> */}
+                        <Nav.Link eventKey="finished">我收藏的活動</Nav.Link>
+                    </Nav.Item>
                 </Nav>
-                <Tab.Content>
-                    <Tab.Pane eventKey="pending">
-                        {this.state.saleloveData.map(item => (
-                        <div key={item.id} className="d-flex row border p-sm-3 mt-3">
-                            <div className="col-sm-2 d-flex align-items-center p-sm-0">
-                                <figure className="order_avatar m-0">
-                                    <Image src={item.salelove_salepageimage} />
-                                </figure>
-                            </div>
-                            <div className="col-sm-10 d-flex justify-content-between">
-                                <div className="d-flex flex-column justify-content-center">                                    
-                                    <span className="fw-light mb-sm-1">商品名稱：{item.salelove_salepagename}</span>                                                                        
-                                    <span className="fw-light mb-sm-1">商品售價：{item.salelove_salepageprice}</span>                                    
-                                </div>
-                                <div className="d-flex flex-column justify-content-between">
-                                    <div className="text-right">
-                                        <Button className="btn btn-grass" href={"/Food/FoodDetails/" + item.salelove_salepageid}>查看細節</Button>
-                                    </div>                                    
-                                </div>
-                            </div>
-                        </div>
-                        ))}
-                    </Tab.Pane>
-                    {/* <Tab.Pane eventKey="paid">
-                        <div>
-                            <p className="text-center my-3 p-3 fs-20 fw-light border">尚無訂單</p>
-                        </div>
-                    </Tab.Pane>
-                    <Tab.Pane eventKey="finished">
-                        <div>
-                            <p className="text-center my-3 p-3 fs-20 fw-light border">尚無訂單</p>
-                        </div>
-                    </Tab.Pane>
-                    <Tab.Pane eventKey="cancelled">
-                        <div>
-                            <p className="text-center my-3 p-3 fs-20 fw-light border">尚無訂單</p>
-                        </div>
-                    </Tab.Pane> */}
-                </Tab.Content>
             </Tab.Container>
+             <div className="d-flex flex-wrap pl-4">
+                {this.state.saleloveData.map(item => (
+                <Card.Link className="ml-0 mr-3" key={item.id} href={"/Food/FoodDetails/" + item.salelove_salepageid}>
+                  <Card className="mt-3 flist-card"  style={{ width: "200px", height: "283px" }}>
+                    <Card.Img
+                      variant="top"
+                      className="flist-img"
+                      src={item.salelove_salepageimage}
+                      style={{ width: "198px", height: "143px" }}
+                    />
+                    <Card.Body style={{ width: "100%"}} className="p-2">
+                      <Card.Title className="fs-16 food-default">
+                        {item.salelove_salepagename}
+                      </Card.Title>
+                      <div className="mt-5 " style={{ width: "100%"}}>
+                        <Card.Text className="flist-suggestprice flist-cardText fs-12 food-default text-right flist-cardMargin mt-3">
+                          <NumberFormat value={item.salelove_salepagesuggestprice} displayType={'text'} thousandSeparator={true} prefix={'NT$'} />
+                        </Card.Text>
+                        <Card.Text className="flist-cardText fs-20 forest text-right flist-cardMargin">                      
+                          <NumberFormat value={item.salelove_salepageprice} displayType={'text'} thousandSeparator={true} prefix={'NT$'} />
+                        </Card.Text>
+                      </div>
+                    </Card.Body>
+                  </Card>
+                </Card.Link>
+              ))}
+            </div>
         </main>
     )}
 }    

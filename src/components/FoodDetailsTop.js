@@ -1,5 +1,5 @@
 import React from "react";
-// import { BrowserRouter as NavLink } from "react-router-dom";
+import NumberFormat from 'react-number-format';
 import { FaHeart } from "react-icons/fa";
 import {
   Image,
@@ -23,7 +23,9 @@ class FoodDetailsTop extends React.Component {
       direction: null,
       title: "買食材",
       //props.data父層命名的名字
-      salepageData: props.data,      
+      salepageData: props.data, 
+      //選擇商品數量
+      // optionNumber:"2"     
     };
   }
 
@@ -38,8 +40,6 @@ class FoodDetailsTop extends React.Component {
   }  
 
   render() {
-    const { index, direction } = this.state;
-   
     return (       
       <>        
         {/* Food Top開始 */}
@@ -111,16 +111,16 @@ class FoodDetailsTop extends React.Component {
               {this.state.salepageData.salepage_name}
             </h4>
             <p className="fs-16 su-price">
-              {this.state.salepageData.salepage_suggestprice}
+            <NumberFormat value={this.state.salepageData.salepage_suggestprice} displayType={'text'} thousandSeparator={true} prefix={'NT$'} />
             </p>
             <p className="fs-24 forest price">
-              NT$ {this.state.salepageData.salepage_price}
+            <NumberFormat value={this.state.salepageData.salepage_price} displayType={'text'} thousandSeparator={true} prefix={'NT$'} />
             </p>
             {/* 選擇數量 */}
             <Form>
               <Form.Group controlId="exampleForm.ControlSelect1">
                 <Form.Label>數量</Form.Label>
-                <Form.Control as="select">
+                <Form.Control as="select" defaultValue={this.props.optionNumber} >
                   <option>1</option>
                   <option>2</option>
                   <option>3</option>
@@ -136,14 +136,15 @@ class FoodDetailsTop extends React.Component {
             </Form>
             {/* 加入收藏&放購物車 */}
             <ButtonToolbar className="btn-add ">
-              <Col className="btn-addcol">
+              <Col  xs={12} md={6} className="btn-addcol">
+                {/*收藏--> 用JSON判斷此salelove裡面是否有此會員的資料,再用三元運算子判斷是否要顯示以加入收藏的CSS  */}
                 <Button className={this.props.saleloveData.length > 0 ? "btn-addlove-active" : "btn-addlove"}
                         onClick={this.props.AddSaleLove}>
                   {" "}
                   <FaHeart /> 加入收藏
                 </Button>
               </Col>
-              <Col className="btn-addcol">
+              <Col  xs={12} md={6} className="btn-addcol pr-0">
                 <Button className="btn-grass btn-order" 
                         href={"/Food/FoodDetails/FoodOrderP1/" + this.state.salepageData.id} >
                   立即預定
@@ -159,13 +160,13 @@ class FoodDetailsTop extends React.Component {
                 <Accordion>
                   <Card.Body className="pay-cardbody">
                     <div>
-                      <p className="fs-20 pay-title"> 付款方式</p>
+                      <p className="pay-title"> 付款方式</p>
                       <p className="fs-14 pay-dt">信用卡</p>
                       <p className="fs-14 pay-dt">ATM轉帳</p>
                       <p className="fs-14">ibon代碼繳帳</p>
                     </div>
                     <div>
-                      <p className="fs-20 pay-title"> 運送方式</p>
+                      <p className="pay-title"> 運送方式</p>
                       <p className="fs-14">
                         宅配，從備貨到寄出商品為 3 個工作天。（不包含假日）
                       </p>
