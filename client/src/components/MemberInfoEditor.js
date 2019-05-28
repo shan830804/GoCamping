@@ -74,15 +74,22 @@ class MemberInfoEditor extends React.Component {
         let reader = new FileReader();
         let file = event.target.files[0];
 
-        reader.onloadend = () => {
-            this.setState({
-                file: file,
-                imagePreviewUrl: reader.result
-            });
-            this.setState({ avatar_pictures: 'avatar_pictures/'+this.state.file.name })
-        }
+        switch (file.type) {
+            case 'image/png':
+            case 'image/jpeg':
+                reader.onloadend = () => {
+                    this.setState({
+                        file: file,
+                        imagePreviewUrl: reader.result
+                    });
+                    this.setState({ avatar_pictures: 'avatar_pictures/' + this.state.file.name })
+                }
 
-        reader.readAsDataURL(file)
+                reader.readAsDataURL(file)
+                break;
+            default:
+                alert('檔案格式不符!')
+        }
     }
 
     onInputChange = async (event) => {
