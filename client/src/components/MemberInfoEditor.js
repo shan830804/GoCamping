@@ -58,11 +58,12 @@ class MemberInfoEditor extends React.Component {
         new TwCitySelector({
             el: '.address_api',
             elCounty: '.county', // 在 el 裡查找 element
-            // countyFieldName: 'address[]',
+            // countyFieldName: 'county',
             elDistrict: '.district', // 在 el 裡查找 element
-            // districtFieldName: 'address[]',
+            // districtFieldName: 'district',
             elZipcode: '.zipcode', // 在 el 裡查找 element
-            // zipcodeFieldName: 'address[]', // input區域裡的zipcode name也要改成address[]才能夠接上
+            // zipcodeFieldName: 'zipcode', // input區域裡的zipcode name也要改成address[]才能夠接上
+            hasZipcode: true
         });
     }
 
@@ -104,8 +105,8 @@ class MemberInfoEditor extends React.Component {
             case 'remainAddress':
                 await this.setState({ [event.target.id]: event.target.value })
                 await this.setState({ address: this.state.zipcode + this.state.county + this.state.district + this.state.remainAddress })
-                // console.log(`修改中- ${event.target.id}: ${event.target.value}`)
-                console.log(this.state.address)
+                // console.log('修改中- '+ event.target.id+': '+event.target.value)
+                // await console.log(this.state.zipcode)
                 break;
             default:
                 console.log(`Accept Unhandleable Type[${event.target.type}]`);
@@ -273,7 +274,7 @@ class MemberInfoEditor extends React.Component {
                     <div role="tw-city-selector" data-has-zipcode>
                         <div className="form-group address_api row">
                             <label htmlFor="address" className="col-sm-2 col-form-label px-0 text-right rwd-text">地址</label>
-                            <input type="hidden" id="zipcode" name="zipcode" className="form-control zipcode" placeholder="郵遞區號" size="5" autoComplete="off" readOnly defaultValue="郵遞區號" />
+                            <input id="zipcode" name="zipcode" className="form-control zipcode" style={{ display: "none" }} placeholder="郵遞區號" size="5" autoComplete="off" onChange={this.onInputChange} />
                             <select id="county" name="county" className="form-control ml-sm-3 col-sm-2 county" onChange={this.onInputChange}></select>
                             <select id="district" name="district" className="form-control col-sm-2 district" onChange={this.onInputChange}></select>
                             <input type="text" id="remainAddress" name="address" className="form-control col-sm-5" defaultValue={this.state.address} onChange={this.onInputChange} />
