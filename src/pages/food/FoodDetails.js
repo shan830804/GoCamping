@@ -20,11 +20,11 @@ class FoodDetails extends React.Component {
       // 收藏--> 1.先建立一個 saleloveData 陣列
       saleloveData: [],
       //選擇數量
-      optionNumber: 1,
-      //預設登入狀態為false
-      logined: false
+      optionNumber: 1,      
     };
     this.AddSaleLove = this.AddSaleLove.bind(this);
+    // TODO 問老師為何不 bind 還是可以執行？
+    // this.toFoodOrderP1 = this.toFoodOrderP1.bind(this);
     this.fetchSaleloveData = this.fetchSaleloveData.bind(this);
     this.optionNumber = this.optionNumber.bind(this);
   }
@@ -35,6 +35,7 @@ class FoodDetails extends React.Component {
     // 收藏--> 2.取得 salelove 的資料
     this.fetchSaleloveData();
   }
+ 
   //抓到商品資訊
   fetchData() {
     const url = "http://localhost:5555/salepage/" + this.state.salepage_id;
@@ -71,39 +72,54 @@ class FoodDetails extends React.Component {
 
   // 收藏--> 4. 按下收藏按鈕的觸發事件,因為異步會導致判斷錯誤，所以需要用async await語法,變成同步
   async AddSaleLove() {
-    //有收藏length會大於0,來判斷是否已收藏,fetch的詳細作法在下面
-    var count = this.state.saleloveData.length;
-    const mem_account = localStorage.getItem("mem_account")
+    // 判斷登入--> 取得 localStorage 中的 mem_id 來判斷是否登入
+    var memid = localStorage.getItem("mem_id");
+    if(memid)
+    {
+      //有收藏length會大於0,來判斷是否已收藏,fetch的詳細作法在下面
+      var count = this.state.saleloveData.length;
 
-        if (mem_account) {
-            await this.setState({ logined: true })
-        }
-
-
-    if (count > 0 ) {
-      //// 已有收藏, 刪除收藏
-      await this.deleteSaleloveData();
-      //// 重新取得 Salelove
-      await this.fetchSaleloveData();
-    } else {
-      //// 未有收藏, 新增收藏
-      await this.addSaleloveData();
-      //// 重新取得 Salelove
-      await this.fetchSaleloveData();
+      if (count > 0 ) {
+        //// 已有收藏, 刪除收藏
+        await this.deleteSaleloveData();
+        //// 重新取得 Salelove
+        await this.fetchSaleloveData();
+      } else {
+        //// 未有收藏, 新增收藏
+        await this.addSaleloveData();
+        //// 重新取得 Salelove
+        await this.fetchSaleloveData();
+      }
     }
+    else{
+      // 未登入則轉向登入頁面
+      this.toLoginPage();
+    }    
   }
 
-//轉向登入頁
- toLoginPage = () => {
-        return (
-            <Redirect to="/Login" />
-        )
-    }
+  // 轉向登入頁
+  // https://stackoverflow.com/questions/50644976/react-button-onclick-redirect-page
+  toLoginPage = () => {
+    let path = "/Login";
+    this.props.history.push(path);
+
+    // 為什麼不使用 <Redirect> 
+    // 是因為這邊是使用 render return 一個 <Redirect> 網頁元素
+    // 而不是像上面一樣使用 this.props.history.push(path); 進行一個動作行為
+    // return(
+    //   <Redirect to="/Login"/>
+    // )
+  }
   
-  toFoodOrderp1 = () =>{
-    return(
-      <Redirect to={"/Food/FoodDetails/FoodOrderP1/" + this.state.salepageData.id} />
-    )
+  // 按下立即預訂按鈕, 判斷是否登入導向不同頁面
+  toFoodOrderP1 = () =>{
+    var memid = localStorage.getItem("mem_id");
+    // 先用一般的 if else 判斷是否登入, 再簡化成三元運算子作判斷
+    let path = memid ? 
+               "/Food/FoodDetails/FoodOrderP1/" + this.state.salepageData.id :
+               "/Login";    
+    
+    this.props.history.push(path);
   }
 
   //加入收藏
@@ -162,9 +178,9 @@ class FoodDetails extends React.Component {
                 // 收藏-->
                 saleloveData={this.state.saleloveData}
                 AddSaleLove={this.AddSaleLove}
+                toFoodOrderP1={this.toFoodOrderP1}
                 //選擇商品數量
-                optionNumber={this.state.optionNumber}
-                ifLogin={this.ifLogin}
+                optionNumber={this.state.optionNumber}              
               />
             </Col>
           </Row>

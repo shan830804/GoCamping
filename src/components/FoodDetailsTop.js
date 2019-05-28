@@ -139,7 +139,8 @@ class FoodDetailsTop extends React.Component {
               <Col  xs={12} md={6} className="btn-addcol">
                 {/*收藏--> 用JSON判斷此salelove裡面是否有此會員的資料,再用三元運算子判斷是否要顯示以加入收藏的CSS  */}
                 <Button className={this.props.saleloveData.length > 0 ? "btn-addlove-active" : "btn-addlove"}
-                        onClick={this.props.AddSaleLove}>
+                        onClick={this.props.AddSaleLove}
+                        variant="link">
                   {" "}
                   <FaHeart /> 加入收藏
                 </Button>
@@ -147,7 +148,7 @@ class FoodDetailsTop extends React.Component {
               <Col  xs={12} md={6} className="btn-addcol pr-0">
                 <Button  className="btn-grass btn-order"
                         variant="link" 
-                        href={"/Food/FoodDetails/FoodOrderP1/" + this.state.salepageData.id} >
+                        onClick={this.props.toFoodOrderP1} >
                   立即預定
                 </Button>
               </Col>
