@@ -145,7 +145,8 @@ class FoodDetailsTop extends React.Component {
                 </Button>
               </Col>
               <Col  xs={12} md={6} className="btn-addcol pr-0">
-                <Button className="btn-grass btn-order" 
+                <Button  className="btn-grass btn-order"
+                        variant="link" 
                         href={"/Food/FoodDetails/FoodOrderP1/" + this.state.salepageData.id} >
                   立即預定
                 </Button>
