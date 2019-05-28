@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 class Logout extends React.Component {
     constructor(props){

@@ -66,6 +66,7 @@ class MemberInfoEditor extends React.Component {
         });
     }
 
+    // 存照片名稱到json檔裡
     onAvatarChange = (event) => {
         event.preventDefault();
 
@@ -77,7 +78,8 @@ class MemberInfoEditor extends React.Component {
             file: file,
             imagePreviewUrl: reader.result
           });
-          this.setState({ avatar_pictures: this.state.imagePreviewUrl })
+          console.log(this.state.file.name)
+        //   this.setState({ avatar_pictures: this.state.file.name })
         }
     
         reader.readAsDataURL(file)
@@ -135,7 +137,7 @@ class MemberInfoEditor extends React.Component {
                     "memLevel_id": this.state.level,
                     "mem_status": this.state.status,
                     "mem_intro": this.state.introduction,
-                    "mem_signUpDate": this.state.mem_signUpDate
+                    "mem_signUpDate": this.state.signUpDate
                 })
             })
 
@@ -153,7 +155,7 @@ class MemberInfoEditor extends React.Component {
             await localStorage.setItem("memLevel_id", this.state.level);
             await localStorage.setItem("mem_intro", this.state.introduction);
             await localStorage.setItem("mem_status", this.state.status);
-            await localStorage.setItem("mem_signUpDate", this.state.signUpDate);
+            await localStorage.setItem("mem_signUpDate", this.state.mem_signUpDate);
             alert('已修改完成，將回到會員中心')
             this.setState({ submitted: true })
         } else {
@@ -165,7 +167,7 @@ class MemberInfoEditor extends React.Component {
         let {imagePreviewUrl} = this.state;
         let $imagePreview = null;
         if (imagePreviewUrl) {
-            $imagePreview = (<img src={imagePreviewUrl} />);
+            $imagePreview = (<img src={imagePreviewUrl} alt="" />);
         } else {
             $imagePreview = (<img src={"../../" + this.state.avatar_pictures} alt="" />);
         }

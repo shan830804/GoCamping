@@ -579,7 +579,6 @@
       "mem_intro": ""
     },
     {
-      "id": 137,
       "mem_account": "poke_mouse",
       "mem_password": "admin",
       "mem_avatar": "avatar_pictures/749db026cae969bf03c4a9954de3bc762937784a.png",
@@ -587,13 +586,14 @@
       "mem_nickname": "",
       "mem_gender": "male",
       "mem_birthday": "0000-00-00",
-      "mem_mobile": "0911111111",
+      "mem_mobile": "0911-111-111",
       "mem_email": "sammie0804@gms.tku.edu.tw",
       "mem_address": "",
       "memLevel_id": "露營達人",
       "mem_status": "valid",
+      "mem_intro": "小智常對我說：「就決定是你了!」",
       "mem_signUpDate": "2019-03-20 11:27:58",
-      "mem_intro": ""
+      "id": 137
     },
     {
       "id": 138,
@@ -834,7 +834,6 @@
       "mem_intro": ""
     },
     {
-      "id": 172,
       "mem_account": "piglet",
       "mem_password": "admin",
       "mem_avatar": "avatar_pictures/35d3f88671dc07d4c87eefa228f546654b518ac9.jpg",
@@ -842,13 +841,14 @@
       "mem_nickname": "",
       "mem_gender": "male",
       "mem_birthday": "0000-00-00",
-      "mem_mobile": "0912345678",
+      "mem_mobile": "0912-345-678",
       "mem_email": "sammie0804@gms.tku.edu.tw",
       "mem_address": "114台北市內湖區舊宗路一段268號",
       "memLevel_id": "業餘露營家",
       "mem_status": "valid",
+      "mem_intro": "最喜歡在露營的時候烤豬里肌夾土司",
       "mem_signUpDate": "2019-03-28 17:14:18",
-      "mem_intro": ""
+      "id": 172
     },
     {
       "mem_account": "eeyore",
@@ -880,8 +880,8 @@
       "mem_address": "244新北市林口區文化三路一段356號",
       "memLevel_id": "露營新手",
       "mem_status": "valid",
+      "mem_intro": "最喜歡跳到高海拔的露營地吃豬里肌 XD",
       "mem_signUpDate": "2019-04-04 16:05:10",
-      "mem_intro": "我是維尼的好朋友",
       "id": 174
     },
     {
@@ -1117,8 +1117,7 @@
       "mem_address": "",
       "memLevel_id": "露營新手",
       "mem_status": "valid",
-      "mem_intro": "Hakuna Matata",
-      "mem_signUpDate": "2019-05-26 03:55:28",
+      "mem_intro": "Hakuna Matata 你不必再擔心~",
       "id": 1558857328641
     },
     {
