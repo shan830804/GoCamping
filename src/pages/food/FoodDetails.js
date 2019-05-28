@@ -73,6 +73,11 @@ class FoodDetails extends React.Component {
   async AddSaleLove() {
     //有收藏length會大於0,來判斷是否已收藏,fetch的詳細作法在下面
     var count = this.state.saleloveData.length;
+    const mem_account = localStorage.getItem("mem_account")
+
+        if (mem_account) {
+            await this.setState({ logined: true })
+        }
 
 
     if (count > 0 ) {
