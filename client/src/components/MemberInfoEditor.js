@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import TwCitySelector from 'tw-city-selector';
 
 class MemberInfoEditor extends React.Component {
@@ -78,7 +78,7 @@ class MemberInfoEditor extends React.Component {
                 file: file,
                 imagePreviewUrl: reader.result
             });
-            this.setState({ avatar_pictures: this.state.file.name })
+            this.setState({ avatar_pictures: 'avatar_pictures/'+this.state.file.name })
         }
 
         reader.readAsDataURL(file)
@@ -116,24 +116,24 @@ class MemberInfoEditor extends React.Component {
         event.preventDefault();
 
         if (this.state.password_check === this.state.password) {
-            let fd = new FormData(document.form1);
-            fd.append('avatar', this.state.avatar_pictures);
-            fetch('http://localhost:5000/try-upload', {
+            // 傳送大頭貼到 node server
+            let fd = await new FormData();
+            fd.append('avatar', this.state.file);
+            await fetch('http://localhost:5000/try-upload', {
                 method: 'POST',
-                headers: new Headers({
-                    'Content-Type': 'multipart/form-data'
-                }),
                 body: fd
             })
                 .then(response => response.json())
                 .then(obj => {
-                    console.log(obj);
-                    if (obj.file) {
-                        this.setState({ avatar_pictures: obj.file })
+                    // console.log(obj);
+                    if (obj) {
+                        this.setState({ avatar_pictures: obj })
+                        // console.log(this.state.avatar_pictures)
                     }
                 })
 
-            fetch('http://localhost:5555/members/' + this.state.id, {
+            // 傳送其餘資料表到 json server
+            await fetch('http://localhost:5555/members/' + this.state.id, {
                 method: 'PUT',
                 headers: new Headers({
                     Accept: 'application/json',
@@ -171,9 +171,10 @@ class MemberInfoEditor extends React.Component {
             await localStorage.setItem("memLevel_id", this.state.level);
             await localStorage.setItem("mem_intro", this.state.introduction);
             await localStorage.setItem("mem_status", this.state.status);
-            await localStorage.setItem("mem_signUpDate", this.state.mem_signUpDate);
-            alert('已修改完成，將回到會員中心')
-            this.setState({ submitted: true })
+            await localStorage.setItem("mem_signUpDate", this.state.signUpDate);
+            await alert('已修改完成')
+            await window.history.go(-1)
+            await this.setState({ submitted: true })
         } else {
             alert('與上列密碼不符');
         }

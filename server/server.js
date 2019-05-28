@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({ extended: false}));
 app.use(bodyParser.json());
 
 // 設定某跨源能夠接受/傳送cookie
-var whitelist = ['http://localhost:8080', 'http://192.168.27.42:8080', undefined, 'http://localhost:3000'] // 白名單，有設定的才可以通過
+var whitelist = ['http://localhost:8080', undefined, 'http://localhost:3000'] // 白名單，有設定的才可以通過
 var corsOptions = {
     credentials: true, // 接收端要設定可以接受cookie
     origin: function (origin, callback) {
@@ -35,8 +35,6 @@ var corsOptions = {
     }
 };
 app.use(cors(corsOptions));
-
-app.use(express.static('./../public'));
 
 // 傳送過來的格式是 formData
 app.post('/try-upload', upload.single('avatar'), (req, res) => { // 如果要上傳多個檔案要用 upload.array，而且一定要用 POST；這一段程式碼屬於在需要時才用指定routes的middle ware
@@ -53,28 +51,15 @@ app.post('/try-upload', upload.single('avatar'), (req, res) => { // 如果要上
                 };
 
                 fs.createReadStream(req.file.path) // stream就像是資料流(水流)，req.file.path是暫存路徑，暫存檔不會有附檔名
-                    // .pipe(fs.createWriteStream(__dirname + '/../public/avatar_pictures/' + fname + ext)); // 就像用水管接到一樣，從暫存搬到寫入
-                    .pipe(fs.createWriteStream(__dirname + '/../public/img/' + req.file.originalname)); // 沒有更動檔名的版本
+                    .pipe(fs.createWriteStream(__dirname + '/../client/public/avatar_pictures/' + fname + ext)); // 就像用水管接到一樣，從暫存搬到寫入
+                    // .pipe(fs.createWriteStream(__dirname + '/../client/public/avatar_pictures/' + req.file.originalname)); // 沒有更動檔名的版本
 
-                res.send('ok') // 如果有要ajax就要用下面的res.json
-                // res.json({
-                //     success: true,
-                //     file: '/avatar_pictures/' + fname + ext, // ext是要把附檔名加回去
-                //     name: req.body.name
-                // });
+                res.send(JSON.stringify('avatar_pictures/' + fname + ext))
                 return;
         };
     };
 
     res.send('error')
-    // res.send('upload ended')
-
-    // multer主要處理檔案上傳，可是也要可以處理其他資料，例如req.body.name
-    // res.json({
-    //     success: false,
-    //     file: '',
-    //     name: req.body.name
-    // });
 });
 
 // 在routes前後可以用use新增Middle Ware(中間層，類似關卡的存在)，但是有順序性

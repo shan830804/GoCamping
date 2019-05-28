@@ -1004,21 +1004,21 @@
       "mem_intro": ""
     },
     {
-      "id": 185,
       "mem_account": "bambi",
       "mem_password": "admin",
-      "mem_avatar": "avatar_pictures/_default.jpg",
+      "mem_avatar": "avatar_pictures/ec2a9c38-70ee-4041-a987-1c17beb446c2.png",
       "mem_name": "小鹿斑比",
       "mem_nickname": "",
       "mem_gender": "female",
       "mem_birthday": "0000-00-00",
-      "mem_mobile": "0912345678",
+      "mem_mobile": "0912-345-678",
       "mem_email": "sammie0804@gms.tku.edu.tw",
       "mem_address": "",
       "memLevel_id": "露營新手",
       "mem_status": "valid",
+      "mem_intro": "",
       "mem_signUpDate": "2019-04-04 16:27:23",
-      "mem_intro": ""
+      "id": 185
     },
     {
       "id": 186,
@@ -1057,7 +1057,7 @@
     {
       "mem_account": "goofy",
       "mem_password": "admin",
-      "mem_avatar": "avatar_pictures/_default.jpg",
+      "mem_avatar": "avatar_pictures/23293038-439d-49f5-9db3-506b72e28e15.jpg",
       "mem_name": "高飛",
       "mem_nickname": "",
       "mem_gender": "",
@@ -1074,7 +1074,7 @@
     {
       "mem_account": "boo",
       "mem_password": "admin",
-      "mem_avatar": "boo.jpg",
+      "mem_avatar": "avatar_pictures/90ea88ff-f720-473f-b580-d0fc2df54045.jpg",
       "mem_name": "阿布",
       "mem_nickname": "",
       "mem_gender": "female",
@@ -1085,6 +1085,7 @@
       "memLevel_id": "露營新手",
       "mem_status": "valid",
       "mem_intro": "",
+      "mem_signUpDate": "undefined",
       "id": 1558855520526
     },
     {
@@ -1107,7 +1108,7 @@
     {
       "mem_account": "timon",
       "mem_password": "admin",
-      "mem_avatar": "avatar_pictures/_default.jpg",
+      "mem_avatar": "avatar_pictures/fc2a0335-62df-47be-9522-7381840bc26e.png",
       "mem_name": "丁滿",
       "mem_nickname": "",
       "mem_gender": "",
@@ -1118,6 +1119,7 @@
       "memLevel_id": "露營新手",
       "mem_status": "valid",
       "mem_intro": "Hakuna Matata 你不必再擔心~",
+      "mem_signUpDate": "undefined",
       "id": 1558857328641
     },
     {
