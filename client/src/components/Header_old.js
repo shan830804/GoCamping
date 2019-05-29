@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Link, NavLink } from 'react-router-dom'
-import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap'
 import { FaUserAlt, FaSearch } from "react-icons/fa";
 import logo from '../logo.svg';
 import './Header.css';
@@ -117,72 +116,10 @@ class Header extends React.Component {
             </li>
         )
     }
-
-    renderAvatarRWD = () => {
-        const mem_avatar = localStorage.getItem("mem_avatar")
-        const mem_account = localStorage.getItem("mem_account")
-        const mem_name = localStorage.getItem("mem_name")
-
-        return (
-            <div className="d-flex align-items-center logout">
-                <figure className="header_avatar m-0 py-1">
-                    <img src={"../../" + mem_avatar} alt="" />
-                </figure>
-                <p className="m-0">{mem_account} / {mem_name}</p>
-            </div>
-        )
-    }
-
-    renderMemberRWD = () => {
-        return (
-            <>
-                <p className="m-0 fs-18 border-bottom">
-                    <Nav.Link className="nav-link" exact href="/Member">會員中心</Nav.Link>
-                </p>
-                <NavDropdown title="&nbsp;&nbsp;訂單管理" id="basic-nav-dropdown" className="">
-                    <NavDropdown.Item href="/Member">營地訂單</NavDropdown.Item>
-                    <NavDropdown.Item href="/Member/MyFoodOrder">食材訂單</NavDropdown.Item>
-                    <NavDropdown.Item href="/Member/MyEventOrder">活動訂單</NavDropdown.Item>
-                </NavDropdown>
-                <div>
-                    <Nav.Link className="nav-link" href="/Member/MyCoupon">&nbsp;&nbsp;我的折價券</Nav.Link>
-                </div>
-                <div>
-                    <Nav.Link className="nav-link" href="/Member/MyFavorite">&nbsp;&nbsp;我的最愛</Nav.Link>
-                </div>
-                <NavDropdown title="&nbsp;&nbsp;文章管理" id="basic-nav-dropdown">
-                    <NavDropdown.Item href="/Member/MyPostEditor">新增文章</NavDropdown.Item>
-                    <NavDropdown.Item href="/Member/MyPostList">文章列表</NavDropdown.Item>
-                </NavDropdown>
-                <div>
-                    <Nav.Link className="nav-link" href="/Member/MemberLevel">&nbsp;&nbsp;會員等級</Nav.Link>
-                </div>
-                <div className="border-bottom">
-                    <Nav.Link className="nav-link" href="/Member/MyInfoEditor">&nbsp;&nbsp;編輯會員資料</Nav.Link>
-                </div>
-                <div>
-                    <p className="m-0 fs-18">
-                        <Nav.Link className="nav-link" href="/Logout">登出</Nav.Link>
-                    </p>
-                </div>
-            </>
-        )
-    }
-
-    renderLoginRWD = () => {
-        return (
-            <div>
-                <p className="m-0 fs-18">
-                    <Nav.Link className="nav-link" href="/Login">登入/註冊</Nav.Link>
-                </p>
-            </div>
-        )
-    }
-
     render() {
         return (
             <>
-                <nav className="grass web_navbar">
+                <nav className="grass">
                     <ul className="list-unstyled row justify-content-between align-items-center">
                         <li className="align-items-center">
                             <NavLink className="navbar-brand logo_box" to="/"><img src={logo} alt="" /> </NavLink>
@@ -193,7 +130,7 @@ class Header extends React.Component {
                                 <input className="form-control" type="search" placeholder="找營地…" aria-label="Search" />
                                 <button className="btn text-light bg-grass fs-18 border-0" type="submit"><FaSearch /></button>
                             </form>
-
+                            
                             <ul className="list-unstyled row nav_menu fw-bold">
                                 <li className={"nav-item position-relative " + this.state.CampSide}>
                                     <NavLink className="nav-link grass" to="/CampSide" onClick={this.selectCampSide}>找營地</NavLink>
@@ -216,44 +153,16 @@ class Header extends React.Component {
                         {/* 登入沒 ? 是(會員頭像+登出按鈕) : 否(登入/註冊按鈕) */}
                         {this.state.logined ? (this.renderMemberAvatar()) : (this.renderLoginButton())}
 
+                        {/* <li className="rwd_list">
+                            <Link>
+                                <i className="fas fa-bars fa-2x"></i>
+                                <i className="fas fa-times fa-2x"></i>
+                            </Link>
+                        </li> */}
                     </ul>
                 </nav>
 
-                <Navbar bg="light" expand="lg" className="mobile_navbar">
-                    <NavLink className="navbar-brand logo_box" to="/"><img src={logo} alt="" /> </NavLink>
-
-                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                    <Navbar.Collapse id="responsive-navbar-nav">
-                        <form className="form-inline searchBar my-1">
-                            <input className="form-control" type="search" placeholder="找營地…" aria-label="Search" />
-                            <button className="btn text-light bg-grass fs-18 border-0" type="submit"><FaSearch /></button>
-                        </form>
-                        <Nav>
-
-                            {this.state.logined ? (this.renderAvatarRWD()) : ('')}
-
-                            <p className="m-0 border-bottom fs-18">
-                                <Nav.Link className="nav-link" href="/CampSide" onClick={this.selectCampSide}>找營地</Nav.Link>
-                            </p>
-                            <p className="m-0 border-bottom fs-18">
-                                <Nav.Link className="nav-link" href="/Event" onClick={this.selectEvent}>選主題</Nav.Link>
-                            </p>
-                            <p className="m-0 border-bottom fs-18">
-                                <Nav.Link className="nav-link" href="/Marketing" onClick={this.selectMarketing}>搶優惠</Nav.Link>
-                            </p>
-                            <p className="m-0 border-bottom fs-18">
-                                <Nav.Link className="nav-link" href="/Food" onClick={this.selectFood}>買食材</Nav.Link>
-                            </p>
-                            <p className="m-0 border-bottom fs-18">
-                                <Nav.Link className="nav-link" href="/ShareFun" onClick={this.selectShareFun}>分享樂</Nav.Link>
-                            </p>
-
-                            {this.state.logined ? (this.renderMemberRWD()) : (this.renderLoginRWD())}
-
-                        </Nav>
-                    </Navbar.Collapse>
-                </Navbar>
-
+                
             </>
         )
     }

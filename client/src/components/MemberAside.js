@@ -70,12 +70,12 @@ const MemberAside = props => (
                     <span className="fw-light">文章列表</span>
                 </NavLink>
             </li>
-            <li className="d-flex my-2">
+            {/* <li className="d-flex my-2">
                 <div className="box mr-1"></div>
                 <NavLink className="p-0" activeClassName="activeAside" to="/Member/MyFavoritePost">
                     <span className="fw-light">收藏文章</span>
                 </NavLink>
-            </li>
+            </li> */}
             {/* 會員等級 */}
             <li className="d-flex my-2 d-flex align-items-center">
                 <div className="level_badge bg-diamond mr-1 d-flex align-items-center justify-content-center">
