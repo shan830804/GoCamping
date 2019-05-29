@@ -169,8 +169,6 @@ class FoodDetails extends React.Component {
       <>
         {/* {this.state.salepageData.salepage_name} */}
         <Container className="FoodDetails">
-          <Row className="container">
-            <Col>
               <FoodDetailsBread />
               {/* data是自己命名,是要給子層沿用下去的 */}
               <FoodDetailsTop
@@ -182,8 +180,6 @@ class FoodDetails extends React.Component {
                 //選擇商品數量
                 optionNumber={this.state.optionNumber}              
               />
-            </Col>
-          </Row>
           <Row className="">
             <Col>
               <FoodDetailsMd data={this.state.salepageData} />

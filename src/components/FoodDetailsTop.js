@@ -55,25 +55,25 @@ class FoodDetailsTop extends React.Component {
                   alt="First slide"
                 />
               </Carousel.Item>
-              <Carousel.Item>
+              {/* <Carousel.Item>
                 <Image
                   style={{ width: "100%", height: "100%" }}
                   className="d-block w-100"
                   src={this.state.salepageData.salepage_image2}
                   alt="Second slide"
                 />
-              </Carousel.Item>
-              <Carousel.Item>
+              </Carousel.Item> */}
+              {/* <Carousel.Item>
                 <Image
                   style={{ width: "100%", height: "100%" }}
                   className="d-block w-100"
                   src={this.state.salepageData.salepage_image3}
                   alt="Third slide"
                 />
-              </Carousel.Item>
+              </Carousel.Item> */}
             </Carousel>
             {/* 小圖示 */}
-            <Row>
+            {/* <Row>
               <Col xs={3} className="fl-imgSm">
                 <Image
                   variant="top"
@@ -101,7 +101,7 @@ class FoodDetailsTop extends React.Component {
                   rounded
                 />
               </Col>
-            </Row>
+            </Row> */}
           </Col>
           {/* Food Left結束 */}
 

@@ -18,8 +18,8 @@
 .f-ulBreadcrumb{
   padding: 0;
 }
-.f-liBreadcrumb{
-  padding: 0;
+.f-Breadcrumb{
+  background-color: transparent;
 }
 /* 麵包屑結束 */
 
@@ -132,9 +132,6 @@
 }
 .btn-add {
   margin: 15px 0 0 -14px;
-}
-.btn-addcol{
-  /* padding:0; */
 }
 .btn-addlove {
   text-decoration: transparent;
