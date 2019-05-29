@@ -1,6 +1,12 @@
 .food-default{
   color: #707070;
 }
+.fborder{
+  border: 1px solid #141a6d;
+}
+.fborder2{
+  border: 1px solid #111a91;
+}
 /* 麵包屑的修改 */
 .breadcrumb {
   background-color: #ffffff;
@@ -88,8 +94,9 @@
 .flist-suggestprice{
   content: "";
   position: relative;
+  color: #cccccc;
 }
-.flist-suggestprice:after{
+/* .flist-suggestprice:after{
   content: "";
   position: absolute;
   border-top: 1.5px solid #707070;
@@ -97,7 +104,7 @@
   left: 83%;
   bottom: 10px;
   text-align:center;
-}
+} */
 /* FoodList結束 */
 
 /* FoodDetails開始 */
@@ -130,22 +137,33 @@
   /* padding:0; */
 }
 .btn-addlove {
+  text-decoration: transparent;
   background-color: #cccccc;
   border: 1px solid transparent;
   color: #ffffff;
   width: 100%;
 }
+.btn-addlove:hover, .btn-addlove:active {
+  text-decoration: transparent;
+  color: #fd7156;
+  background-color: #cccccc;
+  border: 1px solid transparent;
+}
 .btn-addlove-active {
-  background-color: #fd7156;
+  text-decoration: transparent;
+  background-color: #cccccc;
+  border: 1px solid transparent;
+  color: #fd7156;
+  width: 100%;
+}
+.btn-addlove-active:hover, .btn-addlove-active:active {
+  text-decoration: transparent;
+  background-color: #cccccc;
   border: 1px solid transparent;
   color: #ffffff;
   width: 100%;
 }
-.btn-addlove:hover {
-  background-color: #fd7156;
-  border: 1px solid transparent;
-  color: #ffffff;
-}
+
 /* .btn-addlove.active.focus {
   background-color: #fd7156;
   border: 1px solid transparent;
@@ -154,7 +172,8 @@
 .btn-order{
   width: 100%;
 }
-.btn-grass:active {
+.btn-grass:hover {
+  text-decoration: none;
   background-color: #027252;
   border: 1px solid transparent;
   color: #ffffff;
@@ -217,18 +236,41 @@
   border-radius: 2px;
   padding: 0 2px;
   overflow: scroll;
-  height: 150px;
+  height: 200px;
 }
 /* 送出或返回button */
 .forder01-btncon{
   margin-bottom: 100px;
 }
 .forder-btn{
-  border:none;
+  background-color: #cccccc; 
+}
+.forder-btn:hover{
+  background-color: #cfcece; 
+  color: #535151;
+  text-decoration: transparent;
+}
+.forder-btnNext:hover{
+  color: #693D31;
+  text-decoration: transparent;
+  background-color: #f2ce63;
 }
 /* FoodOOrder02開始 */
 .forder02-dn{
   display: none;
 }
+.forder-conPadding{
+  padding: 0 45px;
+}
 /* FoodOrder02結束 */
+/* FoodOrder03開始 */
+.forder03-border{
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+}
+.forder03-title {
+  border-bottom: 1.5px solid #cccccc;
+}
+
+/* FoodOrder03結束 */
 /* FoodOrder結束 */

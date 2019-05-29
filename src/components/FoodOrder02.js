@@ -1,7 +1,7 @@
 import React from "react";
 // import { BrowserRouter as NavLink } from "react-router-dom";
 // import { FaHome } from 'react-icons/fa';
-import { Row, Col, Container, ButtonToolbar, Button } from "react-bootstrap";
+import { Row, Col, Container, ButtonToolbar, Button, Form } from "react-bootstrap";
 
 class FoodOrder02 extends React.Component {
   constructor(props) {
@@ -57,50 +57,51 @@ class FoodOrder02 extends React.Component {
         <Container className="mt-1">
           <Row className="mt-3">
             <Col>
-              <div className="ground fs-24"><span className="watermelon">*</span>收件人資訊</div>
+              <div className="fs-24 grass fw-bold"><span className="watermelon">*</span>收件人資訊</div>
             </Col>
           </Row>
         </Container>
-        <Container className="mt-1">
-          <Row className="mt-3">            
+        {/* 開始填寫訂單資訊 */}
+        <Container className="mt-1 text-center">
+          <Row className="mt-3 forder-conPadding">
             <div className="forder02-dn row form-group col-md-8">
-                <label className="fs-16 col-md-3 col-sm-12" htmlFor="">訂單編號：</label>
+                <label className="col-md-3 col-sm-12" htmlFor="">訂單編號：</label>
                 <input defaultValue={this.state.id} type="text" className="form-control col-md-7 col-sm-12 bg-white" placeholder="" />
             </div>
             <div className="forder02-dn row form-group col-md-8">
-                <label className="fs-16 col-md-3 col-sm-12" htmlFor="">會員編號：</label>
+                <label className="col-md-3 col-sm-12" htmlFor="">會員編號：</label>
                 <input defaultValue={mem_id} type="text" className="form-control col-md-7 col-sm-12 bg-white" placeholder="" />
             </div>
-            <div className="row form-group col-md-8">
-                <label className="fs-16 col-md-3 col-sm-12" htmlFor="">收件人姓名：</label>
+            <div className="row form-group col-md-12 ">
+                <label className="col-md-2 col-sm-12" htmlFor="">收件人姓名：</label>
                 <input defaultValue={mem_account}
                        type="text" 
                        className="form-control col-md-7 col-sm-12 bg-white" 
-                       placeholder="" 
+                       placeholder="請填真實姓名" 
                        onChange={this.props.handleInputChange} 
                        name="saleorder_memname" />
             </div>
-            <div className="row form-group col-md-8">
-                <label className="fs-16 col-md-3 col-sm-12" htmlFor="">收件人手機：</label>
+            <div className="row form-group col-md-12">
+                <label className="col-md-2 col-sm-12" htmlFor="">收件人手機：</label>
                 <input defaultValue=""
                        type="tel" 
                        className="form-control col-md-7 col-sm-12 bg-white" 
                        pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}" 
-                       placeholder="" 
+                       placeholder="0900-000-000" 
                        onChange={this.props.handleInputChange} 
                        name="saleorder_memtel" />
             </div>
-            <div className="row form-group col-md-8">
-                <label className="fs-16 col-md-3 col-sm-12" htmlFor="">收件人信箱：</label>
+            <div className="row form-group col-md-12">
+                <label className="col-md-2 col-sm-12" htmlFor="">收件人信箱：</label>
                 <input defaultValue="" 
                        type="email" 
                        className="form-control col-md-7 col-sm-12 bg-white" 
-                       placeholder="" 
+                       placeholder="gocamping@gmail.com" 
                        onChange={this.props.handleInputChange} 
                        name="saleorder_memmail"/>
             </div>
-            <div className="row form-group col-md-8">
-                <label className="fs-16 col-md-3 col-sm-12" htmlFor="">收件人地址：</label>
+            <div className="row form-group col-md-12">
+                <label className="col-md-2 col-sm-12" htmlFor="">收件人地址：</label>
                 <input defaultValue={mem_address} 
                        type="text" 
                        className="form-control col-md-7 col-sm-12 bg-white" 
@@ -108,8 +109,8 @@ class FoodOrder02 extends React.Component {
                        onChange={this.props.handleInputChange} 
                        name="saleorder_memtaddress"/>
             </div>
-            <div className="row form-group col-md-8">
-                <label className="fs-16 col-md-3 col-sm-12" htmlFor="">配送日期：</label>
+            <div className="row form-group col-md-12">
+                <label className="col-md-2 col-sm-12" htmlFor="">配送日期：</label>
                 <input defaultValue="" 
                        type="date" 
                        className="form-control col-md-7 col-sm-12 bg-white" 
@@ -122,23 +123,45 @@ class FoodOrder02 extends React.Component {
         <Container className="mt-1">
           <Row className="mt-3">
             <Col>
-              <div className="ground fs-24"><span className="watermelon">*</span>選擇付款方式</div>
+              <div className="grass fs-24 fw-bold"><span className="watermelon">*</span>選擇付款方式</div>
             </Col>
           </Row>
         </Container>
-        <Container className="mt-1">
+        <Container>
           <Row className="mt-3">
             <Col>
-            <div className="border mar-center p-5 ml-5" style={{maxWidth: '960px'}}>
-                    <div className="form-check">
+            <div className="border p-2 " style={{width: '100%'}}>
+               <Form.Group controlId="formBasicChecbox">
+                  <Form.Check
+                    custom
+                    type="checkbox"
+                    label=" ATM 轉帳"
+                  />
+                </Form.Group>
+                <Form.Group controlId="formBasicChecbox">
+                  <Form.Check
+                    defaultChecked
+                    custom
+                    type="checkbox"
+                    label="ibon 付款"
+                  />
+                </Form.Group>
+                <Form.Group controlId="formBasicChecbox">
+                  <Form.Check
+                    custom
+                    type="checkbox"
+                    label="信用卡付款(可接受VISA, Master, JCB, 聯合信用卡)"
+                  />
+                </Form.Group>
+                    {/* <div className="form-check">
                         <input className="form-check-input" type="radio" name="apply_payment" id="apply_payment2"
-                            value="1" defaultChecked/>
+                            value="1" />
                         <label className="form-check-label" htmlFor="exampleRadios2">
                             ATM 轉帳
                         </label>
                     </div>
                     <div className="form-check">
-                        <input className="form-check-input" checked type="radio" name="apply_payment" id="apply_payment3"
+                        <input className="form-check-input" defaultChecked type="radio" name="apply_payment" id="apply_payment3"
                             value="2"/>
                         <label className="form-check-label" htmlFor="exampleRadios3">
                             ibon 付款
@@ -150,7 +173,7 @@ class FoodOrder02 extends React.Component {
                         <label className="form-check-label" htmlFor="exampleRadios1">
                             信用卡付款(可接受VISA, Master, JCB, 聯合信用卡)
                         </label>
-                    </div>
+                    </div> */}
                 </div>
             </Col>
           </Row>
@@ -163,7 +186,8 @@ class FoodOrder02 extends React.Component {
               {/* justify-content-between */}
               <ButtonToolbar className="justify-content-end">
                 <Button
-                  className="bg-food-default forder-btn mr-2 "
+                  className="forder-btn food-default mr-2"
+                  variant="link"
                   style={{ width: "30%" }}
                   sm={"block"}
                   onClick={this.goP1}
@@ -171,7 +195,8 @@ class FoodOrder02 extends React.Component {
                   上一步
                 </Button>
                 <Button
-                  className="bg-sunshine food-default forder-btn"
+                  className="bg-sunshine food-default forder-btnNext"
+                  variant="link"
                   style={{ width: "30%" }}
                   sm={"block"}
                   onClick={this.goP3}

@@ -37,21 +37,75 @@ class FoodOrder03 extends React.Component {
       <>
         {/* 進入訂單第一步 訂單明細*/}
         <Container className="mt-1">
-          <Row className="mt-5">
-            <Col>
-              <div className=" forder01-title fs-32">訂購完成</div>
+          <Row className="mt-5 text-center">
+            <Col className="text-center">
+              <div className="forder03-title fs-32">訂購完成</div>
             </Col>
           </Row>
         </Container>
         {/* 訂購明細 */}
-        <Container className="mt-1">
+        <Container className="mt-5 mb-5 text-center">
           <Row className="mt-3">
             <Col>
-              <div className="ground fs-24">訂單明細</div>
+              <div className="fs-24 grass fw-bold">訂單明細</div>
+            </Col>
+          </Row>
+          <Row className="justify-content-center forder03-con mb-3 text-center">
+            <Col className="forder03-border col-md-6 text-left">
+              <Col className="p-3">
+                <div className="text-left">
+                    <label className="fs-16 pr-0 col-md-3" htmlFor="">訂單編號：</label>
+                    <span className="fs-16 pl-0 col-md-8">{this.state.saleorderData.id}</span>
+                </div>
+                <div className="text-left">
+                    <label className="fs-16 pr-0 col-md-3" htmlFor="">收件人姓名：</label>
+                    <span className="fs-16 pl-0 col-md-8">{this.state.saleorderData.saleorder_memname}</span>
+                </div>
+                <div className="text-left">
+                    <label className="fs-16 pr-0 col-md-3" htmlFor="">商品名稱：</label>
+                    <span className="fs-16 pl-0 col-md-8">{this.state.saleorderData.saleorder_salepagename}</span>
+                </div>
+                <div className="text-left">
+                    <label className="fs-16 pr-0 col-md-3" htmlFor="">商品數量：</label>
+                    <span className="fs-16 pl-0 col-md-8">{this.state.saleorderData.saleorder_number}</span>
+                </div>
+                <div className="text-left">
+                    <label className="fs-16 pr-0 col-md-3" htmlFor="">訂單金額：</label>
+                    <span className="fs-16 pl-0 col-md-8">{this.state.saleorderData.saleorder_total}</span>
+                </div>
+                <div className="text-left">
+                    <label className="fs-16 pr-0 col-md-3" htmlFor="">付款方式：</label>
+                  <span className="fs-16 pl-0 col-md-8">ibon代碼付款</span>
+                </div>
+                <div className="text-left">
+                    <label className="fs-16 pr-0 col-md-3" htmlFor="">ibon代碼：</label>
+                    <span className="fs-16 pl-0 col-md-8">144 850 392 495</span>
+                </div>
+                <div className="text-left">
+                    <label className="fs-16 pr-0 col-md-3" htmlFor="">繳費截止日：</label>
+                    <span className="fs-16 pl-0 col-md-8">2019-06-10 00:00:00</span>
+                </div>
+                </Col>
+            </Col>
+          </Row>
+           <Row>
+            <Col>
+              {/* justify-content-between */}
+              <ButtonToolbar className="justify-content-end mt-3">                
+                <Button
+                  className="bg-sunshine food-default forder-btnNext"
+                  variant="link"
+                  style={{ width: "30%" }}
+                  sm={"block"}                  
+                  href={"/Member/MyFoodOrder/"}
+                >
+                  查看訂單
+                </Button>
+              </ButtonToolbar>
             </Col>
           </Row>
         </Container>
-        <Container className="mt-2 forder03-con">
+        {/* <Container className="mt-2 forder03-con text-center">
           <Row className="justify-content-center forder03-con">
             <div className="row col-md-8">
                 <label className="fs-16 col-md-3 col-sm-12" htmlFor="">訂單編號：</label>
@@ -86,26 +140,27 @@ class FoodOrder03 extends React.Component {
                 <p>2019-06-10 00:00:00</p>
             </div>
           </Row>
-        </Container>
+        </Container> */}
        
         {/* 送出或返回button */}
-        <Container className="forder01-btncon">
-          <Row>
+        {/* <Container className="forder01-btncon">
+          {/* <Row>
             <Col>
               {/* justify-content-between */}
-              <ButtonToolbar className="justify-content-end mt-3">                
+              {/* <ButtonToolbar className="justify-content-end mt-3">                
                 <Button
-                  className="bg-sunshine food-default forder-btn"
+                  className="bg-sunshine food-default forder-btnNext"
+                  variant="link"
                   style={{ width: "30%" }}
                   sm={"block"}                  
                   href={"/Member/MyFoodOrder/"}
                 >
                   查看訂單
                 </Button>
-              </ButtonToolbar>
-            </Col>
-          </Row>
-        </Container>
+              </ButtonToolbar> */}
+            {/* </Col> */}
+          {/* </Row> */} 
+        {/* </Container> */}
       </>
     );
   }

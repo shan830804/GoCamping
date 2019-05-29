@@ -77,11 +77,11 @@ class FoodList extends React.Component {
                       style={{ width: "198px", height: "143px" }}
                     />
                     <Card.Body style={{ width: "100%"}} className="p-2">
-                      <Card.Title className="fs-16 food-default">
+                      <Card.Title className="food-default">
                         {item.salepage_name}
                       </Card.Title>
-                      <div className="mt-5" style={{ width: "100%"}}>
-                        <Card.Text className="flist-suggestprice flist-cardText fs-12 food-default text-right flist-cardMargin mt-3">
+                      <div className="mt-4" style={{ width: "100%"}}>
+                        <Card.Text className="flist-suggestprice flist-cardText fs-12 text-right flist-cardMargin mt-3">
                           <NumberFormat value={item.salepage_suggestprice} displayType={'text'} thousandSeparator={true} prefix={'NT$'} />
                         </Card.Text>
                         <Card.Text className="flist-cardText fs-20 forest text-right flist-cardMargin">                      

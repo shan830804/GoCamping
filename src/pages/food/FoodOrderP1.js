@@ -168,7 +168,7 @@ class FoodOrderP1 extends React.Component {
         <Container className="mt-1">
           <Row className="mt-3">
             <Col>
-              <div className="ground fs-24">訂購清單</div>
+              <div className="fs-24 grass fw-bold pb-1">訂購清單</div>
             </Col>
           </Row>
         </Container>
@@ -183,7 +183,7 @@ class FoodOrderP1 extends React.Component {
                     <th style={{ width: "30%" }}>商品名稱</th>
                     <th style={{ width: "10%" }}>單價</th>
                     <th style={{ width: "10%" }}>數量</th>
-                    <th style={{ width: "10%" }}>操作</th>
+                    {/* <th style={{ width: "10%" }}>操作</th> */}
                   </tr>
                 </thead>
                 <tbody>
@@ -196,11 +196,11 @@ class FoodOrderP1 extends React.Component {
                         rounded
                       />
                     </td>
-                    <td>{this.state.salepageData.salepage_name}</td>
-                    <td>
+                    <td className="align-middle">{this.state.salepageData.salepage_name}</td>
+                    <td className="align-middle">
                     <p><NumberFormat value={this.state.salepageData.salepage_price} displayType={'text'} thousandSeparator={true} prefix={'NT$'} /></p>
                     </td>
-                    <td>
+                    <td className="align-middle" >
                       <div className="">
                         <span className="fs-14" />
                         <input
@@ -214,7 +214,7 @@ class FoodOrderP1 extends React.Component {
                         />                                        
                       </div>
                     </td>
-                    <td>刪除</td>
+                    {/* <td>刪除</td> */}
                   </tr>
                 </tbody>
               </Table>
@@ -239,7 +239,7 @@ class FoodOrderP1 extends React.Component {
         <Container className="mt-1">
           <Row className="mt-5">
             <Col>
-              <div className="ground fs-24">服務條款</div>
+              <div className="fs-24 grass fw-bold pb-2">服務條款</div>
             </Col>
           </Row>
         </Container>
@@ -319,6 +319,8 @@ class FoodOrderP1 extends React.Component {
                 </div>
                 <Form.Group controlId="formBasicChecbox">
                   <Form.Check
+                    defaultChecked
+                    custom
                     type="checkbox"
                     label="我已閱讀並同意上述條款規則。"
                   />
@@ -334,7 +336,8 @@ class FoodOrderP1 extends React.Component {
               {/* justify-content-between */}
               <ButtonToolbar className="justify-content-end">
                 <Button
-                  className="bg-food-default forder-btn mr-2 "
+                  className="forder-btn food-default mr-2"
+                  variant="link" 
                   style={{ width: "30%" }}
                   sm={"block"}
                   href={"/Food/FoodDetails/" + this.state.salepageData.id}
@@ -342,7 +345,8 @@ class FoodOrderP1 extends React.Component {
                   返回食材列表
                 </Button>
                 <Button
-                  className="bg-sunshine food-default forder-btn"
+                  className="bg-sunshine food-default forder-btnNext"
+                  variant="link" 
                   style={{ width: "30%" }}
                   sm={"block"}
                   onClick={this.goP2}

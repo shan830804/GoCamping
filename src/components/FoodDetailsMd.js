@@ -40,29 +40,41 @@ document.title = this.state.title;
           </Col>
         </Row>
         <Row>
-          <Col xs={6} md={4}>
-            <p className="img-title">醬燒里肌肉片(500g/盒)</p>
-            <Image src={this.state.salepageData.salepage_image} thumbnail />
+          <Col xs={6} md={4} className="text-center">
+            <p className="img-title">{this.state.salepageData.salepage_name2}</p>
+            <figure>
+              <Image src={this.state.salepageData.salepage_image2} thumbnail />
+            </figure>
           </Col>
-          <Col xs={6} md={4}>
-            <p className="img-title">醬燒里肌肉片(500g/盒)</p>
-            <Image src={this.state.salepageData.salepage_image2} thumbnail />
+          <Col xs={6} md={4} className="text-center">
+            <p className="img-title">{this.state.salepageData.salepage_name3}</p>
+            <figure>
+              <Image src={this.state.salepageData.salepage_image3} thumbnail />
+            </figure>
           </Col>
-          <Col xs={6} md={4}>
-            <p className="img-title">醬燒里肌肉片(500g/盒)</p>
-            <Image src={this.state.salepageData.salepage_image3} thumbnail />
+          <Col xs={6} md={4} className="text-center">
+            <p className="img-title">{this.state.salepageData.salepage_name4}</p>
+            <figure>
+              <Image src={this.state.salepageData.salepage_image4} thumbnail />
+            </figure>
           </Col>
-          <Col xs={6} md={4}>
-            <p className="img-title">醬燒里肌肉片(500g/盒)</p>
-            <Image src={this.state.salepageData.salepage_image} thumbnail />
+          <Col xs={6} md={4} className="text-center">
+            <p className="img-title">{this.state.salepageData.salepage_name5}</p>
+            <figure>
+              <Image src={this.state.salepageData.salepage_image5} thumbnail />
+            </figure>
           </Col>
-          <Col xs={6} md={4}>
-            <p className="img-title">醬燒里肌肉片(500g/盒)</p>
-            <Image src={this.state.salepageData.salepage_image} thumbnail />
+          <Col xs={6} md={4} className="text-center">
+            <p className="img-title">{this.state.salepageData.salepage_name6}</p>
+            <figure>
+              <Image src={this.state.salepageData.salepage_image6} thumbnail />
+            </figure>
           </Col>
-          <Col xs={6} md={4}>
-            <p className="img-title">醬燒里肌肉片(500g/盒)</p>
-            <Image src={this.state.salepageData.salepage_image} thumbnail />
+          <Col xs={6} md={4} className="text-center">
+            <p className="img-title">{this.state.salepageData.salepage_name7}</p>
+            <figure>
+              <Image src={this.state.salepageData.salepage_image7} thumbnail />
+            </figure>
           </Col>
         </Row>
         {/* 相關規格 */}

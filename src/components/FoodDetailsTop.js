@@ -142,11 +142,11 @@ class FoodDetailsTop extends React.Component {
                         onClick={this.props.AddSaleLove}
                         variant="link">
                   {" "}
-                  <FaHeart /> 加入收藏
+                  <FaHeart />
                 </Button>
               </Col>
               <Col  xs={12} md={6} className="btn-addcol pr-0">
-                <Button  className="btn-grass btn-order"
+                <Button className="btn-grass btn-order"
                         variant="link" 
                         onClick={this.props.toFoodOrderP1} >
                   立即預定

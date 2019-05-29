@@ -162,7 +162,7 @@ class FoodDetails extends React.Component {
       .catch(error => console.log(error));
   }
 
-  宣染開始;
+  //宣染開始;
   render() {
     // console.log(this.state.salepage_id)
     return (
