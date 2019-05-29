@@ -1,6 +1,7 @@
 import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import moment from 'moment'
+import SweetAlert from 'react-bootstrap-sweetalert';
 
 
 class Register extends React.Component {
@@ -36,6 +37,20 @@ class Register extends React.Component {
         } catch (e) {
             console.log(e)
         }
+    }
+
+    onConfirm = () => {
+		this.setState({
+			alert: null
+		});
+    }
+    
+    onTermClick = () => {
+        this.setState({
+            alert: (
+                <SweetAlert title="Here's a message!" onConfirm={this.onConfirm} />					
+            )
+        });
     }
 
     onInputChange = (event) => {
@@ -114,6 +129,8 @@ class Register extends React.Component {
                 alert('與上列密碼不符')
             }
         }
+
+
     }
 
     renderRegisterForm = () => {
@@ -149,9 +166,10 @@ class Register extends React.Component {
                                     <input type="password" id="password_check" name="password_check" className="flex-grow-1 border-0" placeholder="確認密碼" onChange={this.onInputChange} />
                                 </div>
                                 <div className="row mb-3">
+                                {this.state.alert}
                                     <small>點擊加入會員即代表您已閱讀並同意GO CAMPING的
-                                        <NavLink className="ground" target="_blank" to="/MemberServiceTerms">會員服務條款</NavLink>與
-                                        <NavLink className="ground" target="_blank" to="/PrivacyPolicy">隱私權政策</NavLink>
+                                        <button type="button" className="ground" onClick={() => this.onTermClick()}>會員服務條款</button>與
+                                        <span className="ground">隱私權政策</span>
                                     </small>
                                 </div>
                                 <div className="row">

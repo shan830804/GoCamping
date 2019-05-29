@@ -12,6 +12,9 @@ import Member from './pages/member/Member';
 import Login from './pages/member/Login'
 import Register from './pages/member/Register'
 import Logout from './pages/member/Logout'
+import MemberServiceTerms from './components/MemberServiceTerms'
+import PrivacyPolicy from './components/MemberPrivacyPolicy'
+import Faq from './components/Faq'
 import './App.css';
 
 class App extends React.Component {
@@ -50,8 +53,11 @@ class App extends React.Component {
             <Route path="/ShareFun" component={ShareFun} />
             <Route path="/Member" component={Member} />
             <Route path="/Login" render={(props) => <Login toggleLogin={this.toggleLogin} {...props} />} />
+            <Route path="/MemberServiceTerms" component={MemberServiceTerms} />
+            <Route path="/PrivacyPolicy" component={PrivacyPolicy} />
             <Route path="/Register" render={(props) => <Register toggleLogin={this.toggleLogin} {...props} />} />
             <Route path="/Logout" render={(props) => <Logout toggleLogout={this.toggleLogout} {...props} />} />
+            <Route path="/FAQ" component={Faq} />
           </Switch>
 
           <Footer />

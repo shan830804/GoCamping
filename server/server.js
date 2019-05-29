@@ -37,7 +37,7 @@ var corsOptions = {
 app.use(cors(corsOptions));
 
 // 傳送過來的格式是 formData
-app.post('/try-upload', upload.single('avatar'), (req, res) => { // 如果要上傳多個檔案要用 upload.array，而且一定要用 POST；這一段程式碼屬於在需要時才用指定routes的middle ware
+app.post('/avatar-upload', upload.single('avatar'), (req, res) => { // 如果要上傳多個檔案要用 upload.array，而且一定要用 POST；這一段程式碼屬於在需要時才用指定routes的middle ware
     console.log(req.file); // 查看裡面的屬性
     let ext='';
     let fname = uuidv4();

@@ -56,6 +56,8 @@ class Member extends React.Component {
                 let pickMember = this.state.memberData.filter((data) => data.mem_account === localStorageAccount);
                 await this.setState({ memberData: pickMember });
             }
+
+            
         } catch (e) {
             console.log(e)
         }

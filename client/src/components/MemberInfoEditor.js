@@ -127,7 +127,7 @@ class MemberInfoEditor extends React.Component {
             // 傳送大頭貼到 node server
             let fd = await new FormData();
             fd.append('avatar', this.state.file);
-            await fetch('http://localhost:5000/try-upload', {
+            await fetch('http://localhost:5000/avatar-upload', {
                 method: 'POST',
                 body: fd
             })
