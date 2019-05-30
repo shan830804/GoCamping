@@ -54,18 +54,18 @@ class MemberFavorite extends React.Component {
              <div className="d-flex flex-wrap pl-4">
                 {this.state.saleloveData.map(item => (
                 <Card.Link className="ml-0 mr-3" key={item.id} href={"/Food/FoodDetails/" + item.salelove_salepageid}>
-                  <Card className="mt-3 flist-card"  style={{ width: "200px", height: "283px" }}>
+                  <Card className="mt-3 flist-card"  style={{ width: "180px", height: "280px" }}>
                     <Card.Img
                       variant="top"
                       className="flist-img"
                       src={item.salelove_salepageimage}
-                      style={{ width: "198px", height: "143px" }}
+                      style={{ width: "178px", height: "143px" }}
                     />
                     <Card.Body style={{ width: "100%"}} className="p-2">
                       <Card.Title className="fs-16 food-default">
                         {item.salelove_salepagename}
                       </Card.Title>
-                      <div className="mt-5 " style={{ width: "100%"}}>
+                      <div className="mt-2 " style={{ width: "100%"}}>
                         <Card.Text className="flist-suggestprice flist-cardText fs-12 food-default text-right flist-cardMargin mt-3">
                           <NumberFormat value={item.salelove_salepagesuggestprice} displayType={'text'} thousandSeparator={true} prefix={'NT$'} />
                         </Card.Text>
