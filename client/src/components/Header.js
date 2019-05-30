@@ -137,7 +137,7 @@ class Header extends React.Component {
         return (
             <>
                 <p className="m-0 fs-18 border-bottom">
-                    <Nav.Link className="nav-link" exact href="/Member">會員中心</Nav.Link>
+                    <Nav.Link className="nav-link" href="/Member">會員中心</Nav.Link>
                 </p>
                 <NavDropdown title="&nbsp;&nbsp;訂單管理" id="basic-nav-dropdown" className="">
                     <NavDropdown.Item href="/Member">營地訂單</NavDropdown.Item>

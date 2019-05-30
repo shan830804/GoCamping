@@ -113,7 +113,7 @@ class Login extends React.Component {
         return (
             <div className="container-fluid login_cover d-flex align-items-center justify-content-center">
                 <main className="">
-                    <p className="sunshine">可以先暫時使用(帳號tigger/密碼admin)登入</p>
+                    {/* <p className="sunshine">可以先暫時使用(帳號tigger/密碼admin)登入</p> */}
                     <div className="card">
                         <div className="card-body py-4">
                             <form onSubmit={this.onLoginPageSubmit}>

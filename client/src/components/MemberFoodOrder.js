@@ -20,7 +20,7 @@ const MemberFoodOrder = props => (
             </Nav>
             <Tab.Content>
                 <Tab.Pane eventKey="pending">
-                    <div className="d-flex row border p-sm-3 mt-3">
+                    {/* <div className="d-flex row border p-sm-3 mt-3">
                         <div className="col-sm-2 d-flex align-items-center p-sm-0">
                             <figure className="order_avatar m-0">
                                 <Image src="../../images/toothless.jpg" />
@@ -41,6 +41,9 @@ const MemberFoodOrder = props => (
                                 <span className="text-right fs-18 fw-light">總金額 NT$999</span>
                             </div>
                         </div>
+                    </div> */}
+                    <div>
+                        <p className="text-center my-3 p-3 fs-20 fw-light border">尚無訂單</p>
                     </div>
                 </Tab.Pane>
                 <Tab.Pane eventKey="paid">

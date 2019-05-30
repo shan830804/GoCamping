@@ -17,7 +17,7 @@ const MemberEventOrder = props => (
             </Nav>
             <Tab.Content>
                 <Tab.Pane eventKey="coming">
-                    <div className="d-flex justify-content-between border p-sm-3 mt-3">
+                    {/* <div className="d-flex justify-content-between border p-sm-3 mt-3">
                         <div className="d-flex justify-content-between">
                             <span className="fw-light mr-sm-3">2019/08/08</span>
                             <div className="d-flex flex-column justify-content-center">
@@ -36,6 +36,9 @@ const MemberEventOrder = props => (
                             </div>
                             <span className="text-right fs-18 fw-light">總金額 NT$1,900</span>
                         </div>
+                    </div> */}
+                    <div>
+                        <p className="text-center my-3 p-3 fs-20 fw-light border">尚無訂單</p>
                     </div>
                 </Tab.Pane>
                 <Tab.Pane eventKey="finished">

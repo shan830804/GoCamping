@@ -17,7 +17,7 @@ const MemberCoupon = props => (
             </Nav>
             <Tab.Content>
                 <Tab.Pane eventKey="valid">
-                    <div className="d-flex row border p-sm-3 mt-3">
+                    {/* <div className="d-flex row border p-sm-3 mt-3">
                         <div className="col-sm-2 d-flex align-items-center p-sm-0">
                             <figure className="order_avatar m-0">
                                 <Image src="../../images/toothless.jpg" />
@@ -33,19 +33,27 @@ const MemberCoupon = props => (
                             <div className="d-flex flex-column justify-content-end">
                                 <span className="text-right fs-24 p-2 forest">85折</span>
                                 <span className="fs-20 fw-light p-2 forest coupon_code">ZC4184</span>
-                                {/* TODO: 是不是要讓折扣碼直接連結到前往營地相關頁面比較好? */}
+                                TODO: 是不是要讓折扣碼直接連結到前往營地相關頁面比較好?
                             </div>
                         </div>
+                    </div> */}
+                    <div>
+                        <p className="text-center my-3 p-3 fs-20 fw-light border">尚未領取折價券</p>
                     </div>
                 </Tab.Pane>
                     <Tab.Pane eventKey="used">
-
+                    <div>
+                        <p className="text-center my-3 p-3 fs-20 fw-light border">尚未兌換折價券</p>
+                    </div>
                     </Tab.Pane>
                     <Tab.Pane eventKey="expired">
-
+                    <div>
+                        <p className="text-center my-3 p-3 fs-20 fw-light border">無過期折價券</p>
+                    </div>
                     </Tab.Pane>
             </Tab.Content>
         </Tab.Container>
+        
     </main>
         )
         

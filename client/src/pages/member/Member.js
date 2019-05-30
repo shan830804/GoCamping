@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import Bread from '../../components/MemberBread';
 import Profile from '../../components/MemberProfile';
 import Aside from '../../components/MemberAside';
-import Notification from '../../components/MemberNotification';
 import InfoEditor from '../../components/MemberInfoEditor';
 import CampingOrder from '../../components/MemberCampingOrder';
 import FoodOrder from '../../components/MemberFoodOrder';
@@ -56,8 +55,6 @@ class Member extends React.Component {
                 let pickMember = this.state.memberData.filter((data) => data.mem_account === localStorageAccount);
                 await this.setState({ memberData: pickMember });
             }
-
-            
         } catch (e) {
             console.log(e)
         }

@@ -77,6 +77,12 @@ nav ul{
         height: 3px;
         background-color: #F2CE63;
     }
+    .login a:hover {
+        color: #ffffff;
+    }
+    .nav_menu a:hover{
+        color: #f2ce63;
+    }
 }
 
 @media (max-width:768px) { /* 手機版 */

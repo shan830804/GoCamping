@@ -2,7 +2,7 @@ import React from 'react';
 
 function MemberBread() {
     return (
-        <div className="row">
+        <div className="row member_bread">
             <nav className="col-sm-12 p-0">
                 <ul className="breadcrumb m-0">
                     <li className="breadcrumb-item"><i className="fas fa-home"></i></li>

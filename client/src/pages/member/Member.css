@@ -11,6 +11,9 @@
 .fw-medium {
   font-weight: 500;
 }
+.bg-floor {
+  background: rgba(204, 204, 204, 0.5);
+}
 main .show::after{
   background-color: transparent !important;
 }
@@ -117,4 +120,19 @@ aside a:hover {
   font-size: 20px;
   text-align: center;
   border-radius: 50%;
+}
+
+@media (min-width:768px) { /* 電腦版 */
+  
+}
+@media (max-width:768px) { /* 手機版 */
+  .member_bread {
+    display: none;
+  }
+  .profile {
+    display: none;
+  }
+  .member_aside {
+    display: none;
+  }
 }

@@ -3,6 +3,7 @@ import { Nav, Image, Tab, Button } from 'react-bootstrap';
 
 const MemberCampingOrder = props => (
     <main className="col-sm-10 my-2">
+    {/* <h5 className="">營地訂單</h5> */}
         <Tab.Container defaultActiveKey="coming" className="">
             <Nav variant="tabs" defaultActiveKey="coming">
                 <Nav.Item>
@@ -17,7 +18,7 @@ const MemberCampingOrder = props => (
             </Nav>
             <Tab.Content>
                 <Tab.Pane eventKey="coming">
-                    <div className="d-flex row border p-sm-3 mt-3">
+                    {/* <div className="d-flex row border p-sm-3 mt-3">
                         <div className="col-sm-2 d-flex align-items-center p-sm-0">
                             <figure className="order_avatar m-0">
                                 <Image src="../../images/toothless.jpg" />
@@ -40,10 +41,13 @@ const MemberCampingOrder = props => (
                                 <span className="text-right fs-18 fw-light">總金額 NT$1,200</span>
                             </div>
                         </div>
+                    </div> */}
+                    <div>
+                        <p className="text-center my-3 p-3 fs-20 fw-light border">尚無訂單</p>
                     </div>
                 </Tab.Pane>
                 <Tab.Pane eventKey="finished">
-                    <div className="d-flex row border p-sm-3 mt-3">
+                    {/* <div className="d-flex row border p-sm-3 mt-3">
                         <div className="col-sm-2 d-flex align-items-center p-sm-0">
                             <figure className="order_avatar m-0">
                                 <Image src="../../images/toothless.jpg" />
@@ -66,6 +70,9 @@ const MemberCampingOrder = props => (
                                 <span className="text-right fs-18 fw-light">總金額 NT$1,000</span>
                             </div>
                         </div>
+                    </div> */}
+                    <div>
+                        <p className="text-center my-3 p-3 fs-20 fw-light border">尚無訂單</p>
                     </div>
                 </Tab.Pane>
                 <Tab.Pane eventKey="cancelled">
@@ -75,6 +82,7 @@ const MemberCampingOrder = props => (
                 </Tab.Pane>
             </Tab.Content>
         </Tab.Container>
+        
     </main>
 )
 
