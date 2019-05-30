@@ -125,20 +125,22 @@ class MemberInfoEditor extends React.Component {
 
         if (this.state.password_check === this.state.password) {
             // 傳送大頭貼到 node server
-            let fd = await new FormData();
-            fd.append('avatar', this.state.file);
-            await fetch('http://localhost:5000/avatar-upload', {
-                method: 'POST',
-                body: fd
-            })
-                .then(response => response.json())
-                .then(obj => {
-                    // console.log(obj);
-                    if (obj) {
-                        this.setState({ avatar_pictures: obj })
-                        // console.log(this.state.avatar_pictures)
-                    }
+            if (this.state.imagePreviewUrl) {
+                let fd = await new FormData();
+                fd.append('avatar', this.state.file);
+                await fetch('http://localhost:5000/avatar-upload', {
+                    method: 'POST',
+                    body: fd
                 })
+                    .then(response => response.json())
+                    .then(obj => {
+                        // console.log(obj);
+                        if (obj) {
+                            this.setState({ avatar_pictures: obj })
+                            // console.log(this.state.avatar_pictures)
+                        }
+                    })
+            }
 
             // 傳送其餘資料表到 json server
             await fetch('http://localhost:5555/members/' + this.state.id, {
@@ -198,7 +200,7 @@ class MemberInfoEditor extends React.Component {
         }
 
         return (
-            <main className="col-sm-10 my-2">
+            <main className="col-md-10 my-2">
                 <form name="form1" onSubmit={this.onInfoEditorSubmit}>
                     <p>
                         <span className="fw-bold fs-20 grass">編輯個人資料&nbsp;</span>

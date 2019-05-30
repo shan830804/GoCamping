@@ -77,7 +77,7 @@ nav ul{
         height: 3px;
         background-color: #F2CE63;
     }
-    .login a:hover {
+    .login a:hover, .logout a:hover {
         color: #ffffff;
     }
     .nav_menu a:hover{
