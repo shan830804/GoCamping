@@ -15,6 +15,7 @@ import Logout from './pages/member/Logout'
 import MemberServiceTerms from './components/MemberServiceTerms'
 import PrivacyPolicy from './components/MemberPrivacyPolicy'
 import Faq from './components/Faq'
+import Testhost from './components/Testhost'
 import './App.css';
 
 class App extends React.Component {
@@ -23,6 +24,7 @@ class App extends React.Component {
     this.state = {
       isAuthenticated: false,
       isntAuthenticated: false,
+      host: false,
     }
   }
 
@@ -38,11 +40,17 @@ class App extends React.Component {
     // console.log('toggleLogout:' + this.state.isntAuthenticated)
   }
 
+  toggleHost = () => {
+    this.setState({ host: true })
+  }
+
   render() {
     return (
       <Router>
         <>
-          <Header isAuthenticated={this.state.isAuthenticated} isntAuthenticated={this.state.isntAuthenticated}  />
+          {this.state.host ? ('宛臻的header'): (
+            <Header isAuthenticated={this.state.isAuthenticated} isntAuthenticated={this.state.isntAuthenticated}  />
+          )}
 
           <Switch>
             <Route exact path="/" component={Index} />
@@ -52,15 +60,18 @@ class App extends React.Component {
             <Route path="/Food" component={Food} />
             <Route path="/ShareFun" component={ShareFun} />
             <Route path="/Member" component={Member} />
-            <Route path="/Login" render={(props) => <Login toggleLogin={this.toggleLogin} {...props} />} />
+            <Route path="/Login" render={(props) => <Login toggleLogin={this.toggleLogin} toggleHost={this.toggleHost} {...props} />} />
             <Route path="/MemberServiceTerms" component={MemberServiceTerms} />
             <Route path="/PrivacyPolicy" component={PrivacyPolicy} />
             <Route path="/Register" render={(props) => <Register toggleLogin={this.toggleLogin} {...props} />} />
             <Route path="/Logout" render={(props) => <Logout toggleLogout={this.toggleLogout} {...props} />} />
             <Route path="/FAQ" component={Faq} />
+            <Route path="/host" component={Testhost} />
           </Switch>
 
-          <Footer />
+          {this.state.host ? ('宛臻的footer'): (
+            <Footer />
+          )}
         </>
       </Router>
     )

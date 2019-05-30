@@ -146,7 +146,9 @@ class Login extends React.Component {
                                 </p>
                                 <hr />
                                 <div className="text-center">
-                                    <Link className="mb-0 camp_boss" to="#">營地主登入</Link>
+                                    <button onClick={this.props.toggleHost}>
+                                        <Link className="mb-0 camp_boss" to="/host">營地主登入</Link>
+                                    </button>
                                 </div>
                             </form>
                         </div>
