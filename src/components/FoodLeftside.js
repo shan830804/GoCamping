@@ -32,7 +32,7 @@ const FoodLeftside = props => (
               <span variant="link"
                       onClick={()=>props.handleSalebrand(2)}
                       className="fleft-link ">
-              紅龍食品
+              買肉找我
               </span>
             </li>            
             <li className={"ml-2 d-flex my-1 fleft-link " + (props.salebrand == 3 ? "fleft-active" : "")}>
