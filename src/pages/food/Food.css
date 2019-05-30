@@ -117,7 +117,7 @@
 /* 詳細商品頁右邊商品開始 */
 .su-price {
   color: #cccccc;
-  margin: 0 0 -10px 0;
+  margin: 0;
 }
 .btn-number {
   background-color: #ffffff;
@@ -267,6 +267,12 @@
 }
 .forder03-title {
   border-bottom: 1.5px solid #cccccc;
+}
+.custom-control-label:before {
+  background-color: rgba(204, 204, 204, 0.5)
+}
+.custom-radio .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: #027252;
 }
 
 /* FoodOrder03結束 */
