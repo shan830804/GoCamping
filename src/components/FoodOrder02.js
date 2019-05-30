@@ -130,51 +130,45 @@ class FoodOrder02 extends React.Component {
         <Container>
           <Row className="mt-3">
             <Col>
-            <div className="border p-2 " style={{width: '100%'}}>
-               <Form.Group controlId="formBasicChecbox">
+              <div className="custom-control custom-radio">
+                <input type="radio" id="customRadio1" name="customRadio" className="custom-control-input" />
+                <label className="custom-control-label" htmlFor="customRadio1">ATM 轉帳</label>
+              </div>
+              <div className="custom-control custom-radio">
+                <input type="radio" id="customRadio2" name="customRadio" className="custom-control-input" />
+                <label className="custom-control-label" htmlFor="customRadio2"> ibon 付款</label>
+              </div>
+                <div className="custom-control custom-radio">
+                <input type="radio" id="customRadio2" name="customRadio" className="custom-control-input" />
+                <label className="custom-control-label" htmlFor="customRadio2"> 信用卡付款(可接受VISA, Master, JCB, 聯合信用卡)</label>
+              </div>
+            {/* <div className="border p-2 " style={{width: '100%'}}>
+               <Form.Group controlId="formBasicChecbox1">
                   <Form.Check
+                    id="foodOrder01"
+                    type="radio"
                     custom
-                    type="checkbox"
                     label=" ATM 轉帳"
                   />
                 </Form.Group>
-                <Form.Group controlId="formBasicChecbox">
+                <Form.Group controlId="formBasicChecbox2">
                   <Form.Check
                     defaultChecked
+                    id="foodOrder02"
+                    type="radio"
                     custom
-                    type="checkbox"
                     label="ibon 付款"
                   />
                 </Form.Group>
-                <Form.Group controlId="formBasicChecbox">
+                <Form.Group controlId="formBasicChecbox3">
                   <Form.Check
+                    id="foodOrder03"
+                    type="radio"
                     custom
-                    type="checkbox"
                     label="信用卡付款(可接受VISA, Master, JCB, 聯合信用卡)"
                   />
                 </Form.Group>
-                    {/* <div className="form-check">
-                        <input className="form-check-input" type="radio" name="apply_payment" id="apply_payment2"
-                            value="1" />
-                        <label className="form-check-label" htmlFor="exampleRadios2">
-                            ATM 轉帳
-                        </label>
-                    </div>
-                    <div className="form-check">
-                        <input className="form-check-input" defaultChecked type="radio" name="apply_payment" id="apply_payment3"
-                            value="2"/>
-                        <label className="form-check-label" htmlFor="exampleRadios3">
-                            ibon 付款
-                        </label>
-                    </div>
-                    <div className="form-check">
-                        <input className="form-check-input" type="radio" name="apply_payment" id="apply_payment"
-                            value="3"/>
-                        <label className="form-check-label" htmlFor="exampleRadios1">
-                            信用卡付款(可接受VISA, Master, JCB, 聯合信用卡)
-                        </label>
-                    </div> */}
-                </div>
+                </div> */}
             </Col>
           </Row>
         </Container>

@@ -48,12 +48,13 @@ class FoodDetailsTop extends React.Component {
           <Col xs={12} md={6}>
             <Carousel>
               <Carousel.Item>
+              <figure>
                 <Image
-                  style={{ width: "100%", height: "100%" }}
                   className="d-block w-100"
                   src={this.state.salepageData.salepage_image}
                   alt="First slide"
                 />
+                </figure>
               </Carousel.Item>
               {/* <Carousel.Item>
                 <Image
@@ -107,7 +108,7 @@ class FoodDetailsTop extends React.Component {
 
           {/* TopRight */}
           <Col xs={12} md={6}>
-            <h4 className="fs-24 mt-2">
+            <h4 className="fs-24 mt-2 mb-2">
               {this.state.salepageData.salepage_name}
             </h4>
             <p className="fs-16 su-price">
@@ -149,7 +150,7 @@ class FoodDetailsTop extends React.Component {
                 <Button className="btn-grass btn-order"
                         variant="link" 
                         onClick={this.props.toFoodOrderP1} >
-                  立即預定
+                  立即預訂
                 </Button>
               </Col>
             </ButtonToolbar>
