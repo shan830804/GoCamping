@@ -2,7 +2,8 @@ import React from 'react';
 import { Nav, Image, Tab } from 'react-bootstrap';
 
 const MemberCoupon = props => (
-    <main className="col-sm-10 my-2">
+    <main className="col-md-10 col-sm-12 my-2">
+        <h5 className="text-center rwd_title">我的折價券</h5>
         <Tab.Container defaultActiveKey="valid" className="">
             <Nav variant="tabs" defaultActiveKey="valid">
                 <Nav.Item>

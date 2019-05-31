@@ -70,6 +70,7 @@ class Member extends React.Component {
         return (
             <Router>
                 <div className="container">
+                    
                     <section className="my-2">
                         <Bread />
                         <Profile />

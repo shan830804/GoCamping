@@ -14,28 +14,31 @@
 .bg-floor {
   background: rgba(204, 204, 204, 0.5);
 }
-main .show::after{
+main .show::after {
   background-color: transparent !important;
 }
 
 /* 登入畫面 */
 .login_cover {
-  height: calc( 100vh - 120px );
+  height: calc(100vh - 120px);
   background-color: rgba(0, 0, 0, 0.5);
 }
 .forgetPassword {
   color: #707070;
 }
-.forgetPassword:hover, .forgetPassword:active {
+.forgetPassword:hover,
+.forgetPassword:active {
   color: #027252;
 }
-.register:hover, .register:active {
+.register:hover,
+.register:active {
   color: #027252;
 }
 .camp_boss {
-  color: #CCCCCC;
+  color: #cccccc;
 }
-.camp_boss:hover, .camp_boss:active {
+.camp_boss:hover,
+.camp_boss:active {
   color: #027252;
 }
 
@@ -62,7 +65,6 @@ main .show::after{
   border-radius: 50%;
 }
 
-
 /* 左方導覽列 */
 aside .box {
   width: 25px;
@@ -72,25 +74,23 @@ aside a {
   color: #707070;
 }
 aside a:hover {
-  color: #F2CE63;
+  color: #f2ce63;
 }
-.activeAside{
-  color: #87B061;
-  border-bottom: 2px solid #87B061;
+.activeAside {
+  color: #87b061;
+  border-bottom: 2px solid #87b061;
 }
-
-
 
 /* 右方主頁面 */
 /* (1)通知設定 */
 .custom-control-label:before {
-  background-color: rgba(204, 204, 204, 0.5)
+  background-color: rgba(204, 204, 204, 0.5);
 }
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
   background-color: #027252;
 }
 /* (2) 個人資料編輯 */
-.asterisk{
+.asterisk {
   color: red;
 }
 /* (3) 訂單管理 */
@@ -103,6 +103,9 @@ aside a:hover {
   height: 100%;
   object-fit: cover;
 }
+a.details {
+  color: #ffffff;
+}
 /* (4) 折價券 */
 .coupon_code {
   border: 1px solid #027252;
@@ -113,7 +116,9 @@ aside a:hover {
 .level_thead {
   background-color: rgba(204, 204, 204, 0.5);
 }
-.level_one, .level_two, .level_three {
+.level_one,
+.level_two,
+.level_three {
   width: 40px;
   height: 40px;
   color: #ffffff;
@@ -122,10 +127,23 @@ aside a:hover {
   border-radius: 50%;
 }
 
-@media (min-width:768px) { /* 電腦版 */
-  
+@media (min-width: 768px) {
+  /* 電腦版 */
+  .rwd_orderavatar {
+    padding: 0px;
+  }
+  .rwd_details_top {
+    display: none !important;
+  }
+  .seperate_line {
+    display: none;
+  }
+  .rwd_title{
+    display: none;
+  }
 }
-@media (max-width:768px) { /* 手機版 */
+@media (max-width: 768px) {
+  /* 手機版 */
   .member_bread {
     display: none;
   }
@@ -134,5 +152,25 @@ aside a:hover {
   }
   .member_aside {
     display: none;
+  }
+  .rwd-text {
+    text-align: left !important;
+  }
+  .rwd_orderavatar .order_avatar {
+    width: 100px;
+    height: 100px;
+  }
+  .rwd_orderavatar {
+    padding-top: 15px;
+    display: flex;
+  }
+  .rwd_ordercontent {
+    padding-bottom: 15px;
+  }
+  .rwd_details_bottom {
+    display: none !important;
+  }
+  .seperate_line {
+    border-bottom: 1px solid #cccccc;
   }
 }

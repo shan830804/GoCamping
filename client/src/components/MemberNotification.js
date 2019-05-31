@@ -1,7 +1,7 @@
 import React from 'react';
 
 const MemberNotification = props => (
-    <main className="col-sm-10 my-2">
+    <main className="col-md-10 col-sm-12 my-2">
         <form>
             <p className="fw-bold fs-20 grass">電子郵件設定</p>
             <div className="form-group row">

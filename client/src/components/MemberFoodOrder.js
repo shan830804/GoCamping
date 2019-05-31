@@ -2,7 +2,8 @@ import React from 'react';
 import { Nav, Image, Tab, Button } from 'react-bootstrap';
 
 const MemberFoodOrder = props => (
-    <main className="col-sm-10 my-2">
+    <main className="col-md-10 col-sm-12 my-2">
+        <h5 className="text-center rwd_title">食材訂單</h5>
         <Tab.Container defaultActiveKey="pending">
             <Nav variant="tabs" defaultActiveKey="pending">
                 <Nav.Item>

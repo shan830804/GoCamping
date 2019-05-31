@@ -49,7 +49,10 @@ class App extends React.Component {
       <Router>
         <>
           {this.state.host ? ('宛臻的header'): (
-            <Header isAuthenticated={this.state.isAuthenticated} isntAuthenticated={this.state.isntAuthenticated}  />
+            <>
+            <Header isAuthenticated={this.state.isAuthenticated} isntAuthenticated={this.state.isntAuthenticated} />
+            <div style={{ height: "60px" }}></div>
+            </>
           )}
 
           <Switch>

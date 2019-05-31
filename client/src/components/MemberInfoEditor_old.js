@@ -1,14 +1,14 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import TwCitySelector from 'tw-city-selector';
-import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
+import SweetAlert from 'react-bootstrap-sweetalert';
 
 class MemberInfoEditor extends React.Component {
     constructor() {
         super()
         this.state = {
             submitted: false,
+            alert: null,
             // 預設存放區
             id: '',
             account: '',
@@ -69,6 +69,14 @@ class MemberInfoEditor extends React.Component {
         });
     }
 
+    onConfirm = () => {
+        this.setState({
+            alert: null
+        });
+        window.history.go(-1)
+        this.setState({ submitted: true })
+    }
+
     // 存照片名稱到json檔裡
     onAvatarChange = (event) => {
         event.preventDefault();
@@ -126,9 +134,6 @@ class MemberInfoEditor extends React.Component {
         event.preventDefault();
 
         if (this.state.password_check === this.state.password) {
-            
-            const MySwal = withReactContent(Swal) 
-
             // 傳送大頭貼到 node server
             if (this.state.imagePreviewUrl) {
                 let fd = await new FormData();
@@ -187,13 +192,14 @@ class MemberInfoEditor extends React.Component {
             await localStorage.setItem("mem_intro", this.state.introduction);
             await localStorage.setItem("mem_status", this.state.status);
             await localStorage.setItem("mem_signUpDate", this.state.signUpDate);
-
             // await alert('已修改完成')
-            await MySwal.fire({onOpen: () => (MySwal.clickConfirm())})
-                .then(() => MySwal.fire({ title: '已修改完成', customClass: {confirmButton: 'btn btn-grass'},buttonsStyling: false }))
-            
-                await window.history.go(-1)
-            await this.setState({ submitted: true })
+            await this.setState({
+                alert: (
+                    <SweetAlert title="已修改完成" confirmBtnBsStyle="grass" onConfirm={this.onConfirm} />
+                )
+            });
+            // await window.history.go(-1)
+            // await this.setState({ submitted: true })
         } else {
             // alert('密碼不符');
             document.form1.password_check.style.borderColor = 'red';
@@ -212,6 +218,7 @@ class MemberInfoEditor extends React.Component {
 
         return (
             <main className="col-md-10 col-sm-12 my-2">
+                {this.state.alert}
                 <form name="form1" onSubmit={this.onInfoEditorSubmit}>
                     <p>
                         <span className="fw-bold fs-20 grass">編輯個人資料&nbsp;</span>

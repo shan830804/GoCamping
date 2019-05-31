@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const MemberAside = props => (
-    <aside className="col-sm-2 member_aside">
+    <aside className="col-md-2 col-sm-12 member_aside">
         <ul className="p-0 my-2 list-unstyled">
             {/* 訂單管理 */}
             <li className="d-flex my-1 mb-2 d-flex align-items-center">

@@ -2,7 +2,6 @@ import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import moment from 'moment'
 
-
 class Register extends React.Component {
     constructor(props) {
         super(props)
@@ -15,6 +14,7 @@ class Register extends React.Component {
             mem_password: '',
             password_check: '',
             alert: null,
+            password_alert: null,
         }
     }
 
@@ -62,8 +62,10 @@ class Register extends React.Component {
         const signUpDate = moment().format('YYYY-MM-DD hh:mm:ss'); // 引入moment.js套件
 
         if (this.state.memberData.find((data) => data.mem_account === this.state.mem_account)) {
-            alert('帳號已被使用')
+            // alert('帳號已被使用')
+            this.setState({ alert: '帳號已被使用' })
         } else {
+            this.setState({ alert: '' })
             if (this.state.mem_password === this.state.password_check) {
                 await fetch('http://localhost:5555/members', {
                     method: 'POST',
@@ -111,7 +113,8 @@ class Register extends React.Component {
                 await this.props.toggleLogin() // 讓父元件(App)的登入狀態變true
                 await this.setState({ submitted: true })
             } else {
-                alert('與上列密碼不符')
+                // alert('與上列密碼不符')
+                this.setState({ alert: '密碼不符' })
             }
         }
     }
@@ -123,7 +126,10 @@ class Register extends React.Component {
                     <div className="card">
                         <div className="card-body py-4">
                             <form name="formInsert" method="POST" onSubmit={this.onRegisterPageSubmit}>
-                                <h5 className="card-title text-center grass fs-24 mb-3">註冊個人帳號</h5>
+                                <div className="mb-3 text-center">
+                                    <h5 className="card-title grass fs-24 mb-3">註冊個人帳號</h5>
+                                    <span className="asterisk">{this.state.alert}</span>
+                                </div>
                                 <div className="form-group row d-flex align-items-center border rounded p-1">
                                     <div className="mx-2">
                                         <i className="fas fa-user-alt"></i>
@@ -148,7 +154,7 @@ class Register extends React.Component {
                                     </div>
                                     <input type="password" id="password_check" name="password_check" className="flex-grow-1 border-0" placeholder="確認密碼" onChange={this.onInputChange} />
                                 </div>
-                                <div className="row mb-3">
+                                <div className="mb-3 text-center">
                                     <small>點擊加入會員即代表您已閱讀並同意GO CAMPING的
                                         <NavLink className="ground" target="_blank" to="/MemberServiceTerms">會員服務條款</NavLink>與
                                         <NavLink className="ground" target="_blank" to="/PrivacyPolicy">隱私權政策</NavLink>

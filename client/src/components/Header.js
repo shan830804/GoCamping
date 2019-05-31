@@ -182,52 +182,60 @@ class Header extends React.Component {
     render() {
         return (
             <>
-                <nav className="grass web_navbar">
-                    <ul className="list-unstyled row justify-content-between align-items-center">
-                        <li className="align-items-center">
-                            <NavLink className="navbar-brand logo_box" to="/"><img src={logo} alt="" /> </NavLink>
-                        </li>
+                <div className="fixed-top">
+                    <nav className="grass web_navbar">
+                        <div className="container">
+                            <ul className="list-unstyled row justify-content-between align-items-center">
+                                <li className="align-items-center">
+                                    <NavLink className="navbar-brand logo_box" to="/"><img src={logo} alt="" /> </NavLink>
+                                </li>
 
-                        <li className="row justify-content-between maxWidth header_middle" style={{ flexGrow: '2' }}>
-                            <form className="form-inline searchBar">
-                                <input className="form-control" type="search" placeholder="找營地…" aria-label="Search" />
-                                <button className="btn text-light bg-grass fs-18 border-0" type="submit"><FaSearch /></button>
-                            </form>
+                                <li className="row justify-content-end maxWidth header_middle" style={{ flexGrow: '2' }}>
+                                    {/* <form className="form-inline searchBar">
+                                        <input className="form-control" type="search" placeholder="找營地…" aria-label="Search" />
+                                        <button className="btn text-light bg-grass fs-18 border-0" type="submit"><FaSearch /></button>
+                                    </form> */}
 
-                            <ul className="list-unstyled row nav_menu fw-bold">
-                                <li className={"nav-item position-relative " + this.state.CampSide}>
-                                    <NavLink className="nav-link grass" to="/CampSide" onClick={this.selectCampSide}>找營地</NavLink>
+                                    <ul className="list-unstyled row nav_menu fw-bold">
+                                        <li className={"nav-item position-relative " + this.state.CampSide}>
+                                            <NavLink className="nav-link grass" to="/CampSide" onClick={this.selectCampSide}>找營地</NavLink>
+                                        </li>
+                                        <li className={"nav-item position-relative " + this.state.Event}>
+                                            <NavLink className="nav-link grass" to="/Event" onClick={this.selectEvent}>選主題</NavLink>
+                                        </li>
+                                        <li className={"nav-item position-relative " + this.state.Marketing}>
+                                            <NavLink className="nav-link grass" to="/Marketing" onClick={this.selectMarketing}>搶優惠</NavLink>
+                                        </li>
+                                        <li className={"nav-item position-relative " + this.state.Food}>
+                                            <NavLink className="nav-link grass" to="/Food" onClick={this.selectFood}>買食材</NavLink>
+                                        </li>
+                                        <li className={"nav-item position-relative " + this.state.ShareFun}>
+                                            <NavLink className="nav-link grass" to="/ShareFun" onClick={this.selectShareFun}>分享樂</NavLink>
+                                        </li>
+                                    </ul>
                                 </li>
-                                <li className={"nav-item position-relative " + this.state.Event}>
-                                    <NavLink className="nav-link grass" to="/Event" onClick={this.selectEvent}>選主題</NavLink>
-                                </li>
-                                <li className={"nav-item position-relative " + this.state.Marketing}>
-                                    <NavLink className="nav-link grass" to="/Marketing" onClick={this.selectMarketing}>搶優惠</NavLink>
-                                </li>
-                                <li className={"nav-item position-relative " + this.state.Food}>
-                                    <NavLink className="nav-link grass" to="/Food" onClick={this.selectFood}>買食材</NavLink>
-                                </li>
-                                <li className={"nav-item position-relative " + this.state.ShareFun}>
-                                    <NavLink className="nav-link grass" to="/ShareFun" onClick={this.selectShareFun}>分享樂</NavLink>
-                                </li>
+
+                                {/* 登入沒 ? 是(會員頭像+登出按鈕) : 否(登入/註冊按鈕) */}
+                                {this.state.logined ? (this.renderMemberAvatar()) : (this.renderLoginButton())}
+
                             </ul>
-                        </li>
+                        </div>
+                    </nav>
+                </div>
 
-                        {/* 登入沒 ? 是(會員頭像+登出按鈕) : 否(登入/註冊按鈕) */}
-                        {this.state.logined ? (this.renderMemberAvatar()) : (this.renderLoginButton())}
-
-                    </ul>
-                </nav>
-
-                <Navbar bg="light" expand="lg" className="mobile_navbar">
+                {/* <div className="fixed-top"> */}
+                <Navbar bg="light" expand="lg" className="mobile_navbar fixed-top">
+                    
                     <NavLink className="navbar-brand logo_box" to="/"><img src={logo} alt="" /> </NavLink>
 
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                    
                     <Navbar.Collapse id="responsive-navbar-nav">
-                        <form className="form-inline searchBar my-1">
+                    
+                        {/* <form className="form-inline searchBar my-1">
                             <input className="form-control" type="search" placeholder="找營地…" aria-label="Search" />
                             <button className="btn text-light bg-grass fs-18 border-0" type="submit"><FaSearch /></button>
-                        </form>
+                        </form> */}
                         <Nav>
 
                             {this.state.logined ? (this.renderAvatarRWD()) : ('')}
@@ -252,8 +260,9 @@ class Header extends React.Component {
 
                         </Nav>
                     </Navbar.Collapse>
+                    
                 </Navbar>
-
+                {/* </div> */}
             </>
         )
     }

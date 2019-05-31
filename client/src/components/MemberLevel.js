@@ -1,7 +1,8 @@
 import React from 'react';
 
 const MemberLevel = props => (
-    <main className="col-sm-10 my-2">
+    <main className="col-md-10 col-sm-12 my-2">
+        <h5 className="text-center rwd_title">會員等級</h5>
         <div className="d-flex flex-column">
             <p className="bg-grass text-white p-3 fs-18">目前分級：露營新手</p>
             <table>

@@ -12,6 +12,7 @@ class Login extends React.Component {
             memberData: [],
             account: '',
             password: '',
+            alert: null,
         }
     }
 
@@ -101,11 +102,11 @@ class Login extends React.Component {
                 await this.setState({ logined: true }) // 跳轉到前一來源頁
             } else {
                 // 密碼錯誤
-                alert('密碼錯誤!')
+                this.setState({ alert: '密碼錯誤!' })
             }
         } else {
             // 無此帳號
-            alert('查無此帳號!')
+            this.setState({ alert: '查無此帳號!' })
         }
     }
 
@@ -117,7 +118,10 @@ class Login extends React.Component {
                     <div className="card">
                         <div className="card-body py-4">
                             <form onSubmit={this.onLoginPageSubmit}>
-                                <h5 className="card-title text-center grass fs-24 mb-3">會員登入</h5>
+                                <div className="mb-3 text-center">
+                                    <h5 className="card-title grass fs-24 mb-2">會員登入</h5>
+                                    <span className="asterisk">{this.state.alert}</span>
+                                </div>
                                 <div className="form-group row d-flex align-items-center border rounded p-1">
                                     <div className="mx-2">
                                         <i className="fas fa-user-alt"></i>
@@ -145,10 +149,8 @@ class Login extends React.Component {
                                     <Link className="ground register" to="/Register">立即免費註冊</Link>
                                 </p>
                                 <hr />
-                                <div className="text-center">
-                                    <button onClick={this.props.toggleHost}>
-                                        <Link className="mb-0 camp_boss" to="/host">營地主登入</Link>
-                                    </button>
+                                <div className="text-center" onClick={this.props.toggleHost}>
+                                    <Link className="mb-0 camp_boss" to="/host">營地主登入</Link>
                                 </div>
                             </form>
                         </div>
