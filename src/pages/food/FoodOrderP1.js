@@ -45,6 +45,7 @@ class FoodOrderP1 extends React.Component {
       saleorder_salepagename: "",
       saleorder_number: 1,
       saleorder_total: 0,
+      saleorder_price: "",
       saleorder_payment: "",
       saleorder_paycode: "144 850 392 495",
       saleorder_paydate: ""     
@@ -78,6 +79,7 @@ class FoodOrderP1 extends React.Component {
       saleorder_salepageimage : state.salepageData.salepage_image, 
       saleorder_salepagename : state.salepageData.salepage_name,
       saleorder_number : state.order_num,
+      saleorder_price : state.salepageData.salepage_price,
       saleorder_total : state.total,       
     }))    
   }
@@ -122,6 +124,7 @@ class FoodOrderP1 extends React.Component {
           "saleorder_salepageimage": this.state.saleorder_salepageimage,
           "saleorder_salepagename": this.state.saleorder_salepagename,
           "saleorder_number": this.state.saleorder_number,
+          "saleorder_price": this.state.saleorder_price,
           "saleorder_total": this.state.saleorder_total,
           "saleorder_payment": this.state.saleorder_payment,
           "saleorder_paycode": this.state.saleorder_paycode,

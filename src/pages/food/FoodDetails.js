@@ -168,8 +168,9 @@ class FoodDetails extends React.Component {
     return (
       <>
         {/* {this.state.salepageData.salepage_name} */}
-        <Container className="FoodDetails">
-              <FoodDetailsBread />
+        <Container className="FoodDetails my-2">
+              <FoodDetailsBread 
+                data={this.state.salepageData} />
               {/* data是自己命名,是要給子層沿用下去的 */}
               <FoodDetailsTop
                 data={this.state.salepageData}

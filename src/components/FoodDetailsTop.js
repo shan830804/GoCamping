@@ -46,114 +46,133 @@ class FoodDetailsTop extends React.Component {
         <Row className="d-flex">
           {/* Food Left開始  */}
           <Col xs={12} md={6}>
-            <Carousel>
-              <Carousel.Item>
+            <Carousel className="f-carousel">
+              <Carousel.Item className="f-carousel-item">
               <figure>
                 <Image
                   className="d-block w-100"
                   src={this.state.salepageData.salepage_image}
-                  alt="First slide"
+                  alt="First "
                 />
                 </figure>
               </Carousel.Item>
-              {/* <Carousel.Item>
+              <Carousel.Item className="f-carousel-item">
+                <figure>
                 <Image
-                  style={{ width: "100%", height: "100%" }}
                   className="d-block w-100"
                   src={this.state.salepageData.salepage_image2}
-                  alt="Second slide"
+                  alt="First"
                 />
-              </Carousel.Item> */}
-              {/* <Carousel.Item>
+                </figure>
+              </Carousel.Item>
+               <Carousel.Item className="f-carousel-item">
+                <figure>
                 <Image
-                  style={{ width: "100%", height: "100%" }}
                   className="d-block w-100"
                   src={this.state.salepageData.salepage_image3}
-                  alt="Third slide"
+                  alt="First"
                 />
-              </Carousel.Item> */}
+                </figure>
+              </Carousel.Item>
             </Carousel>
             {/* 小圖示 */}
-            {/* <Row>
-              <Col xs={3} className="fl-imgSm">
-                <Image
-                  variant="top"
-                  className="mt-1"
-                  src={this.state.salepageData.salepage_image}
-                  style={{ width: "100%", height: "100%" }}
-                  rounded
-                />
+            <Row>
+              <Col xs={3} className="fl-imgSm mt-2">
+                <figure className="f-smimg">
+                  <Image
+                    variant="top"
+                    className=""
+                    src={this.state.salepageData.salepage_image}
+                    style={{ width: "100%"}}
+                    rounded
+                  />
+                </figure>
               </Col>
-              <Col xs={3} className="fl-imgSm">
-                <Image
-                  variant="top"
-                  className="mt-1"
-                  src={this.state.salepageData.salepage_image2}
-                  style={{ width: "100%", height: "100%" }}
-                  rounded
-                />
+              <Col xs={3} className="fl-imgSm mt-2">
+                <figure className="f-smimg">
+                  <Image
+                    variant="top"
+                    className=""
+                    src={this.state.salepageData.salepage_image2}
+                    style={{ width: "100%" }}
+                    rounded
+                  />
+                </figure>
               </Col>
-              <Col xs={3} className="fl-imgSm">
-                <Image
-                  variant="top"
-                  className="mt-1"
-                  src={this.state.salepageData.salepage_image3}
-                  style={{ width: "100%", height: "100%" }}
-                  rounded
-                />
+              <Col xs={3} className="fl-imgSm mt-2">
+                <figure className="f-smimg">
+                  <Image
+                    variant="top"
+                    className=""
+                    src={this.state.salepageData.salepage_image3}
+                    style={{ width: "100%"}}
+                    rounded
+                  />
+                </figure>
               </Col>
-            </Row> */}
+            </Row>
           </Col>
           {/* Food Left結束 */}
 
-          {/* TopRight */}
+          {/* Food Right開始 */}
           <Col xs={12} md={6}>
-            <h4 className="fs-24 mt-2 mb-2">
-              {this.state.salepageData.salepage_name}
-            </h4>
+            {/* 商品名稱 */}
+            <Row className="mb-4 mt-2 mb-5">
+              <Col className="d-flex pl-0 pr-0">
+                <h4 className="fs-24">{this.state.salepageData.salepage_name}</h4>
+              {/* 加入收藏 */}
+                <span className={this.props.saleloveData.length > 0 ? "btn-addlove-active" : "btn-addlove"}
+                    onClick={this.props.AddSaleLove}>
+                  <i className="fas fa-heart f-heart px-2"></i>
+                </span>
+              </Col>
+            </Row>
             <p className="fs-16 su-price">
-            <NumberFormat value={this.state.salepageData.salepage_suggestprice} displayType={'text'} thousandSeparator={true} prefix={'NT$'} />
-            </p>
+              <NumberFormat value={this.state.salepageData.salepage_suggestprice} displayType={'text'} thousandSeparator={true} prefix={'NT$'} /></p>
             <p className="fs-24 forest price">
-            <NumberFormat value={this.state.salepageData.salepage_price} displayType={'text'} thousandSeparator={true} prefix={'NT$'} />
-            </p>
-            {/* 選擇數量 */}
-            <Form>
-              <Form.Group controlId="exampleForm.ControlSelect1">
-                <Form.Label>數量</Form.Label>
-                <Form.Control as="select" defaultValue={this.props.optionNumber} >
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                  <option>6</option>
-                  <option>7</option>
-                  <option>8</option>
-                  <option>9</option>
-                  <option>10</option>
-                </Form.Control>
-              </Form.Group>
-            </Form>
-            {/* 加入收藏&放購物車 */}
-            <ButtonToolbar className="btn-add ">
-              <Col  xs={12} md={6} className="btn-addcol">
-                {/*收藏--> 用JSON判斷此salelove裡面是否有此會員的資料,再用三元運算子判斷是否要顯示以加入收藏的CSS  */}
-                <Button className={this.props.saleloveData.length > 0 ? "btn-addlove-active" : "btn-addlove"}
-                        onClick={this.props.AddSaleLove}
-                        variant="link">
-                  {" "}
-                  <FaHeart />
-                </Button>
+              <NumberFormat value={this.state.salepageData.salepage_price} displayType={'text'} thousandSeparator={true} prefix={'NT$'} /></p>
+            {/* <Row className="align-items-end">
+              <Col sm={10} className="pl-0">
+                <p className="fs-24 forest price">
+                  <NumberFormat value={this.state.salepageData.salepage_price} displayType={'text'} thousandSeparator={true} prefix={'NT$'} />
+                </p>
               </Col>
-              <Col  xs={12} md={6} className="btn-addcol pr-0">
+              <Col className="text-align-right">
+              {/* 加入收藏 */}
+              {/* <li className="d-flex my-1 mb-2 d-flex">
+                <div className={this.props.saleloveData.length > 0 ? "btn-addlove-active" : "btn-addlove"}
+                              onClick={this.props.AddSaleLove}>
+                   <i className="fas fa-heart f-heart"></i>
+                </div>
+            </li>
+              </Col>
+            </Row>  */}
+            
+            {/* 選擇數量&立即預訂 */}
+            <Row className="pl-0 pr-0 align-items-end">
+              <Col className="pl-0 pr-0">
+                <span>數量</span>
+                  <span className="" />
+                  <input
+                    min="1"                                                    
+                    value={this.state.order_num}
+                    onChange={this.changeNum}
+                    id="order_num"
+                    type="number"
+                    className="form-control text-center"
+                    placeholder="1"
+                  />                                        
+               
+              </Col>
+              <Col>
                 <Button className="btn-grass btn-order"
-                        variant="link" 
-                        onClick={this.props.toFoodOrderP1} >
-                  立即預訂
-                </Button>
+                          variant="link" 
+                          onClick={this.props.toFoodOrderP1} >
+                    立即預訂
+                  </Button>
               </Col>
-            </ButtonToolbar>
+            </Row>
+            
             {/* 付款及運送方式 */}
             <Accordion className="mt-4">
               <Card>

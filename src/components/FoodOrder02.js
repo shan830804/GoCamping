@@ -18,6 +18,7 @@ class FoodOrder02 extends React.Component {
       saleorder_memtaddress: "",
       saleorder_foodname: "",
       saleorder_number: "",
+      saleorder_price: "",
       saleorder_total: "",
       saleorder_payment: "",
       saleorder_paycode: "",
@@ -40,7 +41,7 @@ class FoodOrder02 extends React.Component {
     const { index, direction } = this.state;
     // console.log(this.props.order.salepage_name)
     // console.log(this.state.salepageData)
-    const mem_account = localStorage.getItem("mem_account")
+    const mem_name = localStorage.getItem("mem_name")
     const mem_id = localStorage.getItem("mem_id")
     const mem_address = localStorage.getItem("mem_address")
     return (
@@ -72,9 +73,13 @@ class FoodOrder02 extends React.Component {
                 <label className="col-md-3 col-sm-12" htmlFor="">會員編號：</label>
                 <input defaultValue={mem_id} type="text" className="form-control col-md-7 col-sm-12 bg-white" placeholder="" />
             </div>
+             <div className="forder02-dn row form-group col-md-8">
+                <label className="col-md-3 col-sm-12" htmlFor="">單價</label>
+                <input defaultValue={this.state.saleorder_price} type="text" className="form-control col-md-7 col-sm-12 bg-white" placeholder="" />
+            </div>
             <div className="row form-group col-md-12 ">
                 <label className="col-md-2 col-sm-12" htmlFor="">收件人姓名：</label>
-                <input defaultValue={mem_account}
+                <input defaultValue={mem_name}
                        type="text" 
                        className="form-control col-md-7 col-sm-12 bg-white" 
                        placeholder="請填真實姓名" 
@@ -111,12 +116,12 @@ class FoodOrder02 extends React.Component {
             </div>
             <div className="row form-group col-md-12">
                 <label className="col-md-2 col-sm-12" htmlFor="">配送日期：</label>
-                <input defaultValue="" 
+                <input defaultValue="{this.state.saleorder_paydate}" 
                        type="date" 
                        className="form-control col-md-7 col-sm-12 bg-white" 
                        placeholder="" 
                        onChange={this.props.handleInputChange} 
-                       name="saleorder_paydate"/>
+                       name="saleorder_paydate" />
             </div>
           </Row>
         </Container>

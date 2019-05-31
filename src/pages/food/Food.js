@@ -55,11 +55,14 @@ class Food extends React.Component {
   render(){
     return (
       <Router>
-        <Container className="f-margin-bottom">
-          <Row>
+        <Container className="my-2 f-margin-bottom">
+          <Row className="d-flex"> 
             <FoodBread />
             <FoodSlider />
-          </Row>
+            </Row>
+        </Container>
+        {/* 網頁版的選單 */}
+        <Container className="my-2 f-margin-bottom f-web">
           <Row className="d-flex"> 
             <FoodLeftside handleSalebrand={this.handleSalebrand}
                           handleSalecateid={this.handleSalecateid}
@@ -67,7 +70,20 @@ class Food extends React.Component {
                           salebrand={this.state.salebrand}
                           salecateid={this.state.salecateid}
                             />
+          </Row>
+        </Container>
+        {/* 手機板選單 */}
+        <Container className="my-2 f-rwd">
+          <FoodLeftside handleSalebrand={this.handleSalebrand}
+                        handleSalecateid={this.handleSalecateid}
+                        handleSaleAll={this.handleSaleAll}
+                        salebrand={this.state.salebrand}
+                        salecateid={this.state.salecateid}
+                          />
+        </Container>
 
+        <Container className="my-2 f-margin-bottom">
+          <Row className="d-flex"> 
             <FoodList salebrand={this.state.salebrand}
                       salecateid={this.state.salecateid}
             /> 

@@ -64,12 +64,12 @@ class FoodList extends React.Component {
   render() {
     return (
       <>
-          <Col className="col-md-10 col-sm-12 p-0">   
+          <Col className="col-md-10 col-sm-12 flist-card">   
           <p className="fs-32 text-center mt-2">買食材</p>  
-            <div className="d-flex flex-wrap pl-5">
+            <div className="d-flex flex-wrap pl-5 flist-card">
                 {this.state.filterData.map(item => (
                 <Card.Link className="ml-0 mr-3" key={item.id} href={"/Food/FoodDetails/" + item.id} >
-                  <Card className="mt-3 flist-card "  style={{ width: "180px", height: "280px" }}>
+                  <Card className="mt-3 flist-card"  style={{ width: "180px", height: "280px" }}>
                     <Card.Img
                       variant="top"
                       className="flist-img"

@@ -83,7 +83,7 @@ class FoodOrder03 extends React.Component {
                 </div>
                 <div className="text-left">
                     <label className="fs-16 pr-0 col-md-3" htmlFor="">繳費截止日：</label>
-                    <span className="fs-16 pl-0 col-md-8">2019-06-10 00:00:00</span>
+                    <span className="fs-16 pl-0 col-md-8">2019-06-08 23:59:59</span>
                 </div>
                 </Col>
             </Col>

@@ -66,6 +66,9 @@ class MemberFoodOrder extends React.Component {
                                 <div className="d-flex flex-column justify-content-center">                                    
                                     <span className="fw-light mb-sm-1">商品名稱：{item.saleorder_salepagename}</span>                                    
                                     <span className="fw-light mb-sm-1">數量：{item.saleorder_number}</span>
+                                    <span className="fw-light mb-sm-1">單價：{item.saleorder_price}</span>
+                                    <span className="fw-light mb-sm-1">ibon代碼：144 850 392 495</span>
+                                    <span className="fw-light mb-sm-1">繳費截止日期：2019-06-08 23:59:59</span>
                                     <span className="fw-light mb-sm-1">配送日期：{item.saleorder_paydate}</span>
                                     <span className="fw-light">訂單編號：{item.id}</span>
                                 </div>
