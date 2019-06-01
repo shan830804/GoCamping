@@ -1,6 +1,12 @@
 .food-default{
   color: #707070;
 }
+.food-ccc{
+  color: #cccccc;
+}
+.food-fs16{
+  font-size: 1rem;
+}
 .fborder{
   border: 1px solid #141a6d;
 }
@@ -41,7 +47,6 @@
   cursor: pointer;
   border-bottom: 1px solid #cccccc;
 }
-
 .fleft-all:hover {
   color: #027252; 
 }
@@ -78,21 +83,33 @@
 
 /* FoodLeftSide左邊商品選單結束*/
 /* FoodList開始 */
-.f-listb{
-  border: 1px solid #141a6d;
-}
 .flist-cardMarginTop{
   margin-top: 4px;
 }
 .flist-cardMargin{
   margin-bottom: 0;
 }
-.flist-img{
+.flist-card{
+  min-height: 280px;
+}
+.flist-cardBody{
+  min-height: 120px;
+}
+.flist-cardName{
+  min-height: 50px;
+  max-height: 50px;
+  overflow: hidden;
+}
+.flist-cardImg{
   opacity: 1;
 	-webkit-transition: .2s ease-in-out;
 	transition: .2s ease-in-out;
-}
-.flist-img:hover{
+  object-fit: cover;
+  width: 100%;
+  min-height: 170px;
+  max-height: 170px;
+} 
+.flist-cardImg:hover{
   opacity: .7;
 }
 .flist-suggestprice{
@@ -100,25 +117,18 @@
   position: relative;
   color: #cccccc;
 }
-/* .flist-suggestprice:after{
-  content: "";
-  position: absolute;
-  border-top: 1.5px solid #707070;
-  width: 16%;
-  left: 83%;
-  bottom: 10px;
-  text-align:center;
-} */
 /* FoodList結束 */
 
 /* FoodDetails開始 */
 /* FoodDetailsTop詳細商品頁左邊開始 */
 .f-carousel-item img {
-  max-height: 500px;
+  min-height: 450px;
+  max-height: 450px;
   object-fit: cover;
 }
 .f-smimg img{
-  max-height: 100px;
+  min-height: 76px;
+  max-height: 76px;
   object-fit: cover;
 }
 .fl-imgSm{
@@ -219,6 +229,12 @@
   padding-top: 12px;
   margin-bottom: 2px;
 }
+.dt-img{
+  min-height: 270px;
+  max-height: 270px;
+  min-width: 270px;
+  max-width: 270px;
+}
 /* 相關推薦 */
 .comment-bd{
   margin: 6px;
@@ -303,8 +319,5 @@
   }
   .f-leftside{
     display: none;
-  }
-  .flist-card{
-    padding-left: 0;
   }
   }

@@ -43,37 +43,37 @@ document.title = this.state.title;
           <Col xs={6} md={4} className="text-center">
             <p className="img-title">{this.state.salepageData.salepage_name2}</p>
             <figure>
-              <Image src={this.state.salepageData.salepage_image2} thumbnail />
+              <Image className="dt-img" src={this.state.salepageData.salepage_image2} thumbnail />
             </figure>
           </Col>
           <Col xs={6} md={4} className="text-center">
             <p className="img-title">{this.state.salepageData.salepage_name3}</p>
             <figure>
-              <Image src={this.state.salepageData.salepage_image3} thumbnail />
+              <Image className="dt-img" src={this.state.salepageData.salepage_image3} thumbnail />
             </figure>
           </Col>
           <Col xs={6} md={4} className="text-center">
             <p className="img-title">{this.state.salepageData.salepage_name4}</p>
             <figure>
-              <Image src={this.state.salepageData.salepage_image4} thumbnail />
+              <Image className="dt-img" src={this.state.salepageData.salepage_image4} thumbnail />
             </figure>
           </Col>
           <Col xs={6} md={4} className="text-center">
             <p className="img-title">{this.state.salepageData.salepage_name5}</p>
             <figure>
-              <Image src={this.state.salepageData.salepage_image5} thumbnail />
+              <Image className="dt-img" src={this.state.salepageData.salepage_image5} thumbnail />
             </figure>
           </Col>
           <Col xs={6} md={4} className="text-center">
             <p className="img-title">{this.state.salepageData.salepage_name6}</p>
             <figure>
-              <Image src={this.state.salepageData.salepage_image6} thumbnail />
+              <Image className="dt-img" src={this.state.salepageData.salepage_image6} thumbnail />
             </figure>
           </Col>
           <Col xs={6} md={4} className="text-center">
             <p className="img-title">{this.state.salepageData.salepage_name7}</p>
             <figure>
-              <Image src={this.state.salepageData.salepage_image7} thumbnail />
+              <Image className="dt-img" src={this.state.salepageData.salepage_image7} thumbnail />
             </figure>
           </Col>
         </Row>

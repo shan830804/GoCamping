@@ -63,6 +63,7 @@ class Food extends React.Component {
         </Container>
         {/* 網頁版的選單 */}
         <Container className="my-2 f-margin-bottom f-web">
+        <p className="fs-32 text-center mt-2 f-web">買食材</p>  
           <Row className="d-flex f-web"> 
             <FoodLeftside handleSalebrand={this.handleSalebrand}
                           handleSalecateid={this.handleSalecateid}

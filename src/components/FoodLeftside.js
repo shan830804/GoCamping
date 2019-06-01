@@ -30,11 +30,11 @@ class FoodLeftside  extends React.Component{
       <>  
         {/* <Container className="my-2 f-margin-bottom">
           <Row className="d-flex"> */}
-            <div className="col mt-3 f-leftside ">
+            <div className="col f-leftside ">
               <ListGroup variant="flush" className="" >                    
-                <ul className="p-0 my-2 list-unstyled">
-                  <ul className="p-0 my-2 list-unstyled">
-                    <li className="d-flex my-1 grass fleft-Li">
+                <ul className="p-0 list-unstyled">
+                  <ul className="p-0 list-unstyled">
+                    <li className="d-flex mb-1 grass fleft-Li">
                     <span variant="link"
                               onClick={this.props.handleSaleAll}
                               className={"fs-bold fs-20 fleft-all" + (this.props.salebrand === 0 && this.props.salecateid === 0 ? "-active" : "")}>
