@@ -13,7 +13,6 @@ class MemberProfile extends React.Component {
 
     componentWillMount() {
         const memLevel_id = localStorage.getItem("memLevel_id")
-        const mem_name = localStorage.getItem("mem_name")
 
         switch (memLevel_id) {
             case '露營新手':
@@ -44,16 +43,6 @@ class MemberProfile extends React.Component {
                     </div>
                 })
         }
-
-        if(mem_name){
-            this.setState({
-                name: <span className="fs-18">&nbsp;&nbsp;/ {mem_name}</span>
-            })
-        } else {
-            this.setState({
-                name: <span className="fs-18" style={{ color: "#CCCCCC"}}>&nbsp;&nbsp;/ 請編輯會員姓名</span>
-            })
-        }
     }
 
 
@@ -62,6 +51,7 @@ class MemberProfile extends React.Component {
         const mem_email = localStorage.getItem("mem_email")
         const mem_avatar = localStorage.getItem("mem_avatar")
         const memLevel_id = localStorage.getItem("memLevel_id")
+        const mem_name = localStorage.getItem("mem_name")
 
         return (
             <div className="profile px-4 py-3 my-3">
@@ -75,7 +65,7 @@ class MemberProfile extends React.Component {
                     <div className="col-sm-10">
                         <div className="d-flex flex-column">
                             <div className="d-flex justify-content-between">
-                                <p className="fs-24 mb-2">{mem_account}{this.state.name}</p>
+                                <p className="fs-24 mb-2">{mem_account}{mem_name ? (<span className="fs-18">&nbsp;&nbsp;/ {mem_name}</span>):(<span className="fs-18" style={{ color: "#CCCCCC"}}>&nbsp;&nbsp;/ 請編輯會員姓名</span>)}</p>
                                 <div>
                                     <NavLink className="btn btn-outline-grass" to="/Member/MyInfoEditor">
                                         編輯個人資料 <i className="fas fa-user-edit"></i>
