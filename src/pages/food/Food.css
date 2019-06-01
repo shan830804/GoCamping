@@ -33,11 +33,7 @@
   height: 300px;
   object-fit: cover;
 }
-@media (max-width:768px) {
-  .fslider-img{
-      display: none;
-  }
-}
+
 /* FoodSlider排版結束 */
 
 /* FoodLeftSide左邊商品選單開始 */
@@ -64,20 +60,20 @@
   padding: 5px 2px;
 }
 .f-rwd{
-  padding-right:-10px;
-  padding-left: 0;
+  /* background: #cccccc6b; */
+  padding-left: -1px;
   width: 150%;
 }
 .f-rwdLeftside{
   background: #cccccc6b;
-  margin-left: -30px;
+  padding-left: -15px;
   margin-top: -3px;
-  width: 150%;
+  width: 120%;
 }
 .f-rwdcate{
   background: #cccccc6b;
   margin-left: -30px;
-  width: 150%;
+  width: 120%;
 }
 
 /* FoodLeftSide左邊商品選單結束*/
@@ -296,13 +292,13 @@
 /* FoodOrder03結束 */
 /* FoodOrder結束 */
 
-@media (min-width:768px) { /* 電腦版 */
-  .f-rwd {
+@media (min-width:500px) { /* 電腦版 */
+  .f-rwd, .f-rwdcon {
     display: none;
   }
 }
-@media (max-width:768px) { /* 手機版 */
-  .food_bread, .f-rwd {
+@media (max-width:500px) { /* 手機版 */
+  .f-web {
     display: none;
   }
   .f-leftside{

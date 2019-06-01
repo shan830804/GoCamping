@@ -55,7 +55,7 @@ class Food extends React.Component {
   render(){
     return (
       <Router>
-        <Container className="my-2 f-margin-bottom">
+        <Container className="my-2 f-web f-margin-bottom">
           <Row className="d-flex"> 
             <FoodBread />
             <FoodSlider />
@@ -63,32 +63,41 @@ class Food extends React.Component {
         </Container>
         {/* 網頁版的選單 */}
         <Container className="my-2 f-margin-bottom f-web">
-          <Row className="d-flex"> 
+          <Row className="d-flex f-web"> 
             <FoodLeftside handleSalebrand={this.handleSalebrand}
                           handleSalecateid={this.handleSalecateid}
                           handleSaleAll={this.handleSaleAll}
                           salebrand={this.state.salebrand}
                           salecateid={this.state.salecateid}
                             />
-          </Row>
-        </Container>
-        {/* 手機板選單 */}
-        <Container className="my-2 f-rwd">
-          <FoodLeftside handleSalebrand={this.handleSalebrand}
-                        handleSalecateid={this.handleSalecateid}
-                        handleSaleAll={this.handleSaleAll}
-                        salebrand={this.state.salebrand}
-                        salecateid={this.state.salecateid}
-                          />
-        </Container>
-
-        <Container className="my-2 f-margin-bottom">
-          <Row className="d-flex"> 
             <FoodList salebrand={this.state.salebrand}
                       salecateid={this.state.salecateid}
             /> 
           </Row>
         </Container>
+        {/* 手機板選單 */}
+        <Container className="my-2 f-rwd">
+          <Row className="d-flex f-rwd"> 
+            <FoodLeftside handleSalebrand={this.handleSalebrand}
+                          handleSalecateid={this.handleSalecateid}
+                          handleSaleAll={this.handleSaleAll}
+                          salebrand={this.state.salebrand}
+                          salecateid={this.state.salecateid}
+                            />
+            
+              <FoodList salebrand={this.state.salebrand}
+                        salecateid={this.state.salecateid}
+              /> 
+          </Row>
+        </Container>
+
+        {/* <Container className="my-2 f-margin-bottom">
+          <Row className="d-flex"> 
+            <FoodList salebrand={this.state.salebrand}
+                      salecateid={this.state.salecateid}
+            /> 
+          </Row>
+        </Container> */}
       </Router>
     );
   }

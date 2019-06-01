@@ -4,7 +4,7 @@ import React from "react";
 /* 麵包屑 */
 const FoodBread = props => (
     <>
-         <div className="row col-12">
+         <div className="row col-12 f-web">
             <nav className="col-12 p-0">
                 <ul className="food_bread breadcrumb m-0">
                     <li className="breadcrumb-item"><i className="fas fa-home"></i></li>
