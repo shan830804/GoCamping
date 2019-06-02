@@ -41,37 +41,49 @@ document.title = this.state.title;
         </Row>
         <Row>
           <Col xs={6} md={4} className="text-center">
-            <p className="img-title">{this.state.salepageData.salepage_name2}</p>
+            <div className="img-titleDiv">
+              <p className="img-title">{this.state.salepageData.salepage_name2}</p>
+            </div>
             <figure>
               <Image className="dt-img" src={this.state.salepageData.salepage_image2} thumbnail />
             </figure>
           </Col>
           <Col xs={6} md={4} className="text-center">
-            <p className="img-title">{this.state.salepageData.salepage_name3}</p>
+            <div className="img-titleDiv">
+              <p className="img-title">{this.state.salepageData.salepage_name3}</p>
+            </div>
             <figure>
               <Image className="dt-img" src={this.state.salepageData.salepage_image3} thumbnail />
             </figure>
           </Col>
           <Col xs={6} md={4} className="text-center">
-            <p className="img-title">{this.state.salepageData.salepage_name4}</p>
+            <div className="img-titleDiv">
+              <p className="img-title">{this.state.salepageData.salepage_name4}</p>
+            </div>
             <figure>
               <Image className="dt-img" src={this.state.salepageData.salepage_image4} thumbnail />
             </figure>
           </Col>
           <Col xs={6} md={4} className="text-center">
-            <p className="img-title">{this.state.salepageData.salepage_name5}</p>
+            <div className="img-titleDiv">
+              <p className="img-title">{this.state.salepageData.salepage_name5}</p>
+            </div>
             <figure>
               <Image className="dt-img" src={this.state.salepageData.salepage_image5} thumbnail />
             </figure>
           </Col>
           <Col xs={6} md={4} className="text-center">
-            <p className="img-title">{this.state.salepageData.salepage_name6}</p>
+            <div className="img-titleDiv">
+              <p className="img-title">{this.state.salepageData.salepage_name6}</p>
+            </div>
             <figure>
               <Image className="dt-img" src={this.state.salepageData.salepage_image6} thumbnail />
             </figure>
           </Col>
           <Col xs={6} md={4} className="text-center">
-            <p className="img-title">{this.state.salepageData.salepage_name7}</p>
+           <div className="img-titleDiv">
+              <p className="img-title">{this.state.salepageData.salepage_name7}</p>
+            </div>
             <figure>
               <Image className="dt-img" src={this.state.salepageData.salepage_image7} thumbnail />
             </figure>

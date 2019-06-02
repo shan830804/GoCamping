@@ -184,7 +184,7 @@ class FoodDetails extends React.Component {
           <Row className="">
             <Col>
               <FoodDetailsMd data={this.state.salepageData} />
-              <FoodDetailsBt data={this.state.salepageData} />
+              {/* <FoodDetailsBt data={this.state.salepageData} /> */}
             </Col>
           </Row>
         </Container>

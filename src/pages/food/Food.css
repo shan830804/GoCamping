@@ -7,6 +7,9 @@
 .food-fs16{
   font-size: 1rem;
 }
+.food-fs12{
+  font-size: 0.75rem;
+}
 .fborder{
   border: 1px solid #141a6d;
 }
@@ -64,21 +67,13 @@
   color: #693D31;
   padding: 5px 2px;
 }
-.f-rwd{
-  /* background: #cccccc6b; */
-  padding-left: -1px;
-  width: 150%;
+.f-rwdcon {
+  width: 100%;
+  background-color: #cccccc6b;
 }
 .f-rwdLeftside{
-  background: #cccccc6b;
   padding-left: -15px;
-  margin-top: -3px;
-  width: 120%;
-}
-.f-rwdcate{
-  background: #cccccc6b;
-  margin-left: -30px;
-  width: 120%;
+  min-height: 40px;
 }
 
 /* FoodLeftSide左邊商品選單結束*/
@@ -96,6 +91,7 @@
   min-height: 120px;
 }
 .flist-cardName{
+  font-size: 18px;
   min-height: 50px;
   max-height: 50px;
   overflow: hidden;
@@ -116,6 +112,9 @@
   content: "";
   position: relative;
   color: #cccccc;
+}
+.flist-price{
+  font-size: 18px;
 }
 /* FoodList結束 */
 
@@ -216,7 +215,7 @@
 }
 /* 右邊商品結束 */
 
-/* 中間詳細開始 */
+/* FoodDetailsMd中間詳細開始 */
 /* 詳細說明 */
 .dt-border {
   border-bottom: 1.5px solid #cccccc;
@@ -308,16 +307,63 @@
 /* FoodOrder03結束 */
 /* FoodOrder結束 */
 
-@media (min-width:500px) { /* 電腦版 */
+@media (min-width:768px) { /* 電腦版 */
   .f-rwd, .f-rwdcon {
     display: none;
   }
 }
-@media (max-width:500px) { /* 手機版 */
+@media (max-width:768px) { /* 手機版 */
   .f-web {
     display: none;
   }
   .f-leftside{
     display: none;
   }
+  .flist-col{
+    padding: 0 4px;
+    /* padding-right: 4px; */
   }
+  .flist-card {
+    min-height: 276px;
+}
+  .flist-cardImg{
+    opacity: 1;
+    -webkit-transition: .2s ease-in-out;
+    transition: .2s ease-in-out;
+    object-fit: cover;
+    width: 100%;
+    min-height: 155px;
+    max-height: 155px;
+  }
+  .flist-cardName{
+    font-size: 16px;
+    min-height: 50px;
+    max-height: 50px;
+    overflow: hidden;
+  }
+  .flist-price{
+    font-size: 16px;
+  }
+  /* 詳細頁 */
+  .f-carousel-item img {
+    min-height: 300px;
+    max-height: 300px;
+    object-fit: cover;
+  }
+  .f-smimg img{
+    min-height: 50px;
+    max-height: 50px;
+    object-fit: cover;
+  }
+  .dt-img{
+    min-height: 150px;
+    max-height: 150px;
+    min-width: 150px;
+    max-width: 150px;
+  }
+  .img-titleDiv{
+    min-height: 36px;
+    max-height: 36px;
+    overflow: hidden;
+  }
+}

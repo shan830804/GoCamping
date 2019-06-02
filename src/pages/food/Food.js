@@ -77,7 +77,7 @@ class Food extends React.Component {
           </Row>
         </Container>
         {/* 手機板選單 */}
-        <Container className="my-2 f-rwd">
+        <Container className="px-0 mb-2 f-rwd">
           <Row className="d-flex f-rwd"> 
             <FoodLeftside handleSalebrand={this.handleSalebrand}
                           handleSalecateid={this.handleSalecateid}

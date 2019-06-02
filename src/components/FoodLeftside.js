@@ -122,7 +122,7 @@ class FoodLeftside  extends React.Component{
       {/* 以下是選單RWD */}
       {this.state.show === 1 && 
         <Container className="f-rwdcon">
-          <div className="row py-2 f-rwdLeftside"
+          <div className="row py-2 f-rwdLeftside "
                 onClick={this.goCate2}>
             <span variant="link">
                     選擇分類
@@ -133,94 +133,94 @@ class FoodLeftside  extends React.Component{
       {/* 以下是選單 */}
       {this.state.show === 2 &&  
         <Container className="f-rwdcon">
-        <div className="row f-rwdLeftside"
-              onClick={this.goCate1}>
-          <span variant="link">
-                  選擇分類
-          </span> 
-          <span><i className="fas fa-caret-down pl-2"></i></span>
-        </div>
-            <div className="row f-rwdcate">
-        <ul className="p-0 my-2 list-unstyled">
-            <ul className="p-0 my-2 list-unstyled">
-            <span variant="link"
-              onClick={this.props.handleSaleAll}
-              className={"fs-bold fleft-all" + (this.props.salebrand === 0 && this.props.salecateid === 0 ? "-active" : "")}>
-                全站商品
-        </span> 
-              <li className="d-flex my-1">
-                <span className="fs-bold grass">選擇品牌</span>
-              </li>            
-              <li className={"ml-2 d-flex my-1 fleft-link " + (this.props.salebrand == 1 ? "fleft-active" : "")}>
-                <div className="box mr-1" />                                    
-                <span variant="link"
-                        onClick={()=>this.props.handleSalebrand(1)}
-                        className="">
-                桂冠食品
-                </span> 
-              </li>
-              <li className={"ml-2 d-flex my-1 fleft-link " + (this.props.salebrand == 2 ? "fleft-active" : "")}>
-                <div className="box mr-1" />                  
-                <span variant="link"
-                        onClick={()=>this.props.handleSalebrand(2)}
-                        className="fleft-link ">
-                買肉找我
-                </span>
-              </li>            
-              <li className={"ml-2 d-flex my-1 fleft-link " + (this.props.salebrand == 3 ? "fleft-active" : "")}>
-                <div className="box mr-1" />                  
-                <span variant="link"
-                        onClick={()=>this.props.handleSalebrand(3)}
-                        className="fleft-link ">
-                七里香
-                </span>
-              </li>
-              <li className={"ml-2 d-flex my-1 fleft-link " + (this.props.salebrand == 4 ? "fleft-active" : "")}>
-                <div className="box mr-1" />                                    
-                <span variant="link"
-                        onClick={()=>this.props.handleSalebrand(4)}
-                        className="fleft-link">
-                西北烤肉
-                </span>
-              </li>
+          <div className="row py-2 f-rwdLeftside"
+                onClick={this.goCate1}>
+            <span variant="link">
+                    選擇分類
+            </span> 
+            <span><i className="fas fa-caret-down pl-2"></i></span>
+          </div>
+            <div className="row mt-0 pt-0 f-rwdcate">
+              <ul className="p-0 list-unstyled">
+                {/* <ul className="p-0 list-unstyled"> */}
+                  <span variant="link"
+                    onClick={this.props.handleSaleAll}
+                    className={"fs-bold fleft-all" + (this.props.salebrand === 0 && this.props.salecateid === 0 ? "-active" : "")}>
+                      全站商品
+                  </span> 
+                  <li className="d-flex my-1">
+                    <span className="fs-bold grass">選擇品牌</span>
+                  </li>            
+                  <li className={"ml-2 d-flex my-1 fleft-link " + (this.props.salebrand == 1 ? "fleft-active" : "")}>
+                    <div className="box mr-1" />                                    
+                    <span variant="link"
+                            onClick={()=>this.props.handleSalebrand(1)}
+                            className="">
+                    桂冠食品
+                    </span> 
+                  </li>
+                  <li className={"ml-2 d-flex my-1 fleft-link " + (this.props.salebrand == 2 ? "fleft-active" : "")}>
+                    <div className="box mr-1" />                  
+                    <span variant="link"
+                            onClick={()=>this.props.handleSalebrand(2)}
+                            className="fleft-link ">
+                    買肉找我
+                    </span>
+                  </li>            
+                  <li className={"ml-2 d-flex my-1 fleft-link " + (this.props.salebrand == 3 ? "fleft-active" : "")}>
+                    <div className="box mr-1" />                  
+                    <span variant="link"
+                            onClick={()=>this.props.handleSalebrand(3)}
+                            className="fleft-link ">
+                    七里香
+                    </span>
+                  </li>
+                  <li className={"ml-2 d-flex my-1 fleft-link " + (this.props.salebrand == 4 ? "fleft-active" : "")}>
+                    <div className="box mr-1" />                                    
+                    <span variant="link"
+                            onClick={()=>this.props.handleSalebrand(4)}
+                            className="fleft-link">
+                    西北烤肉
+                    </span>
+                  </li>
 
-              <li className="d-flex my-1">
-                <span className="fs-bold grass">食品分類</span>
-              </li>
-              <li className={"ml-2 d-flex my-1 fleft-link " + (this.props.salecateid == 1 ? "fleft-active" : "")}>
-                <div className="box mr-1" />
-                <span variant="link"
-                        onClick={()=>this.props.handleSalecateid(1)}
-                        className="fleft-link">
-                冷凍食品
-                </span>
-              </li>
-              <li className={"ml-2 d-flex my-1 fleft-link " + (this.props.salecateid == 2 ? "fleft-active" : "")}>
-                <div className="box mr-1" />
-                <span variant="link"
-                        onClick={()=>this.props.handleSalecateid(2)}
-                        className="fleft-link">
-                冷藏食品
-                </span>
-              </li>
-              <li className={"ml-2 d-flex my-1 fleft-link " + (this.props.salecateid == 3 ? "fleft-active" : "")}>
-                <div className="box mr-1" />
-                <span variant="link"
-                        onClick={()=>this.props.handleSalecateid(3)}
-                        className="fleft-link">
-                生鮮食品
-                </span>
-              </li>
-              <li className={"ml-2 d-flex my-1 fleft-link " + (this.props.salecateid == 4 ? "fleft-active" : "")}>
-                <div className="box mr-1" />
-                <span variant="link"
-                        onClick={()=>this.props.handleSalecateid(4)}
-                        className="fleft-link">
-                素食專區
-                </span>
-              </li>
-            </ul>
-          </ul>
+                  <li className="d-flex my-1">
+                    <span className="fs-bold grass">食品分類</span>
+                  </li>
+                  <li className={"ml-2 d-flex my-1 fleft-link " + (this.props.salecateid == 1 ? "fleft-active" : "")}>
+                    <div className="box mr-1" />
+                    <span variant="link"
+                            onClick={()=>this.props.handleSalecateid(1)}
+                            className="fleft-link">
+                    冷凍食品
+                    </span>
+                  </li>
+                  <li className={"ml-2 d-flex my-1 fleft-link " + (this.props.salecateid == 2 ? "fleft-active" : "")}>
+                    <div className="box mr-1" />
+                    <span variant="link"
+                            onClick={()=>this.props.handleSalecateid(2)}
+                            className="fleft-link">
+                    冷藏食品
+                    </span>
+                  </li>
+                  <li className={"ml-2 d-flex my-1 fleft-link " + (this.props.salecateid == 3 ? "fleft-active" : "")}>
+                    <div className="box mr-1" />
+                    <span variant="link"
+                            onClick={()=>this.props.handleSalecateid(3)}
+                            className="fleft-link">
+                    生鮮食品
+                    </span>
+                  </li>
+                  <li className={"ml-2 d-flex my-1 fleft-link " + (this.props.salecateid == 4 ? "fleft-active" : "")}>
+                    <div className="box mr-1" />
+                    <span variant="link"
+                            onClick={()=>this.props.handleSalecateid(4)}
+                            className="fleft-link">
+                    素食專區
+                    </span>
+                  </li>
+                {/* </ul> */}
+              </ul>
       </div>  
         </Container>
         }

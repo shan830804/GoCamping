@@ -69,7 +69,7 @@ class FoodList extends React.Component {
         <Col md={10} className="p-0">
         <Row >
             {this.state.filterData.map(item =>(
-              <Col md={3} xs={6} key={item.id} className="">
+              <Col lg={3} md={4} sm={6} xs={6} key={item.id} className="flist-col">
               <CardDeck>    
               <Card.Link className="py-1" href={"/Food/FoodDetails/" + item.id} >
                 <Card className="ml-0 flist-card">
@@ -77,11 +77,11 @@ class FoodList extends React.Component {
                     <Card.Img className="flist-cardImg" variant="top" src={item.salepage_image} />
                   </figure>
                   <Card.Body className="p-1 flist-cardBody">
-                    <Card.Text className="food-default food-fs16 p-1 flist-cardName">{item.salepage_name}</Card.Text>
-                    <Card.Text className="text-right food-ccc fs-12 mb-0">
-                      <NumberFormat value={item.salepage_suggestprice} displayType={'text'} thousandSeparator={true} prefix={'NT$'} />
+                    <Card.Text className="food-default px-1 flist-cardName">{item.salepage_name}</Card.Text>
+                    <Card.Text className="text-right food-ccc food-fs12 mb-0">
+                      <NumberFormat className="" value={item.salepage_suggestprice} displayType={'text'} thousandSeparator={true} prefix={'NT$'} />
                     </Card.Text>
-                    <Card.Text className="text-right food-default forest fw-bold" >
+                    <Card.Text className="text-right food-default forest fw-bold flist-price" >
                       <NumberFormat value={item.salepage_price} displayType={'text'} thousandSeparator={true} prefix={'NT$'} />
                     </Card.Text>
                   </Card.Body>                  
