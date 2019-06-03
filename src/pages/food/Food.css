@@ -229,6 +229,7 @@
   margin-bottom: 2px;
 }
 .dt-img{
+  object-fit: cover;
   min-height: 270px;
   max-height: 270px;
   min-width: 270px;

@@ -45,7 +45,7 @@ document.title = this.state.title;
               <p className="img-title">{this.state.salepageData.salepage_name2}</p>
             </div>
             <figure>
-              <Image className="dt-img" src={this.state.salepageData.salepage_image2} thumbnail />
+              <Image className="dt-img" src={this.state.salepageData.salepage_image2}  />
             </figure>
           </Col>
           <Col xs={6} md={4} className="text-center">
@@ -53,7 +53,7 @@ document.title = this.state.title;
               <p className="img-title">{this.state.salepageData.salepage_name3}</p>
             </div>
             <figure>
-              <Image className="dt-img" src={this.state.salepageData.salepage_image3} thumbnail />
+              <Image className="dt-img" src={this.state.salepageData.salepage_image3}  />
             </figure>
           </Col>
           <Col xs={6} md={4} className="text-center">
@@ -61,7 +61,7 @@ document.title = this.state.title;
               <p className="img-title">{this.state.salepageData.salepage_name4}</p>
             </div>
             <figure>
-              <Image className="dt-img" src={this.state.salepageData.salepage_image4} thumbnail />
+              <Image className="dt-img" src={this.state.salepageData.salepage_image4}  />
             </figure>
           </Col>
           <Col xs={6} md={4} className="text-center">
@@ -69,7 +69,7 @@ document.title = this.state.title;
               <p className="img-title">{this.state.salepageData.salepage_name5}</p>
             </div>
             <figure>
-              <Image className="dt-img" src={this.state.salepageData.salepage_image5} thumbnail />
+              <Image className="dt-img" src={this.state.salepageData.salepage_image5}  />
             </figure>
           </Col>
           <Col xs={6} md={4} className="text-center">
@@ -77,7 +77,7 @@ document.title = this.state.title;
               <p className="img-title">{this.state.salepageData.salepage_name6}</p>
             </div>
             <figure>
-              <Image className="dt-img" src={this.state.salepageData.salepage_image6} thumbnail />
+              <Image className="dt-img" src={this.state.salepageData.salepage_image6}  />
             </figure>
           </Col>
           <Col xs={6} md={4} className="text-center">
@@ -85,7 +85,7 @@ document.title = this.state.title;
               <p className="img-title">{this.state.salepageData.salepage_name7}</p>
             </div>
             <figure>
-              <Image className="dt-img" src={this.state.salepageData.salepage_image7} thumbnail />
+              <Image className="dt-img" src={this.state.salepageData.salepage_image7}  />
             </figure>
           </Col>
         </Row>
