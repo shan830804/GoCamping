@@ -1,0 +1,17 @@
+/* body {
+	margin: 0px;
+	padding: 0px;
+	background: 
+		linear-gradient(rgba(255, 255, 255, .3), rgba(255, 255, 255, .3)),
+		url(./hostImg/indexPic.jpg) center center fixed no-repeat;
+	background-size: cover;
+} */
+
+body.host {
+	margin: 0px;
+	padding: 0px;
+	background: 
+		linear-gradient(rgba(255, 255, 255, .3), rgba(255, 255, 255, .3)),
+		url(./hostImg/indexPic.jpg) center center fixed no-repeat;
+	background-size: cover;
+}

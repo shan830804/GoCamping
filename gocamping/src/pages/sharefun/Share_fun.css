@@ -1,0 +1,335 @@
+.btn-outline-grass a {
+  color: #87b061;
+}
+
+.btn-outline-grass:hover a,
+.btn-outline-grass i:hover,
+.btn.btn-outline-grass a:hover {
+  color: #ffffff;
+}
+
+.sf_title {
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+  font-weight: 700;
+}
+
+.s-cube {
+  width: 30px;
+  height: 10px;
+}
+
+.m-cube {
+  width: 30px;
+  height: 20px;
+}
+
+.l-cube {
+  width: 30px;
+  height: 30px;
+}
+
+.card {
+  border: 1px solid #87b061;
+  border-radius: 0.5rem;
+}
+
+.profile_card {
+  cursor: pointer;
+}
+
+.profile_card:hover {
+  box-shadow: 1px 2px 5px #ccc;
+}
+
+.profile_card a:hover {
+  color: #707070;
+}
+
+.profile_card .btn a:hover, .profile_card .btn i:hover {
+  color: #ffffff;
+}
+
+.circle_img {
+  margin: 1rem auto 0;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 50%;
+  background: url('/avatar_pictures/_default.jpg');
+  background-size: contain;
+}
+
+/* .new_post figcaption p:nth-child(1) {
+max-height: 55px;
+overflow: hidden;
+} */
+
+/* figure img {
+  background-image: url('https://images.unsplash.com/photo-1508873696983-2dfd5898f08b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
+  background-size: contain;
+} */
+
+.profile_card .card-img-top {
+  margin: 0 auto;
+  height: 100%;
+  width: auto;
+}
+
+.hot a {
+  color: #707070;
+}
+
+.hot a:hover {
+  font-weight: 500;
+  color: #027252;
+}
+
+.new_post {
+  position: relative;
+  height: 250px;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 30px;
+  color: #707070;
+  /* transition: .5s */
+}
+
+.new_post_img,
+.new_post figcaption {
+  transition: 0.5s;
+}
+
+.new_post:hover img {
+  transition: 0.5s;
+  margin-left: 16px;
+}
+
+figure:hover figcaption .fig_div {
+  transition: 0.5s;
+  margin-right: 16px;
+}
+
+.new_post .new_post_img {
+  position: relative;
+  height: 150px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.new_post img {
+  width: 90%;
+  height: auto;
+  object-fit: cover;
+}
+
+ figcaption .fig_div {
+  z-index: 5;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 2px 2px 6px #b9b9b9;
+  width: 91%;
+  height: 120px;
+  overflow: hidden;
+}
+
+figcaption p {
+  margin-bottom: 0.2rem;
+  max-height: 70px;
+  overflow: hidden;
+}
+
+.kols {
+  border: 1px solid #cccccc;
+  position: relative;
+  height: 340px;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.kols .main-img {
+  width: 100%;
+  height: auto;
+}
+
+.sm-avatar {
+  border-radius: 50%;
+}
+
+figure.rookie {
+  width: 100%;
+  height: 13.3vw;
+  max-height: 190px;
+  overflow: hidden;
+}
+
+.rookie img {
+  position: relative;
+  /* height: 100%; */
+  object-fit: cover;
+}
+
+.rookie_title {
+  position: absolute;
+  left: 0;
+  /* margin: 0 15px; */
+  width: 93%;
+  max-height: 190px;
+  height: 13.3vw;
+  background: rgba(0, 0, 0, 0.6);
+  transition: 0.5s;
+}
+
+.rookie_title:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.rookie_title div {
+  width: auto;
+  color: #fff;
+  text-align: center;
+}
+
+/* 文章本人 */
+.post_title {
+  width: 80%;
+}
+
+.author:hover {
+  color: #87b061;
+}
+
+.author_time {
+  width: 260px;
+}
+
+.post_content {
+  max-width: 855px;
+}
+
+.post_content img {
+  width: 100% !important;
+  height: auto !important;
+}
+
+/* 新手指南 */
+.rookies a {
+  color: #707070;
+}
+
+.rookies a:hover {
+  color: #87b061;
+}
+.rookie_img.odd {
+  padding-right: 0;
+}
+
+.rookie_img img {
+  width: 90%;
+}
+
+.rookie_list.odd,
+.rookie_list.odd div {
+  padding-left: 0;
+}
+
+.rookie_list.even,
+.rookie_list.even div {
+  padding-right: 0;
+}
+
+.rookie_img.even {
+  text-align: right;
+  padding: 0;
+}
+
+.rookie_list li {
+  line-height: 1.7rem;
+}
+
+/* 側欄分類 */
+.cate-btn {
+  background: transparent;
+  color: #87b061;
+  border: 1px solid transparent;
+  width: 100%;
+  text-align: left;
+}
+
+.cate-btn:hover,
+.cate_btn:active {
+  background: #87b061;
+  color: #ffffff;
+  border: 1px solid transparent;
+}
+
+.btn-primary.focus,
+.btn-primary:focus.btn-primary:active {
+  box-shadow: none;
+}
+
+.cate-link:hover {
+  background: #f2ce63;
+  color: #693d3e;
+  width: 100%;
+  text-align: left;
+}
+
+.cate a {
+  color: #707070;
+  font-weight: 500;
+}
+
+/* 個人檔案 */
+.share_profile {
+  height: 180px;
+  overflow: hidden;
+}
+
+.share_profile a,
+.share_profile .row {
+  height: 100%;
+}
+
+.share_profile:hover {
+  box-shadow: 1px 2px 5px #ccc;
+}
+
+.share_profile_img {
+  background-image: url('https://images.unsplash.com/photo-1508873696983-2dfd5898f08b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
+  background-size: cover;
+  object-fit: contain;
+}
+
+.share_profile a:hover {
+  color: #707070;
+}
+
+@media screen and (max-width: 960px) {
+  .profile_card,
+  .hot_aside,
+  .cate {
+    display: none;
+  }
+
+  .rookie_title {
+    width: 98%;
+  }
+  .rookies .row.even {
+    flex-wrap: wrap-reverse;
+  }
+  .rookie_img.even {
+    text-align: left;
+    padding-left: 1rem;
+  }
+  .rookie_list.odd {
+    padding-left: 1rem;
+  }
+  .col-sm-0.col-lg-3 {
+    display: none;
+  }
+}

@@ -1,0 +1,137 @@
+.carousel.slide {
+  height: 90vh;
+  position: relative;
+}
+.carousel-item {
+  height: 90vh;
+}
+.color_gray {
+  color: rgb(26, 25, 25);
+}
+.index_imgBox {
+  width: 100%;
+  /* height: 220px; */
+  height: 400px;
+  overflow: hidden;
+}
+.index_img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.index_line::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100px;
+  height: 4px;
+  background-color: #f2ce63;
+}
+.btn-grass {
+  background-color: #87b061;
+  color: #fff;
+  font-weight: 600;
+  padding: 10px 10px;
+  /* display: block; */
+  border-radius: 5px;
+}
+.btn-grass:hover {
+  background-color: #f2ce63;
+  color: #fff;
+  font-weight: 700;
+}
+/* .transition {
+  transition: 0.5s;
+} */
+/* .padding_0 {
+  padding: 0;
+} */
+.lineHeight_25{
+  line-height: 25px;
+}
+
+/* ===================== START EVENT =========================== */
+/* .indexEvent:hover img {
+  transform: scale(1.2);
+} */
+.marTop_100{
+  margin-top: 100px;
+}
+.indexEvent_textBox{
+  top:30%;
+  left:-50px;
+  transform:translateY(-30%);background:rgba(255,255,255,.5);
+}
+
+/* ===================== START CAMP =========================== */
+/* .index_imgBoxCamp {
+  height: 250px;
+}
+.index_imgBoxCamp2 {
+  height: 125px;
+}
+.index_imgBoxRec {
+  height: 180px;
+} */
+.box::after {
+  content: "";
+  position: absolute;
+  top: -20px;
+  right: -30px;
+  width: 90%;
+  height: 100%;
+  border: 5px solid #87b061;
+}
+.marTop_200{
+  margin-top: 200px;
+}
+.indexCamp_imgHeight{
+  height: 350px;
+}
+
+/* ===================== START SHARE =========================== */
+/* .shareHover:hover .sheet::after {
+  background-color: rgba(2, 2, 2, 0.1);
+}
+.sheet::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(2, 2, 2, 0.7);
+  transition: 0.5s;
+}
+.indexShareText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-shadow: #000 5px 5px 10px;
+}
+.indexFoodText {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+} */
+.indexShare_textBox{
+  top:50%;
+  left:-50px;
+  transform:translateY(-50%);
+}
+.indexShare_imgHeight{
+  height: 550px;
+  border:20px solid #fff;
+  box-shadow:5px 5px 10px #ccc;
+}
+
+/* ===================== START FOOD =========================== */
+.index_imgBoxFood {
+  height: 250px;
+}
+.margin_50{
+  margin:50px;
+}

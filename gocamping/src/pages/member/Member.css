@@ -1,0 +1,228 @@
+/* 蓋過已設定的CSS */
+.fs-20 {
+  font-size: 20px;
+}
+.fw-light {
+  font-weight: 300;
+}
+.fw-regular {
+  font-weight: 400;
+}
+.fw-medium {
+  font-weight: 500;
+}
+.bg-floor {
+  background: rgba(204, 204, 204, 0.5);
+}
+main .show::after{
+  background-color: transparent !important;
+}
+
+/* 登入畫面 */
+.login_cover {
+  height: calc( 100vh - 120px );
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.forgetPassword {
+  color: #707070;
+}
+.forgetPassword:hover, .forgetPassword:active {
+  color: #027252;
+}
+.register:hover, .register:active {
+  color: #027252;
+}
+.camp_boss {
+  color: #CCCCCC;
+}
+.camp_boss:hover, .camp_boss:active {
+  color: #027252;
+}
+
+/* 個人卡片 */
+.profile {
+  box-shadow: 1px 2px 5px #ccc;
+}
+.avatar {
+  width: 120px;
+  height: 120px;
+}
+.avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.level_badge {
+  width: 25px;
+  height: 25px;
+  color: #ffffff;
+  font-size: 12px;
+  text-align: center;
+  border-radius: 50%;
+}
+
+
+/* 左方導覽列 */
+aside .box {
+  width: 25px;
+  height: 25px;
+}
+aside a {
+  color: #707070;
+}
+aside a:hover {
+  color: #F2CE63;
+}
+.activeAside{
+  color: #87B061;
+  border-bottom: 2px solid #87B061;
+}
+
+
+
+/* 右方主頁面 */
+/* (1)通知設定 */
+.custom-control-label:before {
+  background-color: rgba(204, 204, 204, 0.5)
+}
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: #027252;
+}
+/* (2) 個人資料編輯 */
+.asterisk{
+  color: red;
+}
+/* (3) 訂單管理 */
+.order_avatar {
+  width: 150px;
+  height: 150px;
+}
+.order_avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+a.details {
+  color: #ffffff !important;
+}
+/* (4) 折價券 */
+.coupon_code {
+  border: 1px solid #027252;
+}
+/* (5) 最愛清單 */
+/* (6) 文章管理 */
+/* 分享樂的部分 */
+.post_list a {
+  color: #707070;
+}
+.post_list a:hover {
+  color: #87b061;
+}
+.post_list th {
+  background-color: #87b061;
+  color: #ffffff;
+}
+.post_list .table td {
+  height: 2rem;
+  overflow: hidden;
+}
+.post_list a i{
+  color: #87b061;
+}
+.post_list a i:hover {
+  color: #027252;
+}
+/* 文章預覽 */
+.preview { 
+  width: 100vw;
+  overflow-y: scroll;
+  background: rgba(0, 0, 0, .8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  height: 100%;
+  visibility: hidden;
+  text-align: left
+}
+.preview.active {
+  visibility: visible;
+}
+.article {
+  max-width: 1000px;
+  min-width: 50vw;
+  min-height: 100vh;
+}
+.preview img {
+  max-width: 100% !important;
+  height: auto !important;
+}
+.fa-times-circle {
+  font-size: 2.5rem;
+  color: #aaaaaa;
+}
+/* 修改文章 */
+.ReactModal__Overlay.ReactModal__Overlay--after-open {
+  background-color: rgba(0, 0, 0, .8) !important;
+
+}
+
+/* (7) 會員等級 */
+.level_thead {
+  background-color: rgba(204, 204, 204, 0.5);
+}
+.level_one, .level_two, .level_three {
+  width: 40px;
+  height: 40px;
+  color: #ffffff;
+  font-size: 20px;
+  text-align: center;
+  border-radius: 50%;
+}
+
+@media (min-width:768px) { /* 電腦版 */
+  .rwd_orderavatar {
+    padding: 0px;
+  }
+  .rwd_details_top {
+    display: none !important;
+  }
+  .seperate_line {
+    display: none;
+  }
+  .rwd_title{
+    display: none;
+  }
+}
+@media (max-width:768px) { /* 手機版 */
+  .member_bread {
+    display: none;
+  }
+  .profile {
+    display: none;
+  }
+  .member_aside {
+    display: none;
+  }
+  .rwd-text {
+    text-align: left !important;
+  }
+  .rwd_orderavatar .order_avatar {
+    width: 100px;
+    height: 100px;
+  }
+  .rwd_orderavatar {
+    padding-top: 15px;
+    display: flex;
+  }
+  .rwd_ordercontent {
+    padding-bottom: 15px;
+  }
+  .rwd_details_bottom {
+    display: none !important;
+  }
+  .seperate_line {
+    border-bottom: 1px solid #cccccc;
+  }
+}

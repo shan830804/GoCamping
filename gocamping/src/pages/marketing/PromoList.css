@@ -1,0 +1,79 @@
+a {
+	color: #707070;
+}
+.bread_crumb ul li a {
+	transition: .5s;
+}
+.bread_crumb ul li a:hover {
+	color: #ba7438;
+}
+.discription_block {
+	border: 1px solid #ccc;
+	/* position: relative; */
+}
+.discription_block h4 {
+	text-align: center;
+	color: #fff;
+}
+
+.promo_discription_img {
+	min-height: 200px;
+	width: 100%;
+	background: no-repeat center;
+	background-size: cover;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.promo_discription_img h4 {
+	font-size: 48px;
+	font-weight: bold;
+}
+
+.promo_discription_content {
+	/* display: flex; */
+	/* justify-content: center; */
+	/* align-items: center; */
+	/* flex-direction: column; */
+	font-weight: bold;
+	height: 240px;
+	overflow: auto;
+}
+.camp_card_wrap {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+/* .camp_card:nth-child(2n) {
+  padding-left: 0.25rem;
+}
+.camp_card:nth-child(2n + 1) {
+  padding-right: 0.25rem;
+} */
+@media (max-width: 768px) {
+	.camp_card:nth-child(2n) {
+		padding-left: 0;
+	}
+	.camp_card:nth-child(2n + 1) {
+		padding-right: 0;
+	}
+}
+.is-actived {
+	background: #f2ce63;
+	color: #693d31;
+}
+.side_menu_link {
+	padding: 0.25rem 0.25rem 0.25rem 1rem;
+	transition: .5s;
+}
+.side_menu_link:hover {
+	background: #f2ce63;
+}
+.side_menu_link a {
+	color: #707070;
+}
+.side_menu_link a:hover {
+	color: #693d31;
+}

@@ -1,0 +1,11 @@
+.paddingX{
+    padding: 100px 0;
+}
+footer {
+    padding-bottom: 16px;
+    /* height: 60vh; */
+    background-color: #87B061;
+}
+.pointer{
+    cursor: pointer;
+}

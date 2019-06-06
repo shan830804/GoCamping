@@ -1,0 +1,56 @@
+{
+  "name": "gocamping",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "antd": "^3.19.1",
+    "axios": "^0.19.0",
+    "bootstrap": "^4.3.1",
+    "ckeditor4-react": "^1.0.0-beta",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "jquery": "^3.4.1",
+    "jwt-decode": "^2.2.0",
+    "moment": "^2.24.0",
+    "moment-range": "^4.0.2",
+    "mysql": "^2.17.1",
+    "react": "^16.8.6",
+    "react-animated-slider": "^1.1.4",
+    "react-bootstrap": "^1.0.0-beta.8",
+    "react-bootstrap-sweetalert": "^4.4.1",
+    "react-dom": "^16.8.6",
+    "react-icons": "^3.7.0",
+    "react-image-lightbox": "^5.1.0",
+    "react-lines-ellipsis": "^0.14.1",
+    "react-modal": "^3.8.1",
+    "react-router": "^5.0.0",
+    "react-router-dom": "^5.0.0",
+    "react-scripts": "3.0.1",
+    "react-slick": "^0.24.0",
+    "react-swift-slider": "^5.0.0",
+    "sweetalert2": "^8.11.7",
+    "sweetalert2-react-content": "^1.1.0",
+    "tw-city-selector": "^2.0.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

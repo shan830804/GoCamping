@@ -1,0 +1,114 @@
+.camp_card {
+	flex-basis: 49%;
+	flex-shrink: 0;
+	border: 1px solid #ccc;
+	transition: .5s;
+	border-radius: 10px;
+}
+.camp_card:hover {
+	box-shadow: 5px 5px 6px 0 #ccc;
+	transform: translate(-5px -5px);
+	color: #693d31;
+}
+@media (max-width: 992px) {
+	.camp_card {
+		flex-basis: 100%;
+	}
+}
+.campsite_img_wrap {
+	width: 100%;
+	height: 240px;
+	position: relative;
+}
+.img_main {
+	width: 60%;
+	border-right: 1px solid transparent;
+}
+.img_main img,
+.img_sec img {
+	object-fit: cover;
+	object-position: center;
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+.img_sec_wrap {
+	width: 40%;
+}
+.img_sec {
+	width: 100%;
+	height: 50%;
+}
+.img_sec:nth-child(2) {
+	border-top: 1px solid transparent;
+}
+.campsite_info {
+	height: 200px;
+}
+.campsite_info_main {
+	margin-right: auto;
+	padding: 1rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	flex: 2;
+}
+.campsite_info_price {
+	/* align-self: flex-end; */
+	padding: 1rem;
+	flex: 1;
+}
+.like_btn {
+	position: absolute;
+	left: 5px;
+	top: 5px;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, 0.6);
+	padding: 0.25rem;
+	display: inline-block;
+	width: 2rem;
+	height: auto;
+	text-align: center;
+}
+.camp_loca {
+	font-size: 1rem;
+	color: #87b061;
+}
+.camp_name {
+	font-size: 1.5rem;
+}
+.price_main {
+	font-size: 1.25rem;
+	font-weight: bold;
+	color: #f26666;
+}
+.camp_feature {
+	width: 100%;
+	font-size: 1rem;
+}
+.stars-outer {
+	position: relative;
+	display: inline-block;
+}
+
+.stars-inner {
+	position: absolute;
+	top: 0;
+	left: 0;
+	white-space: nowrap;
+	overflow: hidden;
+	width: 0;
+}
+
+.stars-outer::before {
+	content: '\f005 \f005 \f005 \f005 \f005';
+	font-family: 'Font Awesome 5 Free';
+	font-weight: 900;
+	color: #ccc;
+}
+
+.stars-inner::before {
+	content: '\f005 \f005 \f005 \f005 \f005';
+	font-family: 'Font Awesome 5 Free';
+	font-weight: 900;
+	color: #f8ce0b;
+}

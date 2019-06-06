@@ -1,0 +1,300 @@
+nav {
+  padding: 0 0;
+  box-shadow: 0 0;
+}
+/*麵包屑*/
+.breadcrumb {
+  background-color: #fff;
+}
+.myBreadcrumb{
+  background-color: #fff;
+}
+.breadcrumb-item + .breadcrumb-item::before {
+  content: ">";
+}
+.default{
+  color:#707070
+}
+.cardchange:hover .default{
+  color:rgb(47, 47, 47)
+}
+/* 搜尋欄位 */
+.search {
+  border: 1px solid #87b061;
+  margin: 10px 0 10px 0;
+  border-radius: 10px;
+  height: 320px;
+}
+.search_button {
+  background-color: #87b061;
+  width: 100%;
+  border: none;
+  color: #fff;
+}
+.search_button:hover {
+  background-color: #027252;
+}
+form {
+  padding: 10px;
+}
+.listwrap {
+  flex-wrap: wrap;
+}
+.camplist {
+  margin: 10px 20px 10px 20px;
+}
+.imgblock {
+  position: relative;
+}
+.heart {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  line-height: 30px;
+}
+.mainimg{
+  max-width:295px;
+  height: auto;
+  background-size: cover;  
+  
+}
+.mainimg img{
+  width:100%;
+  height: 100%;
+
+}
+.sideimg {
+  width: 50%;
+}
+.campimg {
+  max-width: 700px;
+}
+.campimg img {
+  width: 100%;
+  background-size: cover;
+}
+.campareaimg {
+  max-width: 1140px;
+}
+.campareaimg img {
+  width: 100%;
+  background-size: cover;
+}
+/*卡片連結*/
+.campcard {
+  color: #707070;
+}
+.campcard:hover {
+  color: #3d3d3d;
+}
+/* 按鈕 */
+.sale-btn {
+  width: 100px;
+  height: 35px;
+  font-size: 14px;
+  background-color: #ffffff;
+  border: 1px solid #ba7438;
+  color: #ba7438;
+}
+.sale-btn:hover {
+  background-color: #ba7438;
+  border: 1px solid #ba7438;
+  color: #ffffff;
+}
+.both-btn {
+  padding: 0;
+}
+.both-btn button {
+  width: 170px;
+  height: 42px;
+  font-size: 20px;
+  margin-right: 10px;
+  border: none;
+}
+.select-btn {
+  background-color: #cccccc;
+  color: #fff;
+  border: none;
+}
+.select-btn:hover {
+  color: #fff;
+  background-color: #707070;
+}
+.order-btn {
+  width: 100%;
+}
+.active-btn {
+  background-color: #f26666;
+  color: #fff;
+  border: none;
+}
+.active-btn:hover {
+  background-color: #d33d3d;
+}
+
+/* 頁籤 */
+/* 橫排頁籤 */
+/* .camptab-text {
+  border-bottom: 1px solid #707070;
+}
+
+.camptab-text .nav-link:hover,
+.camptab-text .nav-link:focus {
+  background-color: #bfdd87;
+  border-bottom-color: #707070;
+}
+
+.camptab-text .nav-item {
+  width: 25%;
+  text-align: center;
+  color: #87b061;
+}
+
+.camptab-text .nav-item:hover {
+  color: #707070;
+}
+
+.camptab-text  .nav-link.active,
+.camptab-text  .nav-item.show .nav-link {
+  color: #707070;
+  background-color: #bfdd87;
+  border-bottom-color: #707070;
+} */
+.camprotate {
+  transform: rotateY(180deg);
+}
+/* 圖片輪播 */
+.slick-list img {
+  padding: 10px;
+}
+.slick-arrow::before {
+  color: #707070;
+}
+/*訂購清單*/
+.orderlist {
+  border: 1px solid #cccccc;
+  box-shadow: 0px 3px 6px #cccccc;
+  border-radius: 10px;
+  position: fixed;
+  margin-left: 10px;
+  width: 250px;
+  padding: 10px 20px;
+}
+.item p {
+  margin-left: 10px;
+}
+.total {
+  border-top: 1px solid #707070;
+}
+.orderimg img {
+  max-width: 400px;
+}
+/* 服務條款 */
+.service {
+  width: auto;
+  height: 200px;
+  overflow: auto;
+}
+/*訂單按鈕*/
+.goback-btn {
+  width: 100%;
+  font-size: 16px;
+  margin-right: 10px;
+  border: none;
+  background-color: #cccccc;
+  color: #707070;
+
+}
+.goback-btn:hover {
+  color: #fff;
+  background-color: #707070;
+}
+.next-btn {
+  width: 100%;
+  font-size: 16px;
+  margin-right: 10px;
+  border: none;
+  color: #707070;
+ 
+}
+.next-btn:hover {
+  color: #fff;
+  background-color: #ba7438;
+}
+.title {
+  border-bottom: 1.5px solid #cccccc;
+  /* width: 60%; */
+  text-align: center;
+}
+/* 側欄分類 */
+.sidetop{
+  cursor: pointer;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #cccccc;
+  border:none
+}
+.sideall{
+  color: #707070;
+}
+.sideall:hover{
+  color:#87b061;
+}
+.click-link{
+    font-weight: normal;
+}
+.click-link:hover{
+  cursor: pointer;
+  background: #f2ce63;
+}
+.click-active {
+  background: #f2ce63;
+}
+.leftside{
+  border:none;
+}
+.headside{
+  background-color: #fff;
+}
+.click-btn{
+  font-weight: bold;
+  color:#87b061;
+}
+.click-btn:hover{
+  color:#87b061;
+  text-decoration: none;
+}
+.click-btn:focus{
+  text-decoration: none;
+}
+
+.show::after {
+  display: none;
+}
+.comment{
+  padding:50px;
+  border-bottom: 1px solid #cccccc;
+}
+.smtitle {
+  position: relative;
+  text-align: left;
+  padding-bottom: 10px;
+  border-bottom: none;
+}
+
+.smtitle:after {
+  content: "";
+  position: absolute;
+  border-top: 4px solid #f2ce63;
+  left: 50%;
+  bottom: 0;
+  margin-left: -50%;
+  width: 40%;
+  margin-top: 10px;
+}
+
+
